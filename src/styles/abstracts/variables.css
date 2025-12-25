@@ -57,4 +57,15 @@
   --ves-font-weight-regular: 400;
   --ves-font-weight-semibold: 600;
   --ves-font-weight-bold: 800;
+
+  --ves-spacing-1: 2px;
+  --ves-spacing-2: 4px;
+  --ves-spacing-3: 8px;
+  --ves-spacing-4: 12px;
+  --ves-spacing-5: 16px;
+  --ves-spacing-6: 24px;
+  --ves-spacing-7: 32px;
+  --ves-spacing-8: 36px;
+  --ves-spacing-9: 48px;
+  --ves-spacing-10: 64px;
 }

@@ -1,0 +1,50 @@
+.ves-thumbnail {
+  --ves-thumbnail-frame-padding: var(--ves-spacing-6);
+  --ves-frame-corner-color: var(--ves-global-color-cerulean);
+  --ves-frame-border-color: var(--ves-global-color-celestial);
+  --ves-frame-corner-size: var(--ves-spacing-6);
+
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ves-spacing-5);
+  padding: var(--ves-thumbnail-frame-padding);
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-width: 1px;
+    border-style: solid;
+    content: '';
+  }
+
+  &::before {
+    transition: border-color 0.08s linear;
+    border-color: var(--ves-frame-border-color);
+  }
+
+  &::after {
+    --b: 1px;
+    --c: var(--ves-frame-corner-size);
+    --corner: conic-gradient(from -90deg at var(--c) var(--c), red 25%, #0000 0)
+      0 0 / calc(100% - var(--c)) calc(100% - var(--c)) border-box;
+    --inner: conic-gradient(red 0 0) padding-box;
+    -webkit-mask: var(--corner), var(--inner);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    mask:
+      var(--corner) subtract,
+      var(--inner);
+    border-color: var(--ves-frame-corner-color);
+  }
+}
+
+.ves-thumbnail__caption {
+  font-weight: var(--ves-font-weight-light);
+  letter-spacing: 0.1em;
+}
