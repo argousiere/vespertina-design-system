@@ -1,5 +1,5 @@
 @import './abstracts/variables.css';
 @import './base/index.css';
-@import './components/buttons.css';
+@import './components/index.css';
 
 @import './themes/dark.css'; /* default for now, light theme will be added later */
