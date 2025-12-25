@@ -1,0 +1,92 @@
+.ves-btn {
+  display: inline-block;
+  position: relative;
+  transition:
+    background-color,
+    border-color 0.08s linear;
+  cursor: pointer;
+  border: 1px solid var(--ves-btn-border-color);
+  border-radius: 0;
+  background: var(--ves-btn-bg-color);
+  padding: 0 16px;
+  height: 36px;
+  color: var(--ves-global-color-light);
+  font-weight: var(--ves-font-weight-semibold);
+  font-size: var(--ves-font-size-xs);
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ves-btn:hover,
+.ves-btn:focus-visible {
+  border-color: var(--ves-global-color-celestial);
+  background: var(--ves-global-color-celestial);
+
+  &::before,
+  &::after {
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    content: '';
+  }
+
+  &::before {
+    top: var(--ves-btn-focus-offset);
+    right: var(--ves-btn-focus-offset);
+    bottom: var(--ves-btn-focus-offset);
+    left: var(--ves-btn-focus-offset);
+    z-index: -1;
+    transition: border-color 0.08s linear;
+    border-color: var(--ves-btn-border-color);
+  }
+
+  &::after {
+    --b: 1px;
+    --c: var(--ves-btn-focus-corner-size);
+    --corner: conic-gradient(from -90deg at var(--c) var(--c), red 25%, #0000 0)
+      0 0 / calc(100% - var(--c)) calc(100% - var(--c)) border-box;
+    --inner: conic-gradient(red 0 0) padding-box;
+    -webkit-mask: var(--corner), var(--inner);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    mask:
+      var(--corner) subtract,
+      var(--inner);
+    inset: calc(var(--b) * -1);
+    top: var(--ves-btn-focus-offset);
+    right: var(--ves-btn-focus-offset);
+    bottom: var(--ves-btn-focus-offset);
+    left: var(--ves-btn-focus-offset);
+    border-color: var(--ves-btn-focus-corner-color);
+    background: var(--ves-btn-focus-corner-color) border-box;
+  }
+}
+
+.ves-btn:focus-visible {
+  outline: none;
+}
+
+.ves-btn:active {
+  border-color: var(--ves-global-color-kyanite);
+  background: var(--ves-global-color-kyanite);
+
+  &::before {
+    border-color: var(--ves-global-color-cerulean);
+  }
+
+  &::after {
+    opacity: 0;
+  }
+}
+
+.ves-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--ves-global-color-asteroid);
+
+  &::before,
+  &::after {
+    content: none;
+  }
+}

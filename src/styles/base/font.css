@@ -1,0 +1,39 @@
+/* Eurostile Next LT Pro - Light */
+@font-face {
+    font-family: 'Eurostile';
+    font-weight: 300;
+    font-style: normal;
+    src: url('../../assets/fonts/eurostilenextltprolight.woff2') format('woff2'),
+         url('../../assets/fonts/eurostilenextltprolight.woff') format('woff');
+    font-display: swap;
+}
+
+/* Eurostile Next LT Pro - Regular */
+@font-face {
+    font-family: 'Eurostile';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../../assets/fonts/eurostilenextltproregular.woff2') format('woff2'),
+         url('../../assets/fonts/eurostilenextltproregular.woff') format('woff');
+    font-display: swap;
+}
+
+/* Eurostile Next LT Pro - Semi Bold */
+@font-face {
+    font-family: 'Eurostile';
+    font-weight: 600;
+    font-style: normal;
+    src: url('../../assets/fonts/eurostilenextltprosmbd.woff2') format('woff2'),
+         url('../../assets/fonts/eurostilenextltprosmbd.woff') format('woff');
+    font-display: swap;
+}
+
+/* Eurostile Next LT Pro - Bold */
+@font-face {
+    font-family: 'Eurostile';
+    font-weight: 700;
+    font-style: normal;
+    src: url('../../assets/fonts/eurostilenextltprobold.woff2') format('woff2'),
+         url('../../assets/fonts/eurostilenextltprobold.woff') format('woff');
+    font-display: swap;
+}

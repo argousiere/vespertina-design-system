@@ -1,0 +1,32 @@
+import { Meta, Subtitle, Title, Typeset } from '@storybook/addon-docs/blocks';
+import typography from '../design-tokens/typography';
+import TypeScale from './TypeScale';
+
+<Meta title="Design Tokens/Type Scale" />
+
+export const sampleText = 'We are made of starstuff.';
+
+<Title>Type Scale</Title>
+
+<Subtitle>Primary</Subtitle>
+
+**Font Family:** Eurostile
+
+**Font Weight:** Regular
+
+<TypeScale 
+    config={{
+        baseSize: typography.baseSize, 
+        fontFamily: typography.family.primary, 
+        fontWeight: typography.weight.regular,
+        sampleText: sampleText 
+    }}
+    scales={
+        Object.entries(typography.size).map(([key, size]) => (
+            { 
+                name: key, 
+                value: size
+            }
+        ))
+    }
+/>
