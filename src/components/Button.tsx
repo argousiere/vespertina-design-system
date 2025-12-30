@@ -6,11 +6,7 @@ export interface ButtonProps {
   ariaLabel?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  label,
-  disabled,
-  ariaLabel,
-}) => {
+const Button: React.FC<ButtonProps> = ({ label, disabled, ariaLabel }) => {
   return (
     <button
       type="button"
@@ -22,3 +18,5 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
+export default Button;
