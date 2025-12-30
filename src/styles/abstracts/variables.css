@@ -1,6 +1,7 @@
 :root {
   --ves-global-color-light: #edf8fe;
   --ves-global-color-moonrock: #c1e1f3;
+  --ves-global-color-ice: #76b7d1;
   --ves-global-color-enceladus: #2ad8f0;
   --ves-global-color-cerulean: #23c0ff;
   --ves-global-color-celestial: #015881;
@@ -24,7 +25,7 @@
   --grid-dot-color: #305c59;
   --grid-dot-size: 2px;
   --grid-dot-offset: 0.5px;
-  --grid-size: 48px;
+  --ves-grid-size: 48px;
 
   --ves-border-radius: 0;
 
@@ -34,12 +35,12 @@
   --vignette-glow-end: rgba(10, 24, 52, 0.1);
 
   --ves-border-color: var(--ves-global-color-kyanite);
-  --divider-color: var(--ves-global-color-kyanite);
+  --ves-divider-color: var(--ves-global-color-kyanite);
 
   --ves-font-primary: 'Eurostile', Helvetica, Arial, sans-serif;
 
   --main-glow-color: var(--ves-global-color-kyanite);
-  --main-glow-height: calc(var(--grid-size) * 3);
+  --main-glow-height: calc(var(--ves-grid-size) * 3);
 
   --ves-font-size-base: 16px;
 

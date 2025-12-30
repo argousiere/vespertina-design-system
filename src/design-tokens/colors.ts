@@ -9,6 +9,7 @@ const prefix = `ves-global-color`;
 const colors: Color[] = [
   { name: 'Light', hex: '#edf8fe' },
   { name: 'Moonrock', hex: '#c1e1f3' },
+  { name: 'Ice', hex: '#76b7d1' },
   { name: 'Enceladus', hex: '#2ad8f0' },
   { name: 'Cerulean', hex: '#23c0ff' },
   { name: 'Celestial', hex: '#015881' },
