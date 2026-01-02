@@ -8,25 +8,64 @@ export const sampleText = 'We are made of starstuff.';
 
 <Title>Type Scale</Title>
 
-<Subtitle>Primary</Subtitle>
+<Subtitle>Font Family: Eurostile</Subtitle>
 
-**Font Family:** Eurostile
+**Font Weight:** Regular ({typography.weight.regular})
 
-**Font Weight:** Regular
+<TypeScale
+  config={{
+    baseSize: typography.baseSize,
+    fontFamily: typography.family.primary,
+    fontWeight: typography.weight.regular,
+    sampleText: sampleText,
+  }}
+  scales={Object.entries(typography.size).map(([key, size]) => ({
+    name: key,
+    value: size,
+  }))}
+/>
 
-<TypeScale 
-    config={{
-        baseSize: typography.baseSize, 
-        fontFamily: typography.family.primary, 
-        fontWeight: typography.weight.regular,
-        sampleText: sampleText 
-    }}
-    scales={
-        Object.entries(typography.size).map(([key, size]) => (
-            { 
-                name: key, 
-                value: size
-            }
-        ))
-    }
+**Font Weight:** Light ({typography.weight.light})
+
+<TypeScale
+  config={{
+    baseSize: typography.baseSize,
+    fontFamily: typography.family.primary,
+    fontWeight: typography.weight.light,
+    sampleText: sampleText,
+  }}
+  scales={Object.entries(typography.size).map(([key, size]) => ({
+    name: key,
+    value: size,
+  }))}
+/>
+
+**Font Weight:** Semibold ({typography.weight.semibold})
+
+<TypeScale
+  config={{
+    baseSize: typography.baseSize,
+    fontFamily: typography.family.primary,
+    fontWeight: typography.weight.semibold,
+    sampleText: sampleText,
+  }}
+  scales={Object.entries(typography.size).map(([key, size]) => ({
+    name: key,
+    value: size,
+  }))}
+/>
+
+**Font Weight:** Bold ({typography.weight.bold})
+
+<TypeScale
+  config={{
+    baseSize: typography.baseSize,
+    fontFamily: typography.family.primary,
+    fontWeight: typography.weight.bold,
+    sampleText: sampleText,
+  }}
+  scales={Object.entries(typography.size).map(([key, size]) => ({
+    name: key,
+    value: size,
+  }))}
 />

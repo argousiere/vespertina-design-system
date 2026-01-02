@@ -44,15 +44,15 @@
 
   --ves-font-size-base: 16px;
 
-  /** Scale of 1.2 */
-  --ves-font-size-3xl: 2.027rem;
-  --ves-font-size-2xl: 1.602rem;
-  --ves-font-size-xl: 1.424rem;
-  --ves-font-size-lg: 1.266rem;
-  --ves-font-size-md: 1.125rem;
-  --ves-font-size-sm: 1rem;
-  --ves-font-size-xs: 0.889rem;
-  --ves-font-size-2xs: 0.79rem;
+  /** Scale of 1.125 */
+  --ves-font-size-3xl: 2.027rem; /* 32.44px */
+  --ves-font-size-2xl: 1.602rem; /* 25.63px */
+  --ves-font-size-xl: 1.424rem; /* 22.78px */
+  --ves-font-size-lg: 1.266rem; /* 20.25px */
+  --ves-font-size-md: 1.125rem; /* 18px */
+  --ves-font-size-sm: 1rem; /* 16px */
+  --ves-font-size-xs: 0.889rem; /* 14.22px */
+  --ves-font-size-2xs: 0.79rem; /* 12.64px */
 
   --ves-font-weight-light: 200;
   --ves-font-weight-regular: 400;
