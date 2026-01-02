@@ -10,6 +10,10 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    title: {
+      control: 'text',
+      description: 'Title of entry list',
+    },
     items: {
       control: false,
       description: 'Array of entry list items',
@@ -22,6 +26,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    title: 'Latest Posts',
     items: [
       {
         id: '1',
@@ -59,6 +64,7 @@ export const Default: Story = {
 
 export const WithDisabledEntry: Story = {
   args: {
+    title: 'Latest Posts',
     items: [
       {
         id: '1',
@@ -97,6 +103,7 @@ export const WithDisabledEntry: Story = {
 
 export const SingleEntry: Story = {
   args: {
+    title: 'Latest Posts',
     items: [
       {
         id: '1',
@@ -110,6 +117,7 @@ export const SingleEntry: Story = {
 
 export const Empty: Story = {
   args: {
+    title: 'Latest Posts',
     items: [],
   },
 };
