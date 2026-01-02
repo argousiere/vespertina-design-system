@@ -29,7 +29,7 @@ const EntryList: React.FC<EntryListProps> = ({
   ] as keyof JSX.IntrinsicElements;
 
   return (
-    <section>
+    <section className="ves-entry-list">
       <HeadingTag className="ves-entry-list__title">{title}</HeadingTag>
       <ul className="ves-entry-list__items">
         {items.map((item) => (

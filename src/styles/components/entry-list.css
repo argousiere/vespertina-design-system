@@ -1,4 +1,9 @@
 .ves-entry-list {
+  --ves-entry-list-frame-color: var(--ves-global-color-kyanite);
+  --ves-entry-list-item-border-color: var(--ves-divider-color);
+  --ves-entry-list-item-hover-border-color: var(--ves-global-color-cerulean);
+  --ves-entry-list-item-hover-bg-color: var(--ves-global-color-celestial);
+  --ves-entry-list-item-active-bg-color: var(--ves-global-color-kyanite);
 }
 
 .ves-entry-list__title {
@@ -12,7 +17,7 @@
     0 100%
   );
   margin-top: 16px;
-  background-color: var(--ves-global-color-kyanite);
+  background-color: var(--ves-entry-list-frame-color);
   padding-top: 8px;
   padding-right: calc(var(--ves-trapezoid-clip-size) * 2);
   padding-bottom: 8px;
@@ -23,7 +28,7 @@
 }
 
 .ves-entry-list__items {
-  border: 1px solid var(--ves-global-color-kyanite);
+  border: 1px solid var(--ves-entry-list-frame-color);
   padding: var(--ves-spacing-9);
 }
 
@@ -40,17 +45,22 @@
 }
 
 .ves-entry-list__item {
-  border-bottom: 1px solid var(--ves-divider-color);
+  border-top: 1px solid var(--ves-entry-list-item-border-color);
 
-  &:first-child,
-  + .ves-entry-list__item {
-    border-top: 1px solid var(--ves-divider-color);
+  &:last-child {
+    border-bottom: 1px solid var(--ves-entry-list-item-border-color);
+
+    &:hover:not(.ves-entry-list__item--disabled) {
+      border-color: var(--ves-entry-list-item-hover-border-color);
+    }
   }
 
   &:hover {
     &:not(.ves-entry-list__item--disabled) {
-      border-bottom: 1px solid var(--ves-global-color-cerulean);
-      border-color: var(--ves-global-color-cerulean);
+      &,
+      + .ves-entry-list__item {
+        border-top-color: var(--ves-entry-list-item-hover-border-color);
+      }
     }
   }
 }
@@ -74,11 +84,11 @@
   display: block;
 
   &:hover {
-    background: var(--ves-global-color-celestial);
+    background: var(--ves-entry-list-item-hover-bg-color);
   }
 
   &:active {
-    background: var(--ves-global-color-kyanite);
+    background: var(--ves-entry-list-item-active-bg-color);
   }
 }
 
