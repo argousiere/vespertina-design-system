@@ -85,8 +85,8 @@
 .ves-entry-list__item-date {
   flex: 0 0 140px;
   color: var(--ves-global-color-ice);
-  font-weight: var(--ves-weight-semibold);
-  font-size: var(--ves-font-size-xs);
+  font-weight: var(--ves-font-weight-semibold);
+  font-size: var(--ves-font-size-2xs);
   letter-spacing: 0.3em;
   text-align: end;
   text-transform: uppercase;
