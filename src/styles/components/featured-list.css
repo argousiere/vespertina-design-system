@@ -1,0 +1,57 @@
+.ves-featured-list {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ves-spacing-5);
+}
+
+.ves-featured-list__title {
+  padding-bottom: var(--ves-spacing-5);
+  font-size: var(--ves-font-size-2xl);
+}
+
+.ves-featured-list__items {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--ves-grid-size);
+}
+
+.ves-featured-list__item {
+  --ves-featured-list-item-height: calc(var(--ves-grid-size) * 3);
+  --ves-featured-list-item-padding: var(--ves-spacing-5);
+
+  border: 1px solid var(--ves-border-color);
+}
+
+.ves-featured-list__item .ves-thumbnail {
+  flex: 0 0
+    calc(
+      var(--ves-featured-list-item-height) -
+        (var(--ves-featured-list-item-padding) * 2)
+    );
+}
+
+.ves-featured-list__item-content {
+  display: flex;
+  align-items: stretch;
+  gap: var(--ves-featured-list-item-padding);
+  padding: var(--ves-spacing-5);
+  height: var(--ves-featured-list-item-height);
+}
+
+.ves-featured-list__item-details {
+  flex: 1;
+}
+
+.ves-featured-list__item-title {
+  border-bottom: 1px solid var(--ves-divider-color);
+  font-size: var(--ves-font-size-base);
+  text-transform: none;
+}
+
+.ves-featured-list__item-description {
+  line-clamp: 3;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+}

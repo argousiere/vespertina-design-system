@@ -1,11 +1,8 @@
 import { format } from 'date-fns';
 import { clsx } from 'clsx';
+import type { Entry } from '@models/Entry';
 
-export interface EntryListItemProps {
-  id: string;
-  title: string;
-  date: Date;
-  url: string;
+export interface EntryListItemProps extends Entry {
   disabled?: boolean;
 }
 

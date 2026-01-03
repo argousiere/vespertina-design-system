@@ -1,5 +1,8 @@
-@import './abstracts/index.css';
-@import './base/index.css';
-@import './components/index.css';
+/* Define layer order - layers listed first have lower priority */
+@layer base, components, themes;
 
-@import './themes/dark.css'; /* default for now, light theme will be added later */
+@import './abstracts/index.css';
+@import './base/index.css' layer(base);
+@import './components/index.css' layer(components);
+
+@import './themes/dark.css' layer(themes); /* default for now, light theme will be added later */

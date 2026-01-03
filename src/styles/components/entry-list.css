@@ -97,6 +97,7 @@
   color: var(--ves-global-color-ice);
   font-weight: var(--ves-font-weight-semibold);
   font-size: var(--ves-font-size-2xs);
+  line-height: 1;
   letter-spacing: 0.3em;
   text-align: end;
   text-transform: uppercase;
@@ -106,6 +107,6 @@
   flex-grow: 1;
   min-width: 0;
   font-weight: var(--ves-font-weight-regular);
-  font-size: var(--ves-font-size-sm);
+  font-size: var(--ves-font-size-lg);
   letter-spacing: 0.1em;
 }

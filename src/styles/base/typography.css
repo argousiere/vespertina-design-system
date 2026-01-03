@@ -11,7 +11,7 @@ html {
   h4,
   h5,
   h6 {
-    font-weight: normal;
+    font-weight: var(--ves-font-weight-regular);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
