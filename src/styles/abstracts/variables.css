@@ -42,17 +42,17 @@
   --main-glow-color: var(--ves-global-color-kyanite);
   --main-glow-height: calc(var(--ves-grid-size) * 3);
 
-  --ves-font-size-base: 16px;
+  --ves-font-size-base: 14px;
 
   /** Scale of 1.125 */
-  --ves-font-size-3xl: 2.027rem; /* 32.44px */
-  --ves-font-size-2xl: 1.602rem; /* 25.63px */
-  --ves-font-size-xl: 1.424rem; /* 22.78px */
-  --ves-font-size-lg: 1.266rem; /* 20.25px */
-  --ves-font-size-md: 1.125rem; /* 18px */
-  --ves-font-size-sm: 1rem; /* 16px */
-  --ves-font-size-xs: 0.889rem; /* 14.22px */
-  --ves-font-size-2xs: 0.79rem; /* 12.64px */
+  --ves-font-size-3xl: 2.027rem; /* 28.378px */
+  --ves-font-size-2xl: 1.602rem; /* 22.428px */
+  --ves-font-size-xl: 1.424rem; /* 19.936px */
+  --ves-font-size-lg: 1.266rem; /* 17.724px */
+  --ves-font-size-md: 1.125rem; /* 15.75px */
+  --ves-font-size-sm: 1rem; /* 14px */
+  --ves-font-size-xs: 0.889rem; /* 12.446px */
+  --ves-font-size-2xs: 0.79rem; /* 11.06px */
 
   --ves-font-weight-light: 200;
   --ves-font-weight-regular: 400;

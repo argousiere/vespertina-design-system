@@ -107,6 +107,6 @@
   flex-grow: 1;
   min-width: 0;
   font-weight: var(--ves-font-weight-regular);
-  font-size: var(--ves-font-size-lg);
+  font-size: var(--ves-font-size-md);
   letter-spacing: 0.1em;
 }

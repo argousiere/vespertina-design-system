@@ -9,17 +9,17 @@ const typography = {
     bold: '800',
   },
   size: {
-    // rem, scale: 1.125 on 16px
-    '2xs': 0.79,
-    xs: 0.889,
-    sm: 1,
-    md: 1.125,
-    lg: 1.266,
-    xl: 1.424,
-    '2xl': 1.602,
+    // rem, scale: 1.125 on 14px
     '3xl': 2.027,
+    '2xl': 1.602,
+    xl: 1.424,
+    lg: 1.266,
+    md: 1.125,
+    sm: 1,
+    xs: 0.889,
+    '2xs': 0.79,
   },
-  baseSize: 16, // in px
+  baseSize: 14, // in px
 };
 
 export default typography;
