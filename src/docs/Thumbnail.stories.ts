@@ -48,3 +48,22 @@ export const WithCaption = {
     caption: 'Against the dizzying backdrop of space',
   },
 } satisfies Story;
+
+export const Placeholder = {
+  args: {
+    altText: 'No image',
+    width: 200,
+    height: 200,
+    caption: 'Against the dizzying backdrop of space',
+  },
+} satisfies Story;
+
+export const MissingImageFile = {
+  args: {
+    src: './images/this-file-is-non-existent.svg',
+    altText: 'Missing image file',
+    width: 200,
+    height: 200,
+    caption: 'Against the dizzying backdrop of space',
+  },
+} satisfies Story;

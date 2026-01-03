@@ -44,6 +44,25 @@
   }
 }
 
+.ves-thumbnail--missing {
+  .ves-thumbnail__img {
+    display: none;
+  }
+
+  .ves-thumbnail__picture {
+    background-image: url('../images/ves-icon-empty-cover.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.ves-thumbnail__picture,
+.ves-thumbnail__img {
+  width: 100%;
+  height: 100%;
+}
+
 .ves-thumbnail__caption {
   font-weight: var(--ves-font-weight-light);
   letter-spacing: 0.1em;

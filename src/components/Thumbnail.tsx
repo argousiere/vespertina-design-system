@@ -1,15 +1,8 @@
 import React from 'react';
+import clsx from 'clsx';
+import type { Thumbnail as ThumbnailModel } from '@models/Thumbnail';
 
-interface ThumbnailProps {
-  src: string;
-  height?: number | string;
-  width?: number | string;
-  altText: string;
-  caption?: string;
-  sources?: {
-    mediaQuery: string;
-    srcset: string;
-  }[];
+export interface ThumbnailProps extends ThumbnailModel {
   ariaLabel?: string;
   ariaDescribedBy?: string;
   onClick?: () => void;
@@ -26,9 +19,29 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   ariaDescribedBy,
   onClick,
 }) => {
+  const [hasImgSrc, setHasImgSrc] = React.useState(!!src);
+
+  React.useEffect(() => {
+    setHasImgSrc(!!src);
+  }, [src]);
+
+  const handleImageError = () => {
+    setHasImgSrc(false);
+  };
+
   return (
-    <figure className={`ves-thumbnail`}>
-      <picture>
+    <figure
+      className={clsx('ves-thumbnail', {
+        'ves-thumbnail--missing': !hasImgSrc,
+      })}
+    >
+      <picture
+        className="ves-thumbnail__picture"
+        style={{
+          width,
+          height,
+        }}
+      >
         {sources?.map((source) => (
           <source
             key={source.mediaQuery}
@@ -37,13 +50,15 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
           />
         ))}
         <img
+          className="ves-thumbnail__img"
           src={src}
-          height={height ?? 100}
-          width={width ?? 100}
+          height={height}
+          width={width}
           alt={altText}
           aria-label={ariaLabel}
           aria-describedby={ariaDescribedBy}
           onClick={onClick}
+          onError={handleImageError}
         />
       </picture>
       {caption && (
