@@ -1,0 +1,89 @@
+.ves-tag {
+  --ves-tag-border-color: var(--ves-global-color-cydonia);
+  --ves-tag-bg-color: var(--ves-global-color-cydonia);
+  --ves-tag-focus-offset: -6px;
+
+  display: inline-block;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  border: 1px solid var(--ves-tag-border-color);
+  background: oklch(from var(--ves-tag-bg-color) l c h / 0.1);
+  padding: 0 var(--ves-spacing-6);
+  height: 32px;
+  color: var(--ves-global-color-light);
+  font-size: var(--ves-font-size-xs);
+  font-family: var(--font-primary);
+  letter-spacing: 0.3em;
+  text-decoration: none;
+  text-shadow: 0 1px 0 var(--ves-global-color-midnight);
+  text-transform: uppercase;
+
+  &:focus-visible {
+    position: relative;
+    outline: none;
+
+    &::before {
+      position: absolute;
+      top: var(--ves-tag-focus-offset);
+      right: var(--ves-tag-focus-offset);
+      bottom: var(--ves-tag-focus-offset);
+      left: var(--ves-tag-focus-offset);
+      z-index: -1;
+      transition: border-color 0.08s linear;
+      border-width: 1px;
+      border-style: solid;
+      border-color: var(--ves-global-color-cerulean);
+      content: '';
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: linear-gradient(
+      to bottom,
+      oklch(from var(--ves-global-color-cydonia) l c h / 0.1) 0%,
+      oklch(from var(--ves-global-color-cydonia) l c h / 0.1) 75%,
+
+      oklch(from var(--ves-global-color-cydonia) l c h / 0.75) 100%
+    );
+  }
+
+  &:active {
+    background: linear-gradient(
+      to bottom,
+      oklch(from var(--ves-global-color-cydonia) l c h / 0.1) 0%,
+      oklch(from var(--ves-global-color-cydonia) l c h / 0.1) 75%,
+      oklch(from var(--ves-global-color-cydonia) l c h / 0.75) 76%,
+
+      oklch(from var(--ves-global-color-cydonia) l c h / 0.75) 100%
+    );
+  }
+}
+
+.ves-tag-box {
+  border: 1px solid var(--ves-global-color-kyanite);
+  width: 100%;
+}
+
+.ves-tag-box__title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  background: oklch(from var(--ves-global-color-kyanite) l c h / 0.5);
+  padding-right: var(--ves-spacing-5);
+  padding-left: var(--ves-spacing-5);
+  height: 38px;
+  color: var(--ves-global-color-light);
+  font-size: var(--ves-font-size-md);
+  font-family: var(--ves-font-primary);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.ves-tag-box__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ves-spacing-4);
+  padding: var(--ves-spacing-5);
+}
