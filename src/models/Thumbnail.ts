@@ -1,4 +1,4 @@
-export interface Thumbnail {
+export interface ThumbnailModel {
   src?: string;
   height?: number | string;
   width?: number | string;

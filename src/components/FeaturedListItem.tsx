@@ -1,7 +1,7 @@
-import type { Entry } from '@models/Entry';
+import type { EntryModel } from '@models/Entry';
 import Thumbnail from './Thumbnail';
 
-export type FeaturedListItemProps = Entry;
+export type FeaturedListItemProps = EntryModel;
 
 const FeaturedListItem: React.FC<FeaturedListItemProps> = ({
   title,

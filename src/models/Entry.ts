@@ -1,10 +1,10 @@
-import type { Thumbnail } from './Thumbnail';
+import type { ThumbnailModel } from './Thumbnail';
 
-export interface Entry {
+export interface EntryModel {
   id: string;
   title: string;
   url: string;
   date: Date;
   description?: string;
-  thumbnail?: Thumbnail;
+  thumbnail?: ThumbnailModel;
 }

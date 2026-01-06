@@ -1,8 +1,8 @@
 import { format } from 'date-fns';
 import { clsx } from 'clsx';
-import type { Entry } from '@models/Entry';
+import type { EntryModel } from '@models/Entry';
 
-export interface EntryListItemProps extends Entry {
+export interface EntryListItemProps extends EntryModel {
   disabled?: boolean;
 }
 

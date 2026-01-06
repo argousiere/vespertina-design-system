@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import type { Thumbnail as ThumbnailModel } from '@models/Thumbnail';
+import type { ThumbnailModel as ThumbnailModel } from '@models/Thumbnail';
 
 export interface ThumbnailProps extends ThumbnailModel {
   ariaLabel?: string;
