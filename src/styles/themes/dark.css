@@ -1,10 +1,5 @@
 .vespertina-theme--dark {
   color: var(--foreground-color);
-  --ves-btn-border-color: var(--ves-border-color);
-  --ves-btn-focus-offset: -10px;
-  --ves-btn-focus-corner-size: 12px;
-  --ves-btn-focus-corner-color: var(--ves-global-color-cerulean);
-
 
   main {
     background:
