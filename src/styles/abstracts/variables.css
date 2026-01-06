@@ -1,38 +1,38 @@
 :root {
-  --ves-global-color-light: #edf8fe;
-  --ves-global-color-moonrock: #c1e1f3;
-  --ves-global-color-ice: #76b7d1;
-  --ves-global-color-enceladus: #2ad8f0;
-  --ves-global-color-cerulean: #23c0ff;
-  --ves-global-color-celestial: #015881;
-  --ves-global-color-kyanite: #004460;
-  --ves-global-color-dusk: #011e30;
-  --ves-global-color-midnight: #011119;
-  --ves-global-color-asteroid: #394f58;
-  --ves-global-color-cydonia: #ffce84;
-  --ves-global-color-aurora: #44e1bb;
-  --ves-global-color-gliese: #e35490;
+  --ves-global-color-light: oklch(0.97 0.015 225);
+  --ves-global-color-moonrock: oklch(0.88 0.04 225);
+  --ves-global-color-ice: oklch(0.73 0.06 225);
+  --ves-global-color-enceladus: oklch(0.82 0.11 210);
+  --ves-global-color-cerulean: oklch(0.74 0.13 225);
+  --ves-global-color-celestial: oklch(0.38 0.08 230);
+  --ves-global-color-kyanite: oklch(0.36 0.08 234.03);
+  --ves-global-color-dusk: oklch(20.476% 0.04819 250.073);
+  --ves-global-color-midnight: oklch(0.18 0.03 229.2);
+  --ves-global-color-asteroid: oklch(0.35 0.02 235);
+  --ves-global-color-cydonia: oklch(79.571% 0.09429 75.227);
+  --ves-global-color-aurora: oklch(0.82 0.12 170);
+  --ves-global-color-gliese: oklch(0.64 0.18 350);
 
   --ves-global-font-primary-name: 'Eurostile';
 
-  --foreground-rgb: 191, 224, 242;
-  --background-start-rgb: 11, 23, 34;
-  --background-end-rgb: 255, 255, 255;
-  --grid-line-color: #88a6b4;
-  --grid-line-color-secondary: #6e93a3;
-  --grid-line-color-tertiary: #8fb99c;
+  --foreground-color: var(--ves-global-color-moonrock);
+  --background-start-color: var(--ves-global-color-dusk);
+  --background-end-color: var(--ves-global-color-light);
+  --grid-line-color: oklch(71.558% 0.03836 223.453);
+  --grid-line-color-secondary: oklch(0.61 0.04 225);
+  --grid-line-color-tertiary: oklch(66.711% 0.09524 156.364);
   --grid-line-width: 1px;
-  --grid-dot-color: #305c59;
+  --grid-dot-color: oklch(0.39 0.04 190);
   --grid-dot-size: 2px;
   --grid-dot-offset: 0.5px;
   --ves-grid-size: 48px;
 
   --ves-border-radius: 0;
 
-  --vignette-shadow-start: rgb(2, 16, 25);
-  --vignette-shadow-end: rgb(7, 8, 9);
-  --vignette-glow-start: rgba(6, 112, 152, 0.1);
-  --vignette-glow-end: rgba(10, 24, 52, 0.1);
+  --vignette-shadow-start: oklch(0.14 0.01 249.02);
+  --vignette-shadow-end: oklch(0.14 0.02 247.84);
+  --vignette-glow-start: oklch(0.47 0.08 230 / 0.1);
+  --vignette-glow-end: oklch(0.18 0.06 250 / 0.1);
 
   --ves-border-color: var(--ves-global-color-kyanite);
   --ves-divider-color: var(--ves-global-color-kyanite);

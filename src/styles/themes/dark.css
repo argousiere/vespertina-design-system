@@ -1,11 +1,10 @@
 .vespertina-theme--dark {
-  --ves-btn-bg-color: var(--ves-global-color-midnight);
+  color: var(--foreground-color);
   --ves-btn-border-color: var(--ves-border-color);
   --ves-btn-focus-offset: -10px;
   --ves-btn-focus-corner-size: 12px;
   --ves-btn-focus-corner-color: var(--ves-global-color-cerulean);
 
-  color: rgb(var(--foreground-rgb));
 
   main {
     background:
@@ -14,18 +13,17 @@
         var(--main-glow-color),
         transparent
       ),
-      #01111980;
+      oklch(from var(--ves-global-color-midnight) l c h / 0.15);
   }
 }
 
 body.vespertina-theme--dark {
   position: relative;
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom,
+    transparent,
+    var(--background-end-color)
+  );
   background-image:
     radial-gradient(
       var(--vignette-glow-start) 29%,
