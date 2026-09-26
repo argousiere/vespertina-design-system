@@ -50,7 +50,7 @@
   }
 
   .ves-thumbnail__picture {
-    background-image: url('../images/ves-icon-empty-cover.svg');
+    background-image: url('../../assets/images/ves-icon-empty-cover.svg');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

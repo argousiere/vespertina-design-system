@@ -27,7 +27,6 @@
       "@/*": ["./src/*"],
       "@images/*": ["./src/core/assets/images/*"],
       "@styles/*": ["./src/core/styles/*"],
-      "@models/*": ["./src/react/models/*"],
       "@components/*": ["./src/react/components/*"]
     }
   },

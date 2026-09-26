@@ -19,7 +19,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src/'),
       '@images': path.resolve(__dirname, './src/core/assets/images'),
       '@styles': path.resolve(__dirname, './src/core/styles'),
-      '@models': path.resolve(__dirname, './src/react/models'),
       '@components': path.resolve(__dirname, './src/react/components'),
     },
   },
