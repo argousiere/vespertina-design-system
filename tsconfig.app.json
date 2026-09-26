@@ -23,9 +23,8 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src"],
+      "@/*": ["./src/*"],
       "@images/*": ["./src/assets/images/*"],
       "@styles/*": ["./src/styles/*"],
       "@models/*": ["./src/models/*"],
