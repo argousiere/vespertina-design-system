@@ -6,11 +6,6 @@ Design developed from scratch in [Figma](https://www.figma.com/design/jiNUbgAPy5
 
 ## Development
 
-Launch vite server:
-```shell
-npm run dev
-```
-
 Launch Storybook:
 ```shell
 npm run storybook

@@ -1,6 +1,7 @@
 /* Define layer order - layers listed first have lower priority */
 @layer base, components, themes;
 
+@import '../tokens/tokens.css';
 @import './abstracts/index.css';
 @import './base/index.css' layer(base);
 @import './components/index.css' layer(components);

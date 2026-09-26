@@ -27,8 +27,8 @@
       "@/*": ["./src/*"],
       "@images/*": ["./src/assets/images/*"],
       "@styles/*": ["./src/styles/*"],
-      "@models/*": ["./src/models/*"],
-      "@components/*": ["./src/components/*"]
+      "@models/*": ["./src/react/models/*"],
+      "@components/*": ["./src/react/components/*"]
     }
   },
   "include": ["src"]
