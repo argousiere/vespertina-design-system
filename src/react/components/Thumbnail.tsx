@@ -1,10 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
 import type { ThumbnailModel as ThumbnailModel } from '../models/Thumbnail';
+import Tooltip from './Tooltip';
 
 export interface ThumbnailProps extends ThumbnailModel {
   ariaLabel?: string;
   ariaDescribedBy?: string;
+  captionMaxLines?: number;
   onClick?: () => void;
 }
 
@@ -17,6 +19,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   sources,
   ariaLabel,
   ariaDescribedBy,
+  captionMaxLines,
   onClick,
 }) => {
   const [hasImgSrc, setHasImgSrc] = React.useState(!!src);
@@ -61,9 +64,21 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
           onError={handleImageError}
         />
       </picture>
-      {caption && (
-        <figcaption className="ves-thumbnail__caption">{caption}</figcaption>
-      )}
+      {caption &&
+        (captionMaxLines ? (
+          <Tooltip title={caption} showOnlyWhenTruncated>
+            <figcaption
+              className="ves-thumbnail__caption ves-thumbnail__caption--clamped clamp-text"
+              style={
+                { '--clamp-text-lines': captionMaxLines } as React.CSSProperties
+              }
+            >
+              {caption}
+            </figcaption>
+          </Tooltip>
+        ) : (
+          <figcaption className="ves-thumbnail__caption">{caption}</figcaption>
+        ))}
     </figure>
   );
 };
