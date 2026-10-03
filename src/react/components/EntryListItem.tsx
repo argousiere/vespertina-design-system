@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import { clsx } from 'clsx';
 import type { EntryModel } from '../models/Entry';
+import Tooltip from './Tooltip';
 
 export interface EntryListItemProps extends EntryModel {
   disabled?: boolean;
@@ -20,7 +21,7 @@ const EntryListItem: React.FC<EntryListItemProps> = ({
       <time dateTime={dateISO} className="ves-entry-list__item-date">
         {formattedDate}
       </time>
-      <span className="ves-entry-list__item-title text-ellipsis">{title}</span>
+      <Tooltip title={title} showOnlyWhenTruncated><span className="ves-entry-list__item-title clamp-text">{title}</span></Tooltip>
     </div>
   );
 

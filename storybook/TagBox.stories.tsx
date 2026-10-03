@@ -75,3 +75,44 @@ export const CustomTitle = {
     ],
   },
 } satisfies Story;
+
+const breakpoints = [
+  { width: 960, label: '960px: long tag capped at 480px' },
+  { width: 480, label: '480px: long tag takes a full row' },
+  { width: 160, label: '160px: long tag shrinks to the row width' },
+];
+
+export const Responsive = {
+  args: {
+    title: 'Filed under',
+    tags: [
+      {
+        slug: 'expat',
+      },
+      {
+        slug: 'a-very-long-tag-name-that-keeps-going-well-past-the-maximum-width',
+      },
+      {
+        slug: 'france',
+      },
+      {
+        slug: 'travel',
+      },
+    ],
+  },
+  parameters: {
+    layout: 'padded',
+  },
+  render: (args) => (
+    <div style={{ display: 'grid', gap: 32 }}>
+      {breakpoints.map(({ width, label }) => (
+        <figure key={width} style={{ margin: 0, width }}>
+          <figcaption style={{ marginBottom: 8, whiteSpace: 'nowrap' }}>
+            <code>{label}</code>
+          </figcaption>
+          <TagBox {...args} />
+        </figure>
+      ))}
+    </div>
+  ),
+} satisfies Story;

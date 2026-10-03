@@ -50,8 +50,7 @@
 }
 
 .ves-featured-list__item-description {
-  line-clamp: 3;
-  overflow: hidden;
+  --clamp-text-lines: 3;
+
   text-align: left;
-  text-overflow: ellipsis;
 }

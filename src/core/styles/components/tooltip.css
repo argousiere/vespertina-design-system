@@ -1,0 +1,31 @@
+.ves-tooltip {
+  --ves-tooltip-bg-color: var(--ves-global-color-midnight);
+  --ves-tooltip-border-color: var(--ves-global-color-kyanite);
+  --ves-tooltip-offset: var(--ves-spacing-2);
+  --ves-tooltip-max-width: 320px;
+
+  border: 1px solid var(--ves-tooltip-border-color);
+  background: var(--ves-tooltip-bg-color);
+  padding: var(--ves-spacing-3) var(--ves-spacing-4);
+  max-width: min(
+    var(--ves-tooltip-max-width),
+    100vw - 2 * var(--ves-spacing-5)
+  );
+  color: var(--ves-global-color-light);
+  font-size: var(--ves-font-size-xs);
+  line-height: 1.5;
+  font-family: var(--ves-font-primary);
+  overflow-wrap: anywhere;
+}
+
+@supports (anchor-name: --ves-tooltip) {
+  .ves-tooltip {
+    position-area: bottom span-right;
+    position-try-fallbacks:
+      flip-block,
+      flip-inline,
+      flip-block flip-inline;
+    margin: var(--ves-tooltip-offset) 0;
+    inset: auto;
+  }
+}

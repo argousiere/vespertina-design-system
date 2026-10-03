@@ -14,9 +14,11 @@ const FeaturedListItem: React.FC<FeaturedListItemProps> = ({
       <Thumbnail {...thumbnail} />
 
       <div className="ves-featured-list__item-details">
-        <h3 className="ves-featured-list__item-title text-ellipsis">{title}</h3>
+        <h3 className="ves-featured-list__item-title clamp-text">{title}</h3>
         {description && (
-          <p className="ves-featured-list__item-description">{description}</p>
+          <p className="ves-featured-list__item-description clamp-text">
+            {description}
+          </p>
         )}
       </div>
     </div>

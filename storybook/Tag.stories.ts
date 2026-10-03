@@ -20,3 +20,10 @@ export const Default = {
     description: "You can't take the Razorback! She is gone and gone and gone!",
   },
 } satisfies Story;
+
+export const LongLabel = {
+  args: {
+    slug: 'a-very-long-tag-name-that-keeps-going-well-past-the-maximum-width',
+    description: 'Truncated tags show their full label in a tooltip.',
+  },
+} satisfies Story;

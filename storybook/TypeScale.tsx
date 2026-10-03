@@ -10,7 +10,7 @@ export interface TypeConfig {
   sampleText: string;
 }
 
-const typeScaleHeaders = ['Name', 'Size (rem)', 'Size (px)', 'Example'];
+const typeScaleHeaders = ['Name', 'Token', 'Size (rem)', 'Size (px)', 'Example'];
 
 const TypeScale = ({
   config,
@@ -35,6 +35,9 @@ const TypeScale = ({
           <tr key={scaleIndex}>
             <td>
               <code>{scale.name}</code>
+            </td>
+            <td>
+              <code>--ves-font-size-{scale.name}</code>
             </td>
             <td>{scale.value}rem</td>
             <td>{fontSizePx}</td>

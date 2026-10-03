@@ -1,7 +1,13 @@
+:root {
+  --ves-tag-max-width: 480px;
+}
+
 .ves-tag {
   --ves-tag-border-color: var(--ves-global-color-cydonia);
   --ves-tag-bg-color: var(--ves-global-color-cydonia);
   --ves-tag-focus-offset: -6px;
+  --ves-tag-letter-spacing: 0.3em;
+  --ves-tag-min-chars: 3;
 
   display: inline-block;
   display: inline-flex;
@@ -10,11 +16,13 @@
   border: 1px solid var(--ves-tag-border-color);
   background: oklch(from var(--ves-tag-bg-color) l c h / 0.1);
   padding: 0 var(--ves-spacing-6);
+  min-width: 0;
+  max-width: min(100%, var(--ves-tag-max-width));
   height: 32px;
   color: var(--ves-global-color-light);
   font-size: var(--ves-font-size-xs);
   font-family: var(--font-primary);
-  letter-spacing: 0.3em;
+  letter-spacing: var(--ves-tag-letter-spacing);
   text-decoration: none;
   text-shadow: 0 1px 0 var(--ves-global-color-midnight);
   text-transform: uppercase;
@@ -61,24 +69,36 @@
   }
 }
 
+.ves-tag__label {
+  min-width: calc(
+    (var(--ves-tag-min-chars) + 1) * (1ch + var(--ves-tag-letter-spacing))
+  );
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .ves-tag-box {
   border: 1px solid var(--ves-global-color-kyanite);
+  max-width: var(--ves-tag-max-width);
   width: 100%;
 }
 
 .ves-tag-box__title {
-  display: flex;
-  align-items: center;
   margin: 0;
   background: oklch(from var(--ves-global-color-kyanite) l c h / 0.5);
   padding-right: var(--ves-spacing-5);
   padding-left: var(--ves-spacing-5);
   height: 38px;
+  overflow: hidden;
   color: var(--ves-global-color-light);
   font-size: var(--ves-font-size-md);
+  line-height: 38px;
   font-family: var(--ves-font-primary);
   letter-spacing: 0.2em;
+  text-overflow: ellipsis;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .ves-tag-box__tags {

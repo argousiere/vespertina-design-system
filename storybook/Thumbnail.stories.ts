@@ -24,6 +24,10 @@ const meta = {
       control: 'number',
       description: 'Image height in pixels',
     },
+    captionMaxLines: {
+      control: 'number',
+      description: 'Lines shown before the caption is cut off',
+    },
   },
 } satisfies Meta<typeof Thumbnail>;
 
@@ -46,6 +50,18 @@ export const WithCaption = {
     width: 200,
     height: 200,
     caption: 'Against the dizzying backdrop of space',
+  },
+} satisfies Story;
+
+export const WithTruncatedCaption = {
+  args: {
+    src: './images/dizzy.jpg',
+    altText: 'Dizzy',
+    width: 200,
+    height: 200,
+    caption:
+      'Against the dizzying backdrop of space, I see a prism of past and future lives.',
+    captionMaxLines: 2,
   },
 } satisfies Story;
 
