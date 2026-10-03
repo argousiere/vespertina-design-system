@@ -44,6 +44,11 @@ export const Default: Story = {
     url: '#',
     disabled: false,
   },
+  decorators: (Story) => (
+    <ul>
+      <Story />
+    </ul>
+  ),
 };
 
 export const Disabled: Story = {
@@ -54,6 +59,11 @@ export const Disabled: Story = {
     url: '#',
     disabled: true,
   },
+  decorators: (Story) => (
+    <ul>
+      <Story />
+    </ul>
+  ),
 };
 
 export const Truncated: Story = {
@@ -65,8 +75,8 @@ export const Truncated: Story = {
     disabled: false,
   },
   decorators: (Story) => (
-    <div style={{ maxWidth: 500 }}>
+    <ul style={{ maxWidth: 500 }}>
       <Story />
-    </div>
+    </ul>
   ),
 };
