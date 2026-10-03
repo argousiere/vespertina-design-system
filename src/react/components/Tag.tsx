@@ -10,7 +10,7 @@ const Tag: React.FC<TagProps> = ({ slug, description }) => {
 
   return (
     <a className={className} href={url} title={description}>
-      {slug}
+      <span className="ves-tag__label">{slug}</span>
     </a>
   );
 };

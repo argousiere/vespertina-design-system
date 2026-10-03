@@ -10,7 +10,9 @@ export interface TagBoxProps {
 const TagBox: React.FC<TagBoxProps> = ({ title = 'Filed under', tags }) => {
   return (
     <section className="ves-tag-box">
-      <h6 className="ves-tag-box__title">{title}</h6>
+      <h6 className="ves-tag-box__title" title={title}>
+        {title}
+      </h6>
       <div className="ves-tag-box__tags">
         {tags.map((tag) => (
           <Tag key={tag.slug} {...tag} />
