@@ -1,5 +1,5 @@
 import { create } from 'storybook/theming';
-import vespertinaLogo from '../src/assets/images/vespertina-logo.svg';
+import vespertinaLogo from '../src/core/assets/images/vespertina-logo.svg';
 
 export default create({
   base: 'dark',

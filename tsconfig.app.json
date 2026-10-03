@@ -25,10 +25,9 @@
     "noUncheckedSideEffectImports": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@images/*": ["./src/assets/images/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@models/*": ["./src/models/*"],
-      "@components/*": ["./src/components/*"]
+      "@images/*": ["./src/core/assets/images/*"],
+      "@styles/*": ["./src/core/styles/*"],
+      "@components/*": ["./src/react/components/*"]
     }
   },
   "include": ["src"]

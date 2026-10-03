@@ -1,4 +1,4 @@
-import type { EntryModel } from '@models/Entry';
+import type { EntryModel } from '../models/Entry';
 import Thumbnail from './Thumbnail';
 
 export type FeaturedListItemProps = EntryModel;

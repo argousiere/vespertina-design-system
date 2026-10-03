@@ -1,5 +1,5 @@
 import React from 'react';
-import type { TagModel } from '@models/Tag';
+import type { TagModel } from '../models/Tag';
 import Tag from './Tag';
 
 export interface TagBoxProps {

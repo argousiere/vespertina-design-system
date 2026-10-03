@@ -17,10 +17,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src/'),
-      '@images': path.resolve(__dirname, './src/assets/images'),
-      '@styles': path.resolve(__dirname, './src/styles'),
-      '@models': path.resolve(__dirname, './src/models'),
-      '@components': path.resolve(__dirname, './src/components'),
+      '@images': path.resolve(__dirname, './src/core/assets/images'),
+      '@styles': path.resolve(__dirname, './src/core/styles'),
+      '@components': path.resolve(__dirname, './src/react/components'),
     },
   },
   plugins: [react()],
