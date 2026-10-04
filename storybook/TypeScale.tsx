@@ -1,16 +1,16 @@
 export interface TypeScaleElement {
   name: string;
-  value: number;
+  variable: string;
+  value: number; // in rem
 }
 
 export interface TypeConfig {
-  baseSize: number;
   fontWeight: number;
   fontFamily: string;
   sampleText: string;
 }
 
-const typeScaleHeaders = ['Name', 'Token', 'Size (rem)', 'Size (px)', 'Example'];
+const typeScaleHeaders = ['Name', 'Token', 'Size (rem)', 'Example'];
 
 const TypeScale = ({
   config,
@@ -29,24 +29,22 @@ const TypeScale = ({
     </thead>
     <tbody>
       {scales.map((scale, scaleIndex) => {
-        const fontSize = scale.value * config.baseSize;
-        const fontSizePx = `${fontSize}px`;
+        const fontSize = `${scale.value}rem`;
         return (
           <tr key={scaleIndex}>
             <td>
               <code>{scale.name}</code>
             </td>
             <td>
-              <code>--ves-font-size-{scale.name}</code>
+              <code>{scale.variable}</code>
             </td>
-            <td>{scale.value}rem</td>
-            <td>{fontSizePx}</td>
+            <td>{fontSize}</td>
             <td
               style={{
-                fontSize: fontSizePx,
+                fontSize,
                 fontWeight: config.fontWeight,
                 fontFamily: config.fontFamily,
-                height: fontSize * 1.5,
+                height: `calc(${fontSize} * 1.5)`,
                 lineHeight: 1.5,
               }}
             >
