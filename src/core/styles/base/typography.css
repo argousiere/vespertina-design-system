@@ -5,7 +5,7 @@ html {
 .vespertina-theme {
   font-size: 14px;
   line-height: 1.6;
-  font-family: var(--ves-font-primary);
+  font-family: var(--ves-font-family-primary);
 
   h1,
   h2,

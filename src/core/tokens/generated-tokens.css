@@ -1,0 +1,55 @@
+/* Generated from src/core/tokens/tokens.ts by scripts/build-css-from-tokens-source.ts. Do not edit. */
+
+:root {
+  --ves-font-size-base: 14px;
+
+  /* colors */
+  --ves-global-color-light: oklch(0.97 0.015 225);
+  --ves-global-color-moonrock: oklch(0.88 0.04 225);
+  --ves-global-color-ice: oklch(0.73 0.06 225);
+  --ves-global-color-enceladus: oklch(0.82 0.11 210);
+  --ves-global-color-cerulean: oklch(0.74 0.13 225);
+  --ves-global-color-celestial: oklch(0.38 0.08 230);
+  --ves-global-color-kyanite: oklch(0.36 0.08 234.03);
+  --ves-global-color-dusk: oklch(20.476% 0.04819 250.073);
+  --ves-global-color-midnight: oklch(0.18 0.03 229.2);
+  --ves-global-color-asteroid: oklch(0.35 0.02 235);
+  --ves-global-color-cydonia: oklch(79.571% 0.09429 75.227);
+  --ves-global-color-aurora: oklch(0.82 0.12 170);
+  --ves-global-color-gliese: oklch(0.64 0.18 350);
+
+  /* grid */
+  --ves-grid-size: 3.4286rem; /* 48px */
+
+  /* font-families */
+  --ves-font-family-primary: 'Eurostile', Helvetica, Arial, sans-serif;
+  --ves-font-family-secondary: Helvetica, Arial, sans-serif;
+
+  /* font-sizes */
+  --ves-font-size-3xl: 2.027rem; /* 28.38px */
+  --ves-font-size-2xl: 1.602rem; /* 22.43px */
+  --ves-font-size-xl: 1.424rem; /* 19.94px */
+  --ves-font-size-lg: 1.266rem; /* 17.72px */
+  --ves-font-size-md: 1.125rem; /* 15.75px */
+  --ves-font-size-sm: 1rem; /* 14px */
+  --ves-font-size-xs: 0.889rem; /* 12.45px */
+  --ves-font-size-2xs: 0.79rem; /* 11.06px */
+
+  /* font-weights */
+  --ves-font-weight-light: 200;
+  --ves-font-weight-regular: 400;
+  --ves-font-weight-semibold: 600;
+  --ves-font-weight-bold: 800;
+
+  /* spacing */
+  --ves-spacing-1: 0.1429rem; /* 2px */
+  --ves-spacing-2: 0.2857rem; /* 4px */
+  --ves-spacing-3: 0.5714rem; /* 8px */
+  --ves-spacing-4: 0.8571rem; /* 12px */
+  --ves-spacing-5: 1.1429rem; /* 16px */
+  --ves-spacing-6: 1.7143rem; /* 24px */
+  --ves-spacing-7: 2.2857rem; /* 32px */
+  --ves-spacing-8: 2.5714rem; /* 36px */
+  --ves-spacing-9: 3.4286rem; /* 48px */
+  --ves-spacing-10: 4.5714rem; /* 64px */
+}

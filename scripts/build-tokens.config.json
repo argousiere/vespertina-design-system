@@ -1,0 +1,5 @@
+{
+  "sourcePath": "src/core/tokens/tokens.ts",
+  "targetPath": "src/core/tokens/generated-tokens.css",
+  "baseRemSize": 14
+}

@@ -14,7 +14,7 @@
   color: var(--ves-global-color-light);
   font-size: var(--ves-font-size-xs);
   line-height: 1.5;
-  font-family: var(--ves-font-primary);
+  font-family: var(--ves-font-family-primary);
   overflow-wrap: anywhere;
 }
 

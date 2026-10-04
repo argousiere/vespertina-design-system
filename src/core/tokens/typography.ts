@@ -1,25 +1,18 @@
+import tokens from './tokens';
+
 const typography = {
   family: {
-    primary: '"Eurostile", Helvetica, Arial, sans-serif',
+    primary: tokens['font-families']['--ves-font-family-primary'].value,
   },
-  weight: {
-    light: 300,
-    regular: '400',
-    semibold: '600',
-    bold: '800',
-  },
-  size: {
-    // rem, scale: 1.125 on 14px
-    '3xl': 2.027,
-    '2xl': 1.602,
-    xl: 1.424,
-    lg: 1.266,
-    md: 1.125,
-    sm: 1,
-    xs: 0.889,
-    '2xs': 0.79,
-  },
-  baseSize: 14, // in px
+  weight: Object.fromEntries(
+    Object.values(tokens['font-weights']).map(({ name, value }) => [name, value])
+  ),
+  // rem, scale: 1.125
+  size: Object.entries(tokens['font-sizes']).map(([variable, { name, value }]) => ({
+    name,
+    value,
+    variable,
+  })),
 };
 
 export default typography;

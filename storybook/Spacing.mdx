@@ -1,0 +1,46 @@
+import { Meta, Subtitle, Title } from '@storybook/addon-docs/blocks';
+import spacing from '@/core/tokens/spacing';
+import SpacingScale from './SpacingScale';
+
+<Meta title="Design Tokens/Spacing" />
+
+export const rhythmMultiples = [0.5, 1, 2, 3];
+
+<Title>Spacing</Title>
+
+<Subtitle>
+  Grid size: {spacing.grid.value}rem
+</Subtitle>
+
+## Spacing Scale
+
+Use the spacing scale for padding, gaps and offsets inside components.
+
+<SpacingScale
+  config={{
+    gridSize: spacing.grid.value,
+    direction: 'horizontal',
+  }}
+  scales={spacing.scale.map((token) => ({
+    name: token.name,
+    token: token.variable,
+    value: token.value,
+  }))}
+/>
+
+## Vertical Rhythm
+
+Component heights are multiples of <code>{spacing.grid.variable}</code> so they
+line up with the background grid.
+
+<SpacingScale
+  config={{
+    gridSize: spacing.grid.value,
+    direction: 'vertical',
+  }}
+  scales={rhythmMultiples.map((multiple) => ({
+    name: `${multiple}×`,
+    token: `calc(var(${spacing.grid.variable}) * ${multiple})`,
+    value: multiple * spacing.grid.value,
+  }))}
+/>
