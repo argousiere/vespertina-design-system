@@ -1,14 +1,31 @@
 import type { Preview } from '@storybook/react-vite';
-import '../src/core/styles/index.css';
+import { DOCS_RENDERED } from 'storybook/internal/core-events';
+import { addons, useEffect } from 'storybook/preview-api';
+import '@/core/styles/index.css';
+
+const themeClasses = ['vespertina-theme', 'vespertina-theme--dark'];
+
+const setBodyTheme = (enabled: boolean) =>
+  themeClasses.forEach((className) =>
+    document.body.classList.toggle(className, enabled)
+  );
+
+addons.getChannel().on(DOCS_RENDERED, () => setBodyTheme(false));
 
 const preview: Preview = {
   decorators: [
-    (Story) => {
-      return (
-        <div className="vespertina-theme vespertina-theme--dark">
-          <Story />
-        </div>
-      );
+    (Story, { viewMode }) => {
+      useEffect(() => {
+        const isDocs = viewMode === 'docs';
+        setBodyTheme(!isDocs);
+        if (isDocs) {
+          document
+            .querySelectorAll('.docs-story')
+            .forEach((el) => el.classList.add(...themeClasses));
+        }
+      }, [viewMode]);
+
+      return <Story />;
     },
   ],
 
