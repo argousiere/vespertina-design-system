@@ -18,7 +18,8 @@
     "**/*.css"
   ],
   "scripts": {
-    "build": "tsc -b && vite build -c vite.lib.config.ts && tsc -p tsconfig.lib.json",
+    "build-design-tokens": "node scripts/build-css-from-tokens-source.ts",
+    "build": "npm run build-design-tokens && tsc -b && vite build -c vite.lib.config.ts && tsc -p tsconfig.lib.json",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

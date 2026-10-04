@@ -21,7 +21,7 @@
   height: 32px;
   color: var(--ves-global-color-light);
   font-size: var(--ves-font-size-xs);
-  font-family: var(--font-primary);
+  font-family: var(--ves-font-family-primary);
   letter-spacing: var(--ves-tag-letter-spacing);
   text-decoration: none;
   text-shadow: 0 1px 0 var(--ves-global-color-midnight);
@@ -94,7 +94,7 @@
   color: var(--ves-global-color-light);
   font-size: var(--ves-font-size-md);
   line-height: 38px;
-  font-family: var(--ves-font-primary);
+  font-family: var(--ves-font-family-primary);
   letter-spacing: 0.2em;
   text-overflow: ellipsis;
   text-transform: uppercase;

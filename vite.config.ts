@@ -1,6 +1,7 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { cssTokens } from './scripts/build-css-from-tokens-source.ts';
 
 // https://vite.dev/config/
 import path from 'node:path';
@@ -22,7 +23,7 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './src/react/components'),
     },
   },
-  plugins: [react()],
+  plugins: [react(), cssTokens()],
   test: {
     projects: [
       {
