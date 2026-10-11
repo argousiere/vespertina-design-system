@@ -17,6 +17,8 @@
   --ves-global-color-cydonia: oklch(79.571% 0.09429 75.227);
   --ves-global-color-aurora: oklch(0.82 0.12 170);
   --ves-global-color-gliese: oklch(0.64 0.18 350);
+  --ves-global-color-carina: oklch(0.52 0.17 350);
+  --ves-global-color-farout: oklch(0.42 0.14 350);
 
   /* grid */
   --ves-grid-size: 3.4286rem; /* 48px */

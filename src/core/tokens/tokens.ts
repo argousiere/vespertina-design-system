@@ -90,6 +90,16 @@ const tokens = {
       name: 'Gliese',
       value: 'oklch(0.64 0.18 350)',
     },
+    '--ves-global-color-carina': {
+      type: 'color',
+      name: 'Carina',
+      value: 'oklch(0.52 0.17 350)',
+    },
+    '--ves-global-color-farout': {
+      type: 'color',
+      name: 'Farout',
+      value: 'oklch(0.42 0.14 350)',
+    },
   },
 
   grid: {
