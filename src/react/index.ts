@@ -3,6 +3,8 @@ export type { ButtonProps } from './components/Button';
 export { default as EntryList } from './components/EntryList';
 export { default as EntryListItem } from './components/EntryListItem';
 export type { EntryListItemProps } from './components/EntryListItem';
+export { default as EntryPagination } from './components/EntryPagination';
+export type { EntryPaginationProps } from './components/EntryPagination';
 export { default as FeaturedList } from './components/FeaturedList';
 export { default as FeaturedListItem } from './components/FeaturedListItem';
 export type { FeaturedListItemProps } from './components/FeaturedListItem';

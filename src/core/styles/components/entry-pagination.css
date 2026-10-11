@@ -1,0 +1,87 @@
+.ves-entry-pagination {
+  --ves-entry-pagination-border-color: var(--ves-border-color);
+  --ves-entry-pagination-icon-color: var(--ves-global-color-enceladus);
+  --ves-entry-pagination-icon-size: var(--ves-spacing-6);
+  --ves-entry-pagination-hover-color: var(--ves-global-color-light);
+  --ves-entry-pagination-hover-bg-color: oklch(
+    from var(--ves-global-color-cerulean) l c h / 0.15
+  );
+  --ves-entry-pagination-active-bg-color: oklch(
+    from var(--ves-global-color-cerulean) l c h / 0.25
+  );
+  --ves-entry-pagination-glow-color: var(--main-glow-color);
+  --ves-entry-pagination-glow-height: var(--main-glow-height);
+
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--ves-entry-pagination-border-color);
+  background: radial-gradient(
+    ellipse 50% var(--ves-entry-pagination-glow-height) at 50% bottom,
+    var(--ves-entry-pagination-glow-color),
+    transparent
+  );
+  height: calc(var(--ves-grid-size) * 3);
+  overflow: hidden;
+}
+
+.ves-entry-pagination__item {
+  display: flex;
+  flex: 1 0 50%;
+  min-width: 0;
+}
+
+.ves-entry-pagination__link {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  gap: var(--ves-spacing-6);
+  transition: background-color 0.08s ease-in-out;
+  padding: var(--ves-spacing-6);
+  min-width: 0;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--ves-entry-pagination-hover-bg-color);
+    color: var(--ves-entry-pagination-hover-color);
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--ves-entry-pagination-icon-color);
+    outline-offset: -1px;
+  }
+
+  &:active {
+    background: var(--ves-entry-pagination-active-bg-color);
+  }
+}
+
+.ves-entry-pagination__item--next .ves-entry-pagination__link {
+  justify-content: space-between;
+}
+
+.ves-entry-pagination .ves-icon {
+  --ves-icon-color: var(--ves-entry-pagination-icon-color);
+  --ves-icon-size: var(--ves-entry-pagination-icon-size);
+}
+
+.ves-entry-pagination__details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ves-entry-pagination__label {
+  color: var(--ves-global-color-ice);
+  font-weight: var(--ves-font-weight-semibold);
+  font-size: var(--ves-font-size-2xs);
+  font-family: var(--ves-font-family-primary);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.ves-entry-pagination__title {
+  --clamp-text-lines: 2;
+
+  font-size: var(--ves-font-size-xl);
+  font-family: var(--ves-font-family-primary);
+}
