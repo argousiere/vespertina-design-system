@@ -1,0 +1,11 @@
+.ves-icon {
+  --ves-icon-size: var(--ves-spacing-6);
+  --ves-icon-color: currentColor;
+
+  display: inline-block;
+  flex-shrink: 0;
+  mask: var(--ves-icon-src) no-repeat center / contain;
+  background-color: var(--ves-icon-color);
+  width: var(--ves-icon-size);
+  height: var(--ves-icon-size);
+}

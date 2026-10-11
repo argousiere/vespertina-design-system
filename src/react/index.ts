@@ -6,6 +6,8 @@ export type { EntryListItemProps } from './components/EntryListItem';
 export { default as FeaturedList } from './components/FeaturedList';
 export { default as FeaturedListItem } from './components/FeaturedListItem';
 export type { FeaturedListItemProps } from './components/FeaturedListItem';
+export { default as Icon } from './components/Icon';
+export type { IconProps, IconName } from './components/Icon';
 export { default as Tag } from './components/Tag';
 export type { TagProps } from './components/Tag';
 export { default as TagBox } from './components/TagBox';

@@ -36,3 +36,6 @@ Build the package into `dist/`:
 ```shell
 npm run build
 ```
+
+## Attributions
+Icons from https://www.flaticon.com
