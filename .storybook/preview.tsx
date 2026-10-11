@@ -32,7 +32,13 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ['Design Tokens', 'Iconography', 'Components', '*'],
+        order: [
+          'Introduction',
+          'Design Tokens',
+          'Iconography',
+          'Components',
+          '*',
+        ],
         method: 'alphabetical',
       },
     },
