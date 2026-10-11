@@ -30,6 +30,13 @@ const preview: Preview = {
   ],
 
   parameters: {
+    options: {
+      storySort: {
+        order: ['Design Tokens', 'Iconography', 'Components', '*'],
+        method: 'alphabetical',
+      },
+    },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,
