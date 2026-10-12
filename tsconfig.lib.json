@@ -5,8 +5,10 @@
     "noEmit": false,
     "declaration": true,
     "emitDeclarationOnly": true,
-    "rootDir": "src/react",
-    "outDir": "dist/react"
+    "types": ["vite/client", "node"],
+    "rootDir": "src",
+    "outDir": "dist"
   },
-  "include": ["src/react"]
+  "include": ["src/react", "src/core/scripts"],
+  "exclude": ["src/core/scripts/markdown.d.ts"]
 }

@@ -1,0 +1,91 @@
+/*
+ * Entry body: styles raw entry content (e.g. Ghost's {{content}}) by element,
+ * since authors can't add classes to it. Primitives are added step by step.
+ */
+.ves-entry-body {
+  --ves-entry-body-font-size: var(--ves-font-size-md);
+  --ves-entry-body-line-height: var(--ves-grid-size);
+  --ves-entry-body-letter-spacing: 0.07em;
+  --ves-entry-body-block-gap: var(--ves-grid-size);
+  --ves-entry-body-heading-line-height: 1.3;
+  --ves-entry-body-heading-letter-spacing: 0.1em;
+  --ves-entry-body-link-color: var(--ves-global-color-cerulean);
+  --ves-entry-body-link-bracket-gap: 0.5em;
+
+  font-size: var(--ves-entry-body-font-size);
+  line-height: var(--ves-entry-body-line-height);
+  letter-spacing: var(--ves-entry-body-letter-spacing);
+
+  /* One grid unit between every block */
+  & > * + * {
+    margin-block-start: var(--ves-entry-body-block-gap);
+  }
+
+  p {
+    margin: 0;
+
+    + p {
+      margin-top: var(--ves-grid-size);
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block-end: 0;
+    line-height: var(--ves-entry-body-heading-line-height);
+    letter-spacing: var(--ves-entry-body-heading-letter-spacing);
+  }
+
+  /* h2-h4 are sentence case in entries; h5-h6 keep the uppercase base style */
+  h2 {
+    font-size: var(--ves-font-size-2xl);
+    text-transform: none;
+  }
+
+  h3 {
+    font-size: var(--ves-font-size-xl);
+    text-transform: none;
+  }
+
+  h4 {
+    font-size: var(--ves-font-size-lg);
+    text-transform: none;
+  }
+
+  h5 {
+    font-size: var(--ves-font-size-md);
+  }
+
+  h6 {
+    font-size: var(--ves-font-size-sm);
+  }
+
+  a {
+    padding-inline: var(--ves-spacing-2);
+    color: var(--ves-entry-body-link-color);
+    font-weight: var(--ves-font-weight-light);
+    text-decoration: none;
+
+    &::before {
+      margin-inline-end: var(--ves-entry-body-link-bracket-gap);
+      content: '[[';
+    }
+
+    &::after {
+      margin-inline-start: var(--ves-entry-body-link-bracket-gap);
+      content: ']]';
+    }
+
+    &:hover {
+      border-block-end: 1px solid var(--ves-entry-body-link-color);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--ves-entry-body-link-color);
+      outline-offset: 2px;
+    }
+  }
+}

@@ -12,7 +12,15 @@
       "import": "./dist/react/index.js"
     },
     "./core/styles.css": "./dist/core/styles.css",
-    "./core/tokens.css": "./dist/core/tokens.css"
+    "./core/tokens.css": "./dist/core/tokens.css",
+    "./core/scripts/entries": {
+      "types": "./dist/core/scripts/entries.d.ts",
+      "import": "./dist/core/scripts/entries.js"
+    },
+    "./core/scripts/markdown-entries": {
+      "types": "./dist/core/scripts/markdown-entries.d.ts",
+      "import": "./dist/core/scripts/markdown-entries.js"
+    }
   },
   "sideEffects": [
     "**/*.css"
@@ -26,10 +34,13 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "date-fns": "^4.1.0"
+    "date-fns": "^4.1.0",
+    "front-matter": "^4.0.2",
+    "marked": "^18.1.1"
   },
   "peerDependencies": {
-    "react": "^19.2.0"
+    "react": "^19.2.0",
+    "vite": "^7.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -58,5 +69,10 @@
     "typescript-eslint": "^8.70.1",
     "vite": "^7.2.4",
     "vitest": "^4.1.11"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
   }
 }
