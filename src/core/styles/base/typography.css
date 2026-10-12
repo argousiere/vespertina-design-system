@@ -17,4 +17,8 @@ html {
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
+
+  p {
+    font-weight: var(--ves-font-weight-regular);
+  }
 }

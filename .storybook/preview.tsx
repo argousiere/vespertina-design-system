@@ -39,8 +39,8 @@ const preview: Preview = {
         order: [
           'Introduction',
           'Design Tokens',
-          'Iconography',
-          'Text',
+          'Base',
+          ['Iconography', 'Text'],
           'Components',
           '*',
         ],
