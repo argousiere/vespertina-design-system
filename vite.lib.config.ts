@@ -9,12 +9,19 @@ const external = [
 ];
 
 // Builds the publishable package into dist/:
-// - dist/core: framework-agnostic CSS, tokens, fonts and images
+// - dist/core: framework-agnostic CSS, tokens, fonts and images, plus the
+//   entry registry and the Vite plugin that turns markdown files into
+//   entries (core/scripts)
 // - dist/react: React components as an ES module
 export default defineConfig({
   base: './',
   publicDir: false,
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@core': path.resolve(import.meta.dirname, 'src/core'),
+    },
+  },
   experimental: {
     // Resolve font and image URLs relative to the CSS file that uses them,
     // so dist/core/styles.css works wherever the package is installed
@@ -38,9 +45,18 @@ export default defineConfig({
           import.meta.dirname,
           'src/core/tokens/tokens.css'
         ),
+        'core/scripts/entries': path.resolve(
+          import.meta.dirname,
+          'src/core/scripts/entries.ts'
+        ),
+        'core/scripts/markdown-entries': path.resolve(
+          import.meta.dirname,
+          'src/core/scripts/markdown-entries.ts'
+        ),
         'react/index': path.resolve(import.meta.dirname, 'src/react/index.ts'),
       },
       external: (id) =>
+        id.startsWith('node:') ||
         external.some((dep) => id === dep || id.startsWith(`${dep}/`)),
       preserveEntrySignatures: 'strict',
       output: {

@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { cssTokens } from './scripts/build-css-from-tokens-source.ts';
+import { markdownEntries } from './src/core/scripts/markdown-entries.ts';
 
 // https://vite.dev/config/
 import path from 'node:path';
@@ -21,9 +22,10 @@ export default defineConfig({
       '@images': path.resolve(__dirname, './src/core/assets/images'),
       '@styles': path.resolve(__dirname, './src/core/styles'),
       '@components': path.resolve(__dirname, './src/react/components'),
+      '@core': path.resolve(__dirname, './src/core'),
     },
   },
-  plugins: [react(), cssTokens()],
+  plugins: [react(), cssTokens(), markdownEntries()],
   test: {
     projects: [
       {

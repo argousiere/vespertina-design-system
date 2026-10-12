@@ -23,5 +23,10 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite.config.ts", "vite.lib.config.ts", "scripts"]
+  "include": [
+    "vite.config.ts",
+    "vite.lib.config.ts",
+    "scripts",
+    "src/core/scripts/markdown-entries.ts"
+  ]
 }

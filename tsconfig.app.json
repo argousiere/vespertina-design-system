@@ -27,8 +27,10 @@
       "@/*": ["./src/*"],
       "@images/*": ["./src/core/assets/images/*"],
       "@styles/*": ["./src/core/styles/*"],
-      "@components/*": ["./src/react/components/*"]
+      "@components/*": ["./src/react/components/*"],
+      "@core/*": ["./src/core/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/core/scripts/markdown-entries.ts"]
 }
