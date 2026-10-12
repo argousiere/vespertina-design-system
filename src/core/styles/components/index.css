@@ -1,6 +1,9 @@
 @import './buttons.css';
 @import './icon.css';
 @import './thumbnails.css';
+@import './entry-body.css';
+@import './entry-header.css';
+@import './entry.css';
 @import './entry-list.css';
 @import './entry-pagination.css';
 @import './featured-list.css';

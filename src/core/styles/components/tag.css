@@ -80,7 +80,6 @@
 
 .ves-tag-box {
   border: 1px solid var(--ves-global-color-kyanite);
-  max-width: var(--ves-tag-max-width);
   width: 100%;
 }
 

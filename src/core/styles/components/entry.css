@@ -1,0 +1,28 @@
+.ves-entry {
+  --ves-entry-content-width: 720px;
+  --ves-entry-gutter: var(--ves-spacing-5);
+
+  display: block;
+  padding: var(--ves-grid-size) 0;
+}
+
+.ves-entry__header,
+.ves-entry__body,
+.ves-entry__tags {
+  margin-inline: auto;
+  width: min(
+    var(--ves-entry-content-width),
+    100% - var(--ves-entry-gutter) * 2
+  );
+}
+
+.ves-entry__body {
+  padding-bottom: calc(var(--ves-grid-size) * 2);
+}
+
+.ves-entry__tags {
+  .ves-tag-box {
+    max-width: none;
+    width: 100%;
+  }
+}
