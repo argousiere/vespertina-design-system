@@ -1,9 +1,15 @@
 .ves-btn {
   --ves-btn-bg-color: var(--ves-global-color-midnight);
   --ves-btn-border-color: var(--ves-global-color-kyanite);
+  --ves-btn-hover-bg-color: var(--ves-global-color-celestial);
+  --ves-btn-hover-border-color: var(--ves-global-color-celestial);
+  --ves-btn-active-bg-color: var(--ves-global-color-kyanite);
+  --ves-btn-active-border-color: var(--ves-global-color-kyanite);
+  --ves-btn-active-outline-color: var(--ves-global-color-cerulean);
+  --ves-btn-disabled-bg-color: var(--ves-global-color-asteroid);
+  --ves-btn-focus-corner-color: var(--ves-global-color-cerulean);
   --ves-btn-focus-offset: -10px;
   --ves-btn-focus-corner-size: 12px;
-  --ves-btn-focus-corner-color: var(--ves-global-color-cerulean);
 
   display: inline-block;
   position: relative;
@@ -26,8 +32,8 @@
 
 .ves-btn:hover,
 .ves-btn:focus-visible {
-  border-color: var(--ves-global-color-celestial);
-  background: var(--ves-global-color-celestial);
+  border-color: var(--ves-btn-hover-border-color);
+  background: var(--ves-btn-hover-bg-color);
 
   &::before,
   &::after {
@@ -74,11 +80,11 @@
 }
 
 .ves-btn:active {
-  border-color: var(--ves-global-color-kyanite);
-  background: var(--ves-global-color-kyanite);
+  border-color: var(--ves-btn-active-border-color);
+  background: var(--ves-btn-active-bg-color);
 
   &::before {
-    border-color: var(--ves-global-color-cerulean);
+    border-color: var(--ves-btn-active-outline-color);
   }
 
   &::after {
@@ -89,10 +95,22 @@
 .ves-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background-color: var(--ves-global-color-asteroid);
+  background-color: var(--ves-btn-disabled-bg-color);
 
   &::before,
   &::after {
     content: none;
   }
+}
+
+.ves-btn--contrast {
+  --ves-btn-bg-color: var(--ves-global-color-gliese);
+  --ves-btn-border-color: var(--ves-global-color-gliese);
+  --ves-btn-hover-bg-color: var(--ves-global-color-carina);
+  --ves-btn-hover-border-color: var(--ves-btn-hover-bg-color);
+  --ves-btn-active-bg-color: var(--ves-global-color-farout);
+  --ves-btn-active-border-color: var(--ves-btn-active-bg-color);
+  --ves-btn-active-outline-color: var(--ves-global-color-gliese);
+  --ves-btn-disabled-bg-color: var(--ves-global-color-asteroid);
+  --ves-btn-focus-corner-color: var(--ves-global-color-gliese);
 }

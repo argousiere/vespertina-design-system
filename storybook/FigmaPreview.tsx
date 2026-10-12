@@ -56,7 +56,7 @@ const FigmaPreview = ({
           <button
             type="button"
             onClick={() => setActive(true)}
-            className="ves-btn"
+            className="ves-btn ves-btn--contrast"
           >
             Load interactive Figma preview
           </button>
