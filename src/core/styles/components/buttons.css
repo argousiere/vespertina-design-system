@@ -3,13 +3,13 @@
   --ves-btn-border-color: var(--ves-global-color-kyanite);
   --ves-btn-hover-bg-color: var(--ves-global-color-celestial);
   --ves-btn-hover-border-color: var(--ves-global-color-celestial);
+  --ves-btn-hover-corner-color: var(--ves-global-color-cerulean);
+  --ves-btn-hover-offset: -10px;
+  --ves-btn-hover-corner-size: 12px;
   --ves-btn-active-bg-color: var(--ves-global-color-kyanite);
   --ves-btn-active-border-color: var(--ves-global-color-kyanite);
   --ves-btn-active-outline-color: var(--ves-global-color-cerulean);
   --ves-btn-disabled-bg-color: var(--ves-global-color-asteroid);
-  --ves-btn-focus-corner-color: var(--ves-global-color-cerulean);
-  --ves-btn-focus-offset: -10px;
-  --ves-btn-focus-corner-size: 12px;
 
   display: inline-block;
   position: relative;
@@ -44,10 +44,10 @@
   }
 
   &::before {
-    top: var(--ves-btn-focus-offset);
-    right: var(--ves-btn-focus-offset);
-    bottom: var(--ves-btn-focus-offset);
-    left: var(--ves-btn-focus-offset);
+    top: var(--ves-btn-hover-offset);
+    right: var(--ves-btn-hover-offset);
+    bottom: var(--ves-btn-hover-offset);
+    left: var(--ves-btn-hover-offset);
     z-index: -1;
     transition: border-color 0.08s linear;
     border-color: var(--ves-btn-border-color);
@@ -55,7 +55,7 @@
 
   &::after {
     --b: 1px;
-    --c: var(--ves-btn-focus-corner-size);
+    --c: var(--ves-btn-hover-corner-size);
     --corner: conic-gradient(from -90deg at var(--c) var(--c), red 25%, #0000 0)
       0 0 / calc(100% - var(--c)) calc(100% - var(--c)) border-box;
     --inner: conic-gradient(red 0 0) padding-box;
@@ -66,12 +66,12 @@
       var(--corner) subtract,
       var(--inner);
     inset: calc(var(--b) * -1);
-    top: var(--ves-btn-focus-offset);
-    right: var(--ves-btn-focus-offset);
-    bottom: var(--ves-btn-focus-offset);
-    left: var(--ves-btn-focus-offset);
-    border-color: var(--ves-btn-focus-corner-color);
-    background: var(--ves-btn-focus-corner-color) border-box;
+    top: var(--ves-btn-hover-offset);
+    right: var(--ves-btn-hover-offset);
+    bottom: var(--ves-btn-hover-offset);
+    left: var(--ves-btn-hover-offset);
+    border-color: var(--ves-btn-hover-corner-color);
+    background: var(--ves-btn-hover-corner-color) border-box;
   }
 }
 
@@ -105,12 +105,12 @@
 
 .ves-btn--contrast {
   --ves-btn-bg-color: var(--ves-global-color-gliese);
-  --ves-btn-border-color: var(--ves-global-color-gliese);
+  --ves-btn-border-color: transparent;
   --ves-btn-hover-bg-color: var(--ves-global-color-carina);
-  --ves-btn-hover-border-color: var(--ves-btn-hover-bg-color);
+  --ves-btn-hover-border-color: transparent;
   --ves-btn-active-bg-color: var(--ves-global-color-farout);
   --ves-btn-active-border-color: var(--ves-btn-active-bg-color);
   --ves-btn-active-outline-color: var(--ves-global-color-gliese);
   --ves-btn-disabled-bg-color: var(--ves-global-color-asteroid);
-  --ves-btn-focus-corner-color: var(--ves-global-color-gliese);
+  --ves-btn-hover-corner-color: var(--ves-global-color-gliese);
 }

@@ -49,16 +49,21 @@ const FigmaPreview = ({
           flexDirection: 'column',
           position: 'absolute',
           width: '100%',
-          height: '25%',
+          height: '30%',
           bottom: 0,
-          background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.25))'
+          background: `linear-gradient(to bottom, 
+            rgba(0,0,0,0) 0%,
+            rgba(0,0,0,0) 25%, 
+            rgba(0,0,0,0) 26%, 
+            rgba(0,0,0,0.75) 100%)`,
+          backdropFilter: 'blur(1.25px)'
         }}>
           <button
             type="button"
             onClick={() => setActive(true)}
             className="ves-btn ves-btn--contrast"
           >
-            Load interactive Figma preview
+            Load Figma preview
           </button>
         </div>
       )}
