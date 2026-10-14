@@ -1,0 +1,51 @@
+.ves-progressive-blur {
+  --ves-progressive-blur-direction: to top;
+  --ves-progressive-blur-fill-size: 100%;
+  --ves-progressive-blur-min: 0.25px;
+  --ves-progressive-blur-color: transparent;
+
+  position: absolute;
+  background: linear-gradient(
+    var(--ves-progressive-blur-direction),
+    transparent,
+    var(--ves-progressive-blur-color)
+  );
+  pointer-events: none;
+}
+
+.ves-progressive-blur--top-to-bottom {
+  --ves-progressive-blur-direction: to top;
+
+  inset-block: 0 auto;
+  inset-inline: 0;
+  height: var(--ves-progressive-blur-fill-size);
+}
+
+.ves-progressive-blur--bottom-to-top {
+  --ves-progressive-blur-direction: to bottom;
+
+  inset-block: auto 0;
+  inset-inline: 0;
+  height: var(--ves-progressive-blur-fill-size);
+}
+
+.ves-progressive-blur--left-to-right {
+  --ves-progressive-blur-direction: to left;
+
+  inset-block: 0;
+  inset-inline: 0 auto;
+  width: var(--ves-progressive-blur-fill-size);
+}
+
+.ves-progressive-blur--right-to-left {
+  --ves-progressive-blur-direction: to right;
+
+  inset-block: 0;
+  inset-inline: auto 0;
+  width: var(--ves-progressive-blur-fill-size);
+}
+
+.ves-progressive-blur__layer {
+  position: absolute;
+  inset: 0;
+}
