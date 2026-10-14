@@ -25,6 +25,8 @@ export { default as NavList } from './components/NavList';
 export type { NavListProps } from './components/NavList';
 export { default as NavListItem } from './components/NavListItem';
 export type { NavListItemProps } from './components/NavListItem';
+export { default as Navbar } from './components/Navbar';
+export type { NavbarProps } from './components/Navbar';
 export { default as ProgressiveBlur } from './components/ProgressiveBlur';
 export type {
   ProgressiveBlurProps,

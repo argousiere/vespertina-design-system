@@ -1,0 +1,32 @@
+.ves-navbar {
+  --ves-navbar-logo-color: --ves-global-color-light;
+  --ves-navbar-bg-color: var(--ves-global-color-midnight);
+  --ves-navbar-padding-inline: var(--ves-spacing-10);
+  --ves-navbar-border-color: var(--ves-global-color-kyanite);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--ves-spacing-6);
+  background: var(--ves-navbar-bg-color);
+  border-bottom: 1px solid var(--ves-navbar-border-color);
+  padding-inline: var(--ves-navbar-padding-inline);
+  width: 100%;
+}
+
+.ves-navbar__logo {
+  color: var(--ves-navbar-logo-color);
+  font-weight: var(--ves-font-weight-bold);
+  font-size: var(--ves-font-size-md);
+  font-family: var(--ves-font-family-primary);
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ves-navbar__content {
+  display: flex;
+  align-items: center;
+  gap: var(--ves-spacing-5);
+}
