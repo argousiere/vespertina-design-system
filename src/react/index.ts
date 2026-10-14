@@ -1,5 +1,10 @@
 export { default as Button } from './components/Button';
 export type { ButtonProps } from './components/Button';
+export { default as EmbedViewer } from './components/EmbedViewer';
+export type {
+  EmbedViewerProps,
+  EmbedViewerPreview,
+} from './components/EmbedViewer';
 export { default as EntryList } from './components/EntryList';
 export { default as EntryListItem } from './components/EntryListItem';
 export type { EntryListItemProps } from './components/EntryListItem';

@@ -1,0 +1,46 @@
+.ves-embed-viewer {
+  --ves-embed-viewer-aspect-ratio: 16 / 9;
+  --ves-embed-viewer-bg-color: var(--ves-global-color-midnight);
+  --ves-embed-viewer-overlay-shade: rgb(0 0 0 / 0.75);
+
+  position: relative;
+  aspect-ratio: var(--ves-embed-viewer-aspect-ratio);
+  background: var(--ves-embed-viewer-bg-color);
+}
+
+.ves-embed-viewer__preview-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ves-embed-viewer__frame {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ves-embed-viewer__frame--loaded {
+  opacity: 1;
+}
+
+.ves-embed-viewer__overlay {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(1.25px);
+  background: linear-gradient(
+    to bottom,
+    transparent 25%,
+    var(--ves-embed-viewer-overlay-shade) 100%
+  );
+  width: 100%;
+  height: 30%;
+}
