@@ -30,6 +30,8 @@ export type {
   ProgressiveBlurProps,
   ProgressiveBlurDirection,
 } from './components/ProgressiveBlur';
+export { default as Toolbar } from './components/Toolbar';
+export type { ToolbarAction, ToolbarProps } from './components/Toolbar';
 export { default as Tag } from './components/Tag';
 export type { TagProps } from './components/Tag';
 export { default as TagBox } from './components/TagBox';

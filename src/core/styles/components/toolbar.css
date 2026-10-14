@@ -1,0 +1,45 @@
+.ves-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--ves-spacing-3);
+}
+
+.ves-toolbar__action {
+  --ves-toolbar-action-size: var(--ves-spacing-9);
+  --ves-toolbar-action-color: var(--ves-global-color-light);
+  --ves-toolbar-action-hover-bg-color: oklch(
+    from var(--ves-global-color-cerulean) l c h / 0.15
+  );
+  --ves-toolbar-action-active-bg-color: oklch(
+    from var(--ves-global-color-cerulean) l c h / 0.25
+  );
+  --ves-toolbar-action-focus-color: var(--ves-global-color-cerulean);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.08s ease-in-out;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 0 var(--ves-spacing-4);
+  min-width: var(--ves-toolbar-action-size);
+  height: var(--ves-toolbar-action-size);
+  color: var(--ves-toolbar-action-color);
+  font-size: var(--ves-font-size-md);
+  font-family: var(--ves-font-family-primary);
+  letter-spacing: 0.1em;
+}
+
+.ves-toolbar__action:hover {
+  background: var(--ves-toolbar-action-hover-bg-color);
+}
+
+.ves-toolbar__action:focus-visible {
+  outline: 1px solid var(--ves-toolbar-action-focus-color);
+  outline-offset: -1px;
+}
+
+.ves-toolbar__action:active {
+  background: var(--ves-toolbar-action-active-bg-color);
+}
