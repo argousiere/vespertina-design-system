@@ -1,0 +1,47 @@
+.ves-nav-list__items {
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ves-nav-list-item {
+  --ves-nav-list-item-height: var(--ves-spacing-9);
+  --ves-nav-list-item-color: var(--ves-global-color-light);
+  --ves-nav-list-item-hover-bg-color: oklch(
+    from var(--ves-global-color-cerulean) l c h / 0.15
+  );
+  --ves-nav-list-item-active-bg-color: var(--ves-global-color-kyanite);
+  --ves-nav-list-item-focus-color: var(--ves-global-color-cerulean);
+
+  display: flex;
+}
+
+.ves-nav-list-item__link {
+  display: flex;
+  align-items: center;
+  transition: background-color 0.08s ease-in-out;
+  padding: 0 var(--ves-spacing-6);
+  height: var(--ves-nav-list-item-height);
+  color: var(--ves-nav-list-item-color);
+  font-size: var(--ves-font-size-md);
+  font-family: var(--ves-font-family-primary);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.ves-nav-list-item__link:hover,
+.ves-nav-list-item--focused .ves-nav-list-item__link {
+  background: var(--ves-nav-list-item-hover-bg-color);
+}
+
+.ves-nav-list-item__link:focus-visible {
+  outline: 1px solid var(--ves-nav-list-item-focus-color);
+  outline-offset: -1px;
+}
+
+.ves-nav-list-item--active .ves-nav-list-item__link,
+.ves-nav-list-item--active .ves-nav-list-item__link:hover {
+  background: var(--ves-nav-list-item-active-bg-color);
+}
