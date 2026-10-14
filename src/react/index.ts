@@ -1,5 +1,10 @@
 export { default as Button } from './components/Button';
 export type { ButtonProps } from './components/Button';
+export { default as EmbedViewer } from './components/EmbedViewer';
+export type {
+  EmbedViewerProps,
+  EmbedViewerPreview,
+} from './components/EmbedViewer';
 export { default as EntryList } from './components/EntryList';
 export { default as EntryListItem } from './components/EntryListItem';
 export type { EntryListItemProps } from './components/EntryListItem';
@@ -16,6 +21,11 @@ export { default as EntryHeader } from './components/EntryHeader';
 export type { EntryHeaderProps } from './components/EntryHeader';
 export { default as EntryBody } from './components/EntryBody';
 export type { EntryBodyProps } from './components/EntryBody';
+export { default as ProgressiveBlur } from './components/ProgressiveBlur';
+export type {
+  ProgressiveBlurProps,
+  ProgressiveBlurDirection,
+} from './components/ProgressiveBlur';
 export { default as Tag } from './components/Tag';
 export type { TagProps } from './components/Tag';
 export { default as TagBox } from './components/TagBox';

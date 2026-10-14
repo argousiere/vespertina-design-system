@@ -39,5 +39,6 @@ Build the package into `dist/`:
 npm run build
 ```
 
-## Attributions
+## Attributions and Inspirations
 Icons from https://www.flaticon.com
+Progressive Blur from https://kennethnym.com/blog/progressive-blur-in-css/

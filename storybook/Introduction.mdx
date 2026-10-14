@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import banner from '@images/vespertina-design-system-banner.png';
-import FigmaPreview from './FigmaPreview';
+import EmbedViewer from '@components/EmbedViewer';
 
 <Meta title="Introduction" />
 
@@ -10,10 +10,14 @@ My personal Design System built in React + native CSS.
 
 Design developed from scratch in [Figma](https://www.figma.com/design/jiNUbgAPy50E6CpPQEvW16/Vespertine-Cadet?node-id=377-24).
 
-<FigmaPreview
-  poster={banner}
-  posterAlt="Vespertina Design System banner with the logo and a sample dropdown component"
+<EmbedViewer
+  preview={{
+    imgSrc: banner,
+    imgAlt: 'Vespertina Design System banner with the logo and a sample dropdown component',
+    loadActionLabel: 'Load Figma preview',
+  }}
   src="https://embed.figma.com/design/jiNUbgAPy50E6CpPQEvW16/Vespertine-Cadet?node-id=377-24&embed-host=storybook"
   title="Vespertina Design System in Figma"
-  aspectRatio="817 / 384"
+  aspectRatioWidth={817}
+  aspectRatioHeight={384}
 />

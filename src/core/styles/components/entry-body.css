@@ -1,7 +1,3 @@
-/*
- * Entry body: styles raw entry content (e.g. Ghost's {{content}}) by element,
- * since authors can't add classes to it. Primitives are added step by step.
- */
 .ves-entry-body {
   --ves-entry-body-font-size: var(--ves-font-size-md);
   --ves-entry-body-line-height: var(--ves-grid-size);
@@ -16,7 +12,6 @@
   line-height: var(--ves-entry-body-line-height);
   letter-spacing: var(--ves-entry-body-letter-spacing);
 
-  /* One grid unit between every block */
   & > * + * {
     margin-block-start: var(--ves-entry-body-block-gap);
   }
@@ -39,7 +34,6 @@
     letter-spacing: var(--ves-entry-body-heading-letter-spacing);
   }
 
-  /* h2-h4 are sentence case in entries; h5-h6 keep the uppercase base style */
   h2 {
     font-size: var(--ves-font-size-2xl);
     text-transform: none;
