@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react-vite';
 import { DOCS_RENDERED } from 'storybook/internal/core-events';
 import { addons, useEffect } from 'storybook/preview-api';
 import entries from 'virtual:vespertina-entries';
-import { registerEntries } from '@core/scripts/entries';
+import { registerEntries } from '@core/scripts/entries-registry';
 import '@/core/styles/index.css';
 
 registerEntries(entries);

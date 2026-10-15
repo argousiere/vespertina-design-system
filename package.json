@@ -26,10 +26,10 @@
       "import": "./dist/core/token-values.js",
       "default": "./dist/core/token-values.js"
     },
-    "./core/scripts/entries": {
-      "types": "./dist/core/scripts/entries.d.ts",
-      "import": "./dist/core/scripts/entries.js",
-      "default": "./dist/core/scripts/entries.js"
+    "./core/scripts/entries-registry": {
+      "types": "./dist/core/scripts/entries-registry.d.ts",
+      "import": "./dist/core/scripts/entries-registry.js",
+      "default": "./dist/core/scripts/entries-registry.js"
     },
     "./vite": {
       "types": "./dist/vite/markdown-entries-plugin.d.ts",

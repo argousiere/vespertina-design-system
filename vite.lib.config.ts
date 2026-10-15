@@ -50,9 +50,9 @@ export default defineConfig({
           import.meta.dirname,
           'src/core/tokens/tokens.ts'
         ),
-        'core/scripts/entries': path.resolve(
+        'core/scripts/entries-registry': path.resolve(
           import.meta.dirname,
-          'src/core/scripts/entries.ts'
+          'src/core/scripts/entries-registry.ts'
         ),
         'vite/markdown-entries-plugin': path.resolve(
           import.meta.dirname,

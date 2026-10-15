@@ -1,4 +1,4 @@
-import { getEntry } from '@core/scripts/entries';
+import { getEntry } from '@core/scripts/entries-registry';
 
 export interface MarkdownRendererProps extends Omit<
   React.ComponentPropsWithoutRef<'div'>,
