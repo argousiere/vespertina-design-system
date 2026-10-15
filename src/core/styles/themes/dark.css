@@ -19,13 +19,7 @@
   color: var(--foreground-color);
 
   main {
-    background:
-      radial-gradient(
-        ellipse 50% var(--main-glow-height) at 50% top,
-        var(--main-glow-color),
-        transparent
-      ),
-      oklch(from var(--ves-global-color-midnight) l c h / 0.15);
+    background: oklch(from var(--ves-global-color-midnight) l c h / 0.15);
   }
 
   &::before,

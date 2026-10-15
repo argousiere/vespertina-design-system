@@ -4,6 +4,11 @@
 
   display: block;
   padding: var(--ves-grid-size) 0;
+  background: radial-gradient(
+    ellipse 50% var(--main-glow-height) at 50% top,
+    var(--main-glow-color),
+    transparent
+  );
 }
 
 .ves-entry__header,
