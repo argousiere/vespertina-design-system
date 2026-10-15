@@ -10,8 +10,12 @@
     "registry": "https://npm.pkg.github.com"
   },
   "type": "module",
+  "bin": {
+    "vespertina": "./bin/vespertina.js"
+  },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "exports": {
     "./react": {
