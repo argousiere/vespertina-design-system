@@ -27,6 +27,6 @@
     "vite.config.ts",
     "vite.lib.config.ts",
     "scripts",
-    "src/core/scripts/markdown-entries.ts"
+    "src/vite/markdown-entries-plugin.ts"
   ]
 }

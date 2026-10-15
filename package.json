@@ -31,10 +31,10 @@
       "import": "./dist/core/scripts/entries.js",
       "default": "./dist/core/scripts/entries.js"
     },
-    "./core/scripts/markdown-entries": {
-      "types": "./dist/core/scripts/markdown-entries.d.ts",
-      "import": "./dist/core/scripts/markdown-entries.js",
-      "default": "./dist/core/scripts/markdown-entries.js"
+    "./vite": {
+      "types": "./dist/vite/markdown-entries-plugin.d.ts",
+      "import": "./dist/vite/markdown-entries-plugin.js",
+      "default": "./dist/vite/markdown-entries-plugin.js"
     },
     "./core/fonts/*": "./dist/core/fonts/*",
     "./core/images/*": "./dist/core/images/*",

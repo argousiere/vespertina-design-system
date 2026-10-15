@@ -3,7 +3,7 @@ import path from 'node:path';
 import fm from 'front-matter';
 import { marked } from 'marked';
 import type { Plugin } from 'vite';
-import type { EntryAttributes, EntryDoc } from './entry-doc';
+import type { EntryAttributes, EntryDoc } from '../core/scripts/entry-doc';
 
 const WORDS_PER_MINUTE = 275;
 const CONFIG_FILE = 'vespertina.config.json';
