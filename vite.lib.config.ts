@@ -32,6 +32,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    sourcemap: true,
     emptyOutDir: true,
     cssCodeSplit: true,
     modulePreload: false,
@@ -44,6 +45,10 @@ export default defineConfig({
         'core/tokens': path.resolve(
           import.meta.dirname,
           'src/core/tokens/tokens.css'
+        ),
+        'core/token-values': path.resolve(
+          import.meta.dirname,
+          'src/core/tokens/tokens.ts'
         ),
         'core/scripts/entries': path.resolve(
           import.meta.dirname,

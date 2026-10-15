@@ -1,7 +1,14 @@
 {
-  "name": "vespertina-design-system",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@argousiere/vespertina-design-system",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/argousiere/vespertina-design-system.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
   "files": [
     "dist"
@@ -9,18 +16,29 @@
   "exports": {
     "./react": {
       "types": "./dist/react/index.d.ts",
-      "import": "./dist/react/index.js"
+      "import": "./dist/react/index.js",
+      "default": "./dist/react/index.js"
     },
     "./core/styles.css": "./dist/core/styles.css",
     "./core/tokens.css": "./dist/core/tokens.css",
+    "./core/tokens": {
+      "types": "./dist/core/tokens/tokens.d.ts",
+      "import": "./dist/core/token-values.js",
+      "default": "./dist/core/token-values.js"
+    },
     "./core/scripts/entries": {
       "types": "./dist/core/scripts/entries.d.ts",
-      "import": "./dist/core/scripts/entries.js"
+      "import": "./dist/core/scripts/entries.js",
+      "default": "./dist/core/scripts/entries.js"
     },
     "./core/scripts/markdown-entries": {
       "types": "./dist/core/scripts/markdown-entries.d.ts",
-      "import": "./dist/core/scripts/markdown-entries.js"
-    }
+      "import": "./dist/core/scripts/markdown-entries.js",
+      "default": "./dist/core/scripts/markdown-entries.js"
+    },
+    "./core/fonts/*": "./dist/core/fonts/*",
+    "./core/images/*": "./dist/core/images/*",
+    "./package.json": "./package.json"
   },
   "sideEffects": [
     "**/*.css"
@@ -30,7 +48,8 @@
     "build": "npm run build-design-tokens && tsc -b && vite build -c vite.lib.config.ts && tsc -p tsconfig.lib.json",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "clsx": "^2.1.1",
