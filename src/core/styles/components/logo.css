@@ -1,0 +1,9 @@
+.ves-logo {
+  --ves-logo-size: calc(var(--ves-grid-size) * 5);
+
+  display: block;
+  background: url('../../assets/images/vespertina-logo.svg') center / contain
+    no-repeat;
+  aspect-ratio: 1;
+  width: var(--ves-logo-size);
+}
