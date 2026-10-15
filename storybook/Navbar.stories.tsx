@@ -44,3 +44,10 @@ export const Default = {
     actions: [{ name: 'search' }],
   },
 } satisfies Story;
+
+export const WithoutItems = {
+  args: {
+    title: 'The Vespertine Cadet',
+    actions: [{ name: 'search' }],
+  },
+} satisfies Story;

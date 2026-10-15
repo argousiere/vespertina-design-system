@@ -24,7 +24,9 @@
   background: transparent;
   padding: 0 var(--ves-spacing-4);
   min-width: var(--ves-toolbar-action-size);
-  height: var(--ves-toolbar-action-size);
+  height: calc(
+    var(--ves-toolbar-action-size) - var(--ves-navbar-border-width)
+  );
   color: var(--ves-toolbar-action-color);
   font-size: var(--ves-font-size-md);
   font-family: var(--ves-font-family-primary);

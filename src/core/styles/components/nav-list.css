@@ -7,7 +7,9 @@
 }
 
 .ves-nav-list-item {
-  --ves-nav-list-item-height: var(--ves-spacing-9);
+  --ves-nav-list-item-height: calc(
+    var(--ves-navbar-height) - var(--ves-navbar-border-width)
+  );
   --ves-nav-list-item-color: var(--ves-global-color-light);
   --ves-nav-list-item-hover-bg-color: oklch(
     from var(--ves-global-color-cerulean) l c h / 0.15

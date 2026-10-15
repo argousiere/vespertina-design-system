@@ -6,7 +6,7 @@ import type { ToolbarAction } from './Toolbar';
 export interface NavbarProps {
   title: string;
   homeUrl?: string;
-  navItems: NavListProps['items'];
+  navItems?: NavListProps['items'];
   actions?: ToolbarAction[];
   onActionTrigger?: (action: ToolbarAction) => void;
 }
@@ -23,7 +23,9 @@ const Navbar: React.FC<NavbarProps> = ({
       {title}
     </a>
     <div className="ves-navbar__content">
-      <NavList items={navItems} ariaLabel="Main navigation menu" />
+      {navItems.length > 0 && (
+        <NavList items={navItems} ariaLabel="Main navigation menu" />
+      )}
 
       {actions.length > 0 && (
         <Toolbar 

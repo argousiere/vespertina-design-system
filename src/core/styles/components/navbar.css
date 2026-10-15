@@ -3,15 +3,18 @@
   --ves-navbar-bg-color: var(--ves-global-color-midnight);
   --ves-navbar-padding-inline: var(--ves-spacing-10);
   --ves-navbar-border-color: var(--ves-global-color-kyanite);
+  --ves-navbar-border-width: 1px;
+  --ves-navbar-height: var(--ves-grid-size);
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: var(--ves-spacing-6);
   background: var(--ves-navbar-bg-color);
-  border-bottom: 1px solid var(--ves-navbar-border-color);
+  border-bottom: var(--ves-navbar-border-width) solid var(--ves-navbar-border-color);
   padding-inline: var(--ves-navbar-padding-inline);
   width: 100%;
+  height: var(--ves-navbar-height);
 }
 
 .ves-navbar__logo {
