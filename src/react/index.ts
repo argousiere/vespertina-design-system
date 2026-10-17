@@ -19,8 +19,6 @@ export { default as Entry } from './components/Entry';
 export type { EntryProps } from './components/Entry';
 export { default as EntryHeader } from './components/EntryHeader';
 export type { EntryHeaderProps } from './components/EntryHeader';
-export { default as EntryBody } from './components/EntryBody';
-export type { EntryBodyProps } from './components/EntryBody';
 export { default as NavList } from './components/NavList';
 export type { NavListProps } from './components/NavList';
 export { default as NavListItem } from './components/NavListItem';
