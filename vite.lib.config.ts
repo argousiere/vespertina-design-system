@@ -33,7 +33,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
-    emptyOutDir: true,
+    emptyOutDir: !process.argv.includes('--watch'),
     cssCodeSplit: true,
     modulePreload: false,
     rollupOptions: {

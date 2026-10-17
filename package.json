@@ -50,7 +50,7 @@
   "scripts": {
     "build-design-tokens": "node scripts/build-css-from-tokens-source.ts",
     "build": "npm run build-design-tokens && tsc -b && vite build -c vite.lib.config.ts && tsc -p tsconfig.lib.json",
-    "dev:lib": "vite build -c vite.lib.config.ts --watch",
+    "build:watch": "vite build -c vite.lib.config.ts --watch & tsc -p tsconfig.lib.json --watch",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
