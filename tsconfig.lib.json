@@ -9,6 +9,6 @@
     "rootDir": "src",
     "outDir": "dist"
   },
-  "include": ["src/react", "src/core/scripts", "src/vite", "src/core/tokens"],
+  "include": ["src/core/index.ts", "src/core/models", "src/react", "src/core/scripts", "src/vite", "src/core/tokens"],
   "exclude": ["src/vite/markdown.d.ts"]
 }

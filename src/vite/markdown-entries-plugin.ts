@@ -3,7 +3,7 @@ import path from 'node:path';
 import fm from 'front-matter';
 import { marked } from 'marked';
 import type { Plugin } from 'vite';
-import type { EntryMetadataModel, EntryModel } from '../core/models/EntryModel';
+import type { EntryMetadataModel, EntryModel } from '@core/models/EntryModel';
 
 const WORDS_PER_MINUTE = 275;
 const DATE_PREFIX = /^\d{4}-\d{2}-\d{2}-/;

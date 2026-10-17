@@ -1,5 +1,5 @@
 declare module '*.md' {
-  import type { EntryModel } from '../core/models/EntryModel';
+  import type { EntryModel } from '@core/models/EntryModel';
 
   const entry: EntryModel;
   export default entry;
