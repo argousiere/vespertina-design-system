@@ -40,7 +40,3 @@ export { default as Tooltip } from './components/Tooltip';
 export type { TooltipProps } from './components/Tooltip';
 export { default as Thumbnail } from './components/Thumbnail';
 export type { ThumbnailProps } from './components/Thumbnail';
-
-export type { EntryModel } from './models/Entry';
-export type { TagModel } from './models/Tag';
-export type { ThumbnailModel } from './models/Thumbnail';

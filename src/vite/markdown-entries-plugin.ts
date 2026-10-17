@@ -3,9 +3,10 @@ import path from 'node:path';
 import fm from 'front-matter';
 import { marked } from 'marked';
 import type { Plugin } from 'vite';
-import type { EntryAttributes, EntryDoc } from '../core/scripts/entry-doc';
+import type { EntryMetadataModel, EntryModel } from '../core/models/EntryModel';
 
 const WORDS_PER_MINUTE = 275;
+const DATE_PREFIX = /^\d{4}-\d{2}-\d{2}-/;
 const CONFIG_FILE = 'vespertina.config.json';
 const VIRTUAL_ID = 'virtual:vespertina-entries';
 const RESOLVED_VIRTUAL_ID = `\0${VIRTUAL_ID}`;
@@ -30,7 +31,7 @@ const readConfig = (root: string): VespertinaConfig => {
 };
 
 /**
- * Converts `*.md` imports into `EntryDoc` objects.
+ * Converts `*.md` imports into `EntryModel` objects.
  * Dev mode: Reload on file changes.
  * Prod mode: Inline converted HTML into bundle.
  */
@@ -59,25 +60,28 @@ export function markdownEntries(): Plugin {
         ].join('\n');
       }
 
-      const file = id.split('?')[0];
-      if (!file.endsWith('.md')) {
+      const filename = id.split('?')[0];
+      if (!filename.endsWith('.md')) {
         return null;
       }
 
-      this.addWatchFile(file);
+      this.addWatchFile(filename);
 
-      const { attributes, body } = fm<EntryAttributes>(
-        readFileSync(file, 'utf8')
+      const { attributes: metadata, body } = fm<EntryMetadataModel>(
+        readFileSync(filename, 'utf8')
       );
       
       const words = body.trim().split(/\s+/).length;
 
       const entry = {
-        slug: path.basename(file, '.md'),
-        attributes,
+        slug: path.basename(filename, '.md').replace(DATE_PREFIX, ''),
+        metadata: {
+          ...metadata,
+          filename,
+        },
         html: marked.parse(body, { async: false }),
         readingTimeWPM: Math.max(1, Math.ceil(words / WORDS_PER_MINUTE)),
-      } satisfies EntryDoc;
+      } satisfies EntryModel;
 
       return `export default ${JSON.stringify(entry)};`;
     },
