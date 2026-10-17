@@ -11,7 +11,7 @@ const external = [
 // Builds the publishable package into dist/:
 // - dist/core: framework-agnostic CSS, tokens, fonts and images, plus the
 //   entry registry and the Vite plugin that turns markdown files into
-//   entries (core/scripts)
+//   entries (core/scripts, vite)
 // - dist/react: React components as an ES module
 export default defineConfig({
   base: './',
@@ -32,6 +32,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    sourcemap: true,
     emptyOutDir: true,
     cssCodeSplit: true,
     modulePreload: false,
@@ -45,13 +46,17 @@ export default defineConfig({
           import.meta.dirname,
           'src/core/tokens/tokens.css'
         ),
-        'core/scripts/entries': path.resolve(
+        'core/token-values': path.resolve(
           import.meta.dirname,
-          'src/core/scripts/entries.ts'
+          'src/core/tokens/tokens.ts'
         ),
-        'core/scripts/markdown-entries': path.resolve(
+        'core/scripts/entries-registry': path.resolve(
           import.meta.dirname,
-          'src/core/scripts/markdown-entries.ts'
+          'src/core/scripts/entries-registry.ts'
+        ),
+        'vite/markdown-entries-plugin': path.resolve(
+          import.meta.dirname,
+          'src/vite/markdown-entries-plugin.ts'
         ),
         'react/index': path.resolve(import.meta.dirname, 'src/react/index.ts'),
       },

@@ -32,5 +32,5 @@
     }
   },
   "include": ["src"],
-  "exclude": ["src/core/scripts/markdown-entries.ts"]
+  "exclude": ["src/vite/markdown-entries-plugin.ts"]
 }

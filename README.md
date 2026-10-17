@@ -6,26 +6,102 @@ My personal Design System built in React + native CSS.
 
 Design developed from scratch in [Figma](https://www.figma.com/design/jiNUbgAPy50E6CpPQEvW16/Vespertine-Cadet?node-id=377-24&t=GjcURnCKMKcftSI5-1).
 
+## Installation
+
+This package is available on GitHub Packages as a private package `@argousiere/vespertina-design-system`.
+
+In your `.npmrc`, reference the registry:
+
+```ini
+@argousiere:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+```
+
+Install via npm:
+
+```shell
+npm install react@19 vite@7 @argousiere/vespertina-design-system
+```
+
+
 ## Usage
 
-The package has a framework-agnostic core (CSS, tokens, fonts, images) and a React implementation built on it.
+In your html body or component html, add the following classes:
 
-Core styles, for any HTML page or framework:
+```html
+<body class="vespertina-theme vespertina-theme--dark"></body>
+```
+
+### Import design system tokens and component library
+
 ```css
-@import 'vespertina-design-system/core/styles.css';
+@import @argousiere/vespertina-design-system/core/tokens.css;
+@import @argousiere/vespertina-design-system/core/styles.css;
 ```
 
-Tokens only (CSS custom properties, no component styles):
-```css
-@import 'vespertina-design-system/core/tokens.css';
+### Import assets
+```
+import emptyCover from '@argousiere/vespertina-design-system/images/ves-icon-empty-cover.svg';
 ```
 
-React components (requires React 19, and the core styles above):
-```tsx
-import { Button } from 'vespertina-design-system/react';
+### Import React components
+```ts
+import { Button } from '@argousiere/vespertina-design-system/react';
 ```
 
-Components are styled through the `vespertina-theme vespertina-theme--dark` classes, so add them to a wrapping element such as `<body>`.
+## Content Markdown Files
+Place all content markdown files in a folder so it can be registered and imported during runtime. Useful for displaying blog entries, documents, etc.
+
+### Setup
+Create a `vespertina.config.json` file at the root of your project point to the path of your content folder. 
+
+```json
+{
+  "contentDir": "content"
+}
+```
+
+Import the vite plugin `markdownEntries` to register your content during build time.
+
+```ts
+import { markdownEntries } from '@argousiere/vespertina-design-system/vite';
+
+export default defineConfig({
+  plugins: [react(), markdownEntries()],
+});
+```
+
+In your build or start up script, register the entries:
+```ts
+import entries from 'virtual:vespertina-entries';
+import { registerEntries } from '@argousiere/vespertina-design-system/core/scripts/entries-registry';
+
+registerEntries(entries);
+```
+
+Declare the virtual module `'virtual:vespertina-entries'` in your own `.d.ts`:
+```ts
+declare module 'virtual:vespertina-entries' {
+  const entries: Record<string, unknown>;
+  export default entries;
+}
+```
+
+## Creating a new content file using the CLI
+```shell
+npx vespertina add-content --title "My First Post"
+```
+
+### Frontmatter
+Each content uses frontmatter to define the following metadata:
+```md
+---
+title: Title
+date: 2000-01-01
+tags: [tag1, tag2]
+excerpt: Sample excerpt
+---
+```
 
 ## Development
 
@@ -39,6 +115,19 @@ Build the package into `dist/`:
 npm run build
 ```
 
+### Build watch
+Rebuild Javascript and CSS on every change.
+
+```shell
+npm run dev:lib
+```
+
+Rebuild types
+
+```shell
+npm run build
+```
+
 ## Attributions and Inspirations
-Icons from https://www.flaticon.com
-Progressive Blur from https://kennethnym.com/blog/progressive-blur-in-css/
+- Icons from https://www.flaticon.com
+- Progressive Blur from https://kennethnym.com/blog/progressive-blur-in-css/

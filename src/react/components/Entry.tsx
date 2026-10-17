@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { getEntry } from '@core/scripts/entries';
+import { getEntry } from '@core/scripts/entries-registry';
 import type { TagModel } from '../models/Tag';
 import EntryBody from './EntryBody';
 import EntryHeader from './EntryHeader';
