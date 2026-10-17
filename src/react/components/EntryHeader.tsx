@@ -1,16 +1,9 @@
+import type { EntryMetadataModel } from '@/core/models/EntryModel';
 import clsx from 'clsx';
 import { format, parse } from 'date-fns';
 
-<<<<<<< Updated upstream
-export interface EntryHeaderProps {
-  title?: string;
-  /** ISO date, e.g. `2017-09-12` */
-  date?: string;
-=======
 export interface EntryHeaderProps extends Partial<EntryMetadataModel> {
->>>>>>> Stashed changes
   readingTime?: number;
-  excerpt?: string;
   className?: string;
 }
 

@@ -1,13 +1,15 @@
 import clsx from 'clsx';
-import type { TagModel } from '../models/Tag';
 import EntryHeader from './EntryHeader';
-import type { EntryHeaderProps } from './EntryHeader';
 import MarkdownRenderer from './MarkdownRenderer';
 import TagBox from './TagBox';
+import type { TagModel } from '@/core/models/TagModel';
 
-export interface EntryProps
-  extends Pick<EntryHeaderProps, 'title' | 'date' | 'readingTime' | 'excerpt'> {
+export interface EntryProps {
+  title?: string;
+  date?: string;
   html: string;
+  excerpt?: string;
+  readingTimeWPM: number;
   tags?: TagModel[];
   className?: string;
 }
@@ -15,29 +17,37 @@ export interface EntryProps
 const Entry: React.FC<EntryProps> = ({
   title,
   date,
-  readingTime,
-  excerpt,
   html,
+  excerpt,
+  readingTimeWPM,
   tags,
   className,
-}) => (
-  <article className={clsx('ves-entry', className)}>
-    <EntryHeader
-      className="ves-entry__header"
-      title={title}
-      date={date}
-      readingTime={readingTime}
-      excerpt={excerpt}
-    />
+}) => {
+  if (!html) {
+    console.warn(`Entry: no registered markdown file for "${!html}"`);
+    return null;
+  }
 
-    <MarkdownRenderer className="ves-entry-body ves-entry__body" html={html} />
+  return (
+    <article className={clsx('ves-entry', className)}>
+      <EntryHeader
+        className="ves-entry__header"
+        title={title}
+        date={date}
+        readingTime={readingTimeWPM}
+        excerpt={excerpt}
+      />
 
-    {tags && tags.length > 0 && (
-      <div className="ves-entry__tags">
-        <TagBox tags={tags} />
-      </div>
-    )}
-  </article>
-);
+      <MarkdownRenderer className="ves-entry-body ves-entry__body" html={html} />
+
+
+      {tags && tags.length > 0 && (
+        <div className="ves-entry__tags">
+          <TagBox tags={tags} />
+        </div>
+      )}
+    </article>
+  );
+};
 
 export default Entry;

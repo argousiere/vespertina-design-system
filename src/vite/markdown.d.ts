@@ -1,7 +1,7 @@
 declare module '*.md' {
-  import type { EntryDoc } from './entry-doc';
+  import type { EntryModel } from '../core/models/EntryModel';
 
-  const entry: EntryDoc;
+  const entry: EntryModel;
   export default entry;
 }
 

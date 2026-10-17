@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import type { TagModel } from '../models/Tag';
+import type { TagModel } from '@/core/models/TagModel';
 import Tooltip from './Tooltip';
 
 export type TagProps = TagModel;

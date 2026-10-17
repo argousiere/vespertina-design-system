@@ -1,7 +1,7 @@
-import type { EntryModel } from '../models/Entry';
+import type { EntryListItemProps } from './EntryListItem';
 import Thumbnail from './Thumbnail';
 
-export type FeaturedListItemProps = EntryModel;
+export type FeaturedListItemProps = Omit<EntryListItemProps, 'disabled'>;
 
 const FeaturedListItem: React.FC<FeaturedListItemProps> = ({
   title,

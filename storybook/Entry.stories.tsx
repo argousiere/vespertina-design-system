@@ -23,9 +23,9 @@ export const Default = {
   args: {
     title: 'Celestial Tapestry',
     date: '2017-09-12',
-    readingTime: 1,
+    html: getEntry('entry.md')?.html ?? '',
+    readingTimeWPM: 1,
     excerpt: 'Weaving words and thoughts against the backdrop of space',
     tags: [{ slug: 'musings', url: '#' }],
-    html: getEntry('entry.md')?.html ?? '',
   },
 } satisfies Story;
