@@ -23,6 +23,11 @@
       "import": "./dist/react/index.js",
       "default": "./dist/react/index.js"
     },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js",
+      "default": "./dist/core/index.js"
+    },
     "./core/styles.css": "./dist/core/styles.css",
     "./core/tokens.css": "./dist/core/tokens.css",
     "./core/tokens": {
@@ -49,8 +54,9 @@
   ],
   "scripts": {
     "build-design-tokens": "node scripts/build-css-from-tokens-source.ts",
-    "build": "npm run build-design-tokens && tsc -b && vite build -c vite.lib.config.ts && tsc -p tsconfig.lib.json",
-    "build:watch": "vite build -c vite.lib.config.ts --watch & tsc -p tsconfig.lib.json --watch",
+    "build": "npm run build-design-tokens && tsc -b && vite build -c vite.lib.config.ts",
+    "build-design-tokens:watch": "node scripts/build-css-from-tokens-source.ts --watch",
+    "build:watch": "npm run build-design-tokens && tsc -b && (npm run build-design-tokens:watch & vite build -c vite.lib.config.ts --watch)",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -92,6 +98,7 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.1",
     "vite": "^8.3.4",
+    "vite-plugin-dts": "^5.1.2",
     "vitest": "^4.1.11"
   },
   "peerDependenciesMeta": {

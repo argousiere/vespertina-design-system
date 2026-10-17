@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import EntryHeader from './EntryHeader';
 import MarkdownRenderer from './MarkdownRenderer';
 import TagBox from './TagBox';
-import type { TagModel } from '@/core/models/TagModel';
+import type { TagModel } from '@core/models/TagModel';
 
 export interface EntryProps {
   title?: string;

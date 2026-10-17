@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { clsx } from 'clsx';
-import type { ThumbnailModel } from '@/core/models/ThumbnailModel';
+import type { ThumbnailModel } from '@core/models/ThumbnailModel';
 import Tooltip from './Tooltip';
 
 export interface EntryListItemProps {

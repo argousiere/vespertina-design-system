@@ -24,7 +24,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "paths": {
-      "@/*": ["./src/*"],
+      "@*": ["./src/*"],
       "@images/*": ["./src/core/assets/images/*"],
       "@styles/*": ["./src/core/styles/*"],
       "@components/*": ["./src/react/components/*"],

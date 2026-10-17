@@ -1,5 +1,5 @@
 import React from 'react';
-import type { TagModel } from '@/core/models/TagModel';
+import type { TagModel } from '@core/models/TagModel';
 import Tag from './Tag';
 import Tooltip from './Tooltip';
 

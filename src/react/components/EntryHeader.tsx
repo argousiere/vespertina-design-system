@@ -1,4 +1,4 @@
-import type { EntryMetadataModel } from '@/core/models/EntryModel';
+import type { EntryMetadataModel } from '@core/models/EntryModel';
 import clsx from 'clsx';
 import { format, parse } from 'date-fns';
 
