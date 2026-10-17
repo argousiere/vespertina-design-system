@@ -1,24 +1,13 @@
-import { getEntry } from '@core/scripts/entries-registry';
-
 export interface MarkdownRendererProps extends Omit<
   React.ComponentPropsWithoutRef<'div'>,
   'children' | 'dangerouslySetInnerHTML'
 > {
-  src: string;
+  html: string;
 }
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
-  src,
+  html,
   ...props
-}) => {
-  const entry = getEntry(src);
-
-  if (!entry) {
-    console.warn(`MarkdownRenderer: no registered markdown file for "${src}"`);
-    return null;
-  }
-
-  return <div {...props} dangerouslySetInnerHTML={{ __html: entry.html }} />;
-};
+}) => <div {...props} dangerouslySetInnerHTML={{ __html: html }} />;
 
 export default MarkdownRenderer;

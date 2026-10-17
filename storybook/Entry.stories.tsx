@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Entry from '@components/Entry';
+import { getEntry } from '@core/scripts/entries-registry';
 
 const meta = {
   title: 'Components/Entry',
@@ -10,7 +11,8 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    src: { control: false },
+    html: { control: false },
+    tags: { control: false, table: { type: { summary: 'TagModel[]' } } },
   },
 } satisfies Meta<typeof Entry>;
 
@@ -19,6 +21,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    src: 'entry.md',
+    title: 'Celestial Tapestry',
+    date: '2017-09-12',
+    readingTime: 1,
+    excerpt: 'Weaving words and thoughts against the backdrop of space',
+    tags: [{ slug: 'musings', url: '#' }],
+    html: getEntry('entry.md')?.html ?? '',
   },
 } satisfies Story;

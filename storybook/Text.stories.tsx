@@ -1,36 +1,40 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import EntryBody from '@components/EntryBody';
+import MarkdownRenderer from '@components/MarkdownRenderer';
+import { getEntry } from '@core/scripts/entries-registry';
 
 const meta = {
   title: 'Base/Text',
-  component: EntryBody,
+  component: MarkdownRenderer,
   parameters: {
     layout: 'padded',
   },
   tags: ['autodocs'],
-  argTypes: {
-    src: { control: false },
+  args: {
+    className: 'ves-entry-body',
   },
-} satisfies Meta<typeof EntryBody>;
+  argTypes: {
+    html: { control: false },
+  },
+} satisfies Meta<typeof MarkdownRenderer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Headings = {
   args: {
-    src: 'headings.md',
+    html: getEntry('headings.md')?.html ?? '',
   },
 } satisfies Story;
 
 export const Paragraph = {
   args: {
-    src: 'paragraphs.md',
+    html: getEntry('paragraphs.md')?.html ?? '',
   },
 } satisfies Story;
 
 export const Link = {
   args: {
-    src: 'links.md',
+    html: getEntry('links.md')?.html ?? '',
   },
 } satisfies Story;
