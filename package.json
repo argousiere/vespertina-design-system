@@ -45,6 +45,11 @@
       "import": "./dist/vite/markdown-entries-plugin.js",
       "default": "./dist/vite/markdown-entries-plugin.js"
     },
+    "./static-docs-gen": {
+      "types": "./dist/static-docs-gen/public-api.d.ts",
+      "import": "./dist/static-docs-gen/public-api.js",
+      "default": "./dist/static-docs-gen/public-api.js"
+    },
     "./core/fonts/*": "./dist/core/fonts/*",
     "./core/images/*": "./dist/core/images/*",
     "./package.json": "./package.json"

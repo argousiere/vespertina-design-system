@@ -68,6 +68,10 @@ export default defineConfig({
           'src/vite/markdown-entries-plugin.ts'
         ),
         'react/index': path.resolve(import.meta.dirname, 'src/react/index.ts'),
+        'static-docs-gen/public-api': path.resolve(
+          import.meta.dirname,
+          'src/static-docs-gen/public-api.ts'
+        ),
       },
       external: (id) =>
         id.startsWith('node:') ||
