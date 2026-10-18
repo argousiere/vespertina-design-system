@@ -87,11 +87,6 @@ declare module 'virtual:vespertina-entries' {
 }
 ```
 
-## Creating a new content file using the CLI
-```shell
-npx vespertina add-content --title "My First Post"
-```
-
 ### Frontmatter
 Each content uses frontmatter to define the following metadata:
 ```md
