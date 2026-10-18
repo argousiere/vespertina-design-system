@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import type { ThumbnailModel as ThumbnailModel } from '../models/Thumbnail';
+import type { ThumbnailModel } from '@core/models/ThumbnailModel';
 import Tooltip from './Tooltip';
 
 export interface ThumbnailProps extends ThumbnailModel {

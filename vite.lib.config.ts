@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import dts from 'vite-plugin-dts';
 import path from 'node:path';
 import pkg from './package.json' with { type: 'json' };
 
@@ -16,7 +17,14 @@ const external = [
 export default defineConfig({
   base: './',
   publicDir: false,
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts({
+      tsconfigPath: 'tsconfig.lib.json',
+      entryRoot: 'src',
+      outDirs: ['dist'],
+    }),
+  ],
   resolve: {
     alias: {
       '@core': path.resolve(import.meta.dirname, 'src/core'),
@@ -33,11 +41,12 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
-    emptyOutDir: true,
+    emptyOutDir: !process.argv.includes('--watch'),
     cssCodeSplit: true,
     modulePreload: false,
     rollupOptions: {
       input: {
+        'core/index': path.resolve(import.meta.dirname, 'src/core/index.ts'),
         'core/styles': path.resolve(
           import.meta.dirname,
           'src/core/styles/index.css'
