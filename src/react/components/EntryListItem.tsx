@@ -1,9 +1,15 @@
 import { format } from 'date-fns';
 import { clsx } from 'clsx';
-import type { EntryModel } from '../models/Entry';
+import type { ThumbnailModel } from '@core/models/ThumbnailModel';
 import Tooltip from './Tooltip';
 
-export interface EntryListItemProps extends EntryModel {
+export interface EntryListItemProps {
+  id: string;
+  title: string;
+  url: string;
+  date: Date;
+  description?: string;
+  thumbnail?: ThumbnailModel;
   disabled?: boolean;
 }
 

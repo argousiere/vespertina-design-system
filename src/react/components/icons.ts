@@ -1,6 +1,6 @@
-import arrowLeft from '../../core/assets/icons/arrow-left.svg';
-import arrowRight from '../../core/assets/icons/arrow-right.svg';
-import search from '../../core/assets/icons/search.svg';
+import arrowLeft from '@core/assets/icons/arrow-left.svg';
+import arrowRight from '@core/assets/icons/arrow-right.svg';
+import search from '@core/assets/icons/search.svg';
 
 export const icons = {
   'arrow-left': arrowLeft,

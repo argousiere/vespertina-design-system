@@ -1,6 +1,6 @@
-import type { EntryDoc } from './entry-doc';
+import type { EntryModel } from '../models/EntryModel';
 
-const entries = new Map<string, EntryDoc>();
+const entries = new Map<string, EntryModel>();
 
 /** 
  * Convert storybook src path to registry key 
@@ -15,7 +15,7 @@ const toKey = (src: string) =>
  */
 export const registerEntries = (modules: Record<string, unknown>): void => {
   for (const [path, module] of Object.entries(modules)) {
-    const entry = (module as { default: EntryDoc }).default;
+    const entry = (module as { default: EntryModel }).default;
     entries.set(toKey(path), entry);
   }
 };
@@ -24,7 +24,7 @@ export const registerEntries = (modules: Record<string, unknown>): void => {
  * Retrieve markdown entry by src. Leading folders may be left out, e.g.
  * `content/foo.md` finds `storybook/content/foo.md`.
  */
-export const getEntry = (src: string): EntryDoc | undefined => {
+export const getEntry = (src: string): EntryModel | undefined => {
   const key = toKey(src);
   const entry = entries.get(key);
 

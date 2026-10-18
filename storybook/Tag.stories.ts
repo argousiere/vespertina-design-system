@@ -9,6 +9,9 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    url: { control: false },
+  },
 } satisfies Meta<typeof Tag>;
 
 export default meta;
