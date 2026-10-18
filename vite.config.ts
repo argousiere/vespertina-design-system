@@ -29,6 +29,13 @@ export default defineConfig({
   test: {
     projects: [
       {
+        test: {
+          name: 'static-docs-gen',
+          environment: 'node',
+          include: ['src/static-docs-gen/**/*.test.ts'],
+        },
+      },
+      {
         extends: true,
         plugins: [
           // The plugin will run tests for the stories defined in your Storybook config

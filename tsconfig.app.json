@@ -20,7 +20,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    "erasableSyntaxOnly": false,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "paths": {
@@ -32,5 +32,5 @@
     }
   },
   "include": ["src"],
-  "exclude": ["src/vite/markdown-entries-plugin.ts"]
+  "exclude": ["src/vite/markdown-entries-plugin.ts", "src/static-docs-gen"]
 }
