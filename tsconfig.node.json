@@ -30,7 +30,6 @@
   "include": [
     "vite.config.ts",
     "vite.lib.config.ts",
-    "scripts",
-    "src/vite/markdown-entries-plugin.ts"
+    "scripts"
   ]
 }

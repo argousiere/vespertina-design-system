@@ -49,55 +49,6 @@ import emptyCover from '@argousiere/vespertina-design-system/images/ves-icon-emp
 import { Button } from '@argousiere/vespertina-design-system/react';
 ```
 
-## Content Markdown Files
-Place all content markdown files in a folder so it can be registered and imported during runtime. Useful for displaying blog entries, documents, etc.
-
-### Setup
-Create a `vespertina.config.json` file at the root of your project point to the path of your content folder. 
-
-```json
-{
-  "contentDir": "content"
-}
-```
-
-Import the vite plugin `markdownEntries` to register your content during build time.
-
-```ts
-import { markdownEntries } from '@argousiere/vespertina-design-system/vite';
-
-export default defineConfig({
-  plugins: [react(), markdownEntries()],
-});
-```
-
-In your build or start up script, register the entries:
-```ts
-import entries from 'virtual:vespertina-entries';
-import { registerEntries } from '@argousiere/vespertina-design-system/core/scripts/entries-registry';
-
-registerEntries(entries);
-```
-
-Declare the virtual module `'virtual:vespertina-entries'` in your own `.d.ts`:
-```ts
-declare module 'virtual:vespertina-entries' {
-  const entries: Record<string, unknown>;
-  export default entries;
-}
-```
-
-### Frontmatter
-Each content uses frontmatter to define the following metadata:
-```md
----
-title: Title
-date: 2000-01-01
-tags: [tag1, tag2]
-excerpt: Sample excerpt
----
-```
-
 ## Development
 
 Launch Storybook:

@@ -31,6 +31,5 @@
       "@core/*": ["./src/core/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["src/vite/markdown-entries-plugin.ts"]
+  "include": ["src"]
 }

@@ -1,10 +1,3 @@
----
-title: Celestial Tapestry
-date: 2017-09-12
-tags: [Musings]
-excerpt: Weaving words and thoughts against the backdrop of space
----
-
 In between the vast spaces have [planets and moons](#) explode into life only to disintegrate into nothingness. Only memories, remnants.. possibly even mere musings such as this, serve as proof of their existence.
 
 ## Analog Clocks and Clock Towers

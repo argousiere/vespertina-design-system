@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Entry from '@components/Entry';
-import { getEntry } from '@core/scripts/entries-registry';
+import { renderMarkdown } from './utils/render-markdown';
 
 const meta = {
   title: 'Components/Entry',
@@ -23,7 +23,7 @@ export const Default = {
   args: {
     title: 'Celestial Tapestry',
     date: '2017-09-12',
-    html: getEntry('entry.md')?.html ?? '',
+    html: renderMarkdown('entry.md'),
     readingTimeWPM: 1,
     excerpt: 'Weaving words and thoughts against the backdrop of space',
     tags: [{ slug: 'musings', url: '#' }],

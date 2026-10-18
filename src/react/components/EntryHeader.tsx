@@ -1,16 +1,18 @@
-import type { EntryMetadataModel } from '@core/models/EntryModel';
 import clsx from 'clsx';
 import { format, parse } from 'date-fns';
 
-export interface EntryHeaderProps extends Partial<EntryMetadataModel> {
-  readingTime?: number;
+export interface EntryHeaderProps {
+  title?: string;
+  date?: string;
+  excerpt?: string;
+  readingTimeWPM?: number;
   className?: string;
 }
 
 const EntryHeader: React.FC<EntryHeaderProps> = ({
   title,
   date,
-  readingTime,
+  readingTimeWPM,
   excerpt,
   className,
 }) => {
@@ -25,9 +27,9 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
             {format(published, 'dd.MMM.yyyy')}
           </time>
         )}
-        {readingTime && (
+        {readingTimeWPM && (
           <span className="ves-entry-header__meta-item">
-            {readingTime} min read
+            {readingTimeWPM} min read
           </span>
         )}
       </div>
