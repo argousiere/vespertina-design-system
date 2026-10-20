@@ -20,7 +20,7 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
   const published = day && parse(day, 'yyyy-MM-dd', new Date());
 
   return (
-    <header className={clsx('ves-entry-header', className)}>
+    <header className={clsx('ves-entry__header', className)}>
       <div className="ves-entry-header__meta">
         {day && published && (
           <time className="ves-entry-header__meta-item" dateTime={day}>

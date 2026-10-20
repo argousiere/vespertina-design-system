@@ -1,4 +1,4 @@
-.ves-entry-header {
+.ves-entry__header {
   --ves-entry-header-border-color: var(--ves-border-color);
   --ves-entry-header-meta-color: var(--ves-global-color-ice);
   --ves-entry-header-meta-gap: var(--ves-grid-size);

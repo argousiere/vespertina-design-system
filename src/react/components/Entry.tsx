@@ -30,7 +30,6 @@ const Entry: React.FC<EntryProps> = ({
   return (
     <article className={clsx('ves-entry', className)}>
       <EntryHeader
-        className="ves-entry__header"
         title={title}
         date={date}
         readingTimeWPM={readingTimeWPM}
@@ -38,7 +37,7 @@ const Entry: React.FC<EntryProps> = ({
       />
 
       <div
-        className="ves-entry-body ves-entry__body"
+        className="ves-entry__body"
         dangerouslySetInnerHTML={{ __html: html }}
       />
 

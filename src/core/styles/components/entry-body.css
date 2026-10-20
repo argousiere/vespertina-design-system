@@ -1,4 +1,4 @@
-.ves-entry-body {
+.ves-entry__body {
   --ves-entry-body-font-size: var(--ves-font-size-md);
   --ves-entry-body-line-height: var(--ves-grid-size);
   --ves-entry-body-letter-spacing: 0.07em;

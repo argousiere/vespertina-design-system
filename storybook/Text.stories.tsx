@@ -11,7 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   args: {
-    className: 'ves-entry-body',
+    className: 'ves-entry__body',
   },
   argTypes: {
     html: { control: false },
