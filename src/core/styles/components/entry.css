@@ -1,9 +1,6 @@
 .ves-entry {
-  --ves-entry-content-width: 720px;
-  --ves-entry-gutter: var(--ves-spacing-5);
-
   display: block;
-  padding: var(--ves-grid-size) 0;
+  padding: var(--ves-grid-size);
   background: radial-gradient(
     ellipse 50% var(--main-glow-height) at 50% top,
     var(--main-glow-color),
@@ -15,10 +12,6 @@
 .ves-entry__body,
 .ves-entry__tags {
   margin-inline: auto;
-  width: min(
-    var(--ves-entry-content-width),
-    100% - var(--ves-entry-gutter) * 2
-  );
 }
 
 .ves-entry__body {

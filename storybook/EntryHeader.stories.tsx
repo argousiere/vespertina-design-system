@@ -15,7 +15,7 @@ export const Default = {
   args: {
     title: 'Celestial Tapestry',
     date: '2017-09-12',
-    readingTime: 3,
+    readingTimeWPM: 3,
     excerpt: 'Weaving words and thoughts against the backdrop of space. Only memories, remnants.. possibly even mere musings such as this, serve as proof of their existence.',
   },
 } satisfies Story;
@@ -24,6 +24,6 @@ export const NoExcerpt = {
   args: {
     title: 'Celestial Tapestry',
     date: '2017-09-12',
-    readingTime: 3,
+    readingTimeWPM: 3,
   },
 } satisfies Story;

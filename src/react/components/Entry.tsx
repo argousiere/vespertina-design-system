@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import EntryHeader from './EntryHeader';
-import MarkdownRenderer from './MarkdownRenderer';
 import TagBox from './TagBox';
 import type { TagModel } from '@core/models/TagModel';
 
@@ -31,14 +30,16 @@ const Entry: React.FC<EntryProps> = ({
   return (
     <article className={clsx('ves-entry', className)}>
       <EntryHeader
-        className="ves-entry__header"
         title={title}
         date={date}
-        readingTime={readingTimeWPM}
+        readingTimeWPM={readingTimeWPM}
         excerpt={excerpt}
       />
 
-      <MarkdownRenderer className="ves-entry-body ves-entry__body" html={html} />
+      <div
+        className="ves-entry__body"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
 
 
       {tags && tags.length > 0 && (
