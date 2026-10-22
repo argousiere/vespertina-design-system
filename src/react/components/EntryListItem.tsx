@@ -1,13 +1,14 @@
-import { format } from 'date-fns';
 import { clsx } from 'clsx';
 import type { ThumbnailModel } from '@core/models/ThumbnailModel';
+import DateLabel from './DateLabel';
+import { formatDate } from '../utils/date';
 import Tooltip from './Tooltip';
 
 export interface EntryListItemProps {
   id: string;
   title: string;
   url: string;
-  date: Date;
+  date: string;
   description?: string;
   thumbnail?: ThumbnailModel;
   disabled?: boolean;
@@ -19,15 +20,14 @@ const EntryListItem: React.FC<EntryListItemProps> = ({
   url,
   disabled,
 }) => {
-  const dateISO = date.toISOString();
-  const formattedDate = format(date, 'yyyy.MMM.dd');
+  const formattedDate = formatDate(date);
 
   const content = (
     <div className="ves-entry-list__item-content">
-      <time dateTime={dateISO} className="ves-entry-list__item-date">
-        {formattedDate}
-      </time>
-      <Tooltip title={title} showOnlyWhenTruncated><span className="ves-entry-list__item-title clamp-text">{title}</span></Tooltip>
+      <DateLabel date={date} className="ves-entry-list__item-date" />
+      <Tooltip title={title} showOnlyWhenTruncated>
+        <span className="ves-entry-list__item-title clamp-text">{title}</span>
+      </Tooltip>
     </div>
   );
 
@@ -44,7 +44,9 @@ const EntryListItem: React.FC<EntryListItemProps> = ({
         <a
           className="ves-entry-list__item-link"
           href={url}
-          aria-label={`${title}, published ${formattedDate}`}
+          aria-label={
+            formattedDate ? `${title}, published ${formattedDate}` : title
+          }
         >
           {content}
         </a>

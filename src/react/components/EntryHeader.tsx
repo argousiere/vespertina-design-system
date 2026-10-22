@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { format, parse } from 'date-fns';
+import DateLabel from './DateLabel';
 
 export interface EntryHeaderProps {
   title?: string;
@@ -16,17 +16,10 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
   excerpt,
   className,
 }) => {
-  const day = date?.slice(0, 10);
-  const published = day && parse(day, 'yyyy-MM-dd', new Date());
-
   return (
     <header className={clsx('ves-entry__header', className)}>
       <div className="ves-entry-header__meta">
-        {day && published && (
-          <time className="ves-entry-header__meta-item" dateTime={day}>
-            {format(published, 'dd.MMM.yyyy')}
-          </time>
-        )}
+        {date && <DateLabel date={date} dateFormat="dd.MMM.yyyy" />}
         {readingTimeWPM && (
           <span className="ves-entry-header__meta-item">
             {readingTimeWPM} min read

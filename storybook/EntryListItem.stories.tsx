@@ -19,7 +19,7 @@ const meta = {
       description: 'The title of the entry',
     },
     date: {
-      control: 'date',
+      control: 'text',
       description: 'Publication date of the entry',
     },
     url: {
@@ -40,7 +40,7 @@ export const Default: Story = {
   args: {
     id: 'default',
     title: 'Sonnet III: The Ghost of Whimsical Fascination',
-    date: new Date('2007-02-02'),
+    date: '2007-02-02',
     url: '#',
     disabled: false,
   },
@@ -55,7 +55,7 @@ export const Disabled: Story = {
   args: {
     id: 'disabled',
     title: 'Sonnet III: The Ghost of Whimsical Fascination',
-    date: new Date('2007-02-02'),
+    date: '2007-02-02',
     url: '#',
     disabled: true,
   },
@@ -70,7 +70,7 @@ export const Truncated: Story = {
   args: {
     id: 'truncated',
     title: 'Sonnet III: The Ghost of Whimsical Fascination',
-    date: new Date('2007-02-02'),
+    date: '2007-02-02',
     url: '#',
     disabled: false,
   },

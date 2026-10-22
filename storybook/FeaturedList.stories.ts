@@ -26,21 +26,21 @@ export const Default: Story = {
       {
         id: '1',
         title: 'Analog Clocks and Clock Towers',
-        date: new Date('2016-09-03'),
+        date: '2016-09-03',
         url: '#',
         description: 'Musings on these wonderful pieces of machinery',
       },
       {
         id: '2',
         title: 'The Bubbling Brook at Berthelot',
-        date: new Date('2016-08-11'),
+        date: '2016-08-11',
         url: '#',
         description: 'An ode to the little park beside my office',
       },
       {
         id: '3',
         title: 'My First Winter',
-        date: new Date('2016-03-06'),
+        date: '2016-03-06',
         url: '#',
         description:
           'Notes on stinging ears and icy fingers from a tropical girl.',
@@ -48,7 +48,7 @@ export const Default: Story = {
       {
         id: '4',
         title: 'The Transcontinental Year',
-        date: new Date('2015-12-19'),
+        date: '2015-12-19',
         url: '#',
         description:
           'Reminiscing on the administrative hoops I jumped through to get to France',
@@ -56,7 +56,7 @@ export const Default: Story = {
       {
         id: '5',
         title: 'In the Foyer of Reveries',
-        date: new Date('2015-12-03'),
+        date: '2015-12-03',
         url: '#',
         description: 'Reminiscing my leap into the expat life.',
       },
@@ -70,7 +70,7 @@ export const SingleEntry: Story = {
       {
         id: '1',
         title: 'Analog Clocks and Clock Towers',
-        date: new Date('2016-09-03'),
+        date: '2016-09-03',
         url: '#',
         description: 'Musings on these wonderful pieces of machinery',
       },
