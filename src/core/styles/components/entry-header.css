@@ -1,6 +1,5 @@
 .ves-entry__header {
   --ves-entry-header-border-color: var(--ves-border-color);
-  --ves-entry-header-meta-color: var(--ves-global-color-ice);
   --ves-entry-header-meta-gap: var(--ves-grid-size);
   --ves-entry-header-title-font-size: var(--ves-grid-size);
 
@@ -14,15 +13,6 @@
   gap: var(--ves-entry-header-meta-gap);
   border-bottom: 1px solid var(--ves-entry-header-border-color);
   height: var(--ves-grid-size);
-}
-
-.ves-entry-header__meta-item {
-  color: var(--ves-entry-header-meta-color);
-  font-weight: var(--ves-font-weight-semibold);
-  font-size: var(--ves-font-size-2xs);
-  font-family: var(--ves-font-family-primary);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
 }
 
 .ves-entry-header__title {

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import DateLabel from './DateLabel';
+import ReadingTime from './ReadingTime';
 
 export interface EntryHeaderProps {
   title?: string;
@@ -20,11 +21,7 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
     <header className={clsx('ves-entry__header', className)}>
       <div className="ves-entry-header__meta">
         {date && <DateLabel date={date} dateFormat="dd.MMM.yyyy" />}
-        {readingTimeWPM && (
-          <span className="ves-entry-header__meta-item">
-            {readingTimeWPM} min read
-          </span>
-        )}
+        {!!readingTimeWPM && <ReadingTime minutes={readingTimeWPM} />}
       </div>
       {title && <h1 className="ves-entry-header__title">{title}</h1>}
       {excerpt && <p className="ves-entry-header__excerpt">{excerpt}</p>}

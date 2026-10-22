@@ -17,6 +17,8 @@ export { default as Icon } from './components/Icon';
 export type { IconProps, IconName } from './components/Icon';
 export { default as DateLabel } from './components/DateLabel';
 export type { DateLabelProps } from './components/DateLabel';
+export { default as ReadingTime } from './components/ReadingTime';
+export type { ReadingTimeProps } from './components/ReadingTime';
 export { default as Entry } from './components/Entry';
 export type { EntryProps } from './components/Entry';
 export { default as EntryHeader } from './components/EntryHeader';
