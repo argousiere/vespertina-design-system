@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import ProgressiveBlur from './ProgressiveBlur';
+import { ProgressiveBlurDirection } from '../constants';
 
 export interface EmbedViewerPreview {
   imgSrc: string;
@@ -59,7 +60,8 @@ const EmbedViewer: React.FC<EmbedViewerProps> = ({
 
       {preview && !active && (
         <div className="ves-embed-viewer__overlay">
-          <ProgressiveBlur direction="bottom-to-top" />
+          <ProgressiveBlur direction={ProgressiveBlurDirection.BOTTOM_TO_TOP} />
+          
           <button
             type="button"
             className="ves-btn ves-btn--contrast"

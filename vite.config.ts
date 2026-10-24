@@ -22,6 +22,7 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/core/styles'),
       '@components': path.resolve(__dirname, './src/react/components'),
       '@core': path.resolve(__dirname, './src/core'),
+      '@react': path.resolve(__dirname, './src/react'),
     },
   },
   plugins: [react(), cssTokens()],

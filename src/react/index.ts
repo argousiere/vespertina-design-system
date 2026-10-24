@@ -34,10 +34,8 @@ export type { NavListItemProps } from './components/NavListItem';
 export { default as Navbar } from './components/Navbar';
 export type { NavbarProps } from './components/Navbar';
 export { default as ProgressiveBlur } from './components/ProgressiveBlur';
-export type {
-  ProgressiveBlurProps,
-  ProgressiveBlurDirection,
-} from './components/ProgressiveBlur';
+export type { ProgressiveBlurProps } from './components/ProgressiveBlur';
+export { ProgressiveBlurDirection } from './constants';
 export { default as Toolbar } from './components/Toolbar';
 export type { ToolbarAction, ToolbarProps } from './components/Toolbar';
 export { default as Tag } from './components/Tag';

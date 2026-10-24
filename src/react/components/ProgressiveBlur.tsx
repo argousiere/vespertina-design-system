@@ -1,10 +1,7 @@
 import clsx from 'clsx';
+import { ProgressiveBlurDirection } from '../constants';
 
-export type ProgressiveBlurDirection =
-  | 'bottom-to-top'
-  | 'top-to-bottom'
-  | 'left-to-right'
-  | 'right-to-left';
+
 
 export interface ProgressiveBlurProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
@@ -31,7 +28,7 @@ const toLayerStyle = (index: number): React.CSSProperties => {
 };
 
 const ProgressiveBlur: React.FC<ProgressiveBlurProps> = ({
-  direction = 'bottom-to-top',
+  direction = ProgressiveBlurDirection.BOTTOM_TO_TOP,
   fillSize,
   className,
   style,

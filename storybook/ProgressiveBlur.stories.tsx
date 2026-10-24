@@ -4,6 +4,7 @@ import coverImage from '@images/dizzy.jpg';
 import ProgressiveBlur, {
   type ProgressiveBlurProps,
 } from '@components/ProgressiveBlur';
+import { ProgressiveBlurDirection } from '@react/constants';
 
 type ProgressiveBlurStoryProps = ProgressiveBlurProps & {
   color?: string;
@@ -16,12 +17,7 @@ const meta: Meta<ProgressiveBlurStoryProps> = {
   argTypes: {
     direction: {
       control: 'select',
-      options: [
-        'bottom-to-top',
-        'top-to-bottom',
-        'left-to-right',
-        'right-to-left',
-      ],
+      options: Object.values(ProgressiveBlurDirection),
       table: {
         type: {
           summary: 'ProgressiveBlurDirection',
@@ -58,7 +54,7 @@ type Story = StoryObj<ProgressiveBlurStoryProps>;
 
 export const Default = {
   args: {
-    direction: 'top-to-bottom',
+    direction: ProgressiveBlurDirection.BOTTOM_TO_TOP,
     color: 'rgb(0 0 0 / 0.5)',
   },
 } satisfies Story;
