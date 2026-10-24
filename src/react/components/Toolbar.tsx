@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+import type { ComponentProps } from 'react';
 import { icons, type IconName } from './icons';
 import Icon from './Icon';
 
@@ -6,10 +8,9 @@ export interface ToolbarAction {
   data?: unknown;
 }
 
-export interface ToolbarProps {
+export interface ToolbarProps extends Omit<ComponentProps<'div'>, 'children'> {
   actions: ToolbarAction[];
   onActionTrigger?: (action: ToolbarAction) => void;
-  ariaLabel?: string;
 }
 
 const isIconName = (name: string): name is IconName => name in icons;
@@ -17,9 +18,16 @@ const isIconName = (name: string): name is IconName => name in icons;
 const Toolbar: React.FC<ToolbarProps> = ({
   actions,
   onActionTrigger,
-  ariaLabel = 'Toolbar',
+  className,
+  'aria-label': ariaLabel,
+  ...props
 }) => (
-  <div className="ves-toolbar" role="toolbar" aria-label={ariaLabel}>
+  <div
+    role="toolbar"
+    {...props}
+    className={clsx('ves-toolbar', className)}
+    aria-label={ariaLabel ?? 'Toolbar'}
+  >
     {actions.map((action) => (
       <button
         key={action.name}

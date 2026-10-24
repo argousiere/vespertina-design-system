@@ -1,0 +1,8 @@
+.ves-reading-time {
+  color: var(--ves-global-color-ice);
+  font-weight: var(--ves-font-weight-semibold);
+  font-size: var(--ves-font-size-2xs);
+  font-family: var(--ves-font-family-primary);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}

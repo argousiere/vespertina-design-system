@@ -1,41 +1,44 @@
-import { format } from 'date-fns';
 import { clsx } from 'clsx';
-import type { ThumbnailModel } from '@core/models/ThumbnailModel';
+import type { ComponentProps } from 'react';
+import type { EntryModel } from '@core/models/EntryModel';
+import DateLabel from './DateLabel';
+import { formatDate } from '../utils/date';
 import Tooltip from './Tooltip';
 
-export interface EntryListItemProps {
-  id: string;
-  title: string;
-  url: string;
-  date: Date;
-  description?: string;
-  thumbnail?: ThumbnailModel;
+export interface EntryListItemProps
+  extends Omit<ComponentProps<'li'>, 'children'> {
+  entry: EntryModel;
   disabled?: boolean;
 }
 
 const EntryListItem: React.FC<EntryListItemProps> = ({
-  title,
-  date,
-  url,
+  entry,
   disabled,
+  className,
+  ...props
 }) => {
-  const dateISO = date.toISOString();
-  const formattedDate = format(date, 'yyyy.MMM.dd');
+  const { title, date, url } = entry;
+  const formattedDate = formatDate(date);
 
   const content = (
     <div className="ves-entry-list__item-content">
-      <time dateTime={dateISO} className="ves-entry-list__item-date">
-        {formattedDate}
-      </time>
-      <Tooltip title={title} showOnlyWhenTruncated><span className="ves-entry-list__item-title clamp-text">{title}</span></Tooltip>
+      <DateLabel dateTime={date} className="ves-entry-list__item-date" />
+      <Tooltip title={title} showOnlyWhenTruncated>
+        <span className="ves-entry-list__item-title clamp-text">{title}</span>
+      </Tooltip>
     </div>
   );
 
   return (
     <li
-      className={clsx('ves-entry-list__item', {
-        'ves-entry-list__item--disabled': disabled,
-      })}
+      {...props}
+      className={clsx(
+        'ves-entry-list__item',
+        {
+          'ves-entry-list__item--disabled': disabled,
+        },
+        className
+      )}
       aria-disabled={disabled ? 'true' : undefined}
     >
       {disabled ? (
@@ -44,7 +47,9 @@ const EntryListItem: React.FC<EntryListItemProps> = ({
         <a
           className="ves-entry-list__item-link"
           href={url}
-          aria-label={`${title}, published ${formattedDate}`}
+          aria-label={
+            formattedDate ? `${title}, published ${formattedDate}` : title
+          }
         >
           {content}
         </a>

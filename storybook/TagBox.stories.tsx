@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import TagBox from '@components/TagBox';
+import { tagsArgType } from './arg-types/tags';
+import { tags } from './fixtures/tags';
 
 const meta = {
   title: 'Components/TagBox',
@@ -10,7 +12,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    tags: { control: { disable: true } },
+    tags: tagsArgType,
   },
 } satisfies Meta<typeof TagBox>;
 
@@ -19,60 +21,29 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    title: 'Filed under',
-    tags: [
-      {
-        slug: 'expat',
-      },
-      {
-        slug: 'france',
-      },
-    ],
+    tagBoxTitle: 'Filed under',
+    tags: tags,
   },
 } satisfies Story;
 
 export const SingleTag = {
   args: {
-    title: 'Filed under',
-    tags: [
-      {
-        slug: 'travel',
-      },
-    ],
+    tagBoxTitle: 'Filed under',
+    tags: [tags[0]],
   },
 } satisfies Story;
 
 export const MultipleTags = {
   args: {
-    title: 'Filed under',
-    tags: [
-      {
-        slug: 'expat',
-      },
-      {
-        slug: 'france',
-      },
-      {
-        slug: 'travel',
-      },
-      {
-        slug: 'culture',
-      },
-    ],
+    tagBoxTitle: 'Filed under',
+    tags: tags,
   },
 } satisfies Story;
 
 export const CustomTitle = {
   args: {
-    title: 'Topics',
-    tags: [
-      {
-        slug: 'technology',
-      },
-      {
-        slug: 'design',
-      },
-    ],
+    tagBoxTitle: 'Topics',
+    tags: tags,
   },
 } satisfies Story;
 
@@ -84,21 +55,8 @@ const breakpoints = [
 
 export const Responsive = {
   args: {
-    title: 'Filed under',
-    tags: [
-      {
-        slug: 'expat',
-      },
-      {
-        slug: 'a-very-long-tag-name-that-keeps-going-well-past-the-maximum-width',
-      },
-      {
-        slug: 'france',
-      },
-      {
-        slug: 'travel',
-      },
-    ],
+    tagBoxTitle: 'Filed under',
+    tags: tags,
   },
   parameters: {
     layout: 'padded',

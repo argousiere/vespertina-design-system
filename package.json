@@ -44,6 +44,7 @@
     "build-design-tokens:watch": "node scripts/build-css-from-tokens-source.ts --watch",
     "build:watch": "npm run build-design-tokens && tsc -b && (npm run build-design-tokens:watch & vite build -c vite.lib.config.ts --watch)",
     "lint": "eslint .",
+    "test": "vitest run --project unit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepack": "npm run build"

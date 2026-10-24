@@ -1,0 +1,44 @@
+.ves-frame {
+  --ves-frame-color: var(--ves-global-color-kyanite);
+  --ves-frame-padding: var(--ves-spacing-9);
+  --ves-frame-scrollbar-inset: var(--ves-spacing-3);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.ves-frame__title {
+  --ves-trapezoid-clip-size: 24px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--ves-trapezoid-clip-size)) 0,
+    100% 100%,
+    0 100%
+  );
+  margin-top: 16px;
+  background-color: var(--ves-frame-color);
+  padding-top: 8px;
+  padding-right: calc(var(--ves-trapezoid-clip-size) * 2);
+  padding-bottom: 8px;
+  padding-left: var(--ves-trapezoid-clip-size);
+  width: fit-content;
+  height: var(--ves-grid-size);
+  font-size: var(--ves-font-size-lg);
+}
+
+.ves-frame__content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ves-frame-color);
+  padding: var(--ves-frame-scrollbar-inset);
+  min-height: 0;
+}
+
+.ves-frame__scroll {
+  padding: calc(var(--ves-frame-padding) - var(--ves-frame-scrollbar-inset));
+  min-height: 0;
+  overflow: auto;
+}

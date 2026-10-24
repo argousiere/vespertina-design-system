@@ -12,13 +12,10 @@ const meta = {
   argTypes: {
     actions: {
       control: false,
+      table: { type: { summary: 'ToolbarAction[]' } },
     },
     onActionTrigger: {
       control: false,
-    },
-    ariaLabel: {
-      control: false,
-      table: { type: { summary: 'string' } },
     },
   },
 } satisfies Meta<typeof Toolbar>;

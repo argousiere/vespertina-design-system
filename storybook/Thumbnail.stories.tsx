@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Thumbnail from '@components/Thumbnail';
+import { thumbnailArgType } from './arg-types/thumbnail';
+import { thumbnailRecord } from './fixtures/thumbnails';
 
 const meta = {
   title: 'Components/Thumbnail',
@@ -10,25 +12,16 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    src: { control: { disable: true } },
-    sources: { control: false },
-    altText: {
-      control: 'text',
-      description: 'Alternative text for the image',
-    },
-    width: {
-      control: 'number',
-      description: 'Image width in pixels',
-    },
-    height: {
-      control: 'number',
-      description: 'Image height in pixels',
-    },
+    thumbnail: thumbnailArgType,
     captionMaxLines: {
       control: 'number',
       description: 'Lines shown before the caption is cut off',
     },
+    caption: { control: false, table: { type: { summary: 'string,React.ReactNode' }} },
   },
+  args: {
+    captionMaxLines: 3,
+  }
 } satisfies Meta<typeof Thumbnail>;
 
 export default meta;
@@ -36,50 +29,40 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    src: './images/vespertina-logo.svg',
-    altText: 'Vespertina Logo',
-    width: 100,
-    height: 100,
+    thumbnail: thumbnailRecord.logo,
   },
 } satisfies Story;
 
 export const WithCaption = {
   args: {
-    src: './images/dizzy.jpg',
-    altText: 'Dizzy',
-    width: 200,
-    height: 200,
+    thumbnail: thumbnailRecord.dizzy,
     caption: 'Against the dizzying backdrop of space',
   },
 } satisfies Story;
 
 export const WithTruncatedCaption = {
   args: {
-    src: './images/dizzy.jpg',
-    altText: 'Dizzy',
-    width: 200,
-    height: 200,
-    caption:
-      'Against the dizzying backdrop of space, I see a prism of past and future lives.',
+    thumbnail: thumbnailRecord.dizzy,
+    caption: (
+      <>
+        Against the <em>dizzying</em> backdrop of space, I see a prism of past
+        and future lives.
+      </>
+    ),
     captionMaxLines: 2,
   },
 } satisfies Story;
 
 export const Placeholder = {
   args: {
-    altText: 'No image',
-    width: 200,
-    height: 200,
+    thumbnail: thumbnailRecord.placeholder,
     caption: 'Against the dizzying backdrop of space',
   },
 } satisfies Story;
 
 export const MissingImageFile = {
   args: {
-    src: './images/this-file-is-non-existent.svg',
-    altText: 'Missing image file',
-    width: 200,
-    height: 200,
+    thumbnail: thumbnailRecord.missing,
     caption: 'Against the dizzying backdrop of space',
   },
 } satisfies Story;

@@ -1,39 +1,33 @@
-import type { JSX } from 'react';
+import clsx from 'clsx';
+import type { ComponentProps } from 'react';
 import EntryListItem from './EntryListItem';
 import type { EntryListItemProps } from './EntryListItem';
+import Frame from './Frame';
+import type { HeadingLevel } from './Heading';
 
-interface EntryListProps {
-  title: string;
-  headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export interface EntryListProps
+  extends Omit<ComponentProps<'ol'>, 'children'> {
+  entryListTitle: string;
+  headingLevel?: HeadingLevel;
   items: EntryListItemProps[];
 }
 
-const HeadingTagMap: Record<string, keyof JSX.IntrinsicElements> = {
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  h4: 'h4',
-  h5: 'h5',
-  h6: 'h6',
-};
-
-const defaultHeadingTag = 'h2';
-
 const EntryList: React.FC<EntryListProps> = ({
-  title,
+  entryListTitle,
   headingLevel,
   items,
+  className,
+  ...props
 }) => {
-  const HeadingTag = HeadingTagMap[
-    headingLevel ?? defaultHeadingTag
-  ] as keyof JSX.IntrinsicElements;
-
   return (
-    <section className="ves-entry-list">
-      <HeadingTag className="ves-entry-list__title">{title}</HeadingTag>
-      <ul className="ves-entry-list__items">
+    <Frame
+      heading={entryListTitle}
+      headingLevel={headingLevel}
+      className={clsx('ves-entry-list', className)}
+    >
+      <ol {...props}>
         {items.map((item) => (
-          <EntryListItem key={item.id} {...item} />
+          <EntryListItem key={item.entry.id} {...item} />
         ))}
 
         {items.length === 0 && (
@@ -41,8 +35,8 @@ const EntryList: React.FC<EntryListProps> = ({
             There are no entries to display.
           </li>
         )}
-      </ul>
-    </section>
+      </ol>
+    </Frame>
   );
 };
 

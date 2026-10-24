@@ -1,8 +1,11 @@
 import React, { cloneElement, useEffect, useId, useState } from 'react';
+import type { ComponentProps } from 'react';
+import clsx from 'clsx';
 import useIsTruncated from '../hooks/useIsTruncated';
 
-export interface TooltipProps {
-  title: string;
+export interface TooltipProps
+  extends Omit<ComponentProps<'div'>, 'title' | 'children'> {
+  title: string | React.ReactNode;
   children: React.ReactElement<triggerElProps>;
   disabled?: boolean;
   showOnlyWhenTruncated?: boolean;
@@ -19,6 +22,9 @@ const Tooltip: React.FC<TooltipProps> = ({
   children,
   disabled = false,
   showOnlyWhenTruncated = false,
+  className,
+  style,
+  ...tooltipProps
 }) => {
   const id = useId();
   const tooltipId = `ves-tooltip-${id}`;
@@ -125,12 +131,13 @@ const Tooltip: React.FC<TooltipProps> = ({
       })}
 
       <div
+        {...tooltipProps}
         ref={setTooltipEl}
         id={tooltipId}
-        className="ves-tooltip"
+        className={clsx('ves-tooltip', className)}
         role="tooltipEl"
         popover="manual"
-        style={{ positionAnchor: anchorName }}
+        style={{ ...style, positionAnchor: anchorName }}
       >
         {title}
       </div>

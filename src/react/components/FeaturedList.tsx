@@ -1,17 +1,29 @@
+import clsx from 'clsx';
+import type { ComponentProps } from 'react';
 import type { FeaturedListItemProps } from './FeaturedListItem';
 import FeaturedListItem from './FeaturedListItem';
+import Heading from './Heading';
 
-interface FeaturedListProps {
+export interface FeaturedListProps
+  extends Omit<ComponentProps<'ul'>, 'children'> {
   items: FeaturedListItemProps[];
 }
 
-const FeaturedList: React.FC<FeaturedListProps> = ({ items }) => {
+const FeaturedList: React.FC<FeaturedListProps> = ({
+  items,
+  className,
+  ...props
+}) => {
   return (
-    <section className="ves-featured-list">
-      <h2 className="ves-featured-list__title">Featured</h2>
-      <ul className="ves-featured-list__items">
+    <section className={clsx('ves-featured-list', className)}>
+      <Heading
+        level="h2"
+        className="ves-featured-list__title"
+        label="Featured"
+      />
+      <ul {...props} className="ves-featured-list__items">
         {items.map((item) => (
-          <FeaturedListItem key={item.id} {...item} />
+          <FeaturedListItem key={item.entry.id} {...item} />
         ))}
 
         {items.length === 0 && (

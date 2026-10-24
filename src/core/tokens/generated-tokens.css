@@ -26,6 +26,7 @@
   /* font-families */
   --ves-font-family-primary: 'Eurostile', Helvetica, Arial, sans-serif;
   --ves-font-family-secondary: Helvetica, Arial, sans-serif;
+  --ves-font-family-mono: 'Space Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
 
   /* font-sizes */
   --ves-font-size-3xl: 2.027rem; /* 28.38px */

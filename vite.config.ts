@@ -22,11 +22,20 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/core/styles'),
       '@components': path.resolve(__dirname, './src/react/components'),
       '@core': path.resolve(__dirname, './src/core'),
+      '@react': path.resolve(__dirname, './src/react'),
     },
   },
   plugins: [react(), cssTokens()],
   test: {
     projects: [
+      {
+        extends: true,
+        test: {
+          name: 'unit',
+          include: ['src/**/*.test.ts'],
+          environment: 'node',
+        },
+      },
       {
         extends: true,
         plugins: [

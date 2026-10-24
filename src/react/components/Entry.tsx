@@ -1,40 +1,25 @@
 import clsx from 'clsx';
+import type { ComponentProps } from 'react';
+import type { EntryModel } from '@core/models/EntryModel';
 import EntryHeader from './EntryHeader';
 import TagBox from './TagBox';
-import type { TagModel } from '@core/models/TagModel';
 
-export interface EntryProps {
-  title?: string;
-  date?: string;
+export interface EntryProps extends Omit<ComponentProps<'article'>, 'children'> {
+  entry: EntryModel;
   html: string;
-  excerpt?: string;
-  readingTimeWPM: number;
-  tags?: TagModel[];
-  className?: string;
 }
 
-const Entry: React.FC<EntryProps> = ({
-  title,
-  date,
-  html,
-  excerpt,
-  readingTimeWPM,
-  tags,
-  className,
-}) => {
+const Entry: React.FC<EntryProps> = ({ entry, html, className, ...props }) => {
   if (!html) {
     console.warn(`Entry: no registered markdown file for "${!html}"`);
     return null;
   }
 
+  const { tags } = entry;
+
   return (
-    <article className={clsx('ves-entry', className)}>
-      <EntryHeader
-        title={title}
-        date={date}
-        readingTimeWPM={readingTimeWPM}
-        excerpt={excerpt}
-      />
+    <article {...props} className={clsx('ves-entry', className)}>
+      <EntryHeader entry={entry} />
 
       <div
         className="ves-entry__body"

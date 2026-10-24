@@ -29,6 +29,11 @@ const preview: Preview = {
     },
   ],
 
+  argTypes: {
+    className: { table: { disable: true } },
+    style: { table: { disable: true } },
+  },
+
   parameters: {
     options: {
       storySort: {
@@ -36,7 +41,7 @@ const preview: Preview = {
           'Introduction',
           'Design Tokens',
           'Base',
-          ['Iconography', 'Text'],
+          ['Heading', 'Iconography', 'Text'],
           'Components',
           '*',
         ],

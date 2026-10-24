@@ -117,6 +117,11 @@ const tokens = {
       name: 'secondary',
       value: 'Helvetica, Arial, sans-serif',
     },
+    '--ves-font-family-mono': {
+      type: 'font-family',
+      name: 'mono',
+      value: "'Space Mono', 'SFMono-Regular', Menlo, Consolas, monospace",
+    },
   },
 
   // Scale of 1.125

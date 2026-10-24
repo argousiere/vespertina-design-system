@@ -1,20 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Entry from '@components/Entry';
+import type { EntryModel } from '@core/models/EntryModel';
+import { entryArgTypes } from './arg-types/entry';
 import { renderMarkdown } from './utils/render-markdown';
+import { tags } from './fixtures/tags';
 
 const meta = {
   title: 'Components/Entry',
-  component: Entry,
   parameters: {
     layout: 'fullscreen',
   },
   tags: ['autodocs'],
-  argTypes: {
-    html: { control: false },
-    tags: { control: false, table: { type: { summary: 'TagModel[]' } } },
+  argTypes: entryArgTypes,
+  args: {
+    id: 'entry',
   },
-} satisfies Meta<typeof Entry>;
+  render: (entry) => <Entry entry={entry} html={renderMarkdown('entry.md')} />,
+} satisfies Meta<EntryModel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -22,10 +25,10 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   args: {
     title: 'Celestial Tapestry',
+    url: '#',
     date: '2017-09-12',
-    html: renderMarkdown('entry.md'),
-    readingTimeWPM: 1,
-    excerpt: 'Weaving words and thoughts against the backdrop of space',
-    tags: [{ slug: 'musings', url: '#' }],
+    readingTimeMinutes: 1,
+    description: 'Weaving words and thoughts against the backdrop of space',
+    tags: tags,
   },
 } satisfies Story;

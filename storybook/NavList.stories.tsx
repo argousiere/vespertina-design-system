@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import NavList from '@components/NavList';
+import { activeUrlArgType, navItemsArgType } from './arg-types/nav-item';
+import { navItems } from './fixtures/nav-items';
 
 const meta = {
   title: 'Components/NavList',
@@ -10,20 +12,8 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    items: {
-      control: false,
-      table: { 
-        type: { summary: 'NavListItemProps[]' }, 
-        defaultValue: { summary: '[]' } 
-      }
-    },
-    ariaLabel: {
-      control: {
-        type: 'text',
-        disable: true,
-      },
-      table: { type: { summary: 'string' } },
-    },
+    items: navItemsArgType,
+    activeUrl: activeUrlArgType,
   },
 } satisfies Meta<typeof NavList>;
 
@@ -32,11 +22,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    items: [
-      { label: 'Home', url: '#', active: true },
-      { label: 'Art', url: '#art' },
-      { label: 'Poetry', url: '#poetry' },
-      { label: 'About', url: '#about' },
-    ],
+    items: navItems,
+    activeUrl: 'home',
   },
 } satisfies Story;
