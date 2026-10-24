@@ -1,7 +1,7 @@
-import type { JSX } from 'react';
 import EntryListItem from './EntryListItem';
 import type { EntryListItemProps } from './EntryListItem';
-import Heading, { type HeadingLevel } from './Heading';
+import Frame from './Frame';
+import type { HeadingLevel } from './Heading';
 
 interface EntryListProps {
   entryListTitle: string;
@@ -14,12 +14,14 @@ const EntryList: React.FC<EntryListProps> = ({
   headingLevel,
   items,
 }) => {
-
   return (
-    <section className="ves-entry-list">
-
-      <Heading level={headingLevel}>{entryListTitle}</Heading>
-      <ul className="ves-entry-list__items">
+    
+    <Frame
+      heading={entryListTitle}
+      headingLevel={headingLevel}
+      className="ves-entry-list"
+    >
+      <ul>
         {items.map((item) => (
           <EntryListItem key={item.id} {...item} />
         ))}
@@ -30,7 +32,7 @@ const EntryList: React.FC<EntryListProps> = ({
           </li>
         )}
       </ul>
-    </section>
+    </Frame>
   );
 };
 

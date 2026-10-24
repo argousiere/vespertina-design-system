@@ -1,35 +1,8 @@
 .ves-entry-list {
-  --ves-entry-list-frame-color: var(--ves-global-color-kyanite);
   --ves-entry-list-item-border-color: var(--ves-divider-color);
   --ves-entry-list-item-hover-border-color: var(--ves-global-color-cerulean);
   --ves-entry-list-item-hover-bg-color: var(--ves-global-color-celestial);
   --ves-entry-list-item-active-bg-color: var(--ves-global-color-kyanite);
-}
-
-.ves-entry-list__title {
-  --ves-trapezoid-clip-size: 24px;
-  display: flex;
-  align-items: center;
-  clip-path: polygon(
-    0 0,
-    calc(100% - var(--ves-trapezoid-clip-size)) 0,
-    100% 100%,
-    0 100%
-  );
-  margin-top: 16px;
-  background-color: var(--ves-entry-list-frame-color);
-  padding-top: 8px;
-  padding-right: calc(var(--ves-trapezoid-clip-size) * 2);
-  padding-bottom: 8px;
-  padding-left: var(--ves-trapezoid-clip-size);
-  width: fit-content;
-  height: var(--ves-grid-size);
-  font-size: var(--ves-font-size-lg);
-}
-
-.ves-entry-list__items {
-  border: 1px solid var(--ves-entry-list-frame-color);
-  padding: var(--ves-spacing-9);
 }
 
 .ves-entry-list__empty {
