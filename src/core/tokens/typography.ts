@@ -3,6 +3,7 @@ import tokens from './tokens';
 const typography = {
   family: {
     primary: tokens['font-families']['--ves-font-family-primary'].value,
+    mono: tokens['font-families']['--ves-font-family-mono'].value,
   },
   weight: Object.fromEntries(
     Object.values(tokens['font-weights']).map(({ name, value }) => [name, value])
