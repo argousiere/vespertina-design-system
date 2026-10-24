@@ -1,42 +1,47 @@
 import React from 'react';
+import type { ComponentProps } from 'react';
 import clsx from 'clsx';
 import type { ThumbnailModel } from '@core/models/ThumbnailModel';
 import Tooltip from './Tooltip';
 
-export interface ThumbnailProps extends ThumbnailModel {
-  ariaLabel?: string;
-  ariaDescribedBy?: string;
+export interface ThumbnailProps
+  extends Omit<ComponentProps<'img'>, keyof ThumbnailModel | 'children'> {
+  thumbnail?: ThumbnailModel;
+  caption?: string | React.ReactNode;
   captionMaxLines?: number;
-  onClick?: () => void;
 }
 
 const Thumbnail: React.FC<ThumbnailProps> = ({
-  src,
-  height,
-  width,
+  thumbnail = {},
   caption,
-  altText,
-  sources,
-  ariaLabel,
-  ariaDescribedBy,
   captionMaxLines,
-  onClick,
+  className,
+  style,
+  onError,
+  ...props
 }) => {
+  const { src, alt, width, height, sources } = thumbnail;
   const [hasImgSrc, setHasImgSrc] = React.useState(!!src);
 
   React.useEffect(() => {
     setHasImgSrc(!!src);
   }, [src]);
 
-  const handleImageError = () => {
+  const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
     setHasImgSrc(false);
+    onError?.(event);
   };
 
   return (
     <figure
-      className={clsx('ves-thumbnail', {
-        'ves-thumbnail--missing': !hasImgSrc,
-      })}
+      className={clsx(
+        'ves-thumbnail',
+        {
+          'ves-thumbnail--missing': !hasImgSrc,
+        },
+        className
+      )}
+      style={style}
     >
       <picture
         className="ves-thumbnail__picture"
@@ -47,20 +52,18 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
       >
         {sources?.map((source) => (
           <source
-            key={source.mediaQuery}
-            media={source.mediaQuery}
-            srcSet={source.srcset}
+            key={source.media}
+            media={source.media}
+            srcSet={source.srcSet}
           />
         ))}
         <img
+          {...props}
           className="ves-thumbnail__img"
           src={src}
           height={height}
           width={width}
-          alt={altText}
-          aria-label={ariaLabel}
-          aria-describedby={ariaDescribedBy}
-          onClick={onClick}
+          alt={alt}
           onError={handleImageError}
         />
       </picture>

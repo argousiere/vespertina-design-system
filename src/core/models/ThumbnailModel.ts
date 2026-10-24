@@ -1,11 +1,10 @@
 export interface ThumbnailModel {
   src?: string;
-  height?: number | string;
+  alt?: string;
   width?: number | string;
-  altText?: string;
-  caption?: string;
+  height?: number | string;
   sources?: {
-    mediaQuery: string;
-    srcset: string;
+    media: string;
+    srcSet: string;
   }[];
 }
