@@ -1,0 +1,17 @@
+import type { InputType } from 'storybook/internal/types';
+import type { EntryModel } from '@core/models/EntryModel';
+import { tagsArgType } from './tags';
+import { thumbnailArgType } from './thumbnail';
+
+const table = { category: 'entry' };
+
+export const entryArgTypes: Record<keyof EntryModel, InputType> = {
+  id: { control: false, table },
+  title: { control: 'text', table },
+  url: { control: false, table },
+  date: { control: 'text', description: 'yyyy-MM-dd', table },
+  description: { control: 'text', table },
+  readingTimeMinutes: { control: 'number', table },
+  thumbnail: { ...thumbnailArgType, table: { ...thumbnailArgType.table, ...table } },
+  tags: { ...tagsArgType, table: { ...tagsArgType.table, ...table } },
+};
