@@ -1,36 +1,24 @@
 import type { JSX } from 'react';
 import EntryListItem from './EntryListItem';
 import type { EntryListItemProps } from './EntryListItem';
+import Heading, { type HeadingLevel } from './Heading';
 
 interface EntryListProps {
-  title: string;
-  headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  entryListTitle: string;
+  headingLevel?: HeadingLevel;
   items: EntryListItemProps[];
 }
 
-const HeadingTagMap: Record<string, keyof JSX.IntrinsicElements> = {
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  h4: 'h4',
-  h5: 'h5',
-  h6: 'h6',
-};
-
-const defaultHeadingTag = 'h2';
-
 const EntryList: React.FC<EntryListProps> = ({
-  title,
+  entryListTitle,
   headingLevel,
   items,
 }) => {
-  const HeadingTag = HeadingTagMap[
-    headingLevel ?? defaultHeadingTag
-  ] as keyof JSX.IntrinsicElements;
 
   return (
     <section className="ves-entry-list">
-      <HeadingTag className="ves-entry-list__title">{title}</HeadingTag>
+
+      <Heading level={headingLevel}>{entryListTitle}</Heading>
       <ul className="ves-entry-list__items">
         {items.map((item) => (
           <EntryListItem key={item.id} {...item} />

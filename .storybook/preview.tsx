@@ -36,7 +36,7 @@ const preview: Preview = {
           'Introduction',
           'Design Tokens',
           'Base',
-          ['Iconography', 'Text'],
+          ['Heading', 'Iconography', 'Text'],
           'Components',
           '*',
         ],

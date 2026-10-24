@@ -23,6 +23,8 @@ export { default as Entry } from './components/Entry';
 export type { EntryProps } from './components/Entry';
 export { default as EntryHeader } from './components/EntryHeader';
 export type { EntryHeaderProps } from './components/EntryHeader';
+export { default as Heading } from './components/Heading';
+export type { HeadingProps, HeadingLevel } from './components/Heading';
 export { default as NavList } from './components/NavList';
 export type { NavListProps } from './components/NavList';
 export { default as NavListItem } from './components/NavListItem';

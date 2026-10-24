@@ -4,15 +4,19 @@ import Tag from './Tag';
 import Tooltip from './Tooltip';
 
 export interface TagBoxProps {
-  title?: string;
+  tagBoxTitle?: string;
   tags: TagModel[];
 }
 
 const TagBox: React.FC<TagBoxProps> = ({ title = 'Filed under', tags }) => {
+  tagBoxTitle = 'Filed under',
+  tags,
   return (
     <section className="ves-tag-box">
-      <Tooltip title={title} showOnlyWhenTruncated>
-        <h6 className="ves-tag-box__title">{title}</h6>
+      <Tooltip title={tagBoxTitle} showOnlyWhenTruncated>
+        <Heading level="h6" className="ves-tag-box__title">
+          {tagBoxTitle}
+        </Heading>
       </Tooltip>
       <div className="ves-tag-box__tags">
         {tags.map((tag) => (

@@ -1,4 +1,5 @@
 import type { EntryListItemProps } from './EntryListItem';
+import Heading from './Heading';
 import Thumbnail from './Thumbnail';
 
 export type FeaturedListItemProps = Omit<EntryListItemProps, 'disabled'>;
@@ -14,7 +15,12 @@ const FeaturedListItem: React.FC<FeaturedListItemProps> = ({
       <Thumbnail {...thumbnail} />
 
       <div className="ves-featured-list__item-details">
-        <h3 className="ves-featured-list__item-title clamp-text">{title}</h3>
+        <Heading
+          level="h3"
+          className="ves-featured-list__item-title clamp-text"
+        >
+          {title}
+        </Heading>
         {description && (
           <p className="ves-featured-list__item-description clamp-text">
             {description}

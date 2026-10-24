@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    title: 'Filed under',
+    tagBoxTitle: 'Filed under',
     tags: [
       {
         slug: 'expat',
@@ -33,7 +33,7 @@ export const Default = {
 
 export const SingleTag = {
   args: {
-    title: 'Filed under',
+    tagBoxTitle: 'Filed under',
     tags: [
       {
         slug: 'travel',
@@ -44,7 +44,7 @@ export const SingleTag = {
 
 export const MultipleTags = {
   args: {
-    title: 'Filed under',
+    tagBoxTitle: 'Filed under',
     tags: [
       {
         slug: 'expat',
@@ -64,7 +64,7 @@ export const MultipleTags = {
 
 export const CustomTitle = {
   args: {
-    title: 'Topics',
+    tagBoxTitle: 'Topics',
     tags: [
       {
         slug: 'technology',
@@ -84,7 +84,7 @@ const breakpoints = [
 
 export const Responsive = {
   args: {
-    title: 'Filed under',
+    tagBoxTitle: 'Filed under',
     tags: [
       {
         slug: 'expat',
