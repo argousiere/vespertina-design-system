@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Tooltip from '@components/Tooltip';
+import type { TooltipProps } from '@components/Tooltip';
 
 const meta = {
   title: 'Components/Tooltip',
@@ -9,42 +10,57 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  args: {
+    disabled: false,
+    showOnlyWhenTruncated: false,
+  },
   argTypes: {
-    children: { control: { disable: true } },
+    children: { table: { disable: true } },
   },
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Omit<TooltipProps, 'children'>>;
 
 export const Default = {
   args: {
     title: 'We are made of starstuff.',
-    children: <span>Hover, focus or tap.</span>,
   },
+  render: (args) => (
+    <Tooltip {...args}>
+      <span>Hover, focus or tap.</span>
+    </Tooltip>
+  ),
 } satisfies Story;
 
 export const LongContent = {
   args: {
     title:
       'The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself.',
-    children: <span>Hover, focus or tap.</span>,
   },
+  render: (args) => (
+    <Tooltip {...args}>
+      <span>Hover, focus or tap.</span>
+    </Tooltip>
+  ),
 } satisfies Story;
 
 export const Disabled = {
   args: {
     title: 'Disabled tooltip',
     disabled: true,
-    children: <span>Tooltip is disabled.</span>,
   },
+  render: (args) => (
+    <Tooltip {...args}>
+      <span>Hover, focus or tap.</span>
+    </Tooltip>
+  ),
 } satisfies Story;
 
 export const OnlyWhenTruncated = {
   args: {
     title: 'We are made of starstuff.',
     showOnlyWhenTruncated: true,
-    children: <span />,
   },
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -56,7 +72,7 @@ export const OnlyWhenTruncated = {
 
       <Tooltip {...args}>
         <span className="clamp-text" style={{ width: 120 }}>
-          We are made of starstuff.
+          {args.title}
         </span>
       </Tooltip>
     </div>

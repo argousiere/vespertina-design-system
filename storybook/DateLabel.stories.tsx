@@ -10,7 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    date: {
+    dateTime: {
       control: 'text',
       description: 'Date string in yyyy-MM-dd format',
     },
@@ -19,7 +19,6 @@ const meta = {
       description: 'date-fns format',
       table: { defaultValue: { summary: 'dd.MMM.yyyy' }}
     },
-    className: { control: false },
   },
   args: {
     dateFormat: 'dd.MMM.yyyy',
@@ -31,19 +30,19 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    date: '2017-09-12',
+    dateTime: '2017-09-12',
   },
 } satisfies Story;
 
 export const CustomFormat = {
   args: {
-    date: '2017-09-12',
+    dateTime: '2017-09-12',
     dateFormat: 'MMMM dd, yyyy',
   },
 } satisfies Story;
 
 export const Invalid = {
   args: {
-    date: '20170912',
+    dateTime: '20170912',
   },
 } satisfies Story;

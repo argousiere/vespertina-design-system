@@ -29,6 +29,11 @@ const preview: Preview = {
     },
   ],
 
+  argTypes: {
+    className: { table: { disable: true } },
+    style: { table: { disable: true } },
+  },
+
   parameters: {
     options: {
       storySort: {

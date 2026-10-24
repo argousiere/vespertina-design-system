@@ -1,15 +1,17 @@
 import clsx from 'clsx';
+import type { ComponentProps } from 'react';
 
-export interface ReadingTimeProps {
+export interface ReadingTimeProps
+  extends Omit<ComponentProps<'span'>, 'children'> {
   minutes: number;
   abbreviated?: boolean;
-  className?: string;
 }
 
 const ReadingTime: React.FC<ReadingTimeProps> = ({
   minutes,
   abbreviated = true,
   className,
+  ...props
 }) => {
   const duration = new Intl.NumberFormat('en', {
     style: 'unit',
@@ -18,7 +20,7 @@ const ReadingTime: React.FC<ReadingTimeProps> = ({
   }).format(minutes);
 
   return (
-    <span className={clsx('ves-reading-time', className)}>
+    <span {...props} className={clsx('ves-reading-time', className)}>
       {duration} read
     </span>
   );
