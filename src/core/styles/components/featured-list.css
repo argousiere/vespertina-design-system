@@ -19,8 +19,35 @@
 .ves-featured-list__item {
   --ves-featured-list-item-height: calc(var(--ves-grid-size) * 3);
   --ves-featured-list-item-padding: var(--ves-spacing-5);
+  --ves-featured-list-item-hover-border-color: var(--ves-global-color-cerulean);
+  --ves-featured-list-item-hover-bg-color: color-mix(
+    in oklch,
+    var(--ves-global-color-celestial) 50%,
+    transparent
+  );
+  --ves-featured-list-item-active-bg-color: color-mix(
+    in oklch,
+    var(--ves-global-color-kyanite) 70%,
+    transparent
+  );
 
   border: 1px solid var(--ves-border-color);
+
+  &:hover {
+    border-color: var(--ves-featured-list-item-hover-border-color);
+  }
+}
+
+.ves-featured-list__item-link {
+  display: block;
+
+  &:hover {
+    background: var(--ves-featured-list-item-hover-bg-color);
+  }
+
+  &:active {
+    background: var(--ves-featured-list-item-active-bg-color);
+  }
 }
 
 .ves-featured-list__item .ves-thumbnail {
