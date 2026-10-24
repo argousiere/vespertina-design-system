@@ -23,7 +23,7 @@
   word-break: break-word;
 }
 
-.ves-entry-header__excerpt {
+.ves-entry-header__description {
   margin: 0 0 calc(var(--ves-grid-size) * 3);
   border: solid var(--ves-entry-header-border-color);
   border-width: 1px 0;

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import EntryList from '@components/EntryList';
+import { entries, entryRecord } from './fixtures/entries';
 
 const meta = {
   title: 'Components/EntryList',
@@ -16,7 +17,7 @@ const meta = {
     },
     items: {
       control: false,
-      description: 'Array of entry list items',
+      table: { type: { summary: 'EntryListProps[]' } }
     },
   },
 } satisfies Meta<typeof EntryList>;
@@ -27,91 +28,21 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     entryListTitle: 'Latest Posts',
-    items: [
-      {
-        id: '1',
-        title: 'Analog Clocks and Clock Towers',
-        date: '2016-09-03',
-        url: '#',
-      },
-      {
-        id: '2',
-        title: 'The Bubbling Brook at Berthelot',
-        date: '2016-08-11',
-        url: '#',
-      },
-      {
-        id: '3',
-        title: 'My First Winter',
-        date: '2016-03-06',
-        url: '#',
-      },
-      {
-        id: '4',
-        title: 'The Transcontinental Year',
-        date: '2015-12-19',
-        url: '#',
-      },
-      {
-        id: '5',
-        title: 'In the Foyer of Reveries',
-        date: '2015-12-03',
-        url: '#',
-      },
-    ],
+    items: entries.map((entry) => ({ entry })),
   },
 };
 
 export const WithDisabledEntry: Story = {
   args: {
     entryListTitle: 'Latest Posts',
-    items: [
-      {
-        id: '1',
-        title: 'Analog Clocks and Clock Towers',
-        date: '2016-09-03',
-        url: '#',
-      },
-      {
-        id: '2',
-        title: 'The Bubbling Brook at Berthelot',
-        date: '2016-08-11',
-        url: '#',
-        disabled: true,
-      },
-      {
-        id: '3',
-        title: 'My First Winter',
-        date: '2016-03-06',
-        url: '#',
-      },
-      {
-        id: '4',
-        title: 'The Transcontinental Year',
-        date: '2015-12-19',
-        url: '#',
-      },
-      {
-        id: '5',
-        title: 'In the Foyer of Reveries',
-        date: '2015-12-03',
-        url: '#',
-      },
-    ],
+    items: entries.map((entry, index) => ({ entry, disabled: index === 1 })),
   },
 };
 
 export const SingleEntry: Story = {
   args: {
     entryListTitle: 'Latest Posts',
-    items: [
-      {
-        id: '1',
-        title: 'Analog Clocks and Clock Towers',
-        date: '2016-09-03',
-        url: '#',
-      },
-    ],
+    items: [{ entry: entryRecord.analogClocksAndClockTowers }],
   },
 };
 

@@ -1,47 +1,39 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import EntryListItem from '@components/EntryListItem';
+import type { EntryModel } from '@core/models/EntryModel';
+import { entryArgTypes } from './arg-types/entry';
+import { entryRecord } from './fixtures/entries';
+
+type EntryListItemArgs = EntryModel & { disabled?: boolean };
 
 const meta = {
   title: 'Components/EntryListItem',
-  component: EntryListItem,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    id: {
-      control: false,
-      description: 'Unique ID of the entry',
-    },
-    title: {
-      control: 'text',
-      description: 'The title of the entry',
-    },
-    date: {
-      control: 'text',
-      description: 'Publication date of the entry',
-    },
-    url: {
-      control: false,
-      description: 'URL the entry links to',
-    },
+    ...entryArgTypes,
     disabled: {
       control: 'boolean',
       description: 'Whether the entry link is disabled',
     },
   },
-} satisfies Meta<typeof EntryListItem>;
+  args: {
+    id: 'entry',
+  },
+  render: ({ disabled, ...entry }) => (
+    <EntryListItem entry={entry} disabled={disabled} />
+  ),
+} satisfies Meta<EntryListItemArgs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    id: 'default',
-    title: 'Sonnet III: The Ghost of Whimsical Fascination',
-    date: '2007-02-02',
-    url: '#',
+    ...entryRecord.sonnetIII,
     disabled: false,
   },
   decorators: (Story) => (
@@ -53,10 +45,7 @@ export const Default: Story = {
 
 export const Disabled: Story = {
   args: {
-    id: 'disabled',
-    title: 'Sonnet III: The Ghost of Whimsical Fascination',
-    date: '2007-02-02',
-    url: '#',
+    ...entryRecord.sonnetIII,
     disabled: true,
   },
   decorators: (Story) => (
@@ -68,10 +57,7 @@ export const Disabled: Story = {
 
 export const Truncated: Story = {
   args: {
-    id: 'truncated',
-    title: 'Sonnet III: The Ghost of Whimsical Fascination',
-    date: '2007-02-02',
-    url: '#',
+    ...entryRecord.sonnetIII,
     disabled: false,
   },
   decorators: (Story) => (

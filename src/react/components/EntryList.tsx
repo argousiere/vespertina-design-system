@@ -1,9 +1,12 @@
+import clsx from 'clsx';
+import type { ComponentProps } from 'react';
 import EntryListItem from './EntryListItem';
 import type { EntryListItemProps } from './EntryListItem';
 import Frame from './Frame';
 import type { HeadingLevel } from './Heading';
 
-interface EntryListProps {
+export interface EntryListProps
+  extends Omit<ComponentProps<'ol'>, 'children'> {
   entryListTitle: string;
   headingLevel?: HeadingLevel;
   items: EntryListItemProps[];
@@ -13,17 +16,18 @@ const EntryList: React.FC<EntryListProps> = ({
   entryListTitle,
   headingLevel,
   items,
+  className,
+  ...props
 }) => {
   return (
-    
     <Frame
       heading={entryListTitle}
       headingLevel={headingLevel}
-      className="ves-entry-list"
+      className={clsx('ves-entry-list', className)}
     >
-      <ul>
+      <ol {...props}>
         {items.map((item) => (
-          <EntryListItem key={item.id} {...item} />
+          <EntryListItem key={item.entry.id} {...item} />
         ))}
 
         {items.length === 0 && (
@@ -31,7 +35,7 @@ const EntryList: React.FC<EntryListProps> = ({
             There are no entries to display.
           </li>
         )}
-      </ul>
+      </ol>
     </Frame>
   );
 };

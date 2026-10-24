@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import FeaturedList from '@components/FeaturedList';
+import { entries, entryRecord } from './fixtures/entries';
 
 const meta = {
   title: 'Components/FeaturedList',
@@ -12,7 +13,7 @@ const meta = {
   argTypes: {
     items: {
       control: false,
-      description: 'Array of featured items',
+      table: { type: { summary: 'FeaturedListItemProps[]' } }
     },
   },
 } satisfies Meta<typeof FeaturedList>;
@@ -22,58 +23,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    items: [
-      {
-        id: '1',
-        title: 'Analog Clocks and Clock Towers',
-        date: '2016-09-03',
-        url: '#',
-        description: 'Musings on these wonderful pieces of machinery',
-      },
-      {
-        id: '2',
-        title: 'The Bubbling Brook at Berthelot',
-        date: '2016-08-11',
-        url: '#',
-        description: 'An ode to the little park beside my office',
-      },
-      {
-        id: '3',
-        title: 'My First Winter',
-        date: '2016-03-06',
-        url: '#',
-        description:
-          'Notes on stinging ears and icy fingers from a tropical girl.',
-      },
-      {
-        id: '4',
-        title: 'The Transcontinental Year',
-        date: '2015-12-19',
-        url: '#',
-        description:
-          'Reminiscing on the administrative hoops I jumped through to get to France',
-      },
-      {
-        id: '5',
-        title: 'In the Foyer of Reveries',
-        date: '2015-12-03',
-        url: '#',
-        description: 'Reminiscing my leap into the expat life.',
-      },
-    ],
+    items: entries.map((entry) => ({ entry })),
   },
 };
 
 export const SingleEntry: Story = {
   args: {
-    items: [
-      {
-        id: '1',
-        title: 'Analog Clocks and Clock Towers',
-        date: '2016-09-03',
-        url: '#',
-        description: 'Musings on these wonderful pieces of machinery',
-      },
-    ],
+    items: [{ entry: entryRecord.analogClocksAndClockTowers }],
   },
 };

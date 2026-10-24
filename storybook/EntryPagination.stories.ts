@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import EntryPagination from '@components/EntryPagination';
+import { entryRecord } from './fixtures/entries';
 
 const meta = {
   title: 'Components/EntryPagination',
@@ -10,31 +11,27 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    previousTitle: {
-      control: 'text',
-      description: 'Title of the older entry',
+    previousEntry: {
+      control: false,
+      table: { type: { summary: 'EntryModel' } },
     },
-    previousUrl: {
-      control: 'text',
-      description: 'URL of the older entry',
+    nextEntry: {
+      control: false,
+      table: { type: { summary: 'EntryModel' } },
     },
-    nextTitle: {
+    previousSectionLabel: {
       control: 'text',
-      description: 'Title of the newer entry',
+      description: 'Previous Entry section label',
     },
-    nextUrl: {
+    nextSectionLabel: {
       control: 'text',
-      description: 'URL of the newer entry',
-    },
-    previousLabel: {
-      control: 'text',
-      description: 'Older Posts section label',
-    },
-    nextLabel: {
-      control: 'text',
-      description: 'Newer Posts section label',
+      description: 'Next Entry section label',
     },
   },
+  args: {
+    previousSectionLabel: 'Previous Entry',
+    nextSectionLabel: 'Next Entry',
+  }
 } satisfies Meta<typeof EntryPagination>;
 
 export default meta;
@@ -42,45 +39,43 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    previousTitle: 'The Bubbling Brook at Berthelot',
-    previousUrl: '#',
-    nextTitle: 'Analog Clocks and Clock Towers',
-    nextUrl: '#',
+    previousEntry: entryRecord.theBubblingBrookAtBerthelot,
+    nextEntry: entryRecord.analogClocksAndClockTowers,
   },
 } satisfies Story;
 
-export const OlderOnly = {
+export const PreviousEntryOnly = {
   args: {
-    previousTitle: 'The Transcontinental Year',
-    previousUrl: '#',
+    previousEntry: entryRecord.theTranscontinentalYear,
   },
 } satisfies Story;
 
-export const NewerOnly = {
+export const NextEntryOnly = {
   args: {
-    nextTitle: 'My First Winter',
-    nextUrl: '#',
+    nextEntry: entryRecord.myFirstWinter,
   },
 } satisfies Story;
 
-export const LongTitles = {
+export const LongEntryTitles = {
   args: {
-    previousTitle:
-      'Sonnet III: The Ghost of Whimsical Fascination, and Other Poems Written on the Night Train to Lyon',
-    previousUrl: '#',
-    nextTitle:
-      'In the Foyer of Reveries: Notes on Clock Towers, Brooks, and the Long Transcontinental Year',
-    nextUrl: '#',
+    previousEntry: {
+      ...entryRecord.theBubblingBrookAtBerthelot,
+      title:
+        entryRecord.theBubblingBrookAtBerthelot.description,
+    },
+    nextEntry: {
+      ...entryRecord.analogClocksAndClockTowers,
+      title:
+        entryRecord.analogClocksAndClockTowers.description,
+    },
   },
 } satisfies Story;
 
-export const CustomLabels = {
+export const CustomSectionLabels = {
   args: {
-    previousTitle: 'The Bubbling Brook at Berthelot',
-    previousUrl: '#',
-    nextTitle: 'Analog Clocks and Clock Towers',
-    nextUrl: '#',
-    previousLabel: 'Previous',
-    nextLabel: 'Next',
+    previousEntry: entryRecord.theBubblingBrookAtBerthelot,
+    nextEntry: entryRecord.analogClocksAndClockTowers,
+    previousSectionLabel: 'Go Back',
+    nextSectionLabel: 'Go Forward',
   },
 } satisfies Story;

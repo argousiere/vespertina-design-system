@@ -24,11 +24,17 @@
 }
 
 .ves-featured-list__item .ves-thumbnail {
+  --ves-thumbnail-frame-padding: var(--ves-spacing-3);
+
   flex: 0 0
     calc(
       var(--ves-featured-list-item-height) -
         (var(--ves-featured-list-item-padding) * 2)
     );
+}
+
+.ves-featured-list__item .ves-thumbnail__img {
+  object-fit: cover;
 }
 
 .ves-featured-list__item-content {
