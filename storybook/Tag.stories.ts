@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Tag from '@components/Tag';
+import { tagRecord } from './fixtures/tags';
+import { tagArgType } from './arg-types/tags';
 
 const meta = {
   title: 'Components/Tag',
@@ -10,7 +12,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    url: { control: false },
+    tag: tagArgType
   },
 } satisfies Meta<typeof Tag>;
 
@@ -19,14 +21,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    slug: 'razorback',
-    description: "You can't take the Razorback! She is gone and gone and gone!",
+    tag: tagRecord['razorback'],
   },
 } satisfies Story;
 
 export const LongLabel = {
   args: {
-    slug: 'a-very-long-tag-name-that-keeps-going-well-past-the-maximum-width',
-    description: 'Truncated tags show their full label in a tooltip.',
+    tag: tagRecord['long'],
   },
 } satisfies Story;
