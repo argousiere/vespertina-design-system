@@ -1,19 +1,32 @@
+import clsx from 'clsx';
+import type { ComponentProps } from 'react';
+import type { NavItemModel } from '@core/models/NavItemModel';
 import NavListItem from './NavListItem';
-import type { NavListItemProps } from './NavListItem';
 
-export interface NavListProps {
-  items: Omit<NavListItemProps, 'focused'>[];
-  ariaLabel?: string;
+export interface NavListProps extends Omit<ComponentProps<'nav'>, 'children'> {
+  items: NavItemModel[];
+  activeUrl?: string;
 }
 
 const NavList: React.FC<NavListProps> = ({
   items,
-  ariaLabel = 'Navigation',
+  activeUrl,
+  className,
+  'aria-label': ariaLabel,
+  ...props
 }) => (
-  <nav className="ves-nav-list" aria-label={ariaLabel}>
+  <nav
+    {...props}
+    className={clsx('ves-nav-list', className)}
+    aria-label={ariaLabel ?? 'Navigation'}
+  >
     <ul className="ves-nav-list__items">
       {items.map((item) => (
-        <NavListItem key={item.url} {...item} />
+        <NavListItem
+          key={item.url}
+          item={item}
+          active={item.url === activeUrl}
+        />
       ))}
     </ul>
   </nav>

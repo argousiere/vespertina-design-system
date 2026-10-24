@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Navbar from '@components/Navbar';
+import { navItems } from './fixtures/nav-items';
+import { activeUrlArgType } from './arg-types/nav-item';
 
 const meta = {
   title: 'Components/Navbar',
@@ -17,7 +19,7 @@ const meta = {
     },
     navItems: {
       control: false,
-      table: { type: { summary: 'NavListItemProps[]' } },
+      table: { type: { summary: 'NavItemModel[]' } },
     },
     actions: {
       control: false,
@@ -26,6 +28,7 @@ const meta = {
     onActionTrigger: {
       control: false,
     },
+    activeUrl: activeUrlArgType,
   },
 } satisfies Meta<typeof Navbar>;
 
@@ -35,12 +38,8 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   args: {
     title: 'The Vespertine Cadet',
-    navItems: [
-      { label: 'Home', url: '#', active: true },
-      { label: 'Art', url: '#art' },
-      { label: 'Poetry', url: '#poetry' },
-      { label: 'About', url: '#about' },
-    ],
+    navItems,
+    activeUrl: '#',
     actions: [{ name: 'search' }],
   },
 } satisfies Story;

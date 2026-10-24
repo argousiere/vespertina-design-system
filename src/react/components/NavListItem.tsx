@@ -1,30 +1,38 @@
 import clsx from 'clsx';
+import type { ComponentProps } from 'react';
+import type { NavItemModel } from '@core/models/NavItemModel';
 
-export interface NavListItemProps {
-  label: string;
-  url: string;
+export interface NavListItemProps
+  extends Omit<ComponentProps<'li'>, 'children'> {
+  item: NavItemModel;
   active?: boolean;
   focused?: boolean;
 }
 
 const NavListItem: React.FC<NavListItemProps> = ({
-  label,
-  url,
+  item,
   active = false,
   focused = false,
+  className,
+  ...props
 }) => (
   <li
-    className={clsx('ves-nav-list-item', {
-      'ves-nav-list-item--active': active,
-      'ves-nav-list-item--focused': focused,
-    })}
+    {...props}
+    className={clsx(
+      'ves-nav-list-item',
+      {
+        'ves-nav-list-item--active': active,
+        'ves-nav-list-item--focused': focused,
+      },
+      className
+    )}
   >
     <a
       className="ves-nav-list-item__link"
-      href={url}
+      href={item.url}
       aria-current={active ? 'page' : undefined}
     >
-      {label}
+      {item.label}
     </a>
   </li>
 );
