@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import coverImage from '@images/dizzy.jpg';
+import coverImage from './images/dizzy.jpg';
 import ProgressiveBlur, {
   type ProgressiveBlurProps,
 } from '@components/ProgressiveBlur';
