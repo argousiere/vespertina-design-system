@@ -61,6 +61,8 @@ export { default as Tag } from './components/Tag';
 export type { TagProps } from './components/Tag';
 export { default as TagBox } from './components/TagBox';
 export type { TagBoxProps } from './components/TagBox';
+export { default as TagHeader } from './components/TagHeader';
+export type { TagHeaderProps } from './components/TagHeader';
 export { default as Tooltip } from './components/Tooltip';
 export type { TooltipProps } from './components/Tooltip';
 export { default as Thumbnail } from './components/Thumbnail';

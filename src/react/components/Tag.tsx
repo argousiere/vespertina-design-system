@@ -10,16 +10,16 @@ export interface TagProps
 }
 
 const Tag: React.FC<TagProps> = ({ tag, className, ...props }) => {
-  const { slug, url, description } = tag;
+  const { slug, label = slug, url, description } = tag;
   const tagClassName = clsx(
     'ves-tag',
     { [`ves-tag--${slug}`]: slug },
     className
   );
-  const label = <span className="ves-tag__label">{slug}</span>;
+  const labelEl = <span className="ves-tag__label">{label}</span>;
 
   return (
-    <Tooltip title={slug} showOnlyWhenTruncated>
+    <Tooltip title={label} showOnlyWhenTruncated>
       {url ? (
         <a
           rel="tag"
@@ -28,11 +28,11 @@ const Tag: React.FC<TagProps> = ({ tag, className, ...props }) => {
           href={url}
           title={description}
         >
-          {label}
+          {labelEl}
         </a>
       ) : (
         <span {...props} className={tagClassName} title={description}>
-          {label}
+          {labelEl}
         </span>
       )}
     </Tooltip>
