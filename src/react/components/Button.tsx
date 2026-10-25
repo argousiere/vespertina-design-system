@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { ButtonLevel, ButtonVariant } from '@core/models/ButtonModel';
-import type { IconName } from './icons';
+import type { IconName } from '@core/tokens/icons';
 import Label from './Label';
 
 export interface ButtonProps extends Omit<

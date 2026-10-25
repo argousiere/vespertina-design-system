@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import type { ComponentProps } from 'react';
-import { icons, type IconName } from './icons';
+import { icons, type IconName } from '@core/tokens/icons';
 
 export type { IconName };
 

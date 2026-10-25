@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import Icon from './Icon';
-import type { IconName } from './icons';
+import type { IconName } from '@core/tokens/icons';
 import Tooltip from './Tooltip';
 
 export interface LabelProps extends Omit<ComponentProps<'div'>, 'children'> {
