@@ -19,6 +19,10 @@ export type {
 export { default as FeaturedList } from './components/FeaturedList';
 export { default as FeaturedListItem } from './components/FeaturedListItem';
 export type { FeaturedListItemProps } from './components/FeaturedListItem';
+export { default as Gallery } from './components/Gallery';
+export type { GalleryProps } from './components/Gallery';
+export { default as GalleryItem } from './components/GalleryItem';
+export type { GalleryItemProps } from './components/GalleryItem';
 export { default as Icon } from './components/Icon';
 export type { IconProps, IconName } from './components/Icon';
 export { default as DateLabel } from './components/DateLabel';
