@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import clsx from 'clsx';
-import type { ThumbnailModel } from '@core/models/ThumbnailModel';
+import type { AspectRatio, ThumbnailModel } from '@core/models/ThumbnailModel';
 import Tooltip from './Tooltip';
 
 export interface ThumbnailProps
@@ -9,18 +9,20 @@ export interface ThumbnailProps
   thumbnail?: ThumbnailModel;
   caption?: string | React.ReactNode;
   captionMaxLines?: number;
+  aspectRatio?: AspectRatio;
 }
 
 const Thumbnail: React.FC<ThumbnailProps> = ({
-  thumbnail = {},
+  thumbnail,
   caption,
   captionMaxLines,
+  aspectRatio,
   className,
   style,
   onError,
   ...props
 }) => {
-  const { src, alt, width, height, sources } = thumbnail;
+  const { src, alt, width, height, sources } = thumbnail ?? {};
   const [hasImgSrc, setHasImgSrc] = React.useState(!!src);
 
   React.useEffect(() => {
@@ -38,16 +40,22 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
         'ves-thumbnail',
         {
           'ves-thumbnail--missing': !hasImgSrc,
+          'ves-thumbnail--fixed-ratio': aspectRatio,
         },
         className
       )}
-      style={style}
+      style={
+        {
+          ...style,
+          '--ves-thumbnail-aspect-ratio': aspectRatio,
+        } as React.CSSProperties
+      }
     >
       <picture
         className="ves-thumbnail__picture"
         style={{
           width,
-          height,
+          height: aspectRatio ? undefined : height,
         }}
       >
         {sources?.map((source) => (
@@ -73,7 +81,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
             <figcaption
               className="ves-thumbnail__caption ves-thumbnail__caption--clamped clamp-text"
               style={
-                { '--clamp-text-lines': captionMaxLines } as React.CSSProperties
+                { '--clamp-text-lines': captionMaxLines ?? 1 } as React.CSSProperties
               }
             >
               {caption}

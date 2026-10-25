@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Thumbnail from '@components/Thumbnail';
-import { thumbnailArgType } from './arg-types/thumbnail';
-import { thumbnailRecord } from './fixtures/thumbnails';
+import { aspectRatioArgType, thumbnailArgType } from './arg-types/thumbnail';
+import { emptyThumbnailRecord, thumbnailRecord } from './fixtures/thumbnails';
 
 const meta = {
   title: 'Components/Thumbnail',
@@ -13,6 +13,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     thumbnail: thumbnailArgType,
+    aspectRatio: aspectRatioArgType,
     captionMaxLines: {
       control: 'number',
       description: 'Lines shown before the caption is cut off',
@@ -55,14 +56,14 @@ export const WithTruncatedCaption = {
 
 export const Placeholder = {
   args: {
-    thumbnail: thumbnailRecord.placeholder,
+    thumbnail: emptyThumbnailRecord.placeholder,
     caption: 'Against the dizzying backdrop of space',
   },
 } satisfies Story;
 
 export const MissingImageFile = {
   args: {
-    thumbnail: thumbnailRecord.missing,
+    thumbnail: emptyThumbnailRecord.missing,
     caption: 'Against the dizzying backdrop of space',
   },
 } satisfies Story;

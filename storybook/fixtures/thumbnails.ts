@@ -17,7 +17,7 @@ export const thumbnailRecord = {
     width: 200,
     height: 200,
   },
-kiwi: {
+  kiwi: {
     src: kiwi,
     alt: 'Kiwi',
     width: 200,
@@ -35,6 +35,10 @@ kiwi: {
     width: 200,
     height: 200,
   },
+} satisfies Record<string, ThumbnailModel>;
+
+export const emptyThumbnailRecord = {
+
   placeholder: {
     alt: 'No image',
     width: 200,
@@ -46,9 +50,6 @@ kiwi: {
     width: 200,
     height: 200,
   },
-} satisfies Record<string, ThumbnailModel>;
-
-export const emptyThumbnailRecord = {
 }
 
 export const thumbnails = Object.values(thumbnailRecord);
