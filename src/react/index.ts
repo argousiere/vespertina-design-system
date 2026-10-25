@@ -33,6 +33,8 @@ export { default as Frame } from './components/Frame';
 export type { FrameProps } from './components/Frame';
 export { default as Heading } from './components/Heading';
 export type { HeadingProps, HeadingLevel } from './components/Heading';
+export { default as Label } from './components/Label';
+export type { LabelProps } from './components/Label';
 export { default as NavList } from './components/NavList';
 export type { NavListProps } from './components/NavList';
 export { default as NavListItem } from './components/NavListItem';

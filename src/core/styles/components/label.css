@@ -1,0 +1,11 @@
+.ves-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ves-spacing-3);
+  font-family: var(--ves-font-family-primary);
+  letter-spacing: 0.1em;
+}
+
+.ves-label__icon {
+  --ves-icon-size: 1.25em;
+}
