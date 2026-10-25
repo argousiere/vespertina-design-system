@@ -1,0 +1,47 @@
+.ves-segmented-control {
+  display: inline-flex;
+}
+
+.ves-segmented-control__btn {
+  position: relative;
+
+  & + & {
+    margin-left: -1px;
+  }
+
+  &:is(:hover, :focus-visible) {
+    z-index: 1;
+  }
+}
+
+.ves-segmented-control__btn--selected:not(:disabled) {
+  --ves-segmented-control-top-highlight: linear-gradient(
+    to bottom,
+      oklch(from var(--ves-btn-tint) l c h / 0.6) 0,
+      oklch(from var(--ves-btn-tint) l c h / 0.1) 2px
+    )
+    top / 100% 2px no-repeat;
+
+  background:
+    var(--ves-segmented-control-top-highlight),
+    linear-gradient(
+      to bottom,
+      var(--ves-btn-bg-color) 0%,
+      var(--ves-btn-bg-color) var(--ves-btn-glow-start),
+      oklch(from var(--ves-btn-tint) l c h / var(--ves-btn-glow-opacity)) 100%
+    );
+
+  &:active {
+    background:
+      var(--ves-segmented-control-top-highlight),
+      linear-gradient(
+        to bottom,
+        var(--ves-btn-bg-color) 0%,
+        var(--ves-btn-bg-color) var(--ves-btn-glow-start),
+        oklch(from var(--ves-btn-tint) l c h / var(--ves-btn-glow-opacity))
+          calc(var(--ves-btn-glow-start) + 1%),
+        oklch(from var(--ves-btn-tint) l c h / var(--ves-btn-glow-opacity))
+          100%
+      );
+  }
+}

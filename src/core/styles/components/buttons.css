@@ -26,7 +26,8 @@
   --ves-btn-frame-corner-size: 12px;
   --ves-btn-hover-fill-color: oklch(from var(--ves-btn-tint) l c h / 0.35);
 
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   position: relative;
   transition:
     border-color 0.08s linear,
@@ -121,7 +122,7 @@
   }
 
   &:not(:disabled):is(:hover, :focus-visible) {
-    --ves-btn-glow-start: 75%;
+    --ves-btn-glow-start: 60%;
     --ves-btn-glow-opacity: 0.8;
 
     border-color: var(--ves-btn-border-hover-color);

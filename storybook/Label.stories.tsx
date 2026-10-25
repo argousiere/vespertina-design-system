@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Label from '@components/Label';
-import { iconNames } from '@components/icons';
+import { iconArgType } from './arg-types/icon';
 
 const meta = {
   title: 'Components/Label',
@@ -11,10 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    icon: {
-      control: 'select',
-      options: [undefined, ...iconNames],
-    },
+    icon: iconArgType,
     iconOnly: {
       control: 'boolean',
       description:

@@ -75,5 +75,5 @@ npm run build
 ```
 
 ## Attributions and Inspirations
-- Icons from https://www.flaticon.com
+- Icons from https://lucide.dev/
 - Progressive Blur from https://kennethnym.com/blog/progressive-blur-in-css/

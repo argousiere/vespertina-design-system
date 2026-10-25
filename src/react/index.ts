@@ -48,6 +48,11 @@ export type { NavbarProps } from './components/Navbar';
 export { default as ProgressiveBlur } from './components/ProgressiveBlur';
 export type { ProgressiveBlurProps } from './components/ProgressiveBlur';
 export { ProgressiveBlurDirection } from './constants';
+export { default as SegmentedButtons } from './components/SegmentedButtons';
+export type {
+  SegmentedButtonOption,
+  SegmentedButtonsProps,
+} from './components/SegmentedButtons';
 export { default as Toolbar } from './components/Toolbar';
 export type { ToolbarAction, ToolbarProps } from './components/Toolbar';
 export { default as Tag } from './components/Tag';
