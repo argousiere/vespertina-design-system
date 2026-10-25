@@ -74,3 +74,16 @@
   contain: inline-size;
   text-align: center;
 }
+
+.ves-thumbnail--fixed-ratio {
+  .ves-thumbnail__picture {
+    aspect-ratio: var(--ves-thumbnail-aspect-ratio);
+    height: auto;
+    min-height: 0;
+  }
+
+  .ves-thumbnail__img {
+    display: block;
+    object-fit: cover;
+  }
+}

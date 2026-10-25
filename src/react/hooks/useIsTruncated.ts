@@ -10,8 +10,8 @@ const useIsTruncated = (element: HTMLElement | null): boolean => {
       setIsTruncated(
         [element, ...element.querySelectorAll('*')].some(
           (node) =>
-            node.scrollWidth > node.clientWidth ||
-            node.scrollHeight > node.clientHeight
+            node.scrollWidth - node.clientWidth > 1 ||
+            node.scrollHeight - node.clientHeight > 1
         )
       );
     });

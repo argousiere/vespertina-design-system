@@ -1,0 +1,10 @@
+.ves-entries-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ves-spacing-6);
+}
+
+.ves-entries-view__header {
+  display: flex;
+  justify-content: flex-end;
+}

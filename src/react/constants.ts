@@ -4,3 +4,8 @@ export enum ProgressiveBlurDirection {
   LEFT_TO_RIGHT = 'left-to-right',
   RIGHT_TO_LEFT = 'right-to-left',
 }
+
+export enum EntriesViewMode {
+  LIST = 'list',
+  GALLERY = 'gallery',
+}

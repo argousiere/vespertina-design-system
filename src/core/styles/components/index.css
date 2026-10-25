@@ -1,5 +1,6 @@
 @import './buttons.css';
 @import './icon.css';
+@import './label.css';
 @import './logo.css';
 @import './nav-list.css';
 @import './navbar.css';
@@ -9,11 +10,15 @@
 @import './frame.css';
 @import './date-label.css';
 @import './reading-time.css';
+@import './segmented-buttons.css';
+@import './entries-view.css';
 @import './entry-header.css';
 @import './entry.css';
 @import './entry-list.css';
 @import './entry-pagination.css';
 @import './featured-list.css';
+@import './gallery.css';
+@import './page-header.css';
 @import './progressive-blur.css';
 @import './tag.css';
 @import './toolbar.css';

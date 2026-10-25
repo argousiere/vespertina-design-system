@@ -1,0 +1,74 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
+import Gallery from '@components/Gallery';
+import { aspectRatioArgType } from './arg-types/thumbnail';
+import { entries, entryRecord } from './fixtures/entries';
+import { thumbnailRecord, thumbnails } from './fixtures/thumbnails';
+import { AspectRatio } from '@core/models/ThumbnailModel';
+
+const meta = {
+  title: 'Components/Gallery',
+  component: Gallery,
+  parameters: {
+    layout: 'padded',
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    items: {
+      control: false,
+      table: { type: { summary: 'GalleryItemProps[]' } },
+    },
+    aspectRatio: aspectRatioArgType,
+  },
+  args: {
+    aspectRatio: AspectRatio.WIDESCREEN,
+  },
+} satisfies Meta<typeof Gallery>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    items: entries.map((entry, index) => ({
+      entry: {
+        ...entry,
+        thumbnail: thumbnails[index % thumbnails.length],
+      },
+    })),
+  },
+};
+
+export const Square: Story = {
+  args: {
+    ...Default.args,
+    aspectRatio: AspectRatio.SQUARE,
+  },
+};
+
+export const MixedThumbnails: Story = {
+  args: {
+    items: entries.map((entry, index) => ({
+      entry: { ...entry, thumbnail: thumbnails[index % thumbnails.length] },
+    })),
+  },
+};
+
+export const SingleEntry: Story = {
+  args: {
+    items: [
+      {
+        entry: {
+          ...entryRecord.analogClocksAndClockTowers,
+          thumbnail: thumbnailRecord.dizzy,
+        },
+      },
+    ],
+  },
+};
+
+export const Empty: Story = {
+  args: {
+    items: [],
+  },
+};
