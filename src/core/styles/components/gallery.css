@@ -1,13 +1,22 @@
 .ves-gallery {
   --ves-gallery-item-min-width: 240px;
+  --ves-gallery-max-columns: 3;
+  --ves-gallery-gap: var(--ves-spacing-6);
   --ves-gallery-item-hover-border-color: var(--ves-global-color-cerulean);
 
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(min(var(--ves-gallery-item-min-width), 100%), 1fr)
+    minmax(
+      max(
+        min(var(--ves-gallery-item-min-width), 100%),
+        (100% - (var(--ves-gallery-max-columns) - 1) * var(--ves-gallery-gap)) /
+          var(--ves-gallery-max-columns)
+      ),
+      1fr
+    )
   );
-  gap: var(--ves-spacing-6);
+  gap: var(--ves-gallery-gap);
   margin: 0;
   padding: 0;
   list-style: none;
