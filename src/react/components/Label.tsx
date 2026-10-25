@@ -2,8 +2,9 @@ import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import Icon from './Icon';
 import type { IconName } from './icons';
+import Tooltip from './Tooltip';
 
-export interface LabelProps extends Omit<ComponentProps<'span'>, 'children'> {
+export interface LabelProps extends Omit<ComponentProps<'div'>, 'children'> {
   text: string;
   icon?: IconName;
   iconOnly?: boolean;
@@ -16,7 +17,8 @@ const Label: React.FC<LabelProps> = ({
   className,
   ...props
 }) => (
-  <span {...props} className={clsx('ves-label', className)}>
+  <Tooltip title={text} showOnlyWhenTruncated>
+    <div {...props} className={clsx('ves-label', className)}>
     {icon && (
       <Icon
         name={icon}
@@ -24,8 +26,10 @@ const Label: React.FC<LabelProps> = ({
         aria-label={iconOnly ? text : undefined}
       />
     )}
-    {!(icon && iconOnly) && <span className="ves-label__text">{text}</span>}
-  </span>
+    {!(icon && iconOnly) && <span className="ves-label__text clamp-text">{text}</span>}
+    </div>
+  </Tooltip>
+  
 );
 
 export default Label;

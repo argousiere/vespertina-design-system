@@ -44,3 +44,13 @@ export const IconOnly = {
     iconOnly: true,
   },
 } satisfies Story;
+
+export const TruncatedLabel = {
+  args: {
+    icon: 'search',
+    text: 'Truncate this label because it is quite long'
+  },
+  render: (args) => (
+    <Label style={{ width: 200 }} icon={args.icon} text={args.text} />
+  )
+} satisfies Story;
