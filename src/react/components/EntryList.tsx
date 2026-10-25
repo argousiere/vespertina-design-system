@@ -25,17 +25,20 @@ const EntryList: React.FC<EntryListProps> = ({
       headingLevel={headingLevel}
       className={clsx('ves-entry-list', className)}
     >
-      <ol {...props}>
+      {items.length > 0 && (<ol {...props}>
         {items.map((item) => (
           <EntryListItem key={item.entry.id} {...item} />
         ))}
+      </ol>)
+      }
 
-        {items.length === 0 && (
-          <li className="ves-entry-list__empty">
-            There are no entries to display.
-          </li>
-        )}
-      </ol>
+
+
+      {items.length === 0 && (
+        <span className="ves-entry-list__empty">
+          There are no entries to display.
+        </span>
+      )}
     </Frame>
   );
 };

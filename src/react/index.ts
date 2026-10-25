@@ -6,6 +6,8 @@ export type {
   EmbedViewerProps,
   EmbedViewerPreview,
 } from './components/EmbedViewer';
+export { default as EntriesView } from './components/EntriesView';
+export type { EntriesViewProps } from './components/EntriesView';
 export { default as EntryList } from './components/EntryList';
 export { default as EntryListItem } from './components/EntryListItem';
 export type { EntryListItemProps } from './components/EntryListItem';
@@ -47,7 +49,7 @@ export { default as Navbar } from './components/Navbar';
 export type { NavbarProps } from './components/Navbar';
 export { default as ProgressiveBlur } from './components/ProgressiveBlur';
 export type { ProgressiveBlurProps } from './components/ProgressiveBlur';
-export { ProgressiveBlurDirection } from './constants';
+export { EntriesViewMode, ProgressiveBlurDirection } from './constants';
 export { default as SegmentedButtons } from './components/SegmentedButtons';
 export type {
   SegmentedButtonOption,

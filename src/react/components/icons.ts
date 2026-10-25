@@ -6,6 +6,8 @@ import info from '@core/assets/icons/info.svg';
 import warning from '@core/assets/icons/warning.svg';
 import error from '@core/assets/icons/error.svg';
 import star from '@core/assets/icons/star.svg';
+import grid from '@core/assets/icons/grid.svg';
+import list from '@core/assets/icons/list.svg';
 
 
 export const icons = {
@@ -17,6 +19,8 @@ export const icons = {
   warning,
   error,
   star,
+  grid,
+  list,
 };
 
 export type IconName = keyof typeof icons;
