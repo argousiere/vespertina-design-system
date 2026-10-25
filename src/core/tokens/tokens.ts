@@ -75,30 +75,275 @@ const tokens = {
       name: 'Asteroid',
       value: 'oklch(0.35 0.02 235)',
     },
+    '--ves-global-color-cydonia-light-4': {
+      type: 'color',
+      name: 'Cydonia Light 4',
+      value: 'oklch(0.943 0.026 75.2)',
+    },
+    '--ves-global-color-cydonia-light-3': {
+      type: 'color',
+      name: 'Cydonia Light 3',
+      value: 'oklch(0.906 0.043 75.2)',
+    },
+    '--ves-global-color-cydonia-light-2': {
+      type: 'color',
+      name: 'Cydonia Light 2',
+      value: 'oklch(0.87 0.06 75.2)',
+    },
+    '--ves-global-color-cydonia-light-1': {
+      type: 'color',
+      name: 'Cydonia Light 1',
+      value: 'oklch(0.833 0.077 75.2)',
+    },
     '--ves-global-color-cydonia': {
       type: 'color',
       name: 'Cydonia',
       value: 'oklch(79.571% 0.09429 75.227)',
     },
+    '--ves-global-color-cydonia-dark-1': {
+      type: 'color',
+      name: 'Cydonia Dark 1',
+      value: 'oklch(0.652 0.085 75.2)',
+    },
+    '--ves-global-color-cydonia-dark-2': {
+      type: 'color',
+      name: 'Cydonia Dark 2',
+      value: 'oklch(0.508 0.075 75.2)',
+    },
+    '--ves-global-color-cydonia-dark-3': {
+      type: 'color',
+      name: 'Cydonia Dark 3',
+      value: 'oklch(0.364 0.066 75.2)',
+    },
+    '--ves-global-color-cydonia-dark-4': {
+      type: 'color',
+      name: 'Cydonia Dark 4',
+      value: 'oklch(0.22 0.056 75.2)',
+    },
+    '--ves-global-color-aurora-light-4': {
+      type: 'color',
+      name: 'Aurora Light 4',
+      value: 'oklch(0.944 0.034 190)',
+    },
+    '--ves-global-color-aurora-light-3': {
+      type: 'color',
+      name: 'Aurora Light 3',
+      value: 'oklch(0.908 0.055 190)',
+    },
+    '--ves-global-color-aurora-light-2': {
+      type: 'color',
+      name: 'Aurora Light 2',
+      value: 'oklch(0.872 0.077 190)',
+    },
+    '--ves-global-color-aurora-light-1': {
+      type: 'color',
+      name: 'Aurora Light 1',
+      value: 'oklch(0.836 0.098 190)',
+    },
     '--ves-global-color-aurora': {
       type: 'color',
       name: 'Aurora',
-      value: 'oklch(0.82 0.12 170)',
+      value: 'oklch(0.8 0.12 190)',
+    },
+    '--ves-global-color-aurora-dark-1': {
+      type: 'color',
+      name: 'Aurora Dark 1',
+      value: 'oklch(0.655 0.108 190)',
+    },
+    '--ves-global-color-aurora-dark-2': {
+      type: 'color',
+      name: 'Aurora Dark 2',
+      value: 'oklch(0.51 0.096 190)',
+    },
+    '--ves-global-color-aurora-dark-3': {
+      type: 'color',
+      name: 'Aurora Dark 3',
+      value: 'oklch(0.365 0.084 190)',
+    },
+    '--ves-global-color-aurora-dark-4': {
+      type: 'color',
+      name: 'Aurora Dark 4',
+      value: 'oklch(0.22 0.072 190)',
+    },
+    '--ves-global-color-gliese-light-4': {
+      type: 'color',
+      name: 'Gliese Light 4',
+      value: 'oklch(0.912 0.05 350)',
+    },
+    '--ves-global-color-gliese-light-3': {
+      type: 'color',
+      name: 'Gliese Light 3',
+      value: 'oklch(0.844 0.083 350)',
+    },
+    '--ves-global-color-gliese-light-2': {
+      type: 'color',
+      name: 'Gliese Light 2',
+      value: 'oklch(0.776 0.115 350)',
+    },
+    '--ves-global-color-gliese-light-1': {
+      type: 'color',
+      name: 'Gliese Light 1',
+      value: 'oklch(0.708 0.148 350)',
     },
     '--ves-global-color-gliese': {
       type: 'color',
       name: 'Gliese',
       value: 'oklch(0.64 0.18 350)',
     },
-    '--ves-global-color-carina': {
+    '--ves-global-color-gliese-dark-1': {
       type: 'color',
-      name: 'Carina',
-      value: 'oklch(0.52 0.17 350)',
+      name: 'Gliese Dark 1',
+      value: 'oklch(0.535 0.162 350)',
     },
-    '--ves-global-color-farout': {
+    '--ves-global-color-gliese-dark-2': {
       type: 'color',
-      name: 'Farout',
-      value: 'oklch(0.42 0.14 350)',
+      name: 'Gliese Dark 2',
+      value: 'oklch(0.43 0.144 350)',
+    },
+    '--ves-global-color-gliese-dark-3': {
+      type: 'color',
+      name: 'Gliese Dark 3',
+      value: 'oklch(0.325 0.126 350)',
+    },
+    '--ves-global-color-gliese-dark-4': {
+      type: 'color',
+      name: 'Gliese Dark 4',
+      value: 'oklch(0.22 0.108 350)',
+    },
+    '--ves-global-color-mars-light-4': {
+      type: 'color',
+      name: 'Mars Light 4',
+      value: 'oklch(0.914 0.056 27)',
+    },
+    '--ves-global-color-mars-light-3': {
+      type: 'color',
+      name: 'Mars Light 3',
+      value: 'oklch(0.848 0.092 27)',
+    },
+    '--ves-global-color-mars-light-2': {
+      type: 'color',
+      name: 'Mars Light 2',
+      value: 'oklch(0.782 0.128 27)',
+    },
+    '--ves-global-color-mars-light-1': {
+      type: 'color',
+      name: 'Mars Light 1',
+      value: 'oklch(0.716 0.164 27)',
+    },
+    '--ves-global-color-mars': {
+      type: 'color',
+      name: 'Mars',
+      value: 'oklch(0.65 0.2 27)',
+    },
+    '--ves-global-color-mars-dark-1': {
+      type: 'color',
+      name: 'Mars Dark 1',
+      value: 'oklch(0.542 0.18 27)',
+    },
+    '--ves-global-color-mars-dark-2': {
+      type: 'color',
+      name: 'Mars Dark 2',
+      value: 'oklch(0.435 0.16 27)',
+    },
+    '--ves-global-color-mars-dark-3': {
+      type: 'color',
+      name: 'Mars Dark 3',
+      value: 'oklch(0.328 0.14 27)',
+    },
+    '--ves-global-color-mars-dark-4': {
+      type: 'color',
+      name: 'Mars Dark 4',
+      value: 'oklch(0.22 0.12 27)',
+    },
+    '--ves-global-color-titan-light-4': {
+      type: 'color',
+      name: 'Titan Light 4',
+      value: 'oklch(0.936 0.045 55)',
+    },
+    '--ves-global-color-titan-light-3': {
+      type: 'color',
+      name: 'Titan Light 3',
+      value: 'oklch(0.892 0.074 55)',
+    },
+    '--ves-global-color-titan-light-2': {
+      type: 'color',
+      name: 'Titan Light 2',
+      value: 'oklch(0.848 0.102 55)',
+    },
+    '--ves-global-color-titan-light-1': {
+      type: 'color',
+      name: 'Titan Light 1',
+      value: 'oklch(0.804 0.131 55)',
+    },
+    '--ves-global-color-titan': {
+      type: 'color',
+      name: 'Titan',
+      value: 'oklch(0.76 0.16 55)',
+    },
+    '--ves-global-color-titan-dark-1': {
+      type: 'color',
+      name: 'Titan Dark 1',
+      value: 'oklch(0.663 0.123 58.66)',
+    },
+    '--ves-global-color-titan-dark-2': {
+      type: 'color',
+      name: 'Titan Dark 2',
+      value: 'oklch(0.567 0.087 58.66)',
+    },
+    '--ves-global-color-titan-dark-3': {
+      type: 'color',
+      name: 'Titan Dark 3',
+      value: 'oklch(0.47 0.05 58.66)',
+    },
+    '--ves-global-color-titan-dark-4': {
+      type: 'color',
+      name: 'Titan Dark 4',
+      value: 'oklch(0.373 0.035 58.66)',
+    },
+    '--ves-global-color-vespene-light-4': {
+      type: 'color',
+      name: 'Vespene Light 4',
+      value: 'oklch(0.94 0.048 145)',
+    },
+    '--ves-global-color-vespene-light-3': {
+      type: 'color',
+      name: 'Vespene Light 3',
+      value: 'oklch(0.9 0.078 145)',
+    },
+    '--ves-global-color-vespene-light-2': {
+      type: 'color',
+      name: 'Vespene Light 2',
+      value: 'oklch(0.86 0.109 145)',
+    },
+    '--ves-global-color-vespene-light-1': {
+      type: 'color',
+      name: 'Vespene Light 1',
+      value: 'oklch(0.82 0.139 145)',
+    },
+    '--ves-global-color-vespene': {
+      type: 'color',
+      name: 'Vespene',
+      value: 'oklch(0.78 0.17 145)',
+    },
+    '--ves-global-color-vespene-dark-1': {
+      type: 'color',
+      name: 'Vespene Dark 1',
+      value: 'oklch(0.64 0.153 145)',
+    },
+    '--ves-global-color-vespene-dark-2': {
+      type: 'color',
+      name: 'Vespene Dark 2',
+      value: 'oklch(0.5 0.136 145)',
+    },
+    '--ves-global-color-vespene-dark-3': {
+      type: 'color',
+      name: 'Vespene Dark 3',
+      value: 'oklch(0.36 0.119 145)',
+    },
+    '--ves-global-color-vespene-dark-4': {
+      type: 'color',
+      name: 'Vespene Dark 4',
+      value: 'oklch(0.22 0.102 145)',
     },
   },
 
