@@ -1,18 +1,22 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { ButtonLevel, ButtonVariant } from '@core/models/ButtonModel';
+import type { IconName } from './icons';
+import Label from './Label';
 
 export interface ButtonProps extends Omit<
   ComponentProps<'button'>,
   'children'
 > {
   label: string;
+  icon?: IconName;
   level?: ButtonLevel;
   variant?: ButtonVariant;
 }
 
 const Button: React.FC<ButtonProps> = ({
   label,
+  icon,
   level = ButtonLevel.DEFAULT,
   variant = ButtonVariant.PRIMARY,
   className,
@@ -30,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
       className
     )}
   >
-    {label}
+    <Label text={label} icon={icon} />
   </button>
 );
 

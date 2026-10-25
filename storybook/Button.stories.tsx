@@ -8,6 +8,7 @@ import {
   buttonVariantArgType,
   buttonVariants,
 } from './arg-types/button';
+import { iconArgType } from './arg-types/icon';
 
 const meta = {
   title: 'Components/Button',
@@ -19,16 +20,20 @@ const meta = {
   argTypes: {
     level: buttonLevelArgType,
     variant: { ...buttonVariantArgType, control: false },
+    icon: iconArgType,
   },
   args: {
     label: 'Button',
     level: ButtonLevel.DEFAULT,
     disabled: false,
   },
-  render: (args) => (
+  render: ({ icon, ...args}) => (
     <div style={{ display: 'flex', gap: 24 }}>
       {buttonVariants.map((variant) => (
-        <Button key={variant} {...args} variant={variant} />
+        <Button key={variant} variant={variant} {...args} />
+      ))}
+      {buttonVariants.map((variant) => (
+        <Button key={variant} variant={variant} icon={icon} {...args} />
       ))}
     </div>
   ),
@@ -37,26 +42,28 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {} satisfies Story;
+export const Default = {
+  args: { icon: 'search' },
+} satisfies Story;
 
 export const Info = {
-  args: { level: ButtonLevel.INFO },
+  args: { level: ButtonLevel.INFO, icon: 'info' },
 } satisfies Story;
 
 export const Warning = {
-  args: { level: ButtonLevel.WARNING },
+  args: { level: ButtonLevel.WARNING, icon: 'warning' },
 } satisfies Story;
 
 export const Danger = {
-  args: { level: ButtonLevel.DANGER },
+  args: { level: ButtonLevel.DANGER, icon: 'error' },
 } satisfies Story;
 
 export const Success = {
-  args: { level: ButtonLevel.SUCCESS },
+  args: { level: ButtonLevel.SUCCESS, icon: 'check' },
 } satisfies Story;
 
 export const Special = {
-  args: { level: ButtonLevel.SPECIAL },
+  args: { level: ButtonLevel.SPECIAL, icon: 'star' },
 } satisfies Story;
 
 export const Disabled = {
