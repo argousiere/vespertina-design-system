@@ -64,7 +64,7 @@ const EmbedViewer: React.FC<EmbedViewerProps> = ({
           
           <button
             type="button"
-            className="ves-btn ves-btn--contrast"
+            className="ves-btn ves-btn--primary ves-btn--special"
             onClick={() => setActive(true)}
           >
             {preview.loadActionLabel ?? 'Load preview'}

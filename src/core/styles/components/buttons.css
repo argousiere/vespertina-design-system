@@ -1,25 +1,45 @@
+@property --ves-btn-glow-start {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 75%;
+}
+
+@property --ves-btn-glow-opacity {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0.75;
+}
+
+@property --ves-btn-hole-radius {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 100%;
+}
+
 .ves-btn {
+  --ves-btn-tint: var(--ves-global-color-cerulean);
   --ves-btn-bg-color: var(--ves-global-color-midnight);
   --ves-btn-border-color: var(--ves-global-color-kyanite);
-  --ves-btn-hover-bg-color: var(--ves-global-color-celestial);
-  --ves-btn-hover-border-color: var(--ves-global-color-celestial);
-  --ves-btn-hover-corner-color: var(--ves-global-color-cerulean);
-  --ves-btn-hover-offset: -10px;
-  --ves-btn-hover-corner-size: 12px;
-  --ves-btn-active-bg-color: var(--ves-global-color-kyanite);
-  --ves-btn-active-border-color: var(--ves-global-color-kyanite);
-  --ves-btn-active-outline-color: var(--ves-global-color-cerulean);
-  --ves-btn-disabled-bg-color: var(--ves-global-color-asteroid);
+  --ves-btn-border-hover-color: var(--ves-global-color-cerulean);
+  --ves-btn-frame-border-color: var(--ves-global-color-kyanite);
+  --ves-btn-frame-offset: -6px;
+  --ves-btn-frame-corner-size: 12px;
+  --ves-btn-hover-fill-color: oklch(from var(--ves-btn-tint) l c h / 0.35);
 
   display: inline-block;
   position: relative;
   transition:
-    background-color,
-    border-color 0.08s linear;
+    border-color 0.08s linear,
+    --ves-btn-hole-radius 0.3s ease-out;
   cursor: pointer;
   border: 1px solid var(--ves-btn-border-color);
   border-radius: 0;
-  background: var(--ves-btn-bg-color);
+  background-image: radial-gradient(
+    circle,
+    transparent var(--ves-btn-hole-radius),
+    var(--ves-btn-hover-fill-color) calc(var(--ves-btn-hole-radius) + 1px)
+  );
+  background-color: transparent;
   padding: 0 16px;
   height: 36px;
   color: var(--ves-global-color-light);
@@ -27,90 +47,160 @@
   font-size: var(--ves-font-size-xs);
   line-height: 1;
   letter-spacing: 2px;
+  text-shadow: 0 1px 0 var(--ves-global-color-midnight);
   text-transform: uppercase;
 }
 
 .ves-btn:hover,
 .ves-btn:focus-visible {
-  border-color: var(--ves-btn-hover-border-color);
-  background: var(--ves-btn-hover-bg-color);
+  border-color: var(--ves-btn-border-hover-color);
+}
 
-  &::before,
-  &::after {
-    position: absolute;
-    border-width: 1px;
-    border-style: solid;
-    content: '';
-  }
+.ves-btn:not(.ves-btn--primary, :disabled):is(:hover, :focus-visible) {
+  --ves-btn-hole-radius: 0%;
 
-  &::before {
-    top: var(--ves-btn-hover-offset);
-    right: var(--ves-btn-hover-offset);
-    bottom: var(--ves-btn-hover-offset);
-    left: var(--ves-btn-hover-offset);
-    z-index: -1;
-    transition: border-color 0.08s linear;
-    border-color: var(--ves-btn-border-color);
-  }
-
-  &::after {
-    --b: 1px;
-    --c: var(--ves-btn-hover-corner-size);
-    --corner: conic-gradient(from -90deg at var(--c) var(--c), red 25%, #0000 0)
-      0 0 / calc(100% - var(--c)) calc(100% - var(--c)) border-box;
-    --inner: conic-gradient(red 0 0) padding-box;
-    -webkit-mask: var(--corner), var(--inner);
-    -webkit-mask-composite: source-out;
-    mask-composite: subtract;
-    mask:
-      var(--corner) subtract,
-      var(--inner);
-    inset: calc(var(--b) * -1);
-    top: var(--ves-btn-hover-offset);
-    right: var(--ves-btn-hover-offset);
-    bottom: var(--ves-btn-hover-offset);
-    left: var(--ves-btn-hover-offset);
-    border-color: var(--ves-btn-hover-corner-color);
-    background: var(--ves-btn-hover-corner-color) border-box;
-  }
+  transition-duration: 0.08s, 0s;
 }
 
 .ves-btn:focus-visible {
-  outline: none;
+  outline: 1px solid var(--ves-btn-border-color);
+  outline-offset: 3px;
 }
 
 .ves-btn:active {
-  border-color: var(--ves-btn-active-border-color);
-  background: var(--ves-btn-active-bg-color);
-
-  &::before {
-    border-color: var(--ves-btn-active-outline-color);
-  }
-
-  &::after {
-    opacity: 0;
-  }
+  --ves-btn-hover-fill-color: oklch(from var(--ves-btn-tint) l c h / 0.25);
 }
 
 .ves-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.8;
   cursor: not-allowed;
-  background-color: var(--ves-btn-disabled-bg-color);
+  border-color: var(--ves-global-color-asteroid);
+  background-image: none;
+  background-color: transparent;
+}
 
-  &::before,
-  &::after {
-    content: none;
+@media (prefers-reduced-motion: reduce) {
+  .ves-btn {
+    transition: border-color 0.08s linear;
   }
 }
 
-.ves-btn--contrast {
-  --ves-btn-bg-color: var(--ves-global-color-gliese);
-  --ves-btn-border-color: transparent;
-  --ves-btn-hover-bg-color: var(--ves-global-color-carina);
-  --ves-btn-hover-border-color: transparent;
-  --ves-btn-active-bg-color: var(--ves-global-color-farout);
-  --ves-btn-active-border-color: var(--ves-btn-active-bg-color);
-  --ves-btn-active-outline-color: var(--ves-global-color-gliese);
-  --ves-btn-disabled-bg-color: var(--ves-global-color-asteroid);
-  --ves-btn-hover-corner-color: var(--ves-global-color-gliese);
+.ves-btn.ves-btn--primary {
+  --ves-btn-frame-border-color: var(--ves-btn-border-color);
+
+  transition:
+    border-color 0.08s linear,
+    --ves-btn-glow-start 0.25s ease-out,
+    --ves-btn-glow-opacity 0.15s ease-out;
+  border-color: var(--ves-btn-border-color);
+  background: linear-gradient(
+    to bottom,
+    var(--ves-btn-bg-color) 0%,
+    var(--ves-btn-bg-color) var(--ves-btn-glow-start),
+    oklch(from var(--ves-btn-tint) l c h / var(--ves-btn-glow-opacity)) 100%
+  );
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:active {
+    background: linear-gradient(
+      to bottom,
+      var(--ves-btn-bg-color) 0%,
+      var(--ves-btn-bg-color) var(--ves-btn-glow-start),
+      oklch(from var(--ves-btn-tint) l c h / var(--ves-btn-glow-opacity))
+        calc(var(--ves-btn-glow-start) + 1%),
+      oklch(from var(--ves-btn-tint) l c h / var(--ves-btn-glow-opacity)) 100%
+    );
+  }
+
+  &:disabled {
+    border-color: var(--ves-global-color-asteroid);
+    background: var(--ves-global-color-asteroid);
+  }
+
+  &:not(:disabled):is(:hover, :focus-visible) {
+    --ves-btn-glow-start: 75%;
+    --ves-btn-glow-opacity: 0.8;
+
+    border-color: var(--ves-btn-border-hover-color);
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: var(--ves-btn-frame-offset);
+      right: var(--ves-btn-frame-offset);
+      bottom: var(--ves-btn-frame-offset);
+      left: var(--ves-btn-frame-offset);
+      border-width: 1px;
+      border-style: solid;
+      content: '';
+    }
+
+    &::before {
+      z-index: -1;
+      transition: border-color 0.08s linear;
+      border-color: var(--ves-btn-frame-border-color);
+    }
+
+    &::after {
+      --c: var(--ves-btn-frame-corner-size);
+      --corner: conic-gradient(
+          from -90deg at var(--c) var(--c),
+          red 25%,
+          #0000 0
+        )
+        0 0 / calc(100% - var(--c)) calc(100% - var(--c)) border-box;
+      --inner: conic-gradient(red 0 0) padding-box;
+      -webkit-mask: var(--corner), var(--inner);
+      -webkit-mask-composite: source-out;
+      mask-composite: subtract;
+      mask:
+        var(--corner) subtract,
+        var(--inner);
+      border-color: var(--ves-btn-tint);
+      background: var(--ves-btn-tint) border-box;
+    }
+
+    &:active {
+      &::before {
+        border-color: var(--ves-btn-tint);
+      }
+
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.ves-btn--info {
+  --ves-btn-tint: var(--ves-global-color-aurora);
+  --ves-btn-border-color: var(--ves-global-color-aurora-dark-3);
+  --ves-btn-border-hover-color: var(--ves-global-color-aurora);
+}
+
+.ves-btn--warning {
+  --ves-btn-tint: var(--ves-global-color-titan);
+  --ves-btn-border-color: var(--ves-global-color-titan-dark-3);
+  --ves-btn-border-hover-color: var(--ves-global-color-titan);
+}
+
+.ves-btn--danger {
+  --ves-btn-tint: var(--ves-global-color-mars);
+  --ves-btn-border-color: var(--ves-global-color-mars-dark-3);
+  --ves-btn-border-hover-color: var(--ves-global-color-mars);
+}
+
+.ves-btn--success {
+  --ves-btn-tint: var(--ves-global-color-vespene);
+  --ves-btn-border-color: var(--ves-global-color-vespene-dark-3);
+  --ves-btn-border-hover-color: var(--ves-global-color-vespene);
+}
+
+.ves-btn--special {
+  --ves-btn-tint: var(--ves-global-color-gliese);
+  --ves-btn-border-color: var(--ves-global-color-gliese-dark-3);
+  --ves-btn-border-hover-color: var(--ves-global-color-gliese);
 }

@@ -1,5 +1,6 @@
 export { default as Button } from './components/Button';
 export type { ButtonProps } from './components/Button';
+export { ButtonLevel, ButtonVariant } from '@core/models/ButtonModel';
 export { default as EmbedViewer } from './components/EmbedViewer';
 export type {
   EmbedViewerProps,
