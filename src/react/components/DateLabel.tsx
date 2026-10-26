@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentPropsWithoutRef } from 'react';
-import { formatDate, INVALID_DATE_LABEL, ISO_DAY_FORMAT } from '../utils/date';
+import { formatDate, INVALID_DATE_LABEL, ISO_DAY_FORMAT } from '@core/utils/date';
 
 export interface DateLabelProps extends Omit<
   ComponentPropsWithoutRef<'time'>,

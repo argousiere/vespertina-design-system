@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 import type { ComponentProps } from 'react';
 import type { EntryModel } from '@core/models/EntryModel';
 import DateLabel from './DateLabel';
-import { formatDate } from '../utils/date';
+import { formatDate } from '@core/utils/date';
 import Tooltip from './Tooltip';
 
 export interface EntryListItemProps
