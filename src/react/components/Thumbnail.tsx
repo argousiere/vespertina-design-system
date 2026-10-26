@@ -1,7 +1,8 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import clsx from 'clsx';
-import type { AspectRatio, ThumbnailModel } from '@core/models/ThumbnailModel';
+import type { AspectRatio } from '@core/models/ImageModel';
+import type { ThumbnailModel } from '@core/models/ThumbnailModel';
 import Tooltip from './Tooltip';
 
 export interface ThumbnailProps
@@ -22,7 +23,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   onError,
   ...props
 }) => {
-  const { src, alt, width, height, sources } = thumbnail ?? {};
+  const { src, alt, width, height, srcSet, sizes, sources } = thumbnail ?? {};
   const [hasImgSrc, setHasImgSrc] = React.useState(!!src);
 
   React.useEffect(() => {
@@ -65,16 +66,20 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
             srcSet={source.srcSet}
           />
         ))}
+
         <img
           {...props}
           className="ves-thumbnail__img"
           src={src}
+          srcSet={srcSet}
+          sizes={sizes}
           height={height}
           width={width}
           alt={alt}
           onError={handleImageError}
         />
       </picture>
+
       {caption &&
         (captionMaxLines ? (
           <Tooltip title={caption} showOnlyWhenTruncated>
@@ -90,6 +95,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
         ) : (
           <figcaption className="ves-thumbnail__caption">{caption}</figcaption>
         ))}
+        
     </figure>
   );
 };

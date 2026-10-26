@@ -1,3 +1,4 @@
+import type { ImageModel } from './ImageModel';
 import type { TagModel } from './TagModel';
 import type { ThumbnailModel } from './ThumbnailModel';
 
@@ -9,5 +10,6 @@ export interface EntryModel {
   description?: string;
   readingTimeMinutes?: number;
   thumbnail?: ThumbnailModel;
+  cover?: ImageModel;
   tags?: TagModel[];
 }

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
-import { AspectRatio } from '@core/models/ThumbnailModel';
+import { AspectRatio } from '@core/models/ImageModel';
 import GalleryItem from './GalleryItem';
 import type { GalleryItemProps } from './GalleryItem';
 

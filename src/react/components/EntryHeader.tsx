@@ -1,8 +1,10 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import type { EntryModel } from '@core/models/EntryModel';
+import { AspectRatio } from '@core/models/ImageModel';
 import DateLabel from './DateLabel';
 import Heading from './Heading';
+import Image from './Image';
 import ReadingTime from './ReadingTime';
 
 export interface EntryHeaderProps
@@ -16,7 +18,7 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
   className,
   ...props
 }) => {
-  const { title, date, readingTimeMinutes, description } = entry;
+  const { title, date, readingTimeMinutes, description, cover } = entry;
 
   return (
     <header {...props} className={clsx('ves-page-header', 'ves-entry__header', className)}>
@@ -24,9 +26,19 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
         {date && <DateLabel dateTime={date} dateFormat="dd.MMM.yyyy" />}
         {!!readingTimeMinutes && <ReadingTime minutes={readingTimeMinutes} />}
       </div>
+
       {title && (
         <Heading level="h1" className="ves-page-header__title" label={title} />
       )}
+
+      {cover && (
+        <Image
+          image={cover}
+          aspectRatio={AspectRatio.WIDESCREEN}
+          className="ves-entry-header__cover"
+        />
+      )}
+      
       {description && <p className="ves-page-header__description">{description}</p>}
     </header>
   );

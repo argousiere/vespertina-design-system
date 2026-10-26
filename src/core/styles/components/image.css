@@ -1,0 +1,16 @@
+.ves-image {
+  display: block;
+}
+
+.ves-image__img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.ves-image--fixed-ratio .ves-image__img {
+  width: 100%;
+  aspect-ratio: var(--ves-image-aspect-ratio);
+  object-fit: cover;
+  object-position: center;
+}

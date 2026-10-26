@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Gallery from '@components/Gallery';
-import { aspectRatioArgType } from './arg-types/thumbnail';
+import { aspectRatioArgType } from './arg-types/image';
 import { entries, entryRecord } from './fixtures/entries';
 import { thumbnailRecord, thumbnails } from './fixtures/thumbnails';
-import { AspectRatio } from '@core/models/ThumbnailModel';
+import { AspectRatio } from '@core/models/ImageModel';
 
 const meta = {
   title: 'Components/Gallery',
