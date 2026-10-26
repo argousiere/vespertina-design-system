@@ -4,3 +4,4 @@ export { type ImageModel, AspectRatio } from './models/ImageModel';
 export type { NavItemModel } from './models/NavItemModel';
 export type { TagModel } from './models/TagModel';
 export type { ThumbnailModel } from './models/ThumbnailModel';
+export { wrapImagesInThumbnails } from './utils/thumbnail-images';
