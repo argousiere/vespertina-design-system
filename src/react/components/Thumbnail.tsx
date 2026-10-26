@@ -25,9 +25,17 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 }) => {
   const { src, alt, width, height, srcSet, sizes, sources } = thumbnail ?? {};
   const [hasImgSrc, setHasImgSrc] = React.useState(!!src);
+  const imgRef = React.useRef<HTMLImageElement>(null);
 
   React.useEffect(() => {
+    let isCurrent = true;
+
     setHasImgSrc(!!src);
+    imgRef.current?.decode().catch(() => isCurrent && setHasImgSrc(false));
+
+    return () => {
+      isCurrent = false;
+    };
   }, [src]);
 
   const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
@@ -69,6 +77,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 
         <img
           {...props}
+          ref={imgRef}
           className="ves-thumbnail__img"
           src={src}
           srcSet={srcSet}

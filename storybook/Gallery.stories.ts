@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import Gallery from '@components/Gallery';
 import { aspectRatioArgType } from './arg-types/image';
 import { entries, entryRecord } from './fixtures/entries';
-import { thumbnailRecord, thumbnails } from './fixtures/thumbnails';
+import { thumbnailRecord } from './fixtures/thumbnails';
 import { AspectRatio } from '@core/models/ImageModel';
 
 const meta = {
@@ -30,12 +30,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    items: entries.map((entry, index) => ({
-      entry: {
-        ...entry,
-        thumbnail: thumbnails[index % thumbnails.length],
-      },
-    })),
+    items: entries.map((entry) => ({ entry })),
   },
 };
 
@@ -43,14 +38,6 @@ export const Square: Story = {
   args: {
     ...Default.args,
     aspectRatio: AspectRatio.SQUARE,
-  },
-};
-
-export const MixedThumbnails: Story = {
-  args: {
-    items: entries.map((entry, index) => ({
-      entry: { ...entry, thumbnail: thumbnails[index % thumbnails.length] },
-    })),
   },
 };
 

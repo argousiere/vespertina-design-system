@@ -38,7 +38,6 @@ export const thumbnailRecord = {
 } satisfies Record<string, ThumbnailModel>;
 
 export const emptyThumbnailRecord = {
-
   placeholder: {
     alt: 'No image',
     width: 200,

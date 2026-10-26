@@ -4,6 +4,7 @@ import FeaturedListItem from '@components/FeaturedListItem';
 import type { EntryModel } from '@core/models/EntryModel';
 import { entryArgTypes } from './arg-types/entry';
 import { entryRecord } from './fixtures/entries';
+import { imageRecord } from './fixtures/images';
 import { thumbnailRecord } from './fixtures/thumbnails';
 
 const meta = {
@@ -32,7 +33,14 @@ export const Default: Story = {
 };
 
 export const WithoutThumbnail: Story = {
-  args: entryRecord.analogClocksAndClockTowers,
+  args: entryRecord.empty,
+};
+
+export const CoverOnly: Story = {
+  args: {
+    ...entryRecord.analogClocksAndClockTowers,
+    cover: imageRecord.remoteCover,
+  },
 };
 
 export const Truncated: Story = {

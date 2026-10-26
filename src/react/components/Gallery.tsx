@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
-import { AspectRatio } from '@core/models/ImageModel';
 import GalleryItem from './GalleryItem';
 import type { GalleryItemProps } from './GalleryItem';
 
@@ -29,7 +28,7 @@ const Gallery: React.FC<GalleryProps> = ({
         key={item.entry.id}
         {...item}
         captionMaxLines={captionMaxLines ?? DEFAULT_MAX_CAPTION_LINES}
-        aspectRatio={aspectRatio ?? AspectRatio.WIDESCREEN}
+        aspectRatio={aspectRatio}
       />
     ))}
 

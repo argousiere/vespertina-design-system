@@ -4,6 +4,7 @@ import GalleryItem from '@components/GalleryItem';
 import type { EntryModel } from '@core/models/EntryModel';
 import { entryArgTypes } from './arg-types/entry';
 import { entryRecord } from './fixtures/entries';
+import { imageRecord } from './fixtures/images';
 import { thumbnailRecord } from './fixtures/thumbnails';
 
 type GalleryItemArgs = EntryModel & { captionMaxLines?: number };
@@ -45,10 +46,19 @@ export const Default: Story = {
 };
 
 export const WithoutThumbnail: Story = {
-  args: entryRecord.analogClocksAndClockTowers,
+  args: {
+    ...entryRecord.empty
+  },
 };
 
-export const Truncated: Story = {
+export const CoverOnly: Story = {
+  args: {
+    ...entryRecord.analogClocksAndClockTowers,
+    cover: imageRecord.remoteCover,
+  },
+};
+
+export const TruncatedTitle: Story = {
   args: {
     ...entryRecord.longTitle1,
     thumbnail: thumbnailRecord.dizzy,

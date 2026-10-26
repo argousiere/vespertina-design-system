@@ -4,7 +4,6 @@ import EntriesView from '@components/EntriesView';
 import { EntriesViewMode } from '@react/constants';
 import { entriesViewModeArgType } from './arg-types/entry';
 import { entries } from './fixtures/entries';
-import { thumbnails } from './fixtures/thumbnails';
 
 const meta = {
   title: 'Components/EntriesView',
@@ -26,8 +25,8 @@ const meta = {
   args: {
     entryListTitle: 'Latest Posts',
     defaultView: EntriesViewMode.LIST,
-    items: entries.map((entry, index) => ({
-      entry: { ...entry, thumbnail: thumbnails[index % thumbnails.length] },
+    items: entries.map((entry) => ({
+      entry
     })),
   },
 } satisfies Meta<typeof EntriesView>;
