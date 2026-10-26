@@ -44,7 +44,7 @@ export default defineConfig({
     modulePreload: false,
     rollupOptions: {
       input: {
-        'core/index': path.resolve(import.meta.dirname, 'src/core/index.ts'),
+        'core/public-api': path.resolve(import.meta.dirname, 'src/core/public-api.ts'),
         'core/styles': path.resolve(
           import.meta.dirname,
           'src/core/styles/index.css'
@@ -57,7 +57,7 @@ export default defineConfig({
           import.meta.dirname,
           'src/core/tokens/tokens.ts'
         ),
-        'react/index': path.resolve(import.meta.dirname, 'src/react/index.ts'),
+        'react/public-api': path.resolve(import.meta.dirname, 'src/react/public-api.ts'),
       },
       external: (id) =>
         id.startsWith('node:') ||

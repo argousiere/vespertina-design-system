@@ -15,14 +15,14 @@
   ],
   "exports": {
     "./react": {
-      "types": "./dist/react/index.d.ts",
-      "import": "./dist/react/index.js",
-      "default": "./dist/react/index.js"
+      "types": "./dist/react/public-api.d.ts",
+      "import": "./dist/react/public-api.js",
+      "default": "./dist/react/public-api.js"
     },
     "./core": {
-      "types": "./dist/core/index.d.ts",
-      "import": "./dist/core/index.js",
-      "default": "./dist/core/index.js"
+      "types": "./dist/core/public-api.d.ts",
+      "import": "./dist/core/public-api.js",
+      "default": "./dist/core/public-api.js"
     },
     "./core/styles.css": "./dist/core/styles.css",
     "./core/tokens.css": "./dist/core/tokens.css",

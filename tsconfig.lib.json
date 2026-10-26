@@ -9,6 +9,6 @@
     "rootDir": "src",
     "outDir": "dist"
   },
-  "include": ["src/core/index.ts", "src/core/models", "src/react", "src/core/tokens"],
+  "include": ["src/core/public-api.ts", "src/core/models", "src/core/utils", "src/react", "src/core/tokens"],
   "exclude": ["src/**/*.test.ts"]
 }
