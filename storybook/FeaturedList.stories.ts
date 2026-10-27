@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    items: entries.map((entry) => ({ entry })),
+    items: entries.slice(0, 3).map((entry) => ({ entry })),
   },
 };
 

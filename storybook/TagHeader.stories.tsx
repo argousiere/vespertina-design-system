@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    tag: tagRecord.artwork,
+    tag: tagRecord.art,
   },
 } satisfies Story;
 

@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import EntryHeader from '@components/EntryHeader';
 import type { EntryModel } from '@core/models/EntryModel';
 import { entryArgTypes } from './arg-types/entry';
+import { imageRecord } from './fixtures/images';
 
 const meta = {
   title: 'Components/EntryHeader',
@@ -37,5 +38,19 @@ export const NoDescription = {
     url: '#',
     date: '2017-09-12',
     readingTimeMinutes: 3,
+  },
+} satisfies Story;
+
+export const WithLocalCover = {
+  args: {
+    ...Default.args,
+    cover: imageRecord.local,
+  },
+} satisfies Story;
+
+export const WithRemoteCover = {
+  args: {
+    ...Default.args,
+    cover: imageRecord.remoteCover,
   },
 } satisfies Story;

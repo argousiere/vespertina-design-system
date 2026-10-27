@@ -1,13 +1,22 @@
 import type { EntryModel } from '@core/models/EntryModel';
 import { tagRecord } from './tags';
+import { thumbnailRecord } from './thumbnails';
 
 export const entryRecord = {
+  empty: {
+    id: 'withoutImage',
+    title: 'Without image',
+    date: '2000-01-01',
+    url: '#',
+    description: '',
+  },
   analogClocksAndClockTowers: {
     id: 'analogClocksAndClockTowers',
     title: 'Analog Clocks and Clock Towers',
     date: '2016-09-03',
     url: '#',
     description: 'Musings on these wonderful pieces of machinery',
+    cover: thumbnailRecord.furnace,
   },
   theBubblingBrookAtBerthelot: {
     id: 'theBubblingBrookAtBerthelot',
@@ -15,6 +24,7 @@ export const entryRecord = {
     date: '2016-08-11',
     url: '#',
     description: 'An ode to the little park beside my office',
+    cover: thumbnailRecord.kiwi,
   },
   myFirstWinter: {
     id: 'myFirstWinter',
@@ -22,6 +32,7 @@ export const entryRecord = {
     date: '2016-03-06',
     url: '#',
     description: 'Notes on stinging ears and icy fingers from a tropical girl.',
+    cover: thumbnailRecord.spaceGirl,
   },
   theTranscontinentalYear: {
     id: 'theTranscontinentalYear',
@@ -38,6 +49,7 @@ export const entryRecord = {
     url: '#',
     description: 'A tribute to all the unknown writers in the past millennia',
     tags: [tagRecord.poetry, tagRecord.sonnet],
+    cover: thumbnailRecord.dizzy
   },
   longTitle1: {
     id: 'long-title-1',

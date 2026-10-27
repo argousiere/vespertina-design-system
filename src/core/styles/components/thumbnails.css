@@ -45,19 +45,6 @@
   }
 }
 
-.ves-thumbnail--missing {
-  .ves-thumbnail__img {
-    display: none;
-  }
-
-  .ves-thumbnail__picture {
-    background-image: url('../../assets/images/ves-icon-empty-cover.svg');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-}
-
 .ves-thumbnail__picture,
 .ves-thumbnail__img {
   width: 100%;
@@ -85,5 +72,18 @@
   .ves-thumbnail__img {
     display: block;
     object-fit: cover;
+  }
+}
+
+.ves-thumbnail--missing {
+  .ves-thumbnail__img {
+    display: none;
+  }
+
+  .ves-thumbnail__picture {
+    background-image: url('../../assets/images/ves-icon-empty-cover.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }

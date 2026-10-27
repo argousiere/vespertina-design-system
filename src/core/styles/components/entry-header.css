@@ -1,5 +1,8 @@
 .ves-entry__header {
   --ves-entry-header-meta-gap: var(--ves-grid-size);
+  --ves-entry-header-cover-max-width: calc(var(--ves-grid-size) * 15);
+
+  container-type: inline-size;
 }
 
 .ves-entry-header__meta {
@@ -9,4 +12,22 @@
   gap: var(--ves-entry-header-meta-gap);
   border-bottom: 1px solid var(--ves-page-header-border-color);
   height: var(--ves-grid-size);
+}
+
+.ves-entry-header__cover {
+  --ves-entry-header-cover-width: round(
+    down,
+    min(100cqi, var(--ves-entry-header-cover-max-width)),
+    var(--ves-grid-size)
+  );
+
+  display: flex;
+  align-items: center;
+  margin: 0 auto var(--ves-grid-size);
+  width: var(--ves-entry-header-cover-width);
+  height: round(
+    up,
+    var(--ves-entry-header-cover-width) / (var(--ves-image-aspect-ratio)),
+    var(--ves-grid-size)
+  );
 }

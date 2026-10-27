@@ -1,15 +1,3 @@
-export interface ThumbnailModel {
-  src?: string;
-  alt?: string;
-  width?: number | string;
-  height?: number | string;
-  sources?: {
-    media: string;
-    srcSet: string;
-  }[];
-}
+import type { ImageModel } from './ImageModel';
 
-export enum AspectRatio {
-  SQUARE = '1 / 1',
-  WIDESCREEN = '16 / 9',
-}
+export type ThumbnailModel = ImageModel;

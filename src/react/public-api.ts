@@ -27,6 +27,8 @@ export { default as GalleryItem } from './components/GalleryItem';
 export type { GalleryItemProps } from './components/GalleryItem';
 export { default as Icon } from './components/Icon';
 export type { IconProps, IconName } from './components/Icon';
+export { default as Image } from './components/Image';
+export type { ImageProps } from './components/Image';
 export { default as DateLabel } from './components/DateLabel';
 export type { DateLabelProps } from './components/DateLabel';
 export { default as ReadingTime } from './components/ReadingTime';

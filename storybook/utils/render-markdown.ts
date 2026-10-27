@@ -6,6 +6,11 @@ const files = import.meta.glob<string>('../content/*.md', {
   eager: true,
 });
 
+const images = import.meta.glob<string>('../images/*', {
+  import: 'default',
+  eager: true,
+});
+
 export const renderMarkdown = (filename: string): string => {
   const raw = files[`../content/${filename}`];
 
@@ -15,5 +20,12 @@ export const renderMarkdown = (filename: string): string => {
     );
   }
 
-  return marked.parse(raw, { async: false });
+  return marked.parse(raw, {
+    async: false,
+    walkTokens: (token) => {
+      if (token.type === 'image') {
+        token.href = images[token.href] ?? token.href;
+      }
+    },
+  });
 };

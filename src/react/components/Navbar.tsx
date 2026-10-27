@@ -11,6 +11,7 @@ export interface NavbarProps
   homeUrl?: string;
   navItems?: NavItemModel[];
   activeUrl?: string;
+  currentUrl?: string;
   actions?: ToolbarAction[];
   onActionTrigger?: (action: ToolbarAction) => void;
 }
@@ -20,6 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({
   homeUrl = '/',
   navItems = [],
   activeUrl,
+  currentUrl,
   actions = [],
   onActionTrigger,
   className,
@@ -34,6 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <NavList
           items={navItems}
           activeUrl={activeUrl}
+          currentUrl={currentUrl}
           aria-label="Main navigation menu"
         />
       )}

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { AspectRatio } from '@core/models/ImageModel';
 import type { EntryListItemProps } from './EntryListItem';
 import Thumbnail, { type ThumbnailProps } from './Thumbnail';
 
@@ -12,7 +13,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({
   className,
   ...props
 }) => {
-  const { title, url, thumbnail } = entry;
+  const { title, url, thumbnail = entry.cover } = entry;
 
   return (
   <li {...props} className={clsx('ves-gallery__item', className)}>
@@ -23,7 +24,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({
           }
           caption={title}
           captionMaxLines={captionMaxLines}
-          aspectRatio={aspectRatio}
+          aspectRatio={aspectRatio ?? AspectRatio.WIDESCREEN}
         />
       </a>
     </li>

@@ -10,7 +10,7 @@ const FeaturedListItem: React.FC<FeaturedListItemProps> = ({
   className,
   ...props
 }) => {
-  const { title, description, url, thumbnail } = entry;
+  const { title, description, url, thumbnail = entry.cover } = entry;
 
   const content = (
     <div className="ves-featured-list__item-content">

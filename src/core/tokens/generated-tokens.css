@@ -13,7 +13,15 @@
   --ves-global-color-kyanite: oklch(0.36 0.08 234.03);
   --ves-global-color-dusk: oklch(20.476% 0.04819 250.073);
   --ves-global-color-midnight: oklch(0.18 0.03 229.2);
+  --ves-global-color-asteroid-light-4: oklch(0.854 0.006 235);
+  --ves-global-color-asteroid-light-3: oklch(0.728 0.009 235);
+  --ves-global-color-asteroid-light-2: oklch(0.602 0.013 235);
+  --ves-global-color-asteroid-light-1: oklch(0.476 0.016 235);
   --ves-global-color-asteroid: oklch(0.35 0.02 235);
+  --ves-global-color-asteroid-dark-1: oklch(0.318 0.018 235);
+  --ves-global-color-asteroid-dark-2: oklch(0.285 0.016 235);
+  --ves-global-color-asteroid-dark-3: oklch(0.253 0.014 235);
+  --ves-global-color-asteroid-dark-4: oklch(0.22 0.012 235);
   --ves-global-color-cydonia-light-4: oklch(0.943 0.026 75.2);
   --ves-global-color-cydonia-light-3: oklch(0.906 0.043 75.2);
   --ves-global-color-cydonia-light-2: oklch(0.87 0.06 75.2);

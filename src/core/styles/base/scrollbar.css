@@ -3,10 +3,14 @@
   --ves-scrollbar-track-color: transparent;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
+
 .vespertina-theme {
   scrollbar-color: var(--ves-scrollbar-thumb-color)
     var(--ves-scrollbar-track-color);
   scrollbar-width: thin;
-  scrollbar-gutter: 8px;
   scroll-padding: 8px;
 }

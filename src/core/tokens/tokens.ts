@@ -70,10 +70,50 @@ const tokens = {
       name: 'Midnight',
       value: 'oklch(0.18 0.03 229.2)',
     },
+    '--ves-global-color-asteroid-light-4': {
+      type: 'color',
+      name: 'Asteroid Light 4',
+      value: 'oklch(0.854 0.006 235)',
+    },
+    '--ves-global-color-asteroid-light-3': {
+      type: 'color',
+      name: 'Asteroid Light 3',
+      value: 'oklch(0.728 0.009 235)',
+    },
+    '--ves-global-color-asteroid-light-2': {
+      type: 'color',
+      name: 'Asteroid Light 2',
+      value: 'oklch(0.602 0.013 235)',
+    },
+    '--ves-global-color-asteroid-light-1': {
+      type: 'color',
+      name: 'Asteroid Light 1',
+      value: 'oklch(0.476 0.016 235)',
+    },
     '--ves-global-color-asteroid': {
       type: 'color',
       name: 'Asteroid',
       value: 'oklch(0.35 0.02 235)',
+    },
+    '--ves-global-color-asteroid-dark-1': {
+      type: 'color',
+      name: 'Asteroid Dark 1',
+      value: 'oklch(0.318 0.018 235)',
+    },
+    '--ves-global-color-asteroid-dark-2': {
+      type: 'color',
+      name: 'Asteroid Dark 2',
+      value: 'oklch(0.285 0.016 235)',
+    },
+    '--ves-global-color-asteroid-dark-3': {
+      type: 'color',
+      name: 'Asteroid Dark 3',
+      value: 'oklch(0.253 0.014 235)',
+    },
+    '--ves-global-color-asteroid-dark-4': {
+      type: 'color',
+      name: 'Asteroid Dark 4',
+      value: 'oklch(0.22 0.012 235)',
     },
     '--ves-global-color-cydonia-light-4': {
       type: 'color',

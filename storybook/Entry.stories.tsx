@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Entry from '@components/Entry';
 import type { EntryModel } from '@core/models/EntryModel';
+import { thumbnailHtmlProcessor } from '@core/utils/markdown-html-utils';
 import { entryArgTypes } from './arg-types/entry';
 import { renderMarkdown } from './utils/render-markdown';
 import { tags } from './fixtures/tags';
@@ -16,7 +17,12 @@ const meta = {
   args: {
     id: 'entry',
   },
-  render: (entry) => <Entry entry={entry} html={renderMarkdown('entry.md')} />,
+  render: (entry) => (
+    <Entry
+      entry={entry}
+      html={thumbnailHtmlProcessor.process(renderMarkdown('entry.md'))}
+    />
+  ),
 } satisfies Meta<EntryModel>;
 
 export default meta;

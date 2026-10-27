@@ -33,7 +33,7 @@ export default defineConfig({
         test: {
           name: 'unit',
           include: ['src/**/*.test.ts'],
-          environment: 'node',
+          environment: 'happy-dom',
         },
       },
       {

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Thumbnail from '@components/Thumbnail';
-import { aspectRatioArgType, thumbnailArgType } from './arg-types/thumbnail';
+import { aspectRatioArgType } from './arg-types/image';
+import { thumbnailArgType } from './arg-types/thumbnail';
 import { emptyThumbnailRecord, thumbnailRecord } from './fixtures/thumbnails';
 
 const meta = {

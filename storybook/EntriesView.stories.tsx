@@ -4,7 +4,6 @@ import EntriesView from '@components/EntriesView';
 import { EntriesViewMode } from '@react/constants';
 import { entriesViewModeArgType } from './arg-types/entry';
 import { entries } from './fixtures/entries';
-import { thumbnails } from './fixtures/thumbnails';
 
 const meta = {
   title: 'Components/EntriesView',
@@ -18,16 +17,15 @@ const meta = {
       control: false,
       table: { type: { summary: 'EntryListItemProps[]' } },
     },
-    defaultView: entriesViewModeArgType,
+    viewMode: entriesViewModeArgType,
     onViewChange: {
       control: false,
     },
   },
   args: {
     entryListTitle: 'Latest Posts',
-    defaultView: EntriesViewMode.LIST,
-    items: entries.map((entry, index) => ({
-      entry: { ...entry, thumbnail: thumbnails[index % thumbnails.length] },
+    items: entries.map((entry) => ({
+      entry
     })),
   },
 } satisfies Meta<typeof EntriesView>;
@@ -37,8 +35,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {} satisfies Story;
 
+export const ListView = {
+  args: { viewMode: EntriesViewMode.LIST },
+} satisfies Story;
+
 export const GalleryView = {
-  args: { defaultView: EntriesViewMode.GALLERY },
+  args: { viewMode: EntriesViewMode.GALLERY },
 } satisfies Story;
 
 export const Empty = {

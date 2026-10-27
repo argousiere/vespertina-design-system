@@ -9,7 +9,7 @@ import { EntriesViewMode } from '../constants';
 export interface EntriesViewProps
   extends Omit<ComponentProps<'div'>, 'children'>,
     Pick<EntryListProps, 'entryListTitle' | 'headingLevel' | 'items'> {
-  defaultView?: EntriesViewMode;
+  viewMode?: EntriesViewMode;
   onViewChange?: (view: EntriesViewMode) => void;
 }
 
@@ -17,29 +17,31 @@ const EntriesView: React.FC<EntriesViewProps> = ({
   entryListTitle,
   headingLevel,
   items,
-  defaultView,
+  viewMode,
   onViewChange,
   className,
   ...props
 }) => {
-  const [view, setView] = useState(defaultView ?? EntriesViewMode.LIST);
+  const [view, setView] = useState(viewMode ?? EntriesViewMode.LIST);
 
   return (
     <div {...props} className={clsx('ves-entries-view', className)}>
-      <div className="ves-entries-view__header">
-        <SegmentedButtons<EntriesViewMode>
-          aria-label="View"
-          options={[
-            { value: EntriesViewMode.LIST, label: 'List', icon: 'list' },
-            { value: EntriesViewMode.GALLERY, label: 'Gallery', icon: 'grid' },
-          ]}
-          value={view}
-          onValueChange={(value) => {
-            setView(value);
-            onViewChange?.(value);
-          }}
-        />
-      </div>
+      {!viewMode && (
+        <div className="ves-entries-view__header">
+          <SegmentedButtons<EntriesViewMode>
+            aria-label="View"
+            options={[
+              { value: EntriesViewMode.LIST, label: 'List', icon: 'list' },
+              { value: EntriesViewMode.GALLERY, label: 'Gallery', icon: 'grid' },
+            ]}
+            value={view}
+            onValueChange={(value) => {
+              setView(value);
+              onViewChange?.(value);
+            }}
+          />
+        </div>
+      )}
 
       {view === EntriesViewMode.LIST ? (
         <EntryList
