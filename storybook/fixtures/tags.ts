@@ -1,9 +1,9 @@
 import type { TagModel } from '@core/models/TagModel';
 
 export const tagRecord = {
-  artwork: {
-    slug: 'artwork',
-    label: 'Artwork',
+  art: {
+    slug: 'art',
+    label: 'Art',
     description:
       "Here you'll mostly find digital art depicting space stuff, a few travel sketches, and the occasional botanical illustration.",
   },
