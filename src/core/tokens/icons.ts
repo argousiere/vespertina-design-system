@@ -8,6 +8,15 @@ import error from '../assets/icons/error.svg';
 import star from '../assets/icons/star.svg';
 import grid from '../assets/icons/grid.svg';
 import list from '../assets/icons/list.svg';
+import work from '../assets/icons/work.svg';
+import education from '../assets/icons/education.svg';
+import publication from '../assets/icons/publication.svg';
+import project from '../assets/icons/project.svg';
+import externalLink from '../assets/icons/external-link.svg';
+import location from '../assets/icons/location.svg';
+import github from '../assets/icons/github.svg';
+import linkedin from '../assets/icons/linkedin.svg';
+import mail from '../assets/icons/mail.svg';
 
 
 export const icons = {
@@ -21,6 +30,15 @@ export const icons = {
   star,
   grid,
   list,
+  work,
+  education,
+  publication,
+  project,
+  'external-link': externalLink,
+  location,
+  github,
+  linkedin,
+  mail,
 };
 
 export type IconName = keyof typeof icons;
