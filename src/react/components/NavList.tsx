@@ -6,11 +6,13 @@ import NavListItem from './NavListItem';
 export interface NavListProps extends Omit<ComponentProps<'nav'>, 'children'> {
   items: NavItemModel[];
   activeUrl?: string;
+  currentUrl?: string;
 }
 
 const NavList: React.FC<NavListProps> = ({
   items,
   activeUrl,
+  currentUrl = activeUrl,
   className,
   'aria-label': ariaLabel,
   ...props
@@ -26,6 +28,7 @@ const NavList: React.FC<NavListProps> = ({
           key={item.url}
           item={item}
           active={item.url === activeUrl}
+          current={item.url === currentUrl ? 'page' : 'true'}
         />
       ))}
     </ul>

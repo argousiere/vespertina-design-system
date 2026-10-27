@@ -16,6 +16,11 @@ export const navItemsArgType: InputType = {
   table: { type: { summary: 'NavItemModel[]' } },
 };
 
+export const currentUrlArgType: InputType = {
+  control: 'text',
+  table: { type: { summary: 'string' } },
+};
+
 export const activeUrlArgType: InputType = {
   control: 'select',
   options: Object.keys(navItemRecord),

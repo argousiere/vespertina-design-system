@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Navbar from '@components/Navbar';
 import { navItems } from './fixtures/nav-items';
-import { activeUrlArgType } from './arg-types/nav-item';
+import { activeUrlArgType, currentUrlArgType } from './arg-types/nav-item';
 
 const meta = {
   title: 'Components/Navbar',
@@ -29,6 +29,7 @@ const meta = {
       control: false,
     },
     activeUrl: activeUrlArgType,
+    currentUrl: currentUrlArgType,
   },
 } satisfies Meta<typeof Navbar>;
 

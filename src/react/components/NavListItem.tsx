@@ -6,12 +6,14 @@ export interface NavListItemProps
   extends Omit<ComponentProps<'li'>, 'children'> {
   item: NavItemModel;
   active?: boolean;
+  current?: 'page' | 'true';
   focused?: boolean;
 }
 
 const NavListItem: React.FC<NavListItemProps> = ({
   item,
   active = false,
+  current = 'page',
   focused = false,
   className,
   ...props
@@ -30,7 +32,7 @@ const NavListItem: React.FC<NavListItemProps> = ({
     <a
       className="ves-nav-list-item__link"
       href={item.url}
-      aria-current={active ? 'page' : undefined}
+      aria-current={active ? current : undefined}
     >
       {item.label}
     </a>
