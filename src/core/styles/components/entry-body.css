@@ -17,8 +17,6 @@
   }
 
   p {
-    margin: 0;
-
     + p {
       margin-top: var(--ves-grid-size);
     }
@@ -81,5 +79,15 @@
       outline: 1px solid var(--ves-entry-body-link-color);
       outline-offset: 2px;
     }
+  }
+
+  ol,
+  ul {
+    margin: unset;
+    padding: 0 1em;
+  }
+
+  li {
+    list-style: unset;
   }
 }

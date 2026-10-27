@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import type { EntryModel } from '@core/models/EntryModel';
-import { wrapImagesInThumbnails } from '@core/utils/thumbnail-images';
 import EntryHeader from './EntryHeader';
 import TagBox from './TagBox';
 
@@ -24,7 +23,7 @@ const Entry: React.FC<EntryProps> = ({ entry, html, className, ...props }) => {
 
       <div
         className="ves-entry__body"
-        dangerouslySetInnerHTML={{ __html: wrapImagesInThumbnails(html) }}
+        dangerouslySetInnerHTML={{ __html: html }}
       />
 
 
