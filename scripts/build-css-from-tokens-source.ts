@@ -13,9 +13,24 @@ const targetPath = path.join(root, config.targetPath);
 const toPx = (rem: number, baseRemSize: number) =>
   Math.round(rem * baseRemSize * 100) / 100;
 
+const round = (value: number) => Math.round(value * 10000) / 10000;
+
+const toFluidRem = (min: number, max: number, baseRemSize: number) => {
+  const minViewport = config.fluid.minViewport / baseRemSize;
+  const maxViewport = config.fluid.maxViewport / baseRemSize;
+  const slope = (max - min) / (maxViewport - minViewport);
+  const intercept = min - slope * minViewport;
+
+  return `clamp(${min}rem, ${round(intercept)}rem + ${round(slope * 100)}vw, ${max}rem)`;
+};
+
 const toDeclaration = (variable: string, token: Token, baseRemSize: number) => {
   if (!('unit' in token) || !token.unit) {
     return `  ${variable}: ${token.value};`;
+  }
+
+  if ('min' in token && token.min !== undefined) {
+    return `  ${variable}: ${toFluidRem(token.min, token.value, baseRemSize)}; /* ${toPx(token.min, baseRemSize)}px–${toPx(token.value, baseRemSize)}px */`;
   }
 
   return token.unit === 'rem'

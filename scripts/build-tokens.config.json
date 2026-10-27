@@ -1,5 +1,9 @@
 {
   "sourcePath": "src/core/tokens/tokens.ts",
   "targetPath": "src/core/tokens/generated-tokens.css",
-  "baseRemSize": 14
+  "baseRemSize": 14,
+  "fluid": {
+    "minViewport": 360,
+    "maxViewport": 1200
+  }
 }

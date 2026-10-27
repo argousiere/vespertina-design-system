@@ -5,7 +5,7 @@
 }
 
 .ves-toolbar__action {
-  --ves-toolbar-action-size: var(--ves-spacing-9);
+  --ves-toolbar-action-size: var(--ves-grid-size);
   --ves-toolbar-action-color: var(--ves-global-color-light);
   --ves-toolbar-action-hover-bg-color: oklch(
     from var(--ves-global-color-cerulean) l c h / 0.15

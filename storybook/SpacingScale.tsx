@@ -2,6 +2,7 @@ export interface SpacingScaleElement {
   name: string;
   token: string;
   value: number;
+  min?: number;
 }
 
 export interface SpacingConfig {
@@ -13,6 +14,7 @@ const spacingScaleHeaders = [
   'Name',
   'Token',
   'Size (rem)',
+  'Mobile (rem)',
   'Grid ratio',
   'Example',
 ];
@@ -45,6 +47,7 @@ const SpacingScale = ({
               <code>{scale.token}</code>
             </td>
             <td>{sizeRem}</td>
+            <td>{scale.min ? `${scale.min}rem` : '—'}</td>
             <td>{+(scale.value / config.gridSize).toFixed(3)}×</td>
             <td>
               <div

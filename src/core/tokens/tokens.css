@@ -27,4 +27,12 @@
 
   --main-glow-color: var(--ves-global-color-kyanite);
   --main-glow-height: calc(var(--ves-grid-size) * 3);
+
+  --ves-grid-gutter: var(--ves-grid-size);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --ves-grid-gutter: calc(var(--ves-grid-size) / 2);
+  }
 }

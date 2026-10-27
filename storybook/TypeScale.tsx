@@ -2,6 +2,7 @@ export interface TypeScaleElement {
   name: string;
   variable: string;
   value: number; // in rem
+  min?: number; // in rem
 }
 
 export interface TypeConfig {
@@ -10,7 +11,7 @@ export interface TypeConfig {
   sampleText: string;
 }
 
-const typeScaleHeaders = ['Name', 'Token', 'Size (rem)', 'Example'];
+const typeScaleHeaders = ['Name', 'Token', 'Size (rem)', 'Mobile (rem)', 'Example'];
 
 const TypeScale = ({
   config,
@@ -29,7 +30,7 @@ const TypeScale = ({
     </thead>
     <tbody>
       {scales.map((scale, scaleIndex) => {
-        const fontSize = `${scale.value}rem`;
+        const fontSize = `var(${scale.variable})`;
         return (
           <tr key={scaleIndex}>
             <td>
@@ -38,7 +39,8 @@ const TypeScale = ({
             <td>
               <code>{scale.variable}</code>
             </td>
-            <td>{fontSize}</td>
+            <td>{scale.value}rem</td>
+            <td>{scale.min ? `${scale.min}rem` : '—'}</td>
             <td
               style={{
                 fontSize,
