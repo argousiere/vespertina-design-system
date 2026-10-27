@@ -7,4 +7,8 @@
 .ves-entries-view__header {
   display: flex;
   justify-content: flex-end;
+
+  + .ves-entry-list {
+    margin-top: calc(var(--ves-grid-size) * -1.5);
+  }
 }

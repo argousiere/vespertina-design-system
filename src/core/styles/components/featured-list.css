@@ -1,7 +1,6 @@
 .ves-featured-list {
   display: flex;
   flex-direction: column;
-  padding: var(--ves-spacing-5);
 }
 
 .ves-featured-list__title {

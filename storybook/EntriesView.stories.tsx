@@ -17,14 +17,13 @@ const meta = {
       control: false,
       table: { type: { summary: 'EntryListItemProps[]' } },
     },
-    defaultView: entriesViewModeArgType,
+    viewMode: entriesViewModeArgType,
     onViewChange: {
       control: false,
     },
   },
   args: {
     entryListTitle: 'Latest Posts',
-    defaultView: EntriesViewMode.LIST,
     items: entries.map((entry) => ({
       entry
     })),
@@ -36,8 +35,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {} satisfies Story;
 
+export const ListView = {
+  args: { viewMode: EntriesViewMode.LIST },
+} satisfies Story;
+
 export const GalleryView = {
-  args: { defaultView: EntriesViewMode.GALLERY },
+  args: { viewMode: EntriesViewMode.GALLERY },
 } satisfies Story;
 
 export const Empty = {
