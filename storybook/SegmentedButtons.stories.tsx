@@ -29,6 +29,7 @@ const meta = {
   args: {
     level: ButtonLevel.DEFAULT,
     disabled: false,
+    iconOnly: false,
   },
   render: function Render(args) {
     const [, updateArgs] = useArgs();
@@ -68,6 +69,13 @@ export const ThreeOptions = {
       { value: 'title', label: 'Title' },
     ],
     value: 'oldest',
+  },
+} satisfies Story;
+
+export const IconOnly = {
+  args: {
+    ...Default.args,
+    iconOnly: true,
   },
 } satisfies Story;
 

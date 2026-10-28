@@ -38,3 +38,8 @@ export const Default = {
     tags: tags,
   },
 } satisfies Story;
+
+export const WithoutBody = {
+  args: Default.args,
+  render: (entry) => <Entry entry={entry} />,
+} satisfies Story;

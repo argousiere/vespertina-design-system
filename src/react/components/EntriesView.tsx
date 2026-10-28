@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { ComponentProps } from 'react';
 import EntryList, { type EntryListProps } from './EntryList';
 import Gallery from './Gallery';
-import SegmentedButtons from './SegmentedButtons';
+import ViewModeSwitcher from './ViewModeSwitcher';
 import { EntriesViewMode } from '../constants';
 
 export interface EntriesViewProps
@@ -27,20 +27,18 @@ const EntriesView: React.FC<EntriesViewProps> = ({
   return (
     <div {...props} className={clsx('ves-entries-view', className)}>
       {!viewMode && (
-        <div className="ves-entries-view__header">
-          <SegmentedButtons<EntriesViewMode>
-            aria-label="View"
-            options={[
-              { value: EntriesViewMode.LIST, label: 'List', icon: 'list' },
-              { value: EntriesViewMode.GALLERY, label: 'Gallery', icon: 'grid' },
-            ]}
-            value={view}
-            onValueChange={(value) => {
-              setView(value);
-              onViewChange?.(value);
-            }}
-          />
-        </div>
+        <ViewModeSwitcher<EntriesViewMode>
+          className="ves-entries-view__header"
+          options={[
+            { value: EntriesViewMode.LIST, label: 'List', icon: 'list' },
+            { value: EntriesViewMode.GALLERY, label: 'Gallery', icon: 'grid' },
+          ]}
+          value={view}
+          onValueChange={(value) => {
+            setView(value);
+            onViewChange?.(value);
+          }}
+        />
       )}
 
       {view === EntriesViewMode.LIST ? (

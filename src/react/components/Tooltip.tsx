@@ -16,6 +16,7 @@ type triggerElProps = React.HTMLAttributes<HTMLElement> & {
 };
 
 const HIDE_DELAY_MS = 100;
+const FOCUSABLE_SELECTOR = 'a[href], button, input, select, textarea, summary, [tabindex]';
 
 const Tooltip: React.FC<TooltipProps> = ({
   title,
@@ -35,11 +36,15 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   const isTruncated = useIsTruncated(showOnlyWhenTruncated ? triggerEl : null);
   const active = !disabled && (!showOnlyWhenTruncated || isTruncated);
+  const focusableAncestor =
+    triggerEl?.parentElement?.closest<HTMLElement>(FOCUSABLE_SELECTOR) ?? null;
 
   useEffect(() => {
     if (!active || !triggerEl || !tooltipEl) {
       return;
     }
+
+    const focusTarget = focusableAncestor ?? triggerEl;
 
     const controller = new AbortController();
     const options = { signal: controller.signal };
@@ -59,7 +64,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       hideTimeout = window.setTimeout(hideTooltip, HIDE_DELAY_MS);
     };
 
-    for (const element of [triggerEl, tooltipEl]) {
+    for (const element of [focusTarget, tooltipEl]) {
       element.addEventListener(
         'pointerenter',
         (event) => event.pointerType === 'mouse' && showTooltip(),
@@ -72,23 +77,25 @@ const Tooltip: React.FC<TooltipProps> = ({
       );
     }
 
-    triggerEl.addEventListener(
-      'pointerdown',
-      (event) => (pointerType = event.pointerType),
-      options
-    );
-    triggerEl.addEventListener(
-      'click',
-      () => pointerType !== 'mouse' && toggle(),
-      options
-    );
+    if (!focusableAncestor) {
+      triggerEl.addEventListener(
+        'pointerdown',
+        (event) => (pointerType = event.pointerType),
+        options
+      );
+      triggerEl.addEventListener(
+        'click',
+        () => pointerType !== 'mouse' && toggle(),
+        options
+      );
+    }
 
-    triggerEl.addEventListener(
+    focusTarget.addEventListener(
       'focus',
-      () => triggerEl.matches(':focus-visible') && showTooltip(),
+      () => focusTarget.matches(':focus-visible') && showTooltip(),
       options
     );
-    triggerEl.addEventListener('blur', hideTooltip, options);
+    focusTarget.addEventListener('blur', hideTooltip, options);
 
     document.addEventListener(
       'keydown',
@@ -99,7 +106,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       'pointerdown',
       (event) => {
         const target = event.target as Node;
-        if (!triggerEl.contains(target) && !tooltipEl.contains(target)) {
+        if (!focusTarget.contains(target) && !tooltipEl.contains(target)) {
           hideTooltip();
         }
       },
@@ -110,7 +117,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       window.clearTimeout(hideTimeout);
       controller.abort();
     };
-  }, [active, triggerEl, tooltipEl]);
+  }, [active, triggerEl, tooltipEl, focusableAncestor]);
 
   if (!active) {
     return cloneElement(children, { ref: setTriggerEl });
@@ -122,7 +129,7 @@ const Tooltip: React.FC<TooltipProps> = ({
     <>
       {cloneElement(children, {
         ref: setTriggerEl,
-        tabIndex: props.tabIndex ?? 0,
+        tabIndex: focusableAncestor ? props.tabIndex : (props.tabIndex ?? 0),
         'aria-describedby': [props['aria-describedby'], tooltipId]
           .filter(Boolean)
           .join(' '),

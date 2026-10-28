@@ -10,6 +10,7 @@ export interface ButtonProps extends Omit<
 > {
   label: string;
   icon?: IconName;
+  iconOnly?: boolean;
   level?: ButtonLevel;
   variant?: ButtonVariant;
 }
@@ -17,6 +18,7 @@ export interface ButtonProps extends Omit<
 const Button: React.FC<ButtonProps> = ({
   label,
   icon,
+  iconOnly,
   level = ButtonLevel.DEFAULT,
   variant = ButtonVariant.PRIMARY,
   className,
@@ -30,6 +32,7 @@ const Button: React.FC<ButtonProps> = ({
       {
         [`ves-btn--${level}`]: level !== ButtonLevel.DEFAULT,
         'ves-btn--primary': variant === ButtonVariant.PRIMARY,
+        'ves-btn--icon-only': iconOnly
       },
       className
     )}
