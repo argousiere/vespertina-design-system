@@ -35,40 +35,40 @@
 
   &::before {
     --dot-grid-offset: calc(
-      var(--ves-grid-size) * -2 - (var(--grid-dot-size) / 2)
+      var(--ves-grid-gutter) * -2 - (var(--grid-dot-size) / 2)
     );
 
     mix-blend-mode: overlay;
     background-image:
       repeating-linear-gradient(
         to right,
-        transparent 0 var(--ves-grid-size),
+        transparent 0 var(--ves-grid-gutter),
         var(--grid-line-color-tertiary)
-          calc(var(--ves-grid-size) - var(--grid-line-width))
-          calc(var(--ves-grid-size) + var(--grid-line-width)),
-        transparent calc(var(--ves-grid-size) + var(--grid-line-width))
-          calc(var(--ves-grid-size) * 2)
+          calc(var(--ves-grid-gutter) - var(--grid-line-width))
+          calc(var(--ves-grid-gutter) + var(--grid-line-width)),
+        transparent calc(var(--ves-grid-gutter) + var(--grid-line-width))
+          calc(var(--ves-grid-gutter) * 2)
       ),
       repeating-linear-gradient(
         to bottom,
-        transparent 0 var(--ves-grid-size),
+        transparent 0 var(--ves-grid-gutter),
         var(--grid-line-color-tertiary)
-          calc(var(--ves-grid-size) - var(--grid-line-width))
-          calc(var(--ves-grid-size) + var(--grid-line-width)),
-        transparent calc(var(--ves-grid-size) + var(--grid-line-width))
-          calc(var(--ves-grid-size) * 2)
+          calc(var(--ves-grid-gutter) - var(--grid-line-width))
+          calc(var(--ves-grid-gutter) + var(--grid-line-width)),
+        transparent calc(var(--ves-grid-gutter) + var(--grid-line-width))
+          calc(var(--ves-grid-gutter) * 2)
       ),
       repeating-linear-gradient(
         to right,
         var(--grid-line-color) 0,
         var(--grid-line-color) var(--grid-line-width),
         transparent calc(var(--grid-line-width) + 1px),
-        transparent var(--ves-grid-size)
+        transparent var(--ves-grid-gutter)
       ),
       repeating-linear-gradient(
         to bottom,
         var(--grid-line-color) 0 var(--grid-line-width),
-        transparent var(--grid-line-width) var(--ves-grid-size)
+        transparent var(--grid-line-width) var(--ves-grid-gutter)
       ),
       repeating-linear-gradient(
         to bottom,
@@ -83,8 +83,8 @@
       transparent calc(var(--grid-dot-size) / 2) var(--grid-dot-size)
     );
     background-position: var(--dot-grid-offset) var(--dot-grid-offset);
-    background-size: calc(var(--ves-grid-size) * 2)
-      calc(var(--ves-grid-size) * 2);
+    background-size: calc(var(--ves-grid-gutter) * 2)
+      calc(var(--ves-grid-gutter) * 2);
   }
 }
 

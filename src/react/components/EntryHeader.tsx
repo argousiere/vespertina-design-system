@@ -19,13 +19,14 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
   ...props
 }) => {
   const { title, date, readingTimeMinutes, description, cover } = entry;
+  const hasMetadata = date && readingTimeMinutes;
 
   return (
     <header {...props} className={clsx('ves-page-header', 'ves-entry__header', className)}>
-      <div className="ves-entry-header__meta">
+      {hasMetadata && <div className="ves-entry-header__meta">
         {date && <DateLabel dateTime={date} dateFormat="dd.MMM.yyyy" />}
         {!!readingTimeMinutes && <ReadingTime minutes={readingTimeMinutes} />}
-      </div>
+      </div>}
 
       {title && (
         <Heading level="h1" className="ves-page-header__title" label={title} />

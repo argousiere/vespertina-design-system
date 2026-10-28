@@ -53,6 +53,7 @@
 
 .ves-thumbnail__caption {
   font-weight: var(--ves-font-weight-light);
+  font-size: var(--ves-font-size-sm);
   letter-spacing: 0.1em;
 }
 

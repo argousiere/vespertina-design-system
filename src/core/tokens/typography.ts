@@ -8,10 +8,11 @@ const typography = {
   weight: Object.fromEntries(
     Object.values(tokens['font-weights']).map(({ name, value }) => [name, value])
   ),
-  // rem, scale: 1.125
-  size: Object.entries(tokens['font-sizes']).map(([variable, { name, value }]) => ({
-    name,
-    value,
+  // rem, scale: 1.125, fluid down to min
+  size: Object.entries(tokens['font-sizes']).map(([variable, token]) => ({
+    name: token.name,
+    value: token.value,
+    min: 'min' in token ? token.min : undefined,
     variable,
   })),
 };

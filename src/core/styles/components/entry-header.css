@@ -1,5 +1,5 @@
 .ves-entry__header {
-  --ves-entry-header-meta-gap: var(--ves-grid-size);
+  --ves-entry-header-meta-gap: var(--ves-grid-gutter);
   --ves-entry-header-cover-max-width: calc(var(--ves-grid-size) * 15);
 
   container-type: inline-size;
@@ -23,7 +23,7 @@
 
   display: flex;
   align-items: center;
-  margin: 0 auto var(--ves-grid-size);
+  margin: 0 auto var(--ves-grid-gutter);
   width: var(--ves-entry-header-cover-width);
   height: round(
     up,

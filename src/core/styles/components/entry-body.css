@@ -1,8 +1,8 @@
 .ves-entry__body {
   --ves-entry-body-font-size: var(--ves-font-size-md);
-  --ves-entry-body-line-height: var(--ves-grid-size);
+  --ves-entry-body-line-height: var(--ves-grid-gutter);
   --ves-entry-body-letter-spacing: 0.07em;
-  --ves-entry-body-block-gap: var(--ves-grid-size);
+  --ves-entry-body-block-gap: var(--ves-grid-gutter);
   --ves-entry-body-heading-line-height: 1.3;
   --ves-entry-body-heading-letter-spacing: 0.1em;
   --ves-entry-body-link-color: var(--ves-global-color-cerulean);
@@ -18,7 +18,7 @@
 
   p {
     + p {
-      margin-top: var(--ves-grid-size);
+      margin-top: var(--ves-grid-gutter);
     }
   }
 

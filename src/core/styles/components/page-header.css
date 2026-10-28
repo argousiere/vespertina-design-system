@@ -1,12 +1,12 @@
 .ves-page-header {
   --ves-page-header-border-color: var(--ves-border-color);
-  --ves-page-header-title-font-size: var(--ves-grid-size);
+  --ves-page-header-title-font-size: var(--ves-font-size-4xl);
 
   display: block;
 }
 
 .ves-page-header__title {
-  margin: var(--ves-grid-size) 0;
+  margin: var(--ves-grid-gutter) 0;
   font-size: var(--ves-page-header-title-font-size);
   line-height: var(--ves-grid-size);
   text-align: center;
@@ -14,7 +14,7 @@
 }
 
 .ves-page-header__description {
-  margin: 0 0 var(--ves-grid-size);
+  margin: 0 0 var(--ves-grid-gutter);
   border: solid var(--ves-page-header-border-color);
   border-width: 1px 0;
   padding: var(--ves-spacing-5) var(--ves-spacing-6);

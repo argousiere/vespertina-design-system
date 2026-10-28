@@ -17,6 +17,8 @@ import location from '../assets/icons/location.svg';
 import github from '../assets/icons/github.svg';
 import linkedin from '../assets/icons/linkedin.svg';
 import mail from '../assets/icons/mail.svg';
+import menu from '../assets/icons/menu.svg';
+import close from '../assets/icons/close.svg';
 
 
 export const icons = {
@@ -39,6 +41,8 @@ export const icons = {
   github,
   linkedin,
   mail,
+  menu,
+  close,
 };
 
 export type IconName = keyof typeof icons;

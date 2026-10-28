@@ -79,3 +79,18 @@
   font-size: var(--ves-font-size-md);
   letter-spacing: 0.1em;
 }
+
+@media (max-width: 600px) {
+  .ves-entry-list {
+    --ves-frame-padding: var(--ves-spacing-4);
+  }
+
+  .ves-entry-list__item-date {
+    flex-basis: 120px;
+  }
+  
+  .ves-entry-list__item-content {
+    gap: var(--ves-spacing-4);
+    padding: 0;
+}
+}
