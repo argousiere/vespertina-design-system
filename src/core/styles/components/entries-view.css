@@ -4,11 +4,6 @@
   gap: var(--ves-spacing-6);
 }
 
-.ves-entries-view__header {
-  display: flex;
-  justify-content: flex-end;
-
-  + .ves-entry-list {
-    margin-top: calc(var(--ves-grid-size) * -1.5);
-  }
+.ves-entries-view__header + .ves-entry-list {
+  margin-top: calc(var(--ves-grid-size) * -1.5);
 }

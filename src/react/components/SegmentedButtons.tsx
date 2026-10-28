@@ -16,6 +16,7 @@ export interface SegmentedButtonsProps<T extends string = string> extends Omit<
   onValueChange?: (value: T) => void;
   level?: ButtonLevel;
   disabled?: boolean;
+  iconOnly?: boolean;
 }
 
 const SegmentedButtons = <T extends string = string>({
@@ -24,6 +25,7 @@ const SegmentedButtons = <T extends string = string>({
   onValueChange,
   level,
   disabled,
+  iconOnly = false,
   className,
   ...props
 }: SegmentedButtonsProps<T>) => {
@@ -32,7 +34,11 @@ const SegmentedButtons = <T extends string = string>({
     <div
       role="group"
       {...props}
-      className={clsx('ves-segmented-control', className)}
+      className={clsx(
+        'ves-segmented-control',
+        { 'ves-segmented-control--icon-only': iconOnly },
+        className
+      )}
     >
       {options.map((option) => {
         const isSelected = option.value === value;
@@ -44,8 +50,10 @@ const SegmentedButtons = <T extends string = string>({
               "ves-segmented-control__btn", 
               isSelected ? "ves-segmented-control__btn--selected" : undefined
             )}
+            iconOnly={iconOnly}
             label={option.label}
             icon={option.icon}
+
             level={level}
             variant={
               option.value === value

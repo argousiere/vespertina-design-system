@@ -46,6 +46,15 @@
   }
 }
 
+.ves-segmented-control--icon-only .ves-label__text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 @media (max-width: 600px) {
   .ves-segmented-control .ves-label__text {
     position: absolute;

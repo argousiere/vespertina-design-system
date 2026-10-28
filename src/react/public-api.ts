@@ -67,5 +67,7 @@ export { default as TagHeader } from './components/TagHeader';
 export type { TagHeaderProps } from './components/TagHeader';
 export { default as Tooltip } from './components/Tooltip';
 export type { TooltipProps } from './components/Tooltip';
+export { default as ViewModeSwitcher } from './components/ViewModeSwitcher';
+export type { ViewModeSwitcherProps } from './components/ViewModeSwitcher';
 export { default as Thumbnail } from './components/Thumbnail';
 export type { ThumbnailProps } from './components/Thumbnail';
