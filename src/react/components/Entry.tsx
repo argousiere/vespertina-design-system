@@ -6,25 +6,22 @@ import TagBox from './TagBox';
 
 export interface EntryProps extends Omit<ComponentProps<'article'>, 'children'> {
   entry: EntryModel;
-  html: string;
+  html?: string;
 }
 
 const Entry: React.FC<EntryProps> = ({ entry, html, className, ...props }) => {
-  if (!html) {
-    console.warn(`Entry: no registered markdown file for "${!html}"`);
-    return null;
-  }
-
   const { tags } = entry;
 
   return (
     <article {...props} className={clsx('ves-entry', className)}>
       <EntryHeader entry={entry} />
 
-      <div
-        className="ves-entry__body"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      {html && (
+        <div
+          className="ves-entry__body"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      )}
 
 
       {tags && tags.length > 0 && (
