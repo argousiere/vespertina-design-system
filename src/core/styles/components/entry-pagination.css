@@ -87,7 +87,7 @@
   font-family: var(--ves-font-family-primary);
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .ves-entry-pagination {
     flex-direction: column;
     height: auto;

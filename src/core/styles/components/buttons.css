@@ -27,8 +27,8 @@
   --ves-btn-hover-fill-color: oklch(from var(--ves-btn-tint) l c h / 0.35);
 
   display: inline-flex;
-  align-items: center;
   position: relative;
+  align-items: center;
   transition:
     border-color 0.08s linear,
     --ves-btn-hole-radius 0.3s ease-out;
@@ -130,10 +130,7 @@
     &::before,
     &::after {
       position: absolute;
-      top: var(--ves-btn-frame-offset);
-      right: var(--ves-btn-frame-offset);
-      bottom: var(--ves-btn-frame-offset);
-      left: var(--ves-btn-frame-offset);
+      inset: var(--ves-btn-frame-offset);
       border-width: 1px;
       border-style: solid;
       content: '';
@@ -156,7 +153,6 @@
       --inner: conic-gradient(red 0 0) padding-box;
       -webkit-mask: var(--corner), var(--inner);
       -webkit-mask-composite: source-out;
-      mask-composite: subtract;
       mask:
         var(--corner) subtract,
         var(--inner);

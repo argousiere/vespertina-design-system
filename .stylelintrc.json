@@ -1,0 +1,26 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "ignoreFiles": [
+    "dist/**",
+    "storybook-static/**",
+    "src/core/tokens/generated-tokens.css",
+    "src/core/styles/base/modern-normalize.css"
+  ],
+  "rules": {
+    "selector-class-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+      {
+        "message": "Expected class selector to follow BEM (block__element--modifier)"
+      }
+    ],
+    "import-notation": "string",
+    "alpha-value-notation": "number",
+    "hue-degree-notation": "number",
+    "property-no-vendor-prefix": null,
+    "no-descending-specificity": null,
+    "custom-property-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "lightness-notation": null,
+    "number-max-precision": 5
+  }
+}

@@ -10,7 +10,7 @@
   font-size: var(--ves-page-header-title-font-size);
   line-height: var(--ves-grid-size);
   text-align: center;
-  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .ves-page-header__description {
@@ -20,6 +20,6 @@
   padding: var(--ves-spacing-5) var(--ves-spacing-6);
   font-style: italic;
   font-size: var(--ves-font-size-sm);
-  word-break: break-word;
   text-align: center;
+  overflow-wrap: anywhere;
 }
