@@ -61,16 +61,20 @@ export const Responsive = {
   parameters: {
     layout: 'padded',
   },
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 32 }}>
-      {breakpoints.map(({ width, label }) => (
-        <figure key={width} style={{ margin: 0, width }}>
-          <figcaption style={{ marginBottom: 8, whiteSpace: 'nowrap' }}>
-            <code>{label}</code>
-          </figcaption>
-          <TagBox {...args} />
-        </figure>
-      ))}
-    </div>
-  ),
+  render: (args) => {
+    return (
+      <div style={{ display: 'grid', gap: 32 }}>
+        {breakpoints.map(({ width, label }) => {
+          return (
+            <figure key={width} style={{ margin: 0, width }}>
+              <figcaption style={{ marginBottom: 8, whiteSpace: 'nowrap' }}>
+                <code>{label}</code>
+              </figcaption>
+              <TagBox {...args} />
+            </figure>
+          );
+        })}
+      </div>
+    );
+  },
 } satisfies Story;

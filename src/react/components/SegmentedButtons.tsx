@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
-import { ButtonLevel, ButtonVariant } from '@core/models/ButtonModel';
+import type { ButtonLevel} from '@core/models/ButtonModel';
+import { ButtonVariant } from '@core/models/ButtonModel';
 import Button, { type ButtonProps } from './Button';
 
 export type SegmentedButtonOption<T extends string = string> = ButtonProps & {
   value: T;
-}
+};
 
 export interface SegmentedButtonsProps<T extends string = string> extends Omit<
   ComponentProps<'div'>,
@@ -25,11 +26,10 @@ const SegmentedButtons = <T extends string = string>({
   onValueChange,
   level,
   disabled,
-  iconOnly = false,
+  iconOnly,
   className,
   ...props
 }: SegmentedButtonsProps<T>) => {
-
   return (
     <div
       role="group"
@@ -47,13 +47,12 @@ const SegmentedButtons = <T extends string = string>({
           <Button
             key={option.value}
             className={clsx(
-              "ves-segmented-control__btn", 
-              isSelected ? "ves-segmented-control__btn--selected" : undefined
+              'ves-segmented-control__btn',
+              isSelected ? 'ves-segmented-control__btn--selected' : undefined
             )}
             iconOnly={iconOnly}
             label={option.label}
             icon={option.icon}
-
             level={level}
             variant={
               option.value === value
@@ -62,9 +61,11 @@ const SegmentedButtons = <T extends string = string>({
             }
             aria-pressed={isSelected}
             disabled={disabled || option.disabled}
-            onClick={() => onValueChange?.(option.value)}
+            onClick={() => {
+              return onValueChange?.(option.value);
+            }}
           />
-        )
+        );
       })}
     </div>
   );

@@ -8,12 +8,14 @@ export interface SpacingToken {
 }
 
 const scale: SpacingToken[] = Object.entries(tokens.spacing).map(
-  ([variable, token]) => ({
-    name: token.name,
-    value: token.value,
-    min: 'min' in token ? token.min : undefined,
-    variable,
-  })
+  ([variable, token]) => {
+    return {
+      name: token.name,
+      value: token.value,
+      min: 'min' in token ? token.min : undefined,
+      variable,
+    };
+  }
 );
 
 // Vertical rhythm: component heights are multiples of the grid size

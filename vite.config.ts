@@ -1,13 +1,13 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { cssTokens } from './scripts/build-css-from-tokens-source.ts';
 
 // https://vite.dev/config/
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
+import { cssTokens } from './scripts/build-css-from-tokens-source.ts';
 const dirname =
   typeof __dirname !== 'undefined'
     ? __dirname

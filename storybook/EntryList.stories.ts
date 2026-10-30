@@ -17,7 +17,7 @@ const meta = {
     },
     items: {
       control: false,
-      table: { type: { summary: 'EntryListProps[]' } }
+      table: { type: { summary: 'EntryListProps[]' } },
     },
   },
 } satisfies Meta<typeof EntryList>;
@@ -28,14 +28,18 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     entryListTitle: 'Latest Posts',
-    items: entries.map((entry) => ({ entry })),
+    items: entries.map((entry) => {
+      return { entry };
+    }),
   },
 };
 
 export const WithDisabledEntry: Story = {
   args: {
     entryListTitle: 'Latest Posts',
-    items: entries.map((entry, index) => ({ entry, disabled: index === 1 })),
+    items: entries.map((entry, index) => {
+      return { entry, disabled: index === 1 };
+    }),
   },
 };
 

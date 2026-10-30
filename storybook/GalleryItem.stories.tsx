@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import GalleryItem from '@components/GalleryItem';
 import type { EntryModel } from '@core/models/EntryModel';
+import GalleryItem from '@components/GalleryItem';
 import { entryArgTypes } from './arg-types/entry';
 import { entryRecord } from './fixtures/entries';
 import { imageRecord } from './fixtures/images';
@@ -25,14 +25,16 @@ const meta = {
   args: {
     captionMaxLines: 1,
   },
-  decorators: (Story) => (
-    <ul className="ves-gallery" style={{ width: 360 }}>
-      <Story />
-    </ul>
-  ),
-  render: ({ captionMaxLines, ...entry }) => (
-    <GalleryItem entry={entry} captionMaxLines={captionMaxLines} />
-  ),
+  decorators: (Story) => {
+    return (
+      <ul className="ves-gallery" style={{ width: 360 }}>
+        <Story />
+      </ul>
+    );
+  },
+  render: ({ captionMaxLines, ...entry }) => {
+    return <GalleryItem entry={entry} captionMaxLines={captionMaxLines} />;
+  },
 } satisfies Meta<GalleryItemArgs>;
 
 export default meta;
@@ -47,7 +49,7 @@ export const Default: Story = {
 
 export const WithoutThumbnail: Story = {
   args: {
-    ...entryRecord.empty
+    ...entryRecord.empty,
   },
 };
 

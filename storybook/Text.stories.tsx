@@ -15,28 +15,34 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Headings = {
-  render: () => (
-    <MarkdownBlock
-      className="ves-entry__body"
-      html={renderMarkdown('headings.md')}
-    />
-  ),
+  render: () => {
+    return (
+      <MarkdownBlock
+        className="ves-entry__body"
+        html={renderMarkdown('headings.md')}
+      />
+    );
+  },
 } satisfies Story;
 
 export const Paragraph = {
-  render: () => (
-    <MarkdownBlock
-      className="ves-entry__body"
-      html={renderMarkdown('paragraphs.md')}
-    />
-  ),
+  render: () => {
+    return (
+      <MarkdownBlock
+        className="ves-entry__body"
+        html={renderMarkdown('paragraphs.md')}
+      />
+    );
+  },
 } satisfies Story;
 
 export const Link = {
-  render: () => (
-    <MarkdownBlock
-      className="ves-entry__body"
-      html={renderMarkdown('links.md')}
-    />
-  ),
+  render: () => {
+    return (
+      <MarkdownBlock
+        className="ves-entry__body"
+        html={renderMarkdown('links.md')}
+      />
+    );
+  },
 } satisfies Story;

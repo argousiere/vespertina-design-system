@@ -11,7 +11,13 @@ export interface TypeConfig {
   sampleText: string;
 }
 
-const typeScaleHeaders = ['Name', 'Token', 'Size (rem)', 'Mobile (rem)', 'Example'];
+const typeScaleHeaders = [
+  'Name',
+  'Token',
+  'Size (rem)',
+  'Mobile (rem)',
+  'Example',
+];
 
 const TypeScale = ({
   config,
@@ -19,44 +25,46 @@ const TypeScale = ({
 }: {
   config: TypeConfig;
   scales: TypeScaleElement[];
-}) => (
-  <table>
-    <thead>
-      <tr>
-        {typeScaleHeaders.map((header, index) => (
-          <th key={index}>{header}</th>
-        ))}
-      </tr>
-    </thead>
-    <tbody>
-      {scales.map((scale, scaleIndex) => {
-        const fontSize = `var(${scale.variable})`;
-        return (
-          <tr key={scaleIndex}>
-            <td>
-              <code>{scale.name}</code>
-            </td>
-            <td>
-              <code>{scale.variable}</code>
-            </td>
-            <td>{scale.value}rem</td>
-            <td>{scale.min ? `${scale.min}rem` : '—'}</td>
-            <td
-              style={{
-                fontSize,
-                fontWeight: config.fontWeight,
-                fontFamily: config.fontFamily,
-                height: `calc(${fontSize} * 1.5)`,
-                lineHeight: 1.5,
-              }}
-            >
-              {config.sampleText}
-            </td>
-          </tr>
-        );
-      })}
-    </tbody>
-  </table>
-);
+}) => {
+  return (
+    <table>
+      <thead>
+        <tr>
+          {typeScaleHeaders.map((header) => {
+            return <th key={header}>{header}</th>;
+          })}
+        </tr>
+      </thead>
+      <tbody>
+        {scales.map((scale) => {
+          const fontSize = `var(${scale.variable})`;
+          return (
+            <tr key={scale.variable}>
+              <td>
+                <code>{scale.name}</code>
+              </td>
+              <td>
+                <code>{scale.variable}</code>
+              </td>
+              <td>{scale.value}rem</td>
+              <td>{scale.min ? `${scale.min}rem` : '—'}</td>
+              <td
+                style={{
+                  fontSize,
+                  fontWeight: config.fontWeight,
+                  fontFamily: config.fontFamily,
+                  height: `calc(${fontSize} * 1.5)`,
+                  lineHeight: 1.5,
+                }}
+              >
+                {config.sampleText}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
 
 export default TypeScale;

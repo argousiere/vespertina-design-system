@@ -7,8 +7,10 @@ import Heading from './Heading';
 import Image from './Image';
 import ReadingTime from './ReadingTime';
 
-export interface EntryHeaderProps
-  extends Omit<ComponentProps<'header'>, 'children'> {
+export interface EntryHeaderProps extends Omit<
+  ComponentProps<'header'>,
+  'children'
+> {
   entry: EntryModel;
   description?: string;
 }
@@ -22,11 +24,16 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
   const hasMetadata = date && readingTimeMinutes;
 
   return (
-    <header {...props} className={clsx('ves-page-header', 'ves-entry__header', className)}>
-      {hasMetadata && <div className="ves-entry-header__meta">
-        {date && <DateLabel dateTime={date} dateFormat="dd.MMM.yyyy" />}
-        {!!readingTimeMinutes && <ReadingTime minutes={readingTimeMinutes} />}
-      </div>}
+    <header
+      {...props}
+      className={clsx('ves-page-header', 'ves-entry__header', className)}
+    >
+      {hasMetadata && (
+        <div className="ves-entry-header__meta">
+          {date && <DateLabel dateTime={date} dateFormat="dd.MMM.yyyy" />}
+          {!!readingTimeMinutes && <ReadingTime minutes={readingTimeMinutes} />}
+        </div>
+      )}
 
       {title && (
         <Heading level="h1" className="ves-page-header__title" label={title} />
@@ -39,8 +46,10 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
           className="ves-entry-header__cover"
         />
       )}
-      
-      {description && <p className="ves-page-header__description">{description}</p>}
+
+      {description && (
+        <p className="ves-page-header__description">{description}</p>
+      )}
     </header>
   );
 };

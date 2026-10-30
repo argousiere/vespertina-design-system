@@ -3,22 +3,22 @@ import { formatDate, parseDate } from './date';
 
 describe('parseDate', () => {
   it('should parse an ISO day as a local date', () => {
-    expect(parseDate('2024-03-05')).toEqual(new Date(2024, 2, 5));
+    expect(parseDate('2024-03-05')).toStrictEqual(new Date(2024, 2, 5));
   });
 
   it('should ignore the time part of an ISO datetime', () => {
-    expect(parseDate('2024-03-05T23:30:00Z')).toEqual(new Date(2024, 2, 5));
+    expect(parseDate('2024-03-05T23:30:00Z')).toStrictEqual(new Date(2024, 2, 5));
   });
 
   it('should return null when no date is given', () => {
     expect(parseDate()).toBeNull();
   });
 
-  it('returns null for invalid dates', () => {
+  it('should return null for invalid dates', () => {
     expect(
-      ['', 'not a date', '2024-02-30', '05-03-2024'].every(
-        (date) => parseDate(date) === null
-      )
+      ['', 'not a date', '2024-02-30', '05-03-2024'].every((date) => {
+        return parseDate(date) === null;
+      })
     ).toBe(true);
   });
 });

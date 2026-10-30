@@ -10,10 +10,13 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourcePath = path.join(root, config.sourcePath);
 const targetPath = path.join(root, config.targetPath);
 
-const toPx = (rem: number, baseRemSize: number) =>
-  Math.round(rem * baseRemSize * 100) / 100;
+const toPx = (rem: number, baseRemSize: number) => {
+  return Math.round(rem * baseRemSize * 100) / 100;
+};
 
-const round = (value: number) => Math.round(value * 10000) / 10000;
+const round = (value: number) => {
+  return Math.round(value * 10000) / 10000;
+};
 
 const toFluidRem = (min: number, max: number, baseRemSize: number) => {
   const minViewport = config.fluid.minViewport / baseRemSize;
@@ -44,17 +47,17 @@ export const writeTokens = async () => {
   );
 
   const customProperties = Object.entries<Record<string, Token>>(tokens).map(
-    ([groupName, group]) =>
-      [
+    ([groupName, group]) => {
+      return [
         `  /* ${groupName} */`,
-        ...Object.entries(group).map(([variable, token]) =>
-          toDeclaration(variable, token, config.baseRemSize)
-        ),
-      ].join('\n')
+        ...Object.entries(group).map(([variable, token]) => {
+          return toDeclaration(variable, token, config.baseRemSize);
+        }),
+      ].join('\n');
+    }
   );
 
-  const css = 
-`/* Generated from ${config.sourcePath} by scripts/build-css-from-tokens-source.ts. Do not edit. */
+  const css = `/* Generated from ${config.sourcePath} by scripts/build-css-from-tokens-source.ts. Do not edit. */
 
 :root {
   --ves-font-size-base: ${config.baseRemSize}px;
@@ -71,18 +74,20 @@ ${customProperties.join('\n\n')}
   }
 };
 
-export const cssTokens = (): Plugin => ({
-  name: 'ves-css-tokens',
-  buildStart: writeTokens,
-  configureServer(server) {
-    server.watcher.add(sourcePath);
-    server.watcher.on('change', (file) => {
-      if (file === sourcePath) {
-        writeTokens();
-      }
-    });
-  },
-});
+export const cssTokens = (): Plugin => {
+  return {
+    name: 'ves-css-tokens',
+    buildStart: writeTokens,
+    configureServer(server) {
+      server.watcher.add(sourcePath);
+      server.watcher.on('change', (file) => {
+        if (file === sourcePath) {
+          writeTokens();
+        }
+      });
+    },
+  };
+};
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   await writeTokens();

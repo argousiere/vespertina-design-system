@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import FeaturedListItem from '@components/FeaturedListItem';
 import type { EntryModel } from '@core/models/EntryModel';
+import FeaturedListItem from '@components/FeaturedListItem';
 import { entryArgTypes } from './arg-types/entry';
 import { entryRecord } from './fixtures/entries';
 import { imageRecord } from './fixtures/images';
@@ -14,12 +14,16 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: entryArgTypes,
-  decorators: (Story) => (
-    <ul className="ves-featured-list__items">
-      <Story />
-    </ul>
-  ),
-  render: (entry) => <FeaturedListItem entry={entry} />,
+  decorators: (Story) => {
+    return (
+      <ul className="ves-featured-list__items">
+        <Story />
+      </ul>
+    );
+  },
+  render: (entry) => {
+    return <FeaturedListItem entry={entry} />;
+  },
 } satisfies Meta<EntryModel>;
 
 export default meta;

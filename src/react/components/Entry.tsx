@@ -4,7 +4,10 @@ import type { EntryModel } from '@core/models/EntryModel';
 import EntryHeader from './EntryHeader';
 import TagBox from './TagBox';
 
-export interface EntryProps extends Omit<ComponentProps<'article'>, 'children'> {
+export interface EntryProps extends Omit<
+  ComponentProps<'article'>,
+  'children'
+> {
   entry: EntryModel;
   html?: string;
 }
@@ -22,7 +25,6 @@ const Entry: React.FC<EntryProps> = ({ entry, html, className, ...props }) => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       )}
-
 
       {tags && tags.length > 0 && (
         <div className="ves-entry__tags">

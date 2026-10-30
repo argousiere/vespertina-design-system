@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import coverImage from './images/dizzy.jpg';
+import { ProgressiveBlurDirection } from '@react/constants';
 import ProgressiveBlur, {
   type ProgressiveBlurProps,
 } from '@components/ProgressiveBlur';
-import { ProgressiveBlurDirection } from '@react/constants';
+import coverImage from './images/dizzy.jpg';
 
 type ProgressiveBlurStoryProps = ProgressiveBlurProps & {
   color?: string;
@@ -33,20 +33,26 @@ const meta: Meta<ProgressiveBlurStoryProps> = {
       table: { type: { summary: 'string' } },
     },
   },
-  render: ({ color, style, ...args }) => (
-    <div style={{ position: 'relative', width: 256 }}>
-      <img src={coverImage} alt="" style={{ display: 'block', width: '100%' }} />
-      <ProgressiveBlur
-        {...args}
-        style={
-          {
-            ...style,
-            ...(color && { '--ves-progressive-blur-color': color }),
-          } as React.CSSProperties
-        }
-      />
-    </div>
-  ),
+  render: ({ color, style, ...args }) => {
+    return (
+      <div style={{ position: 'relative', width: 256 }}>
+        <img
+          src={coverImage}
+          alt=""
+          style={{ display: 'block', width: '100%' }}
+        />
+        <ProgressiveBlur
+          {...args}
+          style={
+            {
+              ...style,
+              ...(color && { '--ves-progressive-blur-color': color }),
+            } as React.CSSProperties
+          }
+        />
+      </div>
+    );
+  },
 };
 
 export default meta;

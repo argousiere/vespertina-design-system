@@ -3,8 +3,10 @@ import type { ComponentProps } from 'react';
 import clsx from 'clsx';
 import useIsTruncated from '../hooks/useIsTruncated';
 
-export interface TooltipProps
-  extends Omit<ComponentProps<'div'>, 'title' | 'children'> {
+export interface TooltipProps extends Omit<
+  ComponentProps<'div'>,
+  'title' | 'children'
+> {
   title: string | React.ReactNode;
   children: React.ReactElement<triggerElProps>;
   disabled?: boolean;
@@ -16,13 +18,14 @@ type triggerElProps = React.HTMLAttributes<HTMLElement> & {
 };
 
 const HIDE_DELAY_MS = 100;
-const FOCUSABLE_SELECTOR = 'a[href], button, input, select, textarea, summary, [tabindex]';
+const FOCUSABLE_SELECTOR =
+  'a[href], button, input, select, textarea, summary, [tabindex]';
 
 const Tooltip: React.FC<TooltipProps> = ({
   title,
   children,
-  disabled = false,
-  showOnlyWhenTruncated = false,
+  disabled,
+  showOnlyWhenTruncated,
   className,
   style,
   ...tooltipProps
@@ -56,8 +59,12 @@ const Tooltip: React.FC<TooltipProps> = ({
       tooltipEl.togglePopover(force);
     };
 
-    const showTooltip = () => toggle(true);
-    const hideTooltip = () => toggle(false);
+    const showTooltip = () => {
+      return toggle(true);
+    };
+    const hideTooltip = () => {
+      return toggle(false);
+    };
 
     const hideDelayed = () => {
       window.clearTimeout(hideTimeout);
@@ -67,12 +74,16 @@ const Tooltip: React.FC<TooltipProps> = ({
     for (const element of [focusTarget, tooltipEl]) {
       element.addEventListener(
         'pointerenter',
-        (event) => event.pointerType === 'mouse' && showTooltip(),
+        (event) => {
+          return event.pointerType === 'mouse' && showTooltip();
+        },
         options
       );
       element.addEventListener(
         'pointerleave',
-        (event) => event.pointerType === 'mouse' && hideDelayed(),
+        (event) => {
+          return event.pointerType === 'mouse' && hideDelayed();
+        },
         options
       );
     }
@@ -80,26 +91,34 @@ const Tooltip: React.FC<TooltipProps> = ({
     if (!focusableAncestor) {
       triggerEl.addEventListener(
         'pointerdown',
-        (event) => (pointerType = event.pointerType),
+        (event) => {
+          return (pointerType = event.pointerType);
+        },
         options
       );
       triggerEl.addEventListener(
         'click',
-        () => pointerType !== 'mouse' && toggle(),
+        () => {
+          return pointerType !== 'mouse' && toggle();
+        },
         options
       );
     }
 
     focusTarget.addEventListener(
       'focus',
-      () => focusTarget.matches(':focus-visible') && showTooltip(),
+      () => {
+        return focusTarget.matches(':focus-visible') && showTooltip();
+      },
       options
     );
     focusTarget.addEventListener('blur', hideTooltip, options);
 
     document.addEventListener(
       'keydown',
-      (event) => event.key === 'Escape' && hideTooltip(),
+      (event) => {
+        return event.key === 'Escape' && hideTooltip();
+      },
       options
     );
     document.addEventListener(

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import NavListItem from '@components/NavListItem';
 import type { NavItemModel } from '@core/models/NavItemModel';
+import NavListItem from '@components/NavListItem';
 import { navItemArgTypes } from './arg-types/nav-item';
 import { navItems } from './fixtures/nav-items';
 
@@ -14,11 +14,13 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    (Story) => (
-      <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
-        <Story />
-      </ul>
-    ),
+    (Story) => {
+      return (
+        <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+          <Story />
+        </ul>
+      );
+    },
   ],
   argTypes: {
     ...navItemArgTypes,
@@ -26,26 +28,26 @@ const meta = {
       control: 'boolean',
       table: {
         type: {
-          summary: 'boolean'
-        }
-      }
+          summary: 'boolean',
+        },
+      },
     },
     focused: {
       control: 'boolean',
       table: {
         type: {
-          summary: 'boolean'
-        }
-      }
+          summary: 'boolean',
+        },
+      },
     },
   },
   args: {
     active: false,
     focused: false,
   },
-  render: ({ active, focused, ...item }) => (
-    <NavListItem item={item} active={active} focused={focused} />
-  ),
+  render: ({ active, focused, ...item }) => {
+    return <NavListItem item={item} active={active} focused={focused} />;
+  },
 } satisfies Meta<NavListItemArgs>;
 
 export default meta;
@@ -59,6 +61,6 @@ export const Active = {
   args: { ...navItems[0], active: true },
 } satisfies Story;
 
-export const focused = {
+export const Focused = {
   args: { ...navItems[2], focused: true },
 } satisfies Story;

@@ -3,8 +3,10 @@ import type { ComponentProps } from 'react';
 import type { EntryModel } from '@core/models/EntryModel';
 import EntryPaginationItem from './EntryPaginationItem';
 
-export interface EntryPaginationProps
-  extends Omit<ComponentProps<'nav'>, 'children'> {
+export interface EntryPaginationProps extends Omit<
+  ComponentProps<'nav'>,
+  'children'
+> {
   previousEntry?: EntryModel;
   nextEntry?: EntryModel;
   previousSectionLabel?: string;

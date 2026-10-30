@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import EntryHeader from '@components/EntryHeader';
 import type { EntryModel } from '@core/models/EntryModel';
+import EntryHeader from '@components/EntryHeader';
 import { entryArgTypes } from './arg-types/entry';
 import { imageRecord } from './fixtures/images';
 
@@ -10,12 +10,14 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     ...entryArgTypes,
-    tags: { table: { disable: true } }
+    tags: { table: { disable: true } },
   },
   args: {
     id: 'entry',
   },
-  render: (entry) => <EntryHeader entry={entry} />,
+  render: (entry) => {
+    return <EntryHeader entry={entry} />;
+  },
 } satisfies Meta<EntryModel>;
 
 export default meta;

@@ -17,19 +17,21 @@ const meta = {
     headingLevel: headingLevelArgType,
   },
   args: {
-     heading: 'My Frame'
-  }
+    heading: 'My Frame',
+  },
 } satisfies Meta<typeof Frame>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default = {
-  render: (args) => (
-    <Frame {...args}>
-      <p>My content</p>
-    </Frame>
-  ),
+  render: (args) => {
+    return (
+      <Frame {...args}>
+        <p>My content</p>
+      </Frame>
+    );
+  },
 } satisfies Story;
 
 export const ScrollableContent = {
@@ -39,12 +41,14 @@ export const ScrollableContent = {
   args: {
     style: { maxHeight: 320, maxWidth: 500 },
   },
-  render: (args) => (
-    <Frame {...args}>
-      <MarkdownBlock
-        className="ves-entry__body"
-        html={renderMarkdown('entry.md')}
-      />
-    </Frame>
-  ),
+  render: (args) => {
+    return (
+      <Frame {...args}>
+        <MarkdownBlock
+          className="ves-entry__body"
+          html={renderMarkdown('entry.md')}
+        />
+      </Frame>
+    );
+  },
 } satisfies Story;

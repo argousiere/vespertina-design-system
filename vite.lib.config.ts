@@ -31,10 +31,11 @@ export default defineConfig({
   experimental: {
     // Resolve font and image URLs relative to the CSS file that uses them,
     // so dist/core/styles.css works wherever the package is installed
-    renderBuiltUrl: (filename, { hostType, hostId }) =>
-      hostType === 'css'
+    renderBuiltUrl: (filename, { hostType, hostId }) => {
+      return hostType === 'css'
         ? path.posix.relative(path.posix.dirname(hostId), filename)
-        : { relative: true },
+        : { relative: true };
+    },
   },
   build: {
     outDir: 'dist',
@@ -44,7 +45,10 @@ export default defineConfig({
     modulePreload: false,
     rollupOptions: {
       input: {
-        'core/public-api': path.resolve(import.meta.dirname, 'src/core/public-api.ts'),
+        'core/public-api': path.resolve(
+          import.meta.dirname,
+          'src/core/public-api.ts'
+        ),
         'core/styles': path.resolve(
           import.meta.dirname,
           'src/core/styles/index.css'
@@ -57,19 +61,30 @@ export default defineConfig({
           import.meta.dirname,
           'src/core/tokens/tokens.ts'
         ),
-        'react/public-api': path.resolve(import.meta.dirname, 'src/react/public-api.ts'),
+        'react/public-api': path.resolve(
+          import.meta.dirname,
+          'src/react/public-api.ts'
+        ),
       },
-      external: (id) =>
-        id.startsWith('node:') ||
-        external.some((dep) => id === dep || id.startsWith(`${dep}/`)),
+      external: (id) => {
+        return (
+          id.startsWith('node:') ||
+          external.some((dep) => {
+            return id === dep || id.startsWith(`${dep}/`);
+          })
+        );
+      },
       preserveEntrySignatures: 'strict',
       output: {
         entryFileNames: '[name].js',
         assetFileNames: ({ names }) => {
           const name = names[0] ?? '';
-          if (name.endsWith('.css')) return '[name][extname]';
-          if (/\.(woff2?|ttf|otf)$/.test(name))
+          if (name.endsWith('.css')) {
+            return '[name][extname]';
+          }
+          if (/\.(woff2?|ttf|otf)$/.test(name)) {
             return 'core/fonts/[name][extname]';
+          }
           return 'core/images/[name][extname]';
         },
       },

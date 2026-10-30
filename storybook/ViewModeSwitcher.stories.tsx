@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 
-import ViewModeSwitcher from '@components/ViewModeSwitcher';
 import { ButtonLevel } from '@core/models/ButtonModel';
+import ViewModeSwitcher from '@components/ViewModeSwitcher';
 import { buttonLevelArgType, buttonLevels } from './arg-types/button';
 
 const meta = {
@@ -63,7 +63,7 @@ export const CustomOptions = {
       { value: 'compact-view', label: 'List', icon: 'list' },
     ],
     value: 'list',
-  }
+  },
 } satisfies Story;
 
 export const IconOnly = {
@@ -71,11 +71,13 @@ export const IconOnly = {
 } satisfies Story;
 
 export const AllLevels = {
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 32 }}>
-      {buttonLevels.map((level) => (
-        <ViewModeSwitcher key={level} {...args} level={level} />
-      ))}
-    </div>
-  ),
+  render: (args) => {
+    return (
+      <div style={{ display: 'grid', gap: 32 }}>
+        {buttonLevels.map((level) => {
+          return <ViewModeSwitcher key={level} {...args} level={level} />;
+        })}
+      </div>
+    );
+  },
 } satisfies Story;

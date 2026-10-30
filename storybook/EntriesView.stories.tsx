@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import EntriesView from '@components/EntriesView';
 import { EntriesViewMode } from '@react/constants';
+import EntriesView from '@components/EntriesView';
 import { entriesViewModeArgType } from './arg-types/entry';
 import { entries } from './fixtures/entries';
 
@@ -24,9 +24,11 @@ const meta = {
   },
   args: {
     entryListTitle: 'Latest Posts',
-    items: entries.map((entry) => ({
-      entry
-    })),
+    items: entries.map((entry) => {
+      return {
+        entry,
+      };
+    }),
   },
 } satisfies Meta<typeof EntriesView>;
 
