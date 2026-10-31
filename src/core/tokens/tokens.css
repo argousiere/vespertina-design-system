@@ -40,7 +40,9 @@
   );
   --ves-state-selected-indicator-color: var(--ves-global-color-enceladus);
   --ves-state-focus-ring-color: var(--ves-global-color-cerulean);
-  --ves-state-disabled-fg-color: var(--ves-global-color-asteroid-light-2);
+  --ves-state-disabled-foreground-color: var(
+    --ves-global-color-asteroid-light-2
+  );
 }
 
 @media (width <= 600px) {
