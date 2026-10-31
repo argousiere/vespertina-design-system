@@ -6,6 +6,8 @@ export type {
   EmbedViewerProps,
   EmbedViewerPreview,
 } from './components/EmbedViewer';
+export { default as EmptyState } from './components/EmptyState';
+export type { EmptyStateProps } from './components/EmptyState';
 export { default as EntriesView } from './components/EntriesView';
 export type { EntriesViewProps } from './components/EntriesView';
 export { default as EntryList } from './components/EntryList';

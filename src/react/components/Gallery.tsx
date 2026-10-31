@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
+import EmptyState from './EmptyState';
 import GalleryItem from './GalleryItem';
 import type { GalleryItemProps } from './GalleryItem';
 
@@ -32,7 +33,9 @@ const Gallery: React.FC<GalleryProps> = ({
       })}
 
       {items.length === 0 && (
-        <li className="ves-gallery__empty">There are no entries to display.</li>
+        <li className="ves-gallery__empty">
+          <EmptyState />
+        </li>
       )}
     </ul>
   );

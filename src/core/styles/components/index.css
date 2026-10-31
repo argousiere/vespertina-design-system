@@ -7,6 +7,7 @@
 @import './navbar.css';
 @import './thumbnails.css';
 @import './embed-viewer.css';
+@import './empty-state.css';
 @import './entry-body.css';
 @import './frame.css';
 @import './date-label.css';

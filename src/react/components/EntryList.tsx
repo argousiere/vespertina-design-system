@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
+import EmptyState from './EmptyState';
 import EntryListItem from './EntryListItem';
 import type { EntryListItemProps } from './EntryListItem';
 import Frame from './Frame';
@@ -32,11 +33,7 @@ const EntryList: React.FC<EntryListProps> = ({
         </ol>
       )}
 
-      {items.length === 0 && (
-        <span className="ves-entry-list__empty">
-          There are no entries to display.
-        </span>
-      )}
+      {items.length === 0 && <EmptyState />}
     </Frame>
   );
 };
