@@ -11,7 +11,8 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    icon: iconArgType,
+    startIcon: iconArgType,
+    endIcon: iconArgType,
     iconOnly: {
       control: 'boolean',
       description:
@@ -29,25 +30,39 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {} satisfies Story;
 
-export const IconAndLabel = {
+export const StartIcon = {
   args: {
-    icon: 'search',
+    startIcon: 'search',
+  },
+} satisfies Story;
+
+export const EndIcon = {
+  args: {
+    endIcon: 'chevron-down',
   },
 } satisfies Story;
 
 export const IconOnly = {
   args: {
-    icon: 'search',
+    startIcon: 'search',
     iconOnly: true,
   },
 } satisfies Story;
 
 export const TruncatedLabel = {
   args: {
-    icon: 'search',
+    startIcon: 'search',
+    endIcon: 'chevron-down',
     text: 'Truncate this label because it is quite long',
   },
   render: (args) => {
-    return <Label style={{ width: 200 }} icon={args.icon} text={args.text} />;
+    return (
+      <Label
+        style={{ width: 200 }}
+        startIcon={args.startIcon}
+        endIcon={args.endIcon}
+        text={args.text}
+      />
+    );
   },
 } satisfies Story;

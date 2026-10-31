@@ -6,13 +6,15 @@ import Tooltip from './Tooltip';
 
 export interface LabelProps extends Omit<ComponentProps<'div'>, 'children'> {
   text: string;
-  icon?: IconName;
+  startIcon?: IconName;
+  endIcon?: IconName;
   iconOnly?: boolean;
 }
 
 const Label: React.FC<LabelProps> = ({
   text,
-  icon,
+  startIcon,
+  endIcon,
   iconOnly,
   className,
   ...props
@@ -20,15 +22,18 @@ const Label: React.FC<LabelProps> = ({
   return (
     <Tooltip title={text} showOnlyWhenTruncated>
       <div {...props} className={clsx('ves-label', className)}>
-        {icon && (
+        {startIcon && (
           <Icon
-            name={icon}
+            name={startIcon}
             className="ves-label__icon"
             aria-label={iconOnly ? text : undefined}
           />
         )}
-        {!(icon && iconOnly) && (
+        {!(startIcon && iconOnly) && (
           <span className="ves-label__text clamp-text">{text}</span>
+        )}
+        {endIcon && !iconOnly && (
+          <Icon name={endIcon} className="ves-label__icon" />
         )}
       </div>
     </Tooltip>

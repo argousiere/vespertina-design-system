@@ -44,7 +44,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
       <Label
         className="ves-menu-item__label"
         text={label}
-        icon={showIcon ? icon : undefined}
+        startIcon={showIcon ? icon : undefined}
       />
       {selected && <Icon name="check" className="ves-menu-item__check" />}
     </li>

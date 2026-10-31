@@ -10,6 +10,7 @@ export interface ButtonProps extends Omit<
 > {
   label: string;
   icon?: IconName;
+  endIcon?: IconName;
   iconOnly?: boolean;
   level?: ButtonLevel;
   variant?: ButtonVariant;
@@ -18,6 +19,7 @@ export interface ButtonProps extends Omit<
 const Button: React.FC<ButtonProps> = ({
   label,
   icon,
+  endIcon,
   iconOnly,
   level,
   variant,
@@ -42,7 +44,12 @@ const Button: React.FC<ButtonProps> = ({
         className
       )}
     >
-      <Label text={label} icon={icon} iconOnly={iconOnly} />
+      <Label
+        text={label}
+        startIcon={icon}
+        endIcon={endIcon}
+        iconOnly={iconOnly}
+      />
     </button>
   );
 };
