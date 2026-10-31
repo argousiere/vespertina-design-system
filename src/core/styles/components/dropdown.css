@@ -1,0 +1,48 @@
+.ves-dropdown {
+  --ves-dropdown-offset: var(--ves-spacing-2);
+  --ves-dropdown-inline-area: span-inline-end;
+  --ves-dropdown-bg-color: var(--ves-global-color-midnight);
+  --ves-dropdown-border-color: var(--ves-border-color);
+  --ves-dropdown-width: 300px;
+  --ves-dropdown-min-height: calc(var(--ves-grid-size) * 4);
+
+  margin: 0;
+  border: 1px solid var(--ves-dropdown-border-color);
+  background: var(--ves-dropdown-bg-color);
+  padding: 0;
+  width: var(--ves-dropdown-width);
+  overflow: auto;
+  color: inherit;
+}
+
+.ves-dropdown:popover-open {
+  display: flex;
+  flex-direction: column;
+}
+
+.ves-dropdown > .ves-searchable-list {
+  border: 0;
+}
+
+.ves-dropdown > :is(.ves-searchable-list, .ves-menu-list) {
+  min-height: 0;
+}
+
+.ves-dropdown--anchor-end {
+  --ves-dropdown-inline-area: span-inline-start;
+}
+
+@supports (anchor-name: --ves-dropdown) {
+  .ves-dropdown {
+    position-area: block-end var(--ves-dropdown-inline-area);
+    position-try-fallbacks:
+      flip-block,
+      flip-inline,
+      flip-block flip-inline;
+    margin-block: var(--ves-dropdown-offset);
+    inset: auto;
+    min-width: anchor-size(width);
+    min-height: var(--ves-dropdown-min-height);
+    max-height: calc(100% - 2 * var(--ves-dropdown-offset));
+  }
+}

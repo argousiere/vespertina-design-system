@@ -14,8 +14,7 @@ export interface SearchableListProps<
 
 const SearchableList = <T extends string = string>({
   options,
-  value,
-  onValueChange,
+  onMenuItemClick,
   showIcon,
   emptyMessage,
   noResultsMessage,
@@ -56,8 +55,7 @@ const SearchableList = <T extends string = string>({
       <MenuList
         aria-label={ariaLabel}
         options={filteredOptions}
-        value={value}
-        onValueChange={onValueChange}
+        onMenuItemClick={onMenuItemClick}
         showIcon={showIcon}
         emptyMessage={displayedEmptyMessage}
       />

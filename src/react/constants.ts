@@ -9,3 +9,13 @@ export enum EntriesViewMode {
   LIST = 'list',
   GALLERY = 'gallery',
 }
+
+export enum DropdownDirection {
+  DOWN = 'down',
+  UP = 'up',
+}
+
+export enum DropdownAnchor {
+  START = 'start',
+  END = 'end',
+}

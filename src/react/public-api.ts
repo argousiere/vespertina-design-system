@@ -6,6 +6,13 @@ export type {
   EmbedViewerProps,
   EmbedViewerPreview,
 } from './components/EmbedViewer';
+export { default as Dropdown } from './components/Dropdown';
+export type { DropdownProps } from './components/Dropdown';
+export { default as useDropdown } from './hooks/useDropdown';
+export type {
+  DropdownController,
+  UseDropdownOptions,
+} from './hooks/useDropdown';
 export { default as EmptyState } from './components/EmptyState';
 export type { EmptyStateProps } from './components/EmptyState';
 export { default as EntriesView } from './components/EntriesView';
@@ -59,7 +66,12 @@ export { default as SearchableList } from './components/SearchableList';
 export type { SearchableListProps } from './components/SearchableList';
 export { default as ProgressiveBlur } from './components/ProgressiveBlur';
 export type { ProgressiveBlurProps } from './components/ProgressiveBlur';
-export { EntriesViewMode, ProgressiveBlurDirection } from './constants';
+export {
+  DropdownAnchor,
+  DropdownDirection,
+  EntriesViewMode,
+  ProgressiveBlurDirection,
+} from './constants';
 export { default as SegmentedButtons } from './components/SegmentedButtons';
 export type {
   SegmentedButtonOption,

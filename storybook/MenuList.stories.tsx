@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import MenuList from '@components/MenuList';
 import { menuOptions } from './fixtures/menu-options';
@@ -18,22 +18,15 @@ const meta = {
     },
   },
   args: {
-    'aria-label': 'Planets',
-    value: 'laconia',
+    'aria-label': 'Destinations',
+    onMenuItemClick: fn(),
     showIcon: true,
-    options: menuOptions,
+    options: menuOptions.map((option) => {
+      return { ...option, selected: option.value === 'laconia' };
+    }),
   },
-  render: function Render(args) {
-    const [value, setValue] = useState(args.value);
-
-    return (
-      <MenuList
-        {...args}
-        style={{ maxWidth: 480 }}
-        value={value}
-        onValueChange={setValue}
-      />
-    );
+  render: (args) => {
+    return <MenuList {...args} style={{ maxWidth: 480 }} />;
   },
 } satisfies Meta<typeof MenuList>;
 
@@ -45,7 +38,9 @@ export const Default = {} satisfies Story;
 export const MixedIcons = {
   args: {
     options: menuOptions.map((option, index) => {
-      return index % 2 === 0 ? option : { ...option, icon: undefined };
+      return index % 2 === 0
+        ? { ...option, selected: option.value === 'laconia' }
+        : { ...option, icon: undefined };
     }),
   },
 } satisfies Story;

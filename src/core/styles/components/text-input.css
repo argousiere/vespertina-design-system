@@ -30,7 +30,6 @@
 .ves-text-input__field {
   display: flex;
   align-items: center;
-  gap: var(--ves-spacing-4);
   transition:
     border-color 0.08s linear,
     background-color 0.08s linear;
@@ -53,6 +52,7 @@
 .ves-text-input__icon {
   --ves-icon-size: 1.25em;
   --ves-icon-color: var(--ves-text-input-icon-color);
+  margin-right: var(--ves-spacing-4);
 }
 
 .ves-text-input__control {

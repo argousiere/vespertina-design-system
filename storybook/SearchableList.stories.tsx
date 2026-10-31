@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import SearchableList from '@components/SearchableList';
 import { menuOptions } from './fixtures/menu-options';
@@ -18,22 +18,15 @@ const meta = {
     },
   },
   args: {
-    'aria-label': 'Planets',
-    value: 'laconia',
+    'aria-label': 'Destinations',
+    onMenuItemClick: fn(),
     showIcon: true,
-    options: menuOptions,
+    options: menuOptions.map((option) => {
+      return { ...option, selected: option.value === 'laconia' };
+    }),
   },
-  render: function Render(args) {
-    const [value, setValue] = useState(args.value);
-
-    return (
-      <SearchableList
-        {...args}
-        style={{ maxWidth: 360 }}
-        value={value}
-        onValueChange={setValue}
-      />
-    );
+  render: (args) => {
+    return <SearchableList {...args} style={{ maxWidth: 360 }} />;
   },
 } satisfies Meta<typeof SearchableList>;
 
