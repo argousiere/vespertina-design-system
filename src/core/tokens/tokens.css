@@ -4,7 +4,7 @@
 :root {
   --ves-global-font-primary-name: 'Eurostile';
 
-  --foreground-color: var(--ves-global-color-moonrock);
+  --ves-foreground-color: var(--ves-global-color-moonrock);
   --background-start-color: var(--ves-global-color-dusk);
   --background-end-color: var(--ves-global-color-light);
   --grid-line-color: oklch(71.558% 0.03836 223.453);
