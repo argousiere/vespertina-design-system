@@ -1,0 +1,10 @@
+.ves-menu-list__items {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.ves-menu-list__item--icon-placeholder .ves-menu-item__label {
+  padding-left: calc(1.25em + 0.5em);
+}

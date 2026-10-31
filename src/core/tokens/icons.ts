@@ -19,6 +19,7 @@ import linkedin from '../assets/icons/linkedin.svg';
 import mail from '../assets/icons/mail.svg';
 import menu from '../assets/icons/menu.svg';
 import close from '../assets/icons/close.svg';
+import orbit from '../assets/icons/orbit.svg';
 
 export const icons = {
   'arrow-left': arrowLeft,
@@ -33,6 +34,7 @@ export const icons = {
   list,
   work,
   education,
+  orbit,
   publication,
   project,
   'external-link': externalLink,

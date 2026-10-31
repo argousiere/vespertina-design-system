@@ -29,6 +29,18 @@
   --main-glow-height: calc(var(--ves-grid-size) * 3);
 
   --ves-grid-gutter: var(--ves-grid-size);
+
+  --ves-state-icon-color: var(--ves-global-color-moonrock);
+  --ves-state-hover-bg-color: var(--ves-global-color-celestial);
+  --ves-state-active-bg-color: var(--ves-global-color-kyanite);
+  --ves-state-selected-bg-color: color-mix(
+    in oklch,
+    var(--ves-global-color-kyanite),
+    var(--ves-global-color-cerulean) 30%
+  );
+  --ves-state-selected-indicator-color: var(--ves-global-color-enceladus);
+  --ves-state-focus-ring-color: var(--ves-global-color-cerulean);
+  --ves-state-disabled-fg-color: var(--ves-global-color-asteroid-light-2);
 }
 
 @media (width <= 600px) {
