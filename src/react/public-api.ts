@@ -55,6 +55,8 @@ export { default as NavListItem } from './components/NavListItem';
 export type { NavListItemProps } from './components/NavListItem';
 export { default as Navbar } from './components/Navbar';
 export type { NavbarProps } from './components/Navbar';
+export { default as SearchableList } from './components/SearchableList';
+export type { SearchableListProps } from './components/SearchableList';
 export { default as ProgressiveBlur } from './components/ProgressiveBlur';
 export type { ProgressiveBlurProps } from './components/ProgressiveBlur';
 export { EntriesViewMode, ProgressiveBlurDirection } from './constants';
