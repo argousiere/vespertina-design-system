@@ -1,0 +1,5 @@
+.ves-select__list {
+  --ves-select-list-min-width: calc(var(--ves-grid-size) * 5);
+
+  min-width: var(--ves-select-list-min-width);
+}

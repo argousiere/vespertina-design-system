@@ -13,6 +13,8 @@ export type {
   DropdownController,
   UseDropdownOptions,
 } from './hooks/useDropdown';
+export { default as useSelection } from './hooks/useSelection';
+export type { Selection } from './hooks/useSelection';
 export { default as EmptyState } from './components/EmptyState';
 export type { EmptyStateProps } from './components/EmptyState';
 export { default as EntriesView } from './components/EntriesView';
@@ -72,6 +74,8 @@ export {
   EntriesViewMode,
   ProgressiveBlurDirection,
 } from './constants';
+export { default as Select } from './components/Select';
+export type { SelectProps } from './components/Select';
 export { default as SegmentedButtons } from './components/SegmentedButtons';
 export type {
   SegmentedButtonOption,
