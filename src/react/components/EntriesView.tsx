@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import type { ComponentProps } from 'react';
+import { EntriesViewMode } from '../constants';
 import EntryList, { type EntryListProps } from './EntryList';
 import Gallery from './Gallery';
 import ViewModeSwitcher from './ViewModeSwitcher';
-import { EntriesViewMode } from '../constants';
 
 export interface EntriesViewProps
-  extends Omit<ComponentProps<'div'>, 'children'>,
+  extends
+    Omit<ComponentProps<'div'>, 'children'>,
     Pick<EntryListProps, 'entryListTitle' | 'headingLevel' | 'items'> {
   viewMode?: EntriesViewMode;
   onViewChange?: (view: EntriesViewMode) => void;
@@ -48,7 +49,11 @@ const EntriesView: React.FC<EntriesViewProps> = ({
           items={items}
         />
       ) : (
-        <Gallery items={items.map(({ disabled, ...item }) => item)} />
+        <Gallery
+          items={items.map(({ disabled, ...item }) => {
+            return item;
+          })}
+        />
       )}
     </div>
   );

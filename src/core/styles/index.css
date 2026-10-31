@@ -5,5 +5,4 @@
 @import './abstracts/index.css';
 @import './base/index.css' layer(base);
 @import './components/index.css' layer(components);
-
 @import './themes/dark.css' layer(themes); /* default for now, light theme will be added later */

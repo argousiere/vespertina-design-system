@@ -5,12 +5,15 @@ import '@core/styles/index.css';
 
 const themeClasses = ['vespertina-theme', 'vespertina-theme--dark'];
 
-const setBodyTheme = (enabled: boolean) =>
-  themeClasses.forEach((className) =>
-    document.body.classList.toggle(className, enabled)
-  );
+const setBodyTheme = (enabled: boolean) => {
+  return themeClasses.forEach((className) => {
+    return document.body.classList.toggle(className, enabled);
+  });
+};
 
-addons.getChannel().on(DOCS_RENDERED, () => setBodyTheme(false));
+addons.getChannel().on(DOCS_RENDERED, () => {
+  return setBodyTheme(false);
+});
 
 const preview: Preview = {
   decorators: [
@@ -19,9 +22,9 @@ const preview: Preview = {
         const isDocs = viewMode === 'docs';
         setBodyTheme(!isDocs);
         if (isDocs) {
-          document
-            .querySelectorAll('.docs-story')
-            .forEach((el) => el.classList.add(...themeClasses));
+          document.querySelectorAll('.docs-story').forEach((el) => {
+            return el.classList.add(...themeClasses);
+          });
         }
       }, [viewMode]);
 

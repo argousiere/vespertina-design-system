@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import EntryListItem from '@components/EntryListItem';
 import type { EntryModel } from '@core/models/EntryModel';
+import EntryListItem from '@components/EntryListItem';
 import { entryArgTypes } from './arg-types/entry';
 import { entryRecord } from './fixtures/entries';
 
@@ -23,9 +23,9 @@ const meta = {
   args: {
     id: 'entry',
   },
-  render: ({ disabled, ...entry }) => (
-    <EntryListItem entry={entry} disabled={disabled} />
-  ),
+  render: ({ disabled, ...entry }) => {
+    return <EntryListItem entry={entry} disabled={disabled} />;
+  },
 } satisfies Meta<EntryListItemArgs>;
 
 export default meta;
@@ -36,11 +36,13 @@ export const Default: Story = {
     ...entryRecord.sonnetIII,
     disabled: false,
   },
-  decorators: (Story) => (
-    <ul>
-      <Story />
-    </ul>
-  ),
+  decorators: (Story) => {
+    return (
+      <ul>
+        <Story />
+      </ul>
+    );
+  },
 };
 
 export const Disabled: Story = {
@@ -48,11 +50,13 @@ export const Disabled: Story = {
     ...entryRecord.sonnetIII,
     disabled: true,
   },
-  decorators: (Story) => (
-    <ul>
-      <Story />
-    </ul>
-  ),
+  decorators: (Story) => {
+    return (
+      <ul>
+        <Story />
+      </ul>
+    );
+  },
 };
 
 export const Truncated: Story = {
@@ -60,9 +64,11 @@ export const Truncated: Story = {
     ...entryRecord.sonnetIII,
     disabled: false,
   },
-  decorators: (Story) => (
-    <ul style={{ maxWidth: 500 }}>
-      <Story />
-    </ul>
-  ),
+  decorators: (Story) => {
+    return (
+      <ul style={{ maxWidth: 500 }}>
+        <Story />
+      </ul>
+    );
+  },
 };

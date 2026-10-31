@@ -5,8 +5,7 @@ import type { EntryListItemProps } from './EntryListItem';
 import Frame from './Frame';
 import type { HeadingLevel } from './Heading';
 
-export interface EntryListProps
-  extends Omit<ComponentProps<'ol'>, 'children'> {
+export interface EntryListProps extends Omit<ComponentProps<'ol'>, 'children'> {
   entryListTitle: string;
   headingLevel?: HeadingLevel;
   items: EntryListItemProps[];
@@ -25,14 +24,13 @@ const EntryList: React.FC<EntryListProps> = ({
       headingLevel={headingLevel}
       className={clsx('ves-entry-list', className)}
     >
-      {items.length > 0 && (<ol {...props}>
-        {items.map((item) => (
-          <EntryListItem key={item.entry.id} {...item} />
-        ))}
-      </ol>)
-      }
-
-
+      {items.length > 0 && (
+        <ol {...props}>
+          {items.map((item) => {
+            return <EntryListItem key={item.entry.id} {...item} />;
+          })}
+        </ol>
+      )}
 
       {items.length === 0 && (
         <span className="ves-entry-list__empty">

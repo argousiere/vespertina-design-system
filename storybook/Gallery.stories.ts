@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { AspectRatio } from '@core/models/ImageModel';
 import Gallery from '@components/Gallery';
 import { aspectRatioArgType } from './arg-types/image';
 import { entries, entryRecord } from './fixtures/entries';
 import { thumbnailRecord } from './fixtures/thumbnails';
-import { AspectRatio } from '@core/models/ImageModel';
 
 const meta = {
   title: 'Components/Gallery',
@@ -30,7 +30,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    items: entries.map((entry) => ({ entry })),
+    items: entries.map((entry) => {
+      return { entry };
+    }),
   },
 };
 

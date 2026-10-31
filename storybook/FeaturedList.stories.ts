@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     items: {
       control: false,
-      table: { type: { summary: 'FeaturedListItemProps[]' } }
+      table: { type: { summary: 'FeaturedListItemProps[]' } },
     },
   },
 } satisfies Meta<typeof FeaturedList>;
@@ -23,7 +23,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    items: entries.slice(0, 3).map((entry) => ({ entry })),
+    items: entries.slice(0, 3).map((entry) => {
+      return { entry };
+    }),
   },
 };
 

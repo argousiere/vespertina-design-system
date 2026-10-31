@@ -4,8 +4,10 @@ import type { ComponentPropsWithoutRef } from 'react';
 import type { TagModel } from '@core/models/TagModel';
 import Tooltip from './Tooltip';
 
-export interface TagProps
-  extends Omit<ComponentPropsWithoutRef<'a'>, 'children' | 'title'> {
+export interface TagProps extends Omit<
+  ComponentPropsWithoutRef<'a'>,
+  'children' | 'title'
+> {
   tag: TagModel;
 }
 

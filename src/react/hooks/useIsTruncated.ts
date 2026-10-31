@@ -4,20 +4,25 @@ const useIsTruncated = (element: HTMLElement | null): boolean => {
   const [isTruncated, setIsTruncated] = useState(false);
 
   useEffect(() => {
-    if (!element) return;
+    if (!element) {
+      return;
+    }
 
     const observer = new ResizeObserver(() => {
       setIsTruncated(
-        [element, ...element.querySelectorAll('*')].some(
-          (node) =>
+        [element, ...element.querySelectorAll('*')].some((node) => {
+          return (
             node.scrollWidth - node.clientWidth > 1 ||
             node.scrollHeight - node.clientHeight > 1
-        )
+          );
+        })
       );
     });
     observer.observe(element);
 
-    return () => observer.disconnect();
+    return () => {
+      return observer.disconnect();
+    };
   }, [element]);
 
   return isTruncated;

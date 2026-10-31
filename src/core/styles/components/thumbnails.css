@@ -14,10 +14,7 @@
   &::before,
   &::after {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     border-width: 1px;
     border-style: solid;
     pointer-events: none;
@@ -37,7 +34,6 @@
     --inner: conic-gradient(red 0 0) padding-box;
     -webkit-mask: var(--corner), var(--inner);
     -webkit-mask-composite: source-out;
-    mask-composite: subtract;
     mask:
       var(--corner) subtract,
       var(--inner);

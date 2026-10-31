@@ -3,8 +3,8 @@ import { AspectRatio } from '@core/models/ImageModel';
 import type { EntryListItemProps } from './EntryListItem';
 import Thumbnail, { type ThumbnailProps } from './Thumbnail';
 
-export type GalleryItemProps = Omit<EntryListItemProps, 'disabled'>
-& Pick<ThumbnailProps, 'captionMaxLines' | 'aspectRatio'>;
+export type GalleryItemProps = Omit<EntryListItemProps, 'disabled'> &
+  Pick<ThumbnailProps, 'captionMaxLines' | 'aspectRatio'>;
 
 const GalleryItem: React.FC<GalleryItemProps> = ({
   entry,
@@ -16,7 +16,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({
   const { title, url, thumbnail = entry.cover } = entry;
 
   return (
-  <li {...props} className={clsx('ves-gallery__item', className)}>
+    <li {...props} className={clsx('ves-gallery__item', className)}>
       <a className="ves-gallery__item-link" href={url}>
         <Thumbnail
           thumbnail={

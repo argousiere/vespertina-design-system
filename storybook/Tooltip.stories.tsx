@@ -26,11 +26,13 @@ export const Default = {
   args: {
     title: 'We are made of starstuff.',
   },
-  render: (args) => (
-    <Tooltip {...args}>
-      <span>Hover, focus or tap.</span>
-    </Tooltip>
-  ),
+  render: (args) => {
+    return (
+      <Tooltip {...args}>
+        <span>Hover, focus or tap.</span>
+      </Tooltip>
+    );
+  },
 } satisfies Story;
 
 export const LongContent = {
@@ -38,11 +40,13 @@ export const LongContent = {
     title:
       'The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself.',
   },
-  render: (args) => (
-    <Tooltip {...args}>
-      <span>Hover, focus or tap.</span>
-    </Tooltip>
-  ),
+  render: (args) => {
+    return (
+      <Tooltip {...args}>
+        <span>Hover, focus or tap.</span>
+      </Tooltip>
+    );
+  },
 } satisfies Story;
 
 export const Disabled = {
@@ -50,11 +54,13 @@ export const Disabled = {
     title: 'Disabled tooltip',
     disabled: true,
   },
-  render: (args) => (
-    <Tooltip {...args}>
-      <span>Hover, focus or tap.</span>
-    </Tooltip>
-  ),
+  render: (args) => {
+    return (
+      <Tooltip {...args}>
+        <span>Hover, focus or tap.</span>
+      </Tooltip>
+    );
+  },
 } satisfies Story;
 
 export const OnlyWhenTruncated = {
@@ -62,19 +68,21 @@ export const OnlyWhenTruncated = {
     title: 'We are made of starstuff.',
     showOnlyWhenTruncated: true,
   },
-  render: (args) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <Tooltip {...args}>
-        <span className="clamp-text" style={{ width: 240 }}>
-          This will not display a tooltip.
-        </span>
-      </Tooltip>
+  render: (args) => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <Tooltip {...args}>
+          <span className="clamp-text" style={{ width: 240 }}>
+            This will not display a tooltip.
+          </span>
+        </Tooltip>
 
-      <Tooltip {...args}>
-        <span className="clamp-text" style={{ width: 120 }}>
-          {args.title}
-        </span>
-      </Tooltip>
-    </div>
-  ),
+        <Tooltip {...args}>
+          <span className="clamp-text" style={{ width: 120 }}>
+            {args.title}
+          </span>
+        </Tooltip>
+      </div>
+    );
+  },
 } satisfies Story;

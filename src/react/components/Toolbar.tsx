@@ -13,7 +13,9 @@ export interface ToolbarProps extends Omit<ComponentProps<'div'>, 'children'> {
   onActionTrigger?: (action: ToolbarAction) => void;
 }
 
-const isIconName = (name: string): name is IconName => name in icons;
+const isIconName = (name: string): name is IconName => {
+  return name in icons;
+};
 
 const Toolbar: React.FC<ToolbarProps> = ({
   actions,
@@ -21,29 +23,35 @@ const Toolbar: React.FC<ToolbarProps> = ({
   className,
   'aria-label': ariaLabel,
   ...props
-}) => (
-  <div
-    role="toolbar"
-    {...props}
-    className={clsx('ves-toolbar', className)}
-    aria-label={ariaLabel ?? 'Toolbar'}
-  >
-    {actions.map((action) => (
-      <button
-        key={action.name}
-        type="button"
-        className="ves-toolbar__action"
-        aria-label={action.name}
-        onClick={() => onActionTrigger?.(action)}
-      >
-        {isIconName(action.name) ? (
-          <Icon name={action.name} />
-        ) : (
-          <span className="ves-toolbar__label">{action.name}</span>
-        )}
-      </button>
-    ))}
-  </div>
-);
+}) => {
+  return (
+    <div
+      role="toolbar"
+      {...props}
+      className={clsx('ves-toolbar', className)}
+      aria-label={ariaLabel ?? 'Toolbar'}
+    >
+      {actions.map((action) => {
+        return (
+          <button
+            key={action.name}
+            type="button"
+            className="ves-toolbar__action"
+            aria-label={action.name}
+            onClick={() => {
+              return onActionTrigger?.(action);
+            }}
+          >
+            {isIconName(action.name) ? (
+              <Icon name={action.name} />
+            ) : (
+              <span className="ves-toolbar__label">{action.name}</span>
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
+};
 
 export default Toolbar;

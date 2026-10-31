@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import React from 'react';
 import type { ComponentProps } from 'react';
+import type { TagModel } from '@core/models/TagModel';
 import Heading from './Heading';
 import Tag from './Tag';
-import type { TagModel } from '@core/models/TagModel';
 import Tooltip from './Tooltip';
 
 export interface TagBoxProps extends ComponentProps<'section'> {
@@ -27,9 +27,9 @@ const TagBox: React.FC<TagBoxProps> = ({
         />
       </Tooltip>
       <div className="ves-tag-box__tags">
-        {tags.map((tag) => (
-          <Tag key={tag.slug} tag={tag} />
-        ))}
+        {tags.map((tag) => {
+          return <Tag key={tag.slug} tag={tag} />;
+        })}
 
         {tags.length === 0 && <span>No tags</span>}
       </div>

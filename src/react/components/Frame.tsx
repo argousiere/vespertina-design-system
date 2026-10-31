@@ -10,22 +10,24 @@ export interface FrameProps extends ComponentProps<'section'> {
 
 const Frame: React.FC<FrameProps> = ({
   heading,
-  headingLevel: HeadingLevel = 'h2',
+  headingLevel,
   className,
   children,
   ...props
-}) => (
-  <section className={clsx('ves-frame', className)} {...props}>
-    <Heading
-      level={HeadingLevel}
-      className="ves-frame__title"
-      label={heading}
-    />
-    
-    <div className="ves-frame__content">
-      <div className="ves-frame__scroll">{children}</div>
-    </div>
-  </section>
-);
+}) => {
+  return (
+    <section className={clsx('ves-frame', className)} {...props}>
+      <Heading
+        level={headingLevel}
+        className="ves-frame__title"
+        label={heading}
+      />
+
+      <div className="ves-frame__content">
+        <div className="ves-frame__scroll">{children}</div>
+      </div>
+    </section>
+  );
+};
 
 export default Frame;

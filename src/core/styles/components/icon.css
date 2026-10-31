@@ -1,6 +1,6 @@
 .ves-icon {
   --ves-icon-size: var(--ves-spacing-6);
-  --ves-icon-color: currentColor;
+  --ves-icon-color: currentcolor;
 
   display: inline-block;
   flex-shrink: 0;

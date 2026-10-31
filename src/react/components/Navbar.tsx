@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useId, type ComponentProps } from 'react';
+import type { NavItemModel } from '@core/models/NavItemModel';
 import Icon from './Icon';
 import NavList from './NavList';
-import type { NavItemModel } from '@core/models/NavItemModel';
 import Toolbar from './Toolbar';
 import type { ToolbarAction } from './Toolbar';
 
@@ -21,11 +21,11 @@ export interface NavbarProps extends Omit<
 
 const Navbar: React.FC<NavbarProps> = ({
   title,
-  homeUrl = '/',
-  navItems = [],
+  homeUrl,
+  navItems,
   activeUrl,
   currentUrl,
-  actions = [],
+  actions,
   onActionTrigger,
   className,
   ...props
@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header {...props} className={clsx('ves-navbar', className)}>
-      <a className="ves-navbar__logo" href={homeUrl}>
+      <a className="ves-navbar__logo" href={homeUrl ?? '/'}>
         {title}
       </a>
 
@@ -58,8 +58,8 @@ const Navbar: React.FC<NavbarProps> = ({
         >
           <Icon name="close" />
         </button>
-        
-        {navItems.length > 0 && (
+
+        {navItems && navItems.length > 0 && (
           <NavList
             items={navItems}
             activeUrl={activeUrl}
@@ -68,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({
           />
         )}
 
-        {actions.length > 0 && (
+        {actions && actions.length > 0 && (
           <Toolbar
             actions={actions}
             onActionTrigger={onActionTrigger}

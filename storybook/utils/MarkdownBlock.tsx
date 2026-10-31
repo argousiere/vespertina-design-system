@@ -5,8 +5,8 @@ export interface MarkdownBlockProps extends Omit<
   html: string;
 }
 
-const MarkdownBlock: React.FC<MarkdownBlockProps> = ({ html, ...props }) => (
-  <div {...props} dangerouslySetInnerHTML={{ __html: html }} />
-);
+const MarkdownBlock: React.FC<MarkdownBlockProps> = ({ html, ...props }) => {
+  return <div {...props} dangerouslySetInnerHTML={{ __html: html }} />;
+};
 
 export default MarkdownBlock;

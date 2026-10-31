@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 
-import SegmentedButtons from '@components/SegmentedButtons';
 import { ButtonLevel } from '@core/models/ButtonModel';
+import SegmentedButtons from '@components/SegmentedButtons';
 import { buttonLevelArgType, buttonLevels } from './arg-types/button';
 
 const meta = {
@@ -100,19 +100,14 @@ export const DisabledOption = {
 
 export const AllLevels = {
   args: ThreeOptions.args,
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 32 }}>
-      {buttonLevels.map((level) => (
-        <SegmentedButtons
-          key={level}
-          {...args}
-          level={level}
-        />
-      ))}
-      <SegmentedButtons
-          {...args}
-          disabled
-        />
-    </div>
-  ),
+  render: (args) => {
+    return (
+      <div style={{ display: 'grid', gap: 32 }}>
+        {buttonLevels.map((level) => {
+          return <SegmentedButtons key={level} {...args} level={level} />;
+        })}
+        <SegmentedButtons {...args} disabled />
+      </div>
+    );
+  },
 } satisfies Story;

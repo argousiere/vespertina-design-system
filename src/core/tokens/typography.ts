@@ -6,15 +6,19 @@ const typography = {
     mono: tokens['font-families']['--ves-font-family-mono'].value,
   },
   weight: Object.fromEntries(
-    Object.values(tokens['font-weights']).map(({ name, value }) => [name, value])
+    Object.values(tokens['font-weights']).map(({ name, value }) => {
+      return [name, value];
+    })
   ),
   // rem, scale: 1.125, fluid down to min
-  size: Object.entries(tokens['font-sizes']).map(([variable, token]) => ({
-    name: token.name,
-    value: token.value,
-    min: 'min' in token ? token.min : undefined,
-    variable,
-  })),
+  size: Object.entries(tokens['font-sizes']).map(([variable, token]) => {
+    return {
+      name: token.name,
+      value: token.value,
+      min: 'min' in token ? token.min : undefined,
+      variable,
+    };
+  }),
 };
 
 export default typography;

@@ -14,20 +14,22 @@ const Icon: React.FC<IconProps> = ({
   style,
   'aria-label': ariaLabel,
   ...props
-}) => (
-  <span
-    role={ariaLabel ? 'img' : undefined}
-    aria-hidden={ariaLabel ? undefined : true}
-    {...props}
-    aria-label={ariaLabel}
-    className={clsx('ves-icon', `ves-icon--${name}`, className)}
-    style={
-      {
-        ...style,
-        '--ves-icon-src': `url("${icons[name]}")`,
-      } as React.CSSProperties
-    }
-  />
-);
+}) => {
+  return (
+    <span
+      role={ariaLabel ? 'img' : undefined}
+      aria-hidden={ariaLabel ? undefined : true}
+      {...props}
+      aria-label={ariaLabel}
+      className={clsx('ves-icon', `ves-icon--${name}`, className)}
+      style={
+        {
+          ...style,
+          '--ves-icon-src': `url("${icons[name]}")`,
+        } as React.CSSProperties
+      }
+    />
+  );
+};
 
 export default Icon;

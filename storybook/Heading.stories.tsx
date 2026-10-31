@@ -30,15 +30,19 @@ export const AllLevels = {
   args: {
     label: 'We are made of starstuff.',
   },
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      {headingLevels.map((level) => (
-        <Heading
-          key={level}
-          level={level}
-          label={`${level}: ${args.label}`}
-        />
-      ))}
-    </div>
-  ),
+  render: (args) => {
+    return (
+      <div style={{ display: 'grid', gap: 16 }}>
+        {headingLevels.map((level) => {
+          return (
+            <Heading
+              key={level}
+              level={level}
+              label={`${level}: ${args.label}`}
+            />
+          );
+        })}
+      </div>
+    );
+  },
 } satisfies Story;

@@ -20,10 +20,8 @@
   );
   margin-top: 16px;
   background-color: var(--ves-frame-color);
-  padding-top: 8px;
-  padding-right: calc(var(--ves-trapezoid-clip-size) * 2);
-  padding-bottom: 8px;
-  padding-left: var(--ves-trapezoid-clip-size);
+  padding: 8px calc(var(--ves-trapezoid-clip-size) * 2) 8px
+    var(--ves-trapezoid-clip-size);
   width: fit-content;
   height: var(--ves-grid-size);
   font-size: var(--ves-font-size-lg);

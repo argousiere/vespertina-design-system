@@ -1,12 +1,14 @@
 import { clsx } from 'clsx';
 import type { ComponentProps } from 'react';
 import type { EntryModel } from '@core/models/EntryModel';
-import DateLabel from './DateLabel';
 import { formatDate } from '@core/utils/date';
+import DateLabel from './DateLabel';
 import Tooltip from './Tooltip';
 
-export interface EntryListItemProps
-  extends Omit<ComponentProps<'li'>, 'children'> {
+export interface EntryListItemProps extends Omit<
+  ComponentProps<'li'>,
+  'children'
+> {
   entry: EntryModel;
   disabled?: boolean;
 }

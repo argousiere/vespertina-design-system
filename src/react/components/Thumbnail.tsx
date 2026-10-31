@@ -5,8 +5,10 @@ import type { AspectRatio } from '@core/models/ImageModel';
 import type { ThumbnailModel } from '@core/models/ThumbnailModel';
 import Tooltip from './Tooltip';
 
-export interface ThumbnailProps
-  extends Omit<ComponentProps<'img'>, keyof ThumbnailModel | 'children'> {
+export interface ThumbnailProps extends Omit<
+  ComponentProps<'img'>,
+  keyof ThumbnailModel | 'children'
+> {
   thumbnail?: ThumbnailModel;
   caption?: string | React.ReactNode;
   captionMaxLines?: number;
@@ -31,7 +33,9 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
     let isCurrent = true;
 
     setHasImgSrc(!!src);
-    imgRef.current?.decode().catch(() => isCurrent && setHasImgSrc(false));
+    imgRef.current?.decode().catch(() => {
+      return isCurrent && setHasImgSrc(false);
+    });
 
     return () => {
       isCurrent = false;
@@ -67,13 +71,15 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
           height: aspectRatio ? undefined : height,
         }}
       >
-        {sources?.map((source) => (
-          <source
-            key={source.media}
-            media={source.media}
-            srcSet={source.srcSet}
-          />
-        ))}
+        {sources?.map((source) => {
+          return (
+            <source
+              key={source.media}
+              media={source.media}
+              srcSet={source.srcSet}
+            />
+          );
+        })}
 
         <img
           {...props}
@@ -95,7 +101,9 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
             <figcaption
               className="ves-thumbnail__caption ves-thumbnail__caption--clamped clamp-text"
               style={
-                { '--clamp-text-lines': captionMaxLines ?? 1 } as React.CSSProperties
+                {
+                  '--clamp-text-lines': captionMaxLines ?? 1,
+                } as React.CSSProperties
               }
             >
               {caption}
@@ -104,7 +112,6 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
         ) : (
           <figcaption className="ves-thumbnail__caption">{caption}</figcaption>
         ))}
-        
     </figure>
   );
 };

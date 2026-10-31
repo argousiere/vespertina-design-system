@@ -33,12 +33,9 @@
 
     &::before {
       position: absolute;
-      top: var(--ves-tag-focus-offset);
-      right: var(--ves-tag-focus-offset);
-      bottom: var(--ves-tag-focus-offset);
-      left: var(--ves-tag-focus-offset);
       z-index: -1;
       transition: border-color 0.08s linear;
+      inset: var(--ves-tag-focus-offset);
       border-width: 1px;
       border-style: solid;
       border-color: var(--ves-global-color-cerulean);
@@ -74,9 +71,9 @@
     (var(--ves-tag-min-chars) + 1) * (1ch + var(--ves-tag-letter-spacing))
   );
   overflow: hidden;
+  text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
-  text-align: center;
 }
 
 .ves-tag-box {

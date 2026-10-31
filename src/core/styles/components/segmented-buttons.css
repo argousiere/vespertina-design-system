@@ -55,7 +55,7 @@
   white-space: nowrap;
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .ves-segmented-control .ves-label__text {
     position: absolute;
     width: 1px;

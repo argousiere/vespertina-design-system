@@ -12,27 +12,31 @@ export interface NavListProps extends Omit<ComponentProps<'nav'>, 'children'> {
 const NavList: React.FC<NavListProps> = ({
   items,
   activeUrl,
-  currentUrl = activeUrl,
+  currentUrl,
   className,
   'aria-label': ariaLabel,
   ...props
-}) => (
-  <nav
-    {...props}
-    className={clsx('ves-nav-list', className)}
-    aria-label={ariaLabel ?? 'Navigation'}
-  >
-    <ul className="ves-nav-list__items">
-      {items.map((item) => (
-        <NavListItem
-          key={item.url}
-          item={item}
-          active={item.url === activeUrl}
-          current={item.url === currentUrl ? 'page' : 'true'}
-        />
-      ))}
-    </ul>
-  </nav>
-);
+}) => {
+  return (
+    <nav
+      {...props}
+      className={clsx('ves-nav-list', className)}
+      aria-label={ariaLabel ?? 'Navigation'}
+    >
+      <ul className="ves-nav-list__items">
+        {items.map((item) => {
+          return (
+            <NavListItem
+              key={item.url}
+              item={item}
+              active={item.url === activeUrl}
+              current={item.url === (currentUrl ?? activeUrl) ? 'page' : 'true'}
+            />
+          );
+        })}
+      </ul>
+    </nav>
+  );
+};
 
 export default NavList;

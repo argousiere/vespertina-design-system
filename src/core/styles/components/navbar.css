@@ -86,7 +86,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .ves-navbar {
     --ves-navbar-padding-inline: var(--ves-spacing-4) 0;
   }
