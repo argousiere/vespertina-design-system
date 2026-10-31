@@ -10,4 +10,5 @@ export enum ButtonLevel {
 export enum ButtonVariant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
+  BASIC = 'basic',
 }

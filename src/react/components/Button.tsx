@@ -36,12 +36,13 @@ const Button: React.FC<ButtonProps> = ({
         {
           [`ves-btn--${resolvedLevel}`]: resolvedLevel !== ButtonLevel.DEFAULT,
           'ves-btn--primary': resolvedVariant === ButtonVariant.PRIMARY,
+          'ves-btn--basic': resolvedVariant === ButtonVariant.BASIC,
           'ves-btn--icon-only': iconOnly,
         },
         className
       )}
     >
-      <Label text={label} icon={icon} />
+      <Label text={label} icon={icon} iconOnly={iconOnly} />
     </button>
   );
 };
