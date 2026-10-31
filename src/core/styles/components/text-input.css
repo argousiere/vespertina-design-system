@@ -1,0 +1,106 @@
+.ves-text-input {
+  --ves-text-input-height: 36px;
+  --ves-text-input-color: var(--ves-global-color-light);
+  --ves-text-input-icon-color: var(--ves-global-color-moonrock);
+  --ves-text-input-placeholder-color: var(--ves-global-color-ice);
+  --ves-text-input-bg-color: var(--ves-global-color-dusk);
+  --ves-text-input-border-color: var(--ves-global-color-kyanite);
+  --ves-text-input-hover-border-color: var(--ves-global-color-cerulean);
+  --ves-text-input-focus-bg-color: var(--ves-global-color-midnight);
+  --ves-text-input-focus-border-color: var(--ves-global-color-cerulean);
+  --ves-text-input-disabled-color: var(--ves-global-color-asteroid);
+  --ves-text-input-disabled-bg-color: var(--ves-global-color-asteroid-light-2);
+  --ves-text-input-disabled-border-color: var(
+    --ves-global-color-asteroid-light-1
+  );
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--ves-spacing-3);
+  font-family: var(--ves-font-family-primary);
+}
+
+.ves-text-input__label {
+  color: var(--ves-text-input-color);
+  font-size: var(--ves-font-size-sm);
+  line-height: 1.2;
+  letter-spacing: 0.3em;
+}
+
+.ves-text-input__field {
+  display: flex;
+  align-items: center;
+  gap: var(--ves-spacing-4);
+  transition:
+    border-color 0.08s linear,
+    background-color 0.08s linear;
+  border: 1px solid var(--ves-text-input-border-color);
+  background-color: var(--ves-text-input-bg-color);
+  padding: 0 var(--ves-spacing-4);
+  height: var(--ves-text-input-height);
+  color: var(--ves-text-input-color);
+
+  &:hover {
+    border-color: var(--ves-text-input-hover-border-color);
+  }
+
+  &:focus-within {
+    border-color: var(--ves-text-input-focus-border-color);
+    background-color: var(--ves-text-input-focus-bg-color);
+  }
+}
+
+.ves-text-input__icon {
+  --ves-icon-size: 1.25em;
+  --ves-icon-color: var(--ves-text-input-icon-color);
+}
+
+.ves-text-input__control {
+  flex: 1;
+  outline: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  min-width: 0;
+  height: 100%;
+  color: inherit;
+  font-size: var(--ves-font-size-md);
+  font-family: inherit;
+  letter-spacing: 0.05em;
+
+  &::placeholder {
+    opacity: 1;
+    color: var(--ves-text-input-placeholder-color);
+  }
+}
+
+.ves-text-input__clear {
+  margin-right: calc(var(--ves-spacing-4) * -1);
+  height: 100%;
+  color: var(--ves-text-input-icon-color);
+  font-size: var(--ves-font-size-md);
+}
+
+.ves-text-input__field--disabled {
+  --ves-text-input-color: var(--ves-text-input-disabled-color);
+  --ves-text-input-icon-color: var(--ves-text-input-disabled-color);
+  --ves-text-input-placeholder-color: var(--ves-text-input-disabled-color);
+
+  cursor: not-allowed;
+  border-color: var(--ves-text-input-disabled-border-color);
+  background-color: var(--ves-text-input-disabled-bg-color);
+
+  &:hover {
+    border-color: var(--ves-text-input-disabled-border-color);
+  }
+
+  .ves-text-input__control {
+    cursor: not-allowed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ves-text-input__field {
+    transition: none;
+  }
+}

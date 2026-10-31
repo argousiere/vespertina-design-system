@@ -67,6 +67,8 @@ export { default as TagBox } from './components/TagBox';
 export type { TagBoxProps } from './components/TagBox';
 export { default as TagHeader } from './components/TagHeader';
 export type { TagHeaderProps } from './components/TagHeader';
+export { default as TextInput } from './components/TextInput';
+export type { TextInputProps } from './components/TextInput';
 export { default as Tooltip } from './components/Tooltip';
 export type { TooltipProps } from './components/Tooltip';
 export { default as ViewModeSwitcher } from './components/ViewModeSwitcher';
