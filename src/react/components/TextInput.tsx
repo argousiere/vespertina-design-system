@@ -5,7 +5,7 @@ import { ButtonVariant } from '@core/models/ButtonModel';
 import type { IconName } from '@core/tokens/icons';
 import Button from './Button';
 import Icon from './Icon';
-import Tooltip from './Tooltip';
+import Label from './Label';
 
 export interface TextInputProps extends Omit<ComponentProps<'input'>, 'value'> {
   value: string;
@@ -39,11 +39,9 @@ const TextInput: React.FC<TextInputProps> = ({
   return (
     <div className={clsx('ves-text-input', className)} style={style}>
       {label && (
-        <Tooltip title={label} showOnlyWhenTruncated>
-          <label className="ves-text-input__label clamp-text" htmlFor={inputId}>
-            {label}
-          </label>
-        </Tooltip>
+        <label className="ves-text-input__label" htmlFor={inputId}>
+          <Label startIcon={icon} text={label} />
+        </label>
       )}
       <div
         className={clsx('ves-text-input__field', {

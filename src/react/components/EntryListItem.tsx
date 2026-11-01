@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { EntryModel } from '@core/models/EntryModel';
 import { formatDate } from '@core/utils/date';
 import DateLabel from './DateLabel';
-import Tooltip from './Tooltip';
+import Label from './Label';
 
 export interface EntryListItemProps extends Omit<
   ComponentProps<'li'>,
@@ -25,9 +25,7 @@ const EntryListItem: React.FC<EntryListItemProps> = ({
   const content = (
     <div className="ves-entry-list__item-content">
       <DateLabel dateTime={date} className="ves-entry-list__item-date" />
-      <Tooltip title={title} showOnlyWhenTruncated>
-        <span className="ves-entry-list__item-title clamp-text">{title}</span>
-      </Tooltip>
+      <Label text={title} className="ves-entry-list__item-title" />
     </div>
   );
 

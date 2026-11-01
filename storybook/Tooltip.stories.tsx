@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Tooltip from '@components/Tooltip';
-import type { TooltipProps } from '@components/Tooltip';
 
 const meta = {
   title: 'Components/Tooltip',
@@ -9,43 +8,44 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
   args: {
+    title: 'We are made of starstuff.',
     disabled: false,
     showOnlyWhenTruncated: false,
+    children: 'Hover, focus or tap.',
   },
   argTypes: {
+    title: {
+      description:
+        'Text to display in the tooltip. By default, when not provided, content text will be displayed.',
+    },
+    disabled: { description: 'Tooltip will not be triggered.' },
+    showOnlyWhenTruncated: {
+      description: 'Display only when the content is truncated.',
+    },
     children: { table: { disable: true } },
   },
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
-type Story = StoryObj<Omit<TooltipProps, 'children'>>;
+type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default = {} satisfies Story;
+
+export const TextContentAsTitle = {
   args: {
-    title: 'We are made of starstuff.',
-  },
-  render: (args) => {
-    return (
-      <Tooltip {...args}>
-        <span>Hover, focus or tap.</span>
-      </Tooltip>
-    );
+    title: undefined,
+    showOnlyWhenTruncated: true,
+    className: 'clamp-text',
+    style: { width: 120 },
+    children: 'The tooltip repeats this text when it is cut off.',
   },
 } satisfies Story;
 
-export const LongContent = {
+export const LongText = {
   args: {
     title:
       'The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself.',
-  },
-  render: (args) => {
-    return (
-      <Tooltip {...args}>
-        <span>Hover, focus or tap.</span>
-      </Tooltip>
-    );
   },
 } satisfies Story;
 
@@ -54,33 +54,21 @@ export const Disabled = {
     title: 'Disabled tooltip',
     disabled: true,
   },
-  render: (args) => {
-    return (
-      <Tooltip {...args}>
-        <span>Hover, focus or tap.</span>
-      </Tooltip>
-    );
-  },
 } satisfies Story;
 
 export const OnlyWhenTruncated = {
   args: {
-    title: 'We are made of starstuff.',
     showOnlyWhenTruncated: true,
   },
   render: (args) => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <Tooltip {...args}>
-          <span className="clamp-text" style={{ width: 240 }}>
-            This will not display a tooltip.
-          </span>
+        <Tooltip {...args} className="clamp-text" style={{ width: 240 }}>
+          This will not display a tooltip.
         </Tooltip>
 
-        <Tooltip {...args}>
-          <span className="clamp-text" style={{ width: 120 }}>
-            {args.title}
-          </span>
+        <Tooltip {...args} className="clamp-text" style={{ width: 120 }}>
+          {args.title}
         </Tooltip>
       </div>
     );

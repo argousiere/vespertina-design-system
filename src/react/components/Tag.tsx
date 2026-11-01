@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import type { ComponentPropsWithoutRef } from 'react';
 import type { TagModel } from '@core/models/TagModel';
-import Tooltip from './Tooltip';
+import Label from './Label';
 
 export interface TagProps extends Omit<
   ComponentPropsWithoutRef<'a'>,
@@ -18,26 +18,22 @@ const Tag: React.FC<TagProps> = ({ tag, className, ...props }) => {
     { [`ves-tag--${slug}`]: slug },
     className
   );
-  const labelEl = <span className="ves-tag__label">{label}</span>;
+  const labelEl = <Label text={label} />;
 
-  return (
-    <Tooltip title={label} showOnlyWhenTruncated>
-      {url ? (
-        <a
-          rel="tag"
-          {...props}
-          className={tagClassName}
-          href={url}
-          title={description}
-        >
-          {labelEl}
-        </a>
-      ) : (
-        <span {...props} className={tagClassName} title={description}>
-          {labelEl}
-        </span>
-      )}
-    </Tooltip>
+  return url ? (
+    <a
+      rel="tag"
+      {...props}
+      className={tagClassName}
+      href={url}
+      title={description}
+    >
+      {labelEl}
+    </a>
+  ) : (
+    <span {...props} className={tagClassName} title={description}>
+      {labelEl}
+    </span>
   );
 };
 

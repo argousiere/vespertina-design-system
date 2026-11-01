@@ -32,7 +32,6 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   React.useEffect(() => {
     let isCurrent = true;
 
-    setHasImgSrc(!!src);
     imgRef.current?.decode().catch(() => {
       return isCurrent && setHasImgSrc(false);
     });
@@ -97,18 +96,18 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 
       {caption &&
         (captionMaxLines ? (
-          <Tooltip title={caption} showOnlyWhenTruncated>
-            <figcaption
-              className="ves-thumbnail__caption ves-thumbnail__caption--clamped clamp-text"
-              style={
-                {
-                  '--clamp-text-lines': captionMaxLines ?? 1,
-                } as React.CSSProperties
-              }
-            >
+          <figcaption
+            className="ves-thumbnail__caption ves-thumbnail__caption--clamped"
+            style={
+              {
+                '--clamp-text-lines': captionMaxLines ?? 1,
+              } as React.CSSProperties
+            }
+          >
+            <Tooltip className="clamp-text" showOnlyWhenTruncated>
               {caption}
-            </figcaption>
-          </Tooltip>
+            </Tooltip>
+          </figcaption>
         ) : (
           <figcaption className="ves-thumbnail__caption">{caption}</figcaption>
         ))}
