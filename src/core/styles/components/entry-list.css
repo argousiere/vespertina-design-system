@@ -5,21 +5,9 @@
   --ves-entry-list-item-active-bg-color: var(--ves-global-color-kyanite);
 }
 
-.ves-entry-list__empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 var(--ves-spacing-8);
-  height: var(--ves-grid-size);
-}
-
-.ves-entry-list__item,
-.ves-entry-list__empty {
-  list-style: none;
-}
-
 .ves-entry-list__item {
   border-top: 1px solid var(--ves-entry-list-item-border-color);
+  list-style: none;
 
   &:last-child {
     border-bottom: 1px solid var(--ves-entry-list-item-border-color);

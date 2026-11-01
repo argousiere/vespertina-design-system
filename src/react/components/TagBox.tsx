@@ -4,7 +4,7 @@ import type { ComponentProps } from 'react';
 import type { TagModel } from '@core/models/TagModel';
 import Heading from './Heading';
 import Tag from './Tag';
-import Tooltip from './Tooltip';
+import Label from './Label';
 
 export interface TagBoxProps extends ComponentProps<'section'> {
   tagBoxTitle?: string;
@@ -17,15 +17,15 @@ const TagBox: React.FC<TagBoxProps> = ({
   className,
   ...props
 }) => {
+  const title = tagBoxTitle ?? 'Filed under';
+
   return (
     <section {...props} className={clsx('ves-tag-box', className)}>
-      <Tooltip title={tagBoxTitle ?? 'Filed under'} showOnlyWhenTruncated>
-        <Heading
-          level="h6"
-          className="ves-tag-box__title"
-          label={tagBoxTitle ?? 'Filed under'}
-        />
-      </Tooltip>
+      <Heading
+        level="h6"
+        className="ves-tag-box__title"
+        label={<Label text={title} />}
+      />
       <div className="ves-tag-box__tags">
         {tags.map((tag) => {
           return <Tag key={tag.slug} tag={tag} />;

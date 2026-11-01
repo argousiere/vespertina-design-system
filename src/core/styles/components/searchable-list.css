@@ -1,0 +1,19 @@
+.ves-searchable-list {
+  --ves-searchable-list-bg-color: var(--ves-global-color-midnight);
+
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ves-border-color);
+  background-color: var(--ves-searchable-list-bg-color);
+
+  .ves-menu-item {
+    /* align with search field */
+    padding: 0 calc(var(--ves-spacing-4) + var(--ves-spacing-3) + 1px);
+  }
+}
+
+.ves-searchable-list__search {
+  flex: none;
+  border-bottom: 1px solid var(--ves-border-color);
+  padding: var(--ves-spacing-3);
+}

@@ -2,22 +2,20 @@ import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { ButtonLevel, ButtonVariant } from '@core/models/ButtonModel';
 import type { IconName } from '@core/tokens/icons';
-import Label from './Label';
+import Label, { type LabelOptions } from './Label';
 
-export interface ButtonProps extends Omit<
-  ComponentProps<'button'>,
-  'children'
-> {
-  label: string;
+export interface ButtonProps
+  extends Omit<ComponentProps<'button'>, 'children'>, LabelOptions {
   icon?: IconName;
-  iconOnly?: boolean;
+  endIcon?: IconName;
   level?: ButtonLevel;
   variant?: ButtonVariant;
 }
 
 const Button: React.FC<ButtonProps> = ({
-  label,
+  text,
   icon,
+  endIcon,
   iconOnly,
   level,
   variant,
@@ -26,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const resolvedLevel = level ?? ButtonLevel.DEFAULT;
   const resolvedVariant = variant ?? ButtonVariant.PRIMARY;
+  const isIconOnly = Boolean((iconOnly || !text) && (icon || endIcon));
 
   return (
     <button
@@ -36,12 +35,18 @@ const Button: React.FC<ButtonProps> = ({
         {
           [`ves-btn--${resolvedLevel}`]: resolvedLevel !== ButtonLevel.DEFAULT,
           'ves-btn--primary': resolvedVariant === ButtonVariant.PRIMARY,
-          'ves-btn--icon-only': iconOnly,
+          'ves-btn--basic': resolvedVariant === ButtonVariant.BASIC,
+          'ves-btn--icon-only': isIconOnly,
         },
         className
       )}
     >
-      <Label text={label} icon={icon} />
+      <Label
+        text={text}
+        startIcon={icon}
+        endIcon={endIcon}
+        iconOnly={iconOnly}
+      />
     </button>
   );
 };

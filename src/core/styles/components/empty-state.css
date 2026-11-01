@@ -1,0 +1,17 @@
+.ves-empty-state {
+  --ves-empty-state-color: var(--ves-global-color-ice);
+  --ves-empty-state-min-height: var(--ves-grid-size);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ves-spacing-3);
+  padding: 0 var(--ves-spacing-8);
+  min-height: var(--ves-empty-state-min-height);
+  color: var(--ves-empty-state-color);
+  text-align: center;
+}
+
+.ves-empty-state__icon {
+  --ves-icon-size: 1.25em;
+}

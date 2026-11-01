@@ -1,172 +1,76 @@
-import React, { cloneElement, useEffect, useId, useState } from 'react';
+import { useId, useState } from 'react';
 import type { ComponentProps } from 'react';
-import clsx from 'clsx';
 import useIsTruncated from '../hooks/useIsTruncated';
+import useTooltipEvents from '../hooks/useTooltipEvents';
 
-export interface TooltipProps extends Omit<
-  ComponentProps<'div'>,
-  'title' | 'children'
-> {
-  title: string | React.ReactNode;
-  children: React.ReactElement<triggerElProps>;
+export interface TooltipProps extends Omit<ComponentProps<'span'>, 'title'> {
+  title?: string;
   disabled?: boolean;
   showOnlyWhenTruncated?: boolean;
 }
 
-type triggerElProps = React.HTMLAttributes<HTMLElement> & {
-  ref?: React.Ref<HTMLElement>;
-};
-
-const HIDE_DELAY_MS = 100;
 const FOCUSABLE_SELECTOR =
   'a[href], button, input, select, textarea, summary, [tabindex]';
 
 const Tooltip: React.FC<TooltipProps> = ({
   title,
-  children,
   disabled,
   showOnlyWhenTruncated,
-  className,
   style,
-  ...tooltipProps
+  tabIndex,
+  'aria-describedby': ariaDescribedBy,
+  children,
+  ...props
 }) => {
   const id = useId();
   const tooltipId = `ves-tooltip-${id}`;
-  const anchorName = `--tooltip-${id.replace(/[^\w-]/g, '')}`;
+  const anchorName = `--ves-tooltip-${id.replace(/[^\w-]/g, '')}`;
 
-  const [triggerEl, setTriggerEl] = useState<HTMLElement | null>(null);
+  const [triggerEl, setTriggerEl] = useState<HTMLSpanElement | null>(null);
   const [tooltipEl, setTooltipEl] = useState<HTMLDivElement | null>(null);
 
   const isTruncated = useIsTruncated(showOnlyWhenTruncated ? triggerEl : null);
-  const active = !disabled && (!showOnlyWhenTruncated || isTruncated);
-  const focusableAncestor =
+  const text = title ?? triggerEl?.textContent ?? '';
+  const active =
+    Boolean(text) && !disabled && (!showOnlyWhenTruncated || isTruncated);
+  const focusableAncestorEl =
     triggerEl?.parentElement?.closest<HTMLElement>(FOCUSABLE_SELECTOR) ?? null;
 
-  useEffect(() => {
-    if (!active || !triggerEl || !tooltipEl) {
-      return;
-    }
-
-    const focusTarget = focusableAncestor ?? triggerEl;
-
-    const controller = new AbortController();
-    const options = { signal: controller.signal };
-    let hideTimeout: number | undefined;
-    let pointerType = '';
-
-    const toggle = (force?: boolean) => {
-      window.clearTimeout(hideTimeout);
-      tooltipEl.togglePopover(force);
-    };
-
-    const showTooltip = () => {
-      return toggle(true);
-    };
-    const hideTooltip = () => {
-      return toggle(false);
-    };
-
-    const hideDelayed = () => {
-      window.clearTimeout(hideTimeout);
-      hideTimeout = window.setTimeout(hideTooltip, HIDE_DELAY_MS);
-    };
-
-    for (const element of [focusTarget, tooltipEl]) {
-      element.addEventListener(
-        'pointerenter',
-        (event) => {
-          return event.pointerType === 'mouse' && showTooltip();
-        },
-        options
-      );
-      element.addEventListener(
-        'pointerleave',
-        (event) => {
-          return event.pointerType === 'mouse' && hideDelayed();
-        },
-        options
-      );
-    }
-
-    if (!focusableAncestor) {
-      triggerEl.addEventListener(
-        'pointerdown',
-        (event) => {
-          return (pointerType = event.pointerType);
-        },
-        options
-      );
-      triggerEl.addEventListener(
-        'click',
-        () => {
-          return pointerType !== 'mouse' && toggle();
-        },
-        options
-      );
-    }
-
-    focusTarget.addEventListener(
-      'focus',
-      () => {
-        return focusTarget.matches(':focus-visible') && showTooltip();
-      },
-      options
-    );
-    focusTarget.addEventListener('blur', hideTooltip, options);
-
-    document.addEventListener(
-      'keydown',
-      (event) => {
-        return event.key === 'Escape' && hideTooltip();
-      },
-      options
-    );
-    document.addEventListener(
-      'pointerdown',
-      (event) => {
-        const target = event.target as Node;
-        if (!focusTarget.contains(target) && !tooltipEl.contains(target)) {
-          hideTooltip();
-        }
-      },
-      options
-    );
-
-    return () => {
-      window.clearTimeout(hideTimeout);
-      controller.abort();
-    };
-  }, [active, triggerEl, tooltipEl, focusableAncestor]);
-
-  if (!active) {
-    return cloneElement(children, { ref: setTriggerEl });
-  }
-
-  const { props } = children;
+  useTooltipEvents({
+    enabled: active,
+    triggerEl,
+    tooltipEl,
+    focusableAncestorEl,
+  });
 
   return (
     <>
-      {cloneElement(children, {
-        ref: setTriggerEl,
-        tabIndex: focusableAncestor ? props.tabIndex : (props.tabIndex ?? 0),
-        'aria-describedby': [props['aria-describedby'], tooltipId]
-          .filter(Boolean)
-          .join(' '),
-        style: { ...props.style, anchorName },
-        title: undefined,
-      })}
-
-      <div
-        {...tooltipProps}
-        ref={setTooltipEl}
-        id={tooltipId}
-        className={clsx('ves-tooltip', className)}
-        role="tooltipEl"
-        popover="manual"
-        style={{ ...style, positionAnchor: anchorName }}
+      <span
+        {...props}
+        ref={setTriggerEl}
+        tabIndex={active && !focusableAncestorEl ? (tabIndex ?? 0) : tabIndex}
+        aria-describedby={
+          active
+            ? [ariaDescribedBy, tooltipId].filter(Boolean).join(' ')
+            : ariaDescribedBy
+        }
+        style={active ? { ...style, anchorName } : style}
       >
-        {title}
-      </div>
+        {children}
+      </span>
+
+      {active && (
+        <div
+          ref={setTooltipEl}
+          id={tooltipId}
+          role="tooltip"
+          popover="manual"
+          className="ves-tooltip"
+          style={{ positionAnchor: anchorName }}
+        >
+          {text}
+        </div>
+      )}
     </>
   );
 };

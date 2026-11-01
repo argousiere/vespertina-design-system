@@ -66,14 +66,12 @@
   }
 }
 
-.ves-tag__label {
+.ves-tag .ves-label {
+  justify-content: center;
   min-width: calc(
     (var(--ves-tag-min-chars) + 1) * (1ch + var(--ves-tag-letter-spacing))
   );
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  letter-spacing: var(--ves-tag-letter-spacing);
 }
 
 .ves-tag-box {
@@ -87,14 +85,18 @@
   padding-right: var(--ves-spacing-5);
   padding-left: var(--ves-spacing-5);
   height: 38px;
-  overflow: hidden;
   color: var(--ves-global-color-light);
   font-size: var(--ves-font-size-md);
   line-height: 38px;
   font-family: var(--ves-font-family-primary);
   letter-spacing: 0.2em;
-  text-overflow: ellipsis;
   text-transform: uppercase;
+}
+
+.ves-tag-box__title-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 

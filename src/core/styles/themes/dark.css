@@ -16,7 +16,9 @@
       var(--vignette-shadow-end) 100%
     );
   isolation: isolate;
-  color: var(--foreground-color);
+  color: var(--ves-foreground-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   main {
     background: oklch(from var(--ves-global-color-midnight) l c h / 0.15);

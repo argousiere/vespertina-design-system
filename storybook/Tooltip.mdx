@@ -1,0 +1,26 @@
+import {
+  ArgTypes,
+  Canvas,
+  Controls,
+  Meta,
+  Source,
+  Markdown,
+  Story,
+} from '@storybook/addon-docs/blocks';
+import * as TooltipStories from './Tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+Display text in a separate overlay next to it when triggered and hidden when out of focus. Useful when displaying the entirety of truncated content or explaining additional information.
+
+<Canvas of={TooltipStories.Default} />
+<Controls of={TooltipStories.Default} />
+
+## User Interactions
+
+| Tooltip Action | Events                                     |
+| -------------- | ------------------------------------------ |
+| Show tooltip   | Hover, tap, keyboard focus                 |
+| Hide tooltip   | Hover out, blur, `Esc`, keyboard focus out |

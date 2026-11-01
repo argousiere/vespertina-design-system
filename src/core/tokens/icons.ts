@@ -19,6 +19,9 @@ import linkedin from '../assets/icons/linkedin.svg';
 import mail from '../assets/icons/mail.svg';
 import menu from '../assets/icons/menu.svg';
 import close from '../assets/icons/close.svg';
+import orbit from '../assets/icons/orbit.svg';
+import chevronDown from '../assets/icons/chevron-down.svg';
+import chevronUp from '../assets/icons/chevron-up.svg';
 
 export const icons = {
   'arrow-left': arrowLeft,
@@ -33,6 +36,7 @@ export const icons = {
   list,
   work,
   education,
+  orbit,
   publication,
   project,
   'external-link': externalLink,
@@ -42,6 +46,8 @@ export const icons = {
   mail,
   menu,
   close,
+  'chevron-down': chevronDown,
+  'chevron-up': chevronUp,
 };
 
 export type IconName = keyof typeof icons;

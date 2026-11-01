@@ -201,3 +201,37 @@
   --ves-btn-border-color: var(--ves-global-color-gliese-dark-3);
   --ves-btn-border-hover-color: var(--ves-global-color-gliese);
 }
+
+.ves-btn--icon-only {
+  justify-content: center;
+  padding: 0;
+  aspect-ratio: 1;
+}
+
+.ves-btn.ves-btn--basic {
+  --ves-btn-border-color: transparent;
+
+  background-image: none;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:disabled {
+    border-color: transparent;
+  }
+
+  &:is(
+      .ves-btn--info,
+      .ves-btn--warning,
+      .ves-btn--danger,
+      .ves-btn--success,
+      .ves-btn--special
+    ):not(:disabled) {
+    color: var(--ves-btn-tint);
+  }
+
+  &:not(:disabled):active {
+    border-color: oklch(from var(--ves-btn-tint) l c h / 0.5);
+  }
+}

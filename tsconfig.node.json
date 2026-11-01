@@ -27,5 +27,10 @@
       "@core/*": ["./src/core/*"]
     }
   },
-  "include": ["vite.config.ts", "vite.lib.config.ts", "scripts"]
+  "include": [
+    "vite.config.ts",
+    "vite.lib.config.ts",
+    "vitest.unit.setup.ts",
+    "scripts"
+  ]
 }

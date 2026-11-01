@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { ButtonLevel } from '@core/models/ButtonModel';
+import type { IconName } from '@core/tokens/icons';
 import Button from '@components/Button';
 import {
   buttonLevelArgType,
@@ -9,6 +10,14 @@ import {
   buttonVariants,
 } from './arg-types/button';
 import { iconArgType } from './arg-types/icon';
+
+const levelIcons: Partial<Record<ButtonLevel, IconName>> = {
+  [ButtonLevel.INFO]: 'info',
+  [ButtonLevel.WARNING]: 'warning',
+  [ButtonLevel.DANGER]: 'error',
+  [ButtonLevel.SUCCESS]: 'check',
+  [ButtonLevel.SPECIAL]: 'star',
+};
 
 const meta = {
   title: 'Components/Button',
@@ -23,7 +32,7 @@ const meta = {
     icon: iconArgType,
   },
   args: {
-    label: 'Button',
+    text: 'Button',
     level: ButtonLevel.DEFAULT,
     disabled: false,
   },
@@ -48,6 +57,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: { icon: 'search' },
+  render: (args) => {
+    return <Button {...args} />;
+  },
 } satisfies Story;
 
 export const Info = {
@@ -91,8 +103,9 @@ export const AllLevels = {
                       key={level}
                       {...args}
                       level={level}
+                      icon={levelIcons[level]}
                       variant={variant}
-                      label={level}
+                      text={level}
                       disabled={disabled}
                     />
                   );

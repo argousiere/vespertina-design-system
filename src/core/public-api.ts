@@ -3,6 +3,11 @@ export type { EntryModel } from './models/EntryModel';
 export type { MarkdownHtmlProcessor as HtmlProcessor } from './models/MarkdownHtmlProcessor';
 export { type ImageModel, AspectRatio } from './models/ImageModel';
 export type { NavItemModel } from './models/NavItemModel';
+export {
+  SelectionModel,
+  type SelectionItem,
+  type SelectionModelOptions,
+} from './models/SelectionModel';
 export type { TagModel } from './models/TagModel';
 export type { ThumbnailModel } from './models/ThumbnailModel';
 export {
