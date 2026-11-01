@@ -42,6 +42,8 @@ export { default as Image } from './components/Image';
 export type { ImageProps } from './components/Image';
 export { default as DateLabel } from './components/DateLabel';
 export type { DateLabelProps } from './components/DateLabel';
+export { default as DateRangeLabel } from './components/DateRangeLabel';
+export type { DateRangeLabelProps } from './components/DateRangeLabel';
 export { default as ReadingTime } from './components/ReadingTime';
 export type { ReadingTimeProps } from './components/ReadingTime';
 export { default as Entry } from './components/Entry';
