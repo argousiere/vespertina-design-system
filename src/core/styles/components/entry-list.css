@@ -88,9 +88,9 @@
   .ves-entry-list__item-date {
     flex-basis: 120px;
   }
-  
+
   .ves-entry-list__item-content {
     gap: var(--ves-spacing-4);
     padding: 0;
-}
+  }
 }

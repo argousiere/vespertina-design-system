@@ -17,12 +17,12 @@ const meta = {
     dateFormat: {
       control: 'text',
       description: 'date-fns format',
-      table: { defaultValue: { summary: 'dd.MMM.yyyy' }}
+      table: { defaultValue: { summary: 'dd.MMM.yyyy' } },
     },
   },
   args: {
     dateFormat: 'dd.MMM.yyyy',
-  }
+  },
 } satisfies Meta<typeof DateLabel>;
 
 export default meta;

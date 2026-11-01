@@ -19,11 +19,14 @@ const meta = {
       control: 'number',
       description: 'Lines shown before the caption is cut off',
     },
-    caption: { control: false, table: { type: { summary: 'string,React.ReactNode' }} },
+    caption: {
+      control: false,
+      table: { type: { summary: 'string,React.ReactNode' } },
+    },
   },
   args: {
     captionMaxLines: 3,
-  }
+  },
 } satisfies Meta<typeof Thumbnail>;
 
 export default meta;

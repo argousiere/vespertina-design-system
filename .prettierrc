@@ -1,5 +1,4 @@
 {
-  "plugins": ["prettier-plugin-css-order"],
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,

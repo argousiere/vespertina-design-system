@@ -7,10 +7,12 @@ export const navItemRecord = {
   about: { label: 'About', url: '#about' },
 } satisfies Record<string, NavItemModel>;
 
-export const navItemUrlRecord = Object.entries(navItemRecord)
-  .reduce((acc, [slug, navItem]) => {
+export const navItemUrlRecord = Object.entries(navItemRecord).reduce(
+  (acc, [slug, navItem]) => {
     acc[slug] = navItem.url;
     return acc;
-  }, {} as Record<string, NavItemModel['url']>);
+  },
+  {} as Record<string, NavItemModel['url']>
+);
 
 export const navItems = Object.values(navItemRecord);

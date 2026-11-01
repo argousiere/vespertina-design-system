@@ -28,11 +28,11 @@
 }
 
 .ves-gallery__item {
-    --ves-gallery-item-hover-bg-color: var(--ves-global-color-celestial);
+  --ves-gallery-item-hover-bg-color: var(--ves-global-color-celestial);
 
-    &:hover {
-      background-color: var(--ves-gallery-item-hover-bg-color);
-    }
+  &:hover {
+    background-color: var(--ves-gallery-item-hover-bg-color);
+  }
 }
 
 .ves-gallery__item-link {

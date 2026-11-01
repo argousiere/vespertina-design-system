@@ -16,7 +16,7 @@
 
 .ves-segmented-control__btn--selected:not(:disabled) {
   --ves-segmented-control-top-highlight: linear-gradient(
-    to bottom,
+      to bottom,
       oklch(from var(--ves-btn-tint) l c h / 0.6) 0,
       oklch(from var(--ves-btn-tint) l c h / 0.1) 2px
     )
@@ -40,8 +40,7 @@
         var(--ves-btn-bg-color) var(--ves-btn-glow-start),
         oklch(from var(--ves-btn-tint) l c h / var(--ves-btn-glow-opacity))
           calc(var(--ves-btn-glow-start) + 1%),
-        oklch(from var(--ves-btn-tint) l c h / var(--ves-btn-glow-opacity))
-          100%
+        oklch(from var(--ves-btn-tint) l c h / var(--ves-btn-glow-opacity)) 100%
       );
   }
 }

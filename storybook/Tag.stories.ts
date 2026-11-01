@@ -12,7 +12,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    tag: tagArgType
+    tag: tagArgType,
   },
 } satisfies Meta<typeof Tag>;
 

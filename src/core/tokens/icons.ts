@@ -20,7 +20,6 @@ import mail from '../assets/icons/mail.svg';
 import menu from '../assets/icons/menu.svg';
 import close from '../assets/icons/close.svg';
 
-
 export const icons = {
   'arrow-left': arrowLeft,
   'arrow-right': arrowRight,

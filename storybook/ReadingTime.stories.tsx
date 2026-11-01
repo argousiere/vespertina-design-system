@@ -15,8 +15,8 @@ const meta = {
     className: { control: false },
   },
   args: {
-    abbreviated: true
-  }
+    abbreviated: true,
+  },
 } satisfies Meta<typeof ReadingTime>;
 
 export default meta;

@@ -49,6 +49,6 @@ export const emptyThumbnailRecord = {
     width: 200,
     height: 200,
   },
-}
+};
 
 export const thumbnails = Object.values(thumbnailRecord);
