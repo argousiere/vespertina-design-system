@@ -14,7 +14,10 @@ export const entryArgTypes: Record<keyof EntryModel, InputType> = {
   date: { control: 'text', description: 'yyyy-MM-dd', table },
   description: { control: 'text', table },
   readingTimeMinutes: { control: 'number', table },
-  thumbnail: { ...thumbnailArgType, table: { ...thumbnailArgType.table, ...table } },
+  thumbnail: {
+    ...thumbnailArgType,
+    table: { ...thumbnailArgType.table, ...table },
+  },
   cover: { ...imageArgType, table: { ...imageArgType.table, ...table } },
   tags: { ...tagsArgType, table: { ...tagsArgType.table, ...table } },
 };

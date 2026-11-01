@@ -11,7 +11,8 @@
   align-items: center;
   gap: var(--ves-spacing-6);
   background: var(--ves-navbar-bg-color);
-  border-bottom: var(--ves-navbar-border-width) solid var(--ves-navbar-border-color);
+  border-bottom: var(--ves-navbar-border-width) solid
+    var(--ves-navbar-border-color);
   padding-inline: var(--ves-navbar-padding-inline);
   width: 100%;
   height: var(--ves-navbar-height);
@@ -116,7 +117,8 @@
     }
 
     .ves-nav-list {
-      border-top: var(--ves-navbar-border-width) solid var(--ves-navbar-border-color);
+      border-top: var(--ves-navbar-border-width) solid
+        var(--ves-navbar-border-color);
     }
 
     .ves-nav-list-item {

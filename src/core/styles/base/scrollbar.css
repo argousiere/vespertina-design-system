@@ -7,7 +7,6 @@ html {
   scrollbar-gutter: stable;
 }
 
-
 .vespertina-theme {
   scrollbar-color: var(--ves-scrollbar-thumb-color)
     var(--ves-scrollbar-track-color);

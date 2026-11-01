@@ -7,7 +7,9 @@ describe('parseDate', () => {
   });
 
   it('should ignore the time part of an ISO datetime', () => {
-    expect(parseDate('2024-03-05T23:30:00Z')).toStrictEqual(new Date(2024, 2, 5));
+    expect(parseDate('2024-03-05T23:30:00Z')).toStrictEqual(
+      new Date(2024, 2, 5)
+    );
   });
 
   it('should return null when no date is given', () => {

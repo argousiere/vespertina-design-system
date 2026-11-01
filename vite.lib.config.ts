@@ -12,82 +12,84 @@ const external = [
 // Builds the publishable package into dist/:
 // - dist/core: framework-agnostic CSS, tokens, fonts and images, plus the
 // - dist/react: React components as an ES module
-export default defineConfig({
-  base: './',
-  publicDir: false,
-  plugins: [
-    react(),
-    dts({
-      tsconfigPath: 'tsconfig.lib.json',
-      entryRoot: 'src',
-      outDirs: ['dist'],
-    }),
-  ],
-  resolve: {
-    alias: {
-      '@core': path.resolve(import.meta.dirname, 'src/core'),
-    },
-  },
-  experimental: {
-    // Resolve font and image URLs relative to the CSS file that uses them,
-    // so dist/core/styles.css works wherever the package is installed
-    renderBuiltUrl: (filename, { hostType, hostId }) => {
-      return hostType === 'css'
-        ? path.posix.relative(path.posix.dirname(hostId), filename)
-        : { relative: true };
-    },
-  },
-  build: {
-    outDir: 'dist',
-    sourcemap: true,
-    emptyOutDir: !process.argv.includes('--watch'),
-    cssCodeSplit: true,
-    modulePreload: false,
-    rollupOptions: {
-      input: {
-        'core/public-api': path.resolve(
-          import.meta.dirname,
-          'src/core/public-api.ts'
-        ),
-        'core/styles': path.resolve(
-          import.meta.dirname,
-          'src/core/styles/index.css'
-        ),
-        'core/tokens': path.resolve(
-          import.meta.dirname,
-          'src/core/tokens/tokens.css'
-        ),
-        'core/token-values': path.resolve(
-          import.meta.dirname,
-          'src/core/tokens/tokens.ts'
-        ),
-        'react/public-api': path.resolve(
-          import.meta.dirname,
-          'src/react/public-api.ts'
-        ),
+export default defineConfig(({ mode }) => {
+  return {
+    base: './',
+    publicDir: false,
+    plugins: [
+      react(),
+      dts({
+        tsconfigPath: 'tsconfig.lib.json',
+        entryRoot: 'src',
+        outDirs: ['dist'],
+      }),
+    ],
+    resolve: {
+      alias: {
+        '@core': path.resolve(import.meta.dirname, 'src/core'),
       },
-      external: (id) => {
-        return (
-          id.startsWith('node:') ||
-          external.some((dep) => {
-            return id === dep || id.startsWith(`${dep}/`);
-          })
-        );
+    },
+    experimental: {
+      // Resolve font and image URLs relative to the CSS file that uses them,
+      // so dist/core/styles.css works wherever the package is installed
+      renderBuiltUrl: (filename, { hostType, hostId }) => {
+        return hostType === 'css'
+          ? path.posix.relative(path.posix.dirname(hostId), filename)
+          : { relative: true };
       },
-      preserveEntrySignatures: 'strict',
-      output: {
-        entryFileNames: '[name].js',
-        assetFileNames: ({ names }) => {
-          const name = names[0] ?? '';
-          if (name.endsWith('.css')) {
-            return '[name][extname]';
-          }
-          if (/\.(woff2?|ttf|otf)$/.test(name)) {
-            return 'core/fonts/[name][extname]';
-          }
-          return 'core/images/[name][extname]';
+    },
+    build: {
+      outDir: 'dist',
+      sourcemap: mode === 'development',
+      emptyOutDir: !process.argv.includes('--watch'),
+      cssCodeSplit: true,
+      modulePreload: false,
+      rollupOptions: {
+        input: {
+          'core/public-api': path.resolve(
+            import.meta.dirname,
+            'src/core/public-api.ts'
+          ),
+          'core/styles': path.resolve(
+            import.meta.dirname,
+            'src/core/styles/index.css'
+          ),
+          'core/tokens': path.resolve(
+            import.meta.dirname,
+            'src/core/tokens/tokens.css'
+          ),
+          'core/token-values': path.resolve(
+            import.meta.dirname,
+            'src/core/tokens/tokens.ts'
+          ),
+          'react/public-api': path.resolve(
+            import.meta.dirname,
+            'src/react/public-api.ts'
+          ),
+        },
+        external: (id) => {
+          return (
+            id.startsWith('node:') ||
+            external.some((dep) => {
+              return id === dep || id.startsWith(`${dep}/`);
+            })
+          );
+        },
+        preserveEntrySignatures: 'strict',
+        output: {
+          entryFileNames: '[name].js',
+          assetFileNames: ({ names }) => {
+            const name = names[0] ?? '';
+            if (name.endsWith('.css')) {
+              return '[name][extname]';
+            }
+            if (/\.(woff2?|ttf|otf)$/.test(name)) {
+              return 'core/fonts/[name][extname]';
+            }
+            return 'core/images/[name][extname]';
+          },
         },
       },
     },
-  },
+  };
 });

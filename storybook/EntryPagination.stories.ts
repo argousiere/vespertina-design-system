@@ -31,7 +31,7 @@ const meta = {
   args: {
     previousSectionLabel: 'Previous Entry',
     nextSectionLabel: 'Next Entry',
-  }
+  },
 } satisfies Meta<typeof EntryPagination>;
 
 export default meta;
@@ -60,13 +60,11 @@ export const LongEntryTitles = {
   args: {
     previousEntry: {
       ...entryRecord.theBubblingBrookAtBerthelot,
-      title:
-        entryRecord.theBubblingBrookAtBerthelot.description,
+      title: entryRecord.theBubblingBrookAtBerthelot.description,
     },
     nextEntry: {
       ...entryRecord.analogClocksAndClockTowers,
-      title:
-        entryRecord.analogClocksAndClockTowers.description,
+      title: entryRecord.analogClocksAndClockTowers.description,
     },
   },
 } satisfies Story;

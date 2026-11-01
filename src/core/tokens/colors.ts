@@ -12,7 +12,7 @@ const colors = Object.values(
   Object.entries(tokens.colors).reduce<Record<string, ColorGroup>>(
     (groups, [variable, { name, value }]) => {
       const base = variable.replace(scaleSuffix, '');
-      
+
       const group = (groups[base] ??= { name, variable: base, colors: {} });
 
       if (variable === base) {

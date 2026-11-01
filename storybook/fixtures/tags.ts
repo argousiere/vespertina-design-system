@@ -19,8 +19,7 @@ export const tagRecord = {
   sonnet: { slug: 'sonnet' },
   razorback: {
     slug: 'razorback',
-    description:
-      "You can't take the Razorback! She is gone and gone and gone!",
+    description: "You can't take the Razorback! She is gone and gone and gone!",
   },
   long: {
     slug: 'a-very-long-tag-name-that-keeps-going-well-past-the-maximum-width',

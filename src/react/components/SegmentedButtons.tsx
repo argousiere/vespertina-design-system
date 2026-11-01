@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
-import type { ButtonLevel} from '@core/models/ButtonModel';
+import type { ButtonLevel } from '@core/models/ButtonModel';
 import { ButtonVariant } from '@core/models/ButtonModel';
 import Button, { type ButtonProps } from './Button';
 

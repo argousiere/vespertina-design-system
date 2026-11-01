@@ -4,12 +4,12 @@ import colors from '@core/tokens/colors';
 <Meta title="Design Tokens/Colors" />
 
 <ColorPalette>
-    {colors.map(color => (
-        <ColorItem
-            key={color.variable}
-            title={color.name}
-            subtitle={color.variable}
-            colors={color.colors}
-        ></ColorItem>
-    ))}
+  {colors.map((color) => (
+    <ColorItem
+      key={color.variable}
+      title={color.name}
+      subtitle={color.variable}
+      colors={color.colors}
+    ></ColorItem>
+  ))}
 </ColorPalette>

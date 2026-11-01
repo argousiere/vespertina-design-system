@@ -389,7 +389,12 @@ const tokens = {
   },
 
   grid: {
-    '--ves-grid-size': { type: 'grid-size', name: 'grid', value: 3.4286, unit: 'rem' },
+    '--ves-grid-size': {
+      type: 'grid-size',
+      name: 'grid',
+      value: 3.4286,
+      unit: 'rem',
+    },
   },
 
   'font-families': {
@@ -412,15 +417,67 @@ const tokens = {
 
   // Scale of 1.125, shrinking to a scale of ~1.1 at minViewport
   'font-sizes': {
-    '--ves-font-size-4xl': { type: 'font-size', name: '4xl', value: 3.4286, min: 2.2857, unit: 'rem' },
-    '--ves-font-size-3xl': { type: 'font-size', name: '3xl', value: 2.027, min: 1.6429, unit: 'rem' },
-    '--ves-font-size-2xl': { type: 'font-size', name: '2xl', value: 1.602, min: 1.3929, unit: 'rem' },
-    '--ves-font-size-xl': { type: 'font-size', name: 'xl', value: 1.424, min: 1.25, unit: 'rem' },
-    '--ves-font-size-lg': { type: 'font-size', name: 'lg', value: 1.266, min: 1.1429, unit: 'rem' },
-    '--ves-font-size-md': { type: 'font-size', name: 'md', value: 1.125, min: 1.0357, unit: 'rem' },
-    '--ves-font-size-sm': { type: 'font-size', name: 'sm', value: 1, min: 0.9286, unit: 'rem' },
-    '--ves-font-size-xs': { type: 'font-size', name: 'xs', value: 0.889, unit: 'rem' },
-    '--ves-font-size-2xs': { type: 'font-size', name: '2xs', value: 0.79, unit: 'rem' },
+    '--ves-font-size-4xl': {
+      type: 'font-size',
+      name: '4xl',
+      value: 3.4286,
+      min: 2.2857,
+      unit: 'rem',
+    },
+    '--ves-font-size-3xl': {
+      type: 'font-size',
+      name: '3xl',
+      value: 2.027,
+      min: 1.6429,
+      unit: 'rem',
+    },
+    '--ves-font-size-2xl': {
+      type: 'font-size',
+      name: '2xl',
+      value: 1.602,
+      min: 1.3929,
+      unit: 'rem',
+    },
+    '--ves-font-size-xl': {
+      type: 'font-size',
+      name: 'xl',
+      value: 1.424,
+      min: 1.25,
+      unit: 'rem',
+    },
+    '--ves-font-size-lg': {
+      type: 'font-size',
+      name: 'lg',
+      value: 1.266,
+      min: 1.1429,
+      unit: 'rem',
+    },
+    '--ves-font-size-md': {
+      type: 'font-size',
+      name: 'md',
+      value: 1.125,
+      min: 1.0357,
+      unit: 'rem',
+    },
+    '--ves-font-size-sm': {
+      type: 'font-size',
+      name: 'sm',
+      value: 1,
+      min: 0.9286,
+      unit: 'rem',
+    },
+    '--ves-font-size-xs': {
+      type: 'font-size',
+      name: 'xs',
+      value: 0.889,
+      unit: 'rem',
+    },
+    '--ves-font-size-2xs': {
+      type: 'font-size',
+      name: '2xs',
+      value: 0.79,
+      unit: 'rem',
+    },
   },
 
   'font-weights': {
@@ -443,16 +500,71 @@ const tokens = {
   },
 
   spacing: {
-    '--ves-spacing-1': { type: 'spacing', name: '1', value: 0.1429, unit: 'rem' },
-    '--ves-spacing-2': { type: 'spacing', name: '2', value: 0.2857, unit: 'rem' },
-    '--ves-spacing-3': { type: 'spacing', name: '3', value: 0.5714, unit: 'rem' },
-    '--ves-spacing-4': { type: 'spacing', name: '4', value: 0.8571, unit: 'rem' },
-    '--ves-spacing-5': { type: 'spacing', name: '5', value: 1.1429, unit: 'rem' },
-    '--ves-spacing-6': { type: 'spacing', name: '6', value: 1.7143, min: 1.1429, unit: 'rem' },
-    '--ves-spacing-7': { type: 'spacing', name: '7', value: 2.2857, min: 1.7143, unit: 'rem' },
-    '--ves-spacing-8': { type: 'spacing', name: '8', value: 2.5714, min: 2, unit: 'rem' },
-    '--ves-spacing-9': { type: 'spacing', name: '9', value: 3.4286, min: 2.2857, unit: 'rem' },
-    '--ves-spacing-10': { type: 'spacing', name: '10', value: 4.5714, min: 2.8571, unit: 'rem' },
+    '--ves-spacing-1': {
+      type: 'spacing',
+      name: '1',
+      value: 0.1429,
+      unit: 'rem',
+    },
+    '--ves-spacing-2': {
+      type: 'spacing',
+      name: '2',
+      value: 0.2857,
+      unit: 'rem',
+    },
+    '--ves-spacing-3': {
+      type: 'spacing',
+      name: '3',
+      value: 0.5714,
+      unit: 'rem',
+    },
+    '--ves-spacing-4': {
+      type: 'spacing',
+      name: '4',
+      value: 0.8571,
+      unit: 'rem',
+    },
+    '--ves-spacing-5': {
+      type: 'spacing',
+      name: '5',
+      value: 1.1429,
+      unit: 'rem',
+    },
+    '--ves-spacing-6': {
+      type: 'spacing',
+      name: '6',
+      value: 1.7143,
+      min: 1.1429,
+      unit: 'rem',
+    },
+    '--ves-spacing-7': {
+      type: 'spacing',
+      name: '7',
+      value: 2.2857,
+      min: 1.7143,
+      unit: 'rem',
+    },
+    '--ves-spacing-8': {
+      type: 'spacing',
+      name: '8',
+      value: 2.5714,
+      min: 2,
+      unit: 'rem',
+    },
+    '--ves-spacing-9': {
+      type: 'spacing',
+      name: '9',
+      value: 3.4286,
+      min: 2.2857,
+      unit: 'rem',
+    },
+    '--ves-spacing-10': {
+      type: 'spacing',
+      name: '10',
+      value: 4.5714,
+      min: 2.8571,
+      unit: 'rem',
+    },
   },
 } as const satisfies Record<string, Record<string, Token>>;
 

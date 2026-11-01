@@ -49,18 +49,20 @@ export const entryRecord = {
     url: '#',
     description: 'A tribute to all the unknown writers in the past millennia',
     tags: [tagRecord.poetry, tagRecord.sonnet],
-    cover: thumbnailRecord.dizzy
+    cover: thumbnailRecord.dizzy,
   },
   longTitle1: {
     id: 'long-title-1',
-    title: 'In between the vast spaces have planets and moons explode into life only to disintegrate into nothingness.',
+    title:
+      'In between the vast spaces have planets and moons explode into life only to disintegrate into nothingness.',
     date: '2015-12-03',
     url: '#',
     description: 'Reminiscing my leap into the expat life.',
   },
   longTitle2: {
     id: 'long-title-2',
-    title: 'Only memories, remnants.. possibly even mere musings such as this, serve as proof of their existence.',
+    title:
+      'Only memories, remnants.. possibly even mere musings such as this, serve as proof of their existence.',
     date: '2015-12-03',
     url: '#',
     description: 'Reminiscing my leap into the expat life.',
