@@ -32,7 +32,7 @@ const meta = {
     icon: iconArgType,
   },
   args: {
-    label: 'Button',
+    text: 'Button',
     level: ButtonLevel.DEFAULT,
     disabled: false,
   },
@@ -57,6 +57,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: { icon: 'search' },
+  render: (args) => {
+    return <Button {...args} />;
+  },
 } satisfies Story;
 
 export const Info = {
@@ -102,7 +105,7 @@ export const AllLevels = {
                       level={level}
                       icon={levelIcons[level]}
                       variant={variant}
-                      label={level}
+                      text={level}
                       disabled={disabled}
                     />
                   );

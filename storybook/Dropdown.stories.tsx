@@ -37,7 +37,7 @@ const meta = {
   },
   args: {
     onOpenChange: fn(),
-    label: 'Destinations',
+    text: 'Destinations',
     icon: 'orbit',
     variant: ButtonVariant.PRIMARY,
     anchor: DropdownAnchor.START,
@@ -49,7 +49,7 @@ const meta = {
     return (
       <Dropdown {...args}>
         <MenuList
-          aria-label={args.label}
+          aria-label={args.text}
           options={menuOptions.map((option) => {
             return { ...option, selected: option.value === value };
           })}
@@ -73,7 +73,7 @@ export const WithSearchableList = {
     return (
       <Dropdown {...args}>
         <SearchableList
-          aria-label={args.label}
+          aria-label={args.text}
           options={menuOptions.map((option) => {
             return { ...option, selected: option.value === value };
           })}
@@ -87,7 +87,7 @@ export const WithSearchableList = {
 
 export const WithCustomContent = {
   args: {
-    label: 'Add Destination',
+    text: 'Add Destination',
     icon: 'orbit',
   },
   render: function Render(args) {
@@ -125,7 +125,7 @@ export const WithCustomContent = {
           <Button
             style={{ flex: '0 0 auto' }}
             type="submit"
-            label="Add"
+            text="Add"
             disabled={!name}
           />
         </form>

@@ -29,8 +29,8 @@ const meta = {
   },
   args: {
     options: [
-      { value: 'list', label: 'List', icon: 'list' },
-      { value: 'grid', label: 'Grid', icon: 'grid' },
+      { value: 'list', text: 'List', icon: 'list' },
+      { value: 'grid', text: 'Grid', icon: 'grid' },
     ],
     disabled: false,
     value: 'list',
@@ -59,8 +59,8 @@ export const Default = {} satisfies Story;
 export const CustomOptions = {
   args: {
     options: [
-      { value: 'project-view', label: 'Project View', icon: 'project' },
-      { value: 'compact-view', label: 'List', icon: 'list' },
+      { value: 'project-view', text: 'Project View', icon: 'project' },
+      { value: 'compact-view', text: 'List', icon: 'list' },
     ],
     value: 'list',
   },

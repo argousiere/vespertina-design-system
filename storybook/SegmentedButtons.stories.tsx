@@ -53,8 +53,8 @@ export const Default = {
   args: {
     'aria-label': 'Navigation',
     options: [
-      { value: 'previous', label: 'Previous', icon: 'arrow-left' },
-      { value: 'next', label: 'Next', icon: 'arrow-right' },
+      { value: 'previous', text: 'Previous', icon: 'arrow-left' },
+      { value: 'next', text: 'Next', icon: 'arrow-right' },
     ],
     value: 'previous',
   },
@@ -64,9 +64,9 @@ export const ThreeOptions = {
   args: {
     'aria-label': 'Sort',
     options: [
-      { value: 'newest', label: 'Newest' },
-      { value: 'oldest', label: 'Oldest' },
-      { value: 'title', label: 'Title' },
+      { value: 'newest', text: 'Newest' },
+      { value: 'oldest', text: 'Oldest' },
+      { value: 'title', text: 'Title' },
     ],
     value: 'oldest',
   },
@@ -90,9 +90,9 @@ export const DisabledOption = {
   args: {
     'aria-label': 'Sort',
     options: [
-      { value: 'newest', label: 'Newest' },
-      { value: 'oldest', label: 'Oldest', disabled: true },
-      { value: 'title', label: 'Title' },
+      { value: 'newest', text: 'Newest' },
+      { value: 'oldest', text: 'Oldest', disabled: true },
+      { value: 'title', text: 'Title' },
     ],
     value: 'newest',
   },

@@ -10,7 +10,7 @@ import type { SearchableListProps } from './SearchableList';
 
 export type SelectProps<T extends string = string> = Omit<
   DropdownProps,
-  'label' | 'variant' | 'iconOnly' | 'dropdown' | 'children'
+  'text' | 'variant' | 'iconOnly' | 'dropdown' | 'children'
 > &
   Pick<
     SearchableListProps<T>,
@@ -60,7 +60,7 @@ const Select = <T extends string = string>({
       dropdown={dropdown}
       className={clsx('ves-select', className)}
       variant={ButtonVariant.SECONDARY}
-      label={selectedLabel ?? placeholder ?? 'Select'}
+      text={selectedLabel ?? placeholder ?? 'Select'}
     >
       <SearchableList
         className="ves-select__list"

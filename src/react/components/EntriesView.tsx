@@ -31,8 +31,8 @@ const EntriesView: React.FC<EntriesViewProps> = ({
         <ViewModeSwitcher<EntriesViewMode>
           className="ves-entries-view__header"
           options={[
-            { value: EntriesViewMode.LIST, label: 'List', icon: 'list' },
-            { value: EntriesViewMode.GALLERY, label: 'Gallery', icon: 'grid' },
+            { value: EntriesViewMode.LIST, text: 'List', icon: 'list' },
+            { value: EntriesViewMode.GALLERY, text: 'Gallery', icon: 'grid' },
           ]}
           value={view}
           onValueChange={(value) => {

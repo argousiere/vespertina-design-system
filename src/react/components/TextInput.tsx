@@ -62,7 +62,7 @@ const TextInput: React.FC<TextInputProps> = ({
           <Button
             className="ves-text-input__clear"
             variant={ButtonVariant.BASIC}
-            label={clearLabel ?? 'Clear'}
+            text={clearLabel ?? 'Clear'}
             icon="close"
             iconOnly
             onClick={clear}

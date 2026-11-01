@@ -51,7 +51,7 @@ const SegmentedButtons = <T extends string = string>({
               isSelected ? 'ves-segmented-control__btn--selected' : undefined
             )}
             iconOnly={iconOnly}
-            label={option.label}
+            text={option.text}
             icon={option.icon}
             level={level}
             variant={
