@@ -30,7 +30,7 @@ const EntryHeader: React.FC<EntryHeaderProps> = ({
     >
       {hasMetadata && (
         <div className="ves-entry-header__meta">
-          {date && <DateLabel dateTime={date} dateFormat="dd.MMM.yyyy" />}
+          {date && <DateLabel dateTime={date} />}
           {!!readingTimeMinutes && <ReadingTime minutes={readingTimeMinutes} />}
         </div>
       )}

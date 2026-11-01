@@ -17,7 +17,7 @@ const meta = {
     dateFormat: {
       control: 'text',
       description: 'date-fns format',
-      table: { defaultValue: { summary: 'dd.MMM.yyyy' } },
+      table: { defaultValue: { summary: 'yyyy.MMM.dd' } },
     },
   },
   args: {

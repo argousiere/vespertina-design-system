@@ -69,4 +69,6 @@ export const entryRecord = {
   },
 } satisfies Record<string, EntryModel>;
 
-export const entries = Object.values(entryRecord);
+export const entries = Object.values(entryRecord).sort((a, b) => {
+  return b.date.localeCompare(a.date);
+});
