@@ -38,7 +38,7 @@ jobs:
         run: git diff --exit-code src/core/tokens
       - run: npm pack --dry-run
 
-  unit:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -64,7 +64,7 @@ jobs:
 
   ci:
     if: always()
-    needs: [lint, build, unit, storybook]
+    needs: [lint, build, unit-tests, storybook]
     runs-on: ubuntu-latest
     steps:
       - name: Check all jobs passed
