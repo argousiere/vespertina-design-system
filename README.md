@@ -4,7 +4,12 @@
 
 My personal Design System built in React + native CSS.
 
-Design developed from scratch in [Figma](https://www.figma.com/design/jiNUbgAPy50E6CpPQEvW16/Vespertine-Cadet?node-id=377-24&t=GjcURnCKMKcftSI5-1).
+Designed from scratch in [Figma](https://www.figma.com/design/jiNUbgAPy50E6CpPQEvW16/Vespertine-Cadet?node-id=377-24&t=GjcURnCKMKcftSI5-1).
+
+## Overview
+- Design tokens are generated into [css variables](./src/core/tokens/generated-tokens.css) from a [dictionary](./src/core/tokens/tokens.ts).
+- Components are implemented in React for now, but other frameworks will be supported (Angular, Svelte, Vue).
+- Blogging features are the main use case for now as this project was motivated by the migration of my website from Ghost to my own system, but I plan on expanding to other use cases, such as forms, multimedia editors, and dataviz dashboards.
 
 ## Installation
 
@@ -22,7 +27,6 @@ Install via npm:
 ```shell
 npm install react@19 vite@7 @argousiere/vespertina-design-system
 ```
-
 
 ## Usage
 
@@ -61,17 +65,18 @@ Build the package into `dist/`:
 npm run build
 ```
 
-### Build watch
-Rebuild Javascript and CSS on every change.
+Rebuild design token dictionary, styles, components, typings on every change:
 
 ```shell
-npm run dev:lib
+npm run build:watch
 ```
 
-Rebuild types
+## Testing
+
+For now, only unit tests are available, but component, e2e, and visual regression testing (VRT) will be added.
 
 ```shell
-npm run build
+npm run test
 ```
 
 ## Attributions and Inspirations
