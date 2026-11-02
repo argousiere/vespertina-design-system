@@ -61,3 +61,14 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run test:storybook
       - run: npm run build-storybook
+
+  ci:
+    if: always()
+    needs: [lint, build, unit, storybook]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check all jobs passed
+        run: |
+          if [ "${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}" = "true" ]; then
+            exit 1
+          fi

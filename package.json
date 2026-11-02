@@ -53,6 +53,7 @@
     "test:storybook": "vitest run --project storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "ci:check": "run-s lint format:check build test test:storybook build-storybook",
     "prepack": "npm run build"
   },
   "dependencies": {
