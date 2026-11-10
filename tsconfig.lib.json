@@ -16,5 +16,5 @@
     "src/react",
     "src/core/tokens"
   ],
-  "exclude": ["src/**/*.test.ts"]
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"]
 }
