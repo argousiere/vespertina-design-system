@@ -1,0 +1,111 @@
+.ves-card {
+  --ves-card-header-line-height: calc(var(--ves-grid-size) * 0.75);
+
+  display: flex;
+  container-type: inline-size;
+  flex-direction: column;
+  border: 1px solid var(--ves-border-color);
+  min-height: var(--ves-grid-size);
+}
+
+.ves-card__header {
+  display: grid;
+  grid-template-columns: 1fr fit-content(40%);
+  grid-template-areas:
+    'title title-meta'
+    'subtitle subtitle-meta';
+  align-items: center;
+  column-gap: var(--ves-spacing-5);
+  background-color: color-mix(
+    in srgb,
+    var(--ves-border-color) 20%,
+    transparent
+  );
+  padding: var(--ves-spacing-3) var(--ves-spacing-5);
+  line-height: var(--ves-card-header-line-height);
+}
+
+.ves-card__header + .ves-card__cover,
+.ves-card__header + .ves-card__body,
+.ves-card__header + .ves-card__footer,
+.ves-card__body + .ves-card__footer {
+  border-top: 1px solid var(--ves-divider-color);
+}
+
+.ves-card__cover {
+  border-bottom: 1px solid var(--ves-divider-color);
+}
+
+.ves-card__title,
+.ves-card__subtitle {
+  margin: 0;
+}
+
+.ves-card__title-meta {
+  grid-area: title-meta;
+}
+
+.ves-card__subtitle-meta {
+  grid-area: subtitle-meta;
+}
+
+.ves-card__header:not(:has(.ves-card__title)) .ves-card__subtitle {
+  grid-area: title;
+}
+
+.ves-card__header:not(:has(.ves-card__title-meta)) .ves-card__subtitle-meta {
+  grid-area: title-meta;
+}
+
+.ves-card__meta {
+  text-align: right;
+
+  .ves-label {
+    --clamp-text-lines: none;
+
+    display: flex;
+  }
+
+  > * {
+    justify-content: flex-end;
+  }
+}
+
+.ves-card__title {
+  grid-area: title;
+  font-size: var(--ves-font-size-md);
+  text-transform: none;
+}
+
+.ves-card__subtitle {
+  grid-area: subtitle;
+  font-style: italic;
+  letter-spacing: 0.1em;
+}
+
+.ves-card__body,
+.ves-card__footer {
+  padding: var(--ves-spacing-5);
+}
+
+.ves-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ves-spacing-4);
+  padding-top: var(--ves-spacing-4);
+}
+
+@container (width <= 360px) {
+  .ves-card__header {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'title' 'subtitle' 'title-meta' 'subtitle-meta';
+  }
+
+  .ves-card__meta {
+    text-align: left;
+
+    > * {
+      justify-content: flex-start;
+    }
+  }
+}
