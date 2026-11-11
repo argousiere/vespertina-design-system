@@ -3,7 +3,6 @@
   align-items: center;
   gap: 0.5em;
   font-family: var(--ves-font-family-primary);
-  letter-spacing: 0.1em;
 }
 
 .ves-label__icon {

@@ -1,0 +1,38 @@
+.ves-link {
+  --ves-link-color: var(--ves-global-color-cerulean);
+  --ves-link-icon-spacing: 0.3em;
+
+  color: var(--ves-link-color);
+  text-decoration: underline 1px dotted currentcolor;
+  text-underline-offset: 0.25em;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--ves-state-hover-color);
+  }
+
+  &:focus-visible {
+    outline: 1px solid currentcolor;
+    text-decoration: none;
+  }
+
+  &:has(.ves-link__icon) {
+    display: inline-flex;
+    align-items: baseline;
+    line-height: 1;
+  }
+}
+
+.ves-link__icon {
+  --ves-icon-size: 1em;
+}
+
+.ves-link__icon--start {
+  margin-inline-end: var(--ves-link-icon-spacing);
+  align-self: center;
+}
+
+.ves-link__icon--external {
+  margin-inline-start: var(--ves-link-icon-spacing);
+  align-self: flex-end;
+}

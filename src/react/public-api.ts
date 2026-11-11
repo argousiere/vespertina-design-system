@@ -66,6 +66,8 @@ export { default as Heading } from './components/Heading';
 export type { HeadingProps, HeadingLevel } from './components/Heading';
 export { default as Label } from './components/Label';
 export type { LabelProps } from './components/Label';
+export { default as Link } from './components/Link';
+export type { LinkProps } from './components/Link';
 export { default as MenuItem } from './components/MenuItem';
 export type { MenuItemProps } from './components/MenuItem';
 export { default as MenuList } from './components/MenuList';
