@@ -20,5 +20,6 @@ html {
 
   p {
     font-weight: var(--ves-font-weight-regular);
+    letter-spacing: var(--ves-paragraph-letter-spacing);
   }
 }

@@ -50,6 +50,11 @@
   letter-spacing: 2px;
   text-shadow: 0 1px 0 var(--ves-global-color-midnight);
   text-transform: uppercase;
+
+  .ves-label {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .ves-btn:hover,

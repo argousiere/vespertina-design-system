@@ -29,23 +29,23 @@ describe('Tooltip', () => {
     it('should not display the tooltip when inner content is empty', () => {
       render(<Tooltip></Tooltip>);
 
-      expect(screen.queryByRole('tooltip', { hidden: true })).toBeNull();
+      expect(
+        screen.queryByRole('tooltip', { hidden: true })
+      ).not.toBeInTheDocument();
     });
 
     it('should start hidden', () => {
       render(<Tooltip title="Tip">Trigger</Tooltip>);
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(false);
+      expect(screen.getByRole('tooltip', { hidden: true })).not.toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should use the text content as the title when no title is given', () => {
       render(<Tooltip>Trigger text</Tooltip>);
 
-      expect(screen.getByRole('tooltip', { hidden: true }).textContent).toBe(
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveTextContent(
         'Trigger text'
       );
     });
@@ -53,13 +53,13 @@ describe('Tooltip', () => {
     it('should display the trigger element', () => {
       render(<Tooltip title="Tip">Trigger</Tooltip>);
 
-      expect(screen.getByText('Trigger').textContent).toBe('Trigger');
+      expect(screen.getByText('Trigger')).toHaveTextContent('Trigger');
     });
 
     it('should display the title in a tooltip element', () => {
       render(<Tooltip title="Tip">Trigger</Tooltip>);
 
-      expect(screen.getByRole('tooltip', { hidden: true }).textContent).toBe(
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveTextContent(
         'Tip'
       );
     });
@@ -67,13 +67,14 @@ describe('Tooltip', () => {
     it('should set the tooltip role', () => {
       render(<Tooltip title="Tip">Trigger</Tooltip>);
 
-      expect(screen.getByText('Tip').getAttribute('role')).toBe('tooltip');
+      expect(screen.getByText('Tip')).toHaveAttribute('role', 'tooltip');
     });
 
     it('should describe the trigger with the tooltip', () => {
       render(<Tooltip title="Tip">Trigger</Tooltip>);
 
-      expect(screen.getByText('Trigger').getAttribute('aria-describedby')).toBe(
+      expect(screen.getByText('Trigger')).toHaveAttribute(
+        'aria-describedby',
         screen.getByRole('tooltip', { hidden: true }).id
       );
     });
@@ -85,7 +86,8 @@ describe('Tooltip', () => {
         </Tooltip>
       );
 
-      expect(screen.getByText('Trigger').getAttribute('aria-describedby')).toBe(
+      expect(screen.getByText('Trigger')).toHaveAttribute(
+        'aria-describedby',
         `hint ${screen.getByRole('tooltip', { hidden: true }).id}`
       );
     });
@@ -99,7 +101,9 @@ describe('Tooltip', () => {
         </Tooltip>
       );
 
-      expect(screen.queryByRole('tooltip', { hidden: true })).toBeNull();
+      expect(
+        screen.queryByRole('tooltip', { hidden: true })
+      ).not.toBeInTheDocument();
     });
 
     it('should not describe the trigger', () => {
@@ -109,8 +113,8 @@ describe('Tooltip', () => {
         </Tooltip>
       );
 
-      expect(screen.getByText('Trigger').hasAttribute('aria-describedby')).toBe(
-        false
+      expect(screen.getByText('Trigger')).not.toHaveAttribute(
+        'aria-describedby'
       );
     });
   });
@@ -124,7 +128,9 @@ describe('Tooltip', () => {
           </Tooltip>
         );
 
-        expect(screen.queryByRole('tooltip', { hidden: true })).toBeNull();
+        expect(
+          screen.queryByRole('tooltip', { hidden: true })
+        ).not.toBeInTheDocument();
       });
     });
 
@@ -161,7 +167,7 @@ describe('Tooltip', () => {
           </Tooltip>
         );
 
-        expect(screen.getByRole('tooltip', { hidden: true }).textContent).toBe(
+        expect(screen.getByRole('tooltip', { hidden: true })).toHaveTextContent(
           'This tooltip should be displayed in full'
         );
       });
@@ -173,7 +179,7 @@ describe('Tooltip', () => {
           </Tooltip>
         );
 
-        expect(screen.getByRole('tooltip', { hidden: true }).textContent).toBe(
+        expect(screen.getByRole('tooltip', { hidden: true })).toHaveTextContent(
           'Trigger text should be displayed in full'
         );
       });
@@ -184,7 +190,7 @@ describe('Tooltip', () => {
     it('should make the trigger focusable when it has no focusable ancestor', () => {
       render(<Tooltip title="Tip">Trigger</Tooltip>);
 
-      expect(screen.getByText('Trigger').getAttribute('tabindex')).toBe('0');
+      expect(screen.getByText('Trigger')).toHaveAttribute('tabindex', '0');
     });
 
     it('should not change the trigger tabIndex when it is already set', () => {
@@ -194,7 +200,7 @@ describe('Tooltip', () => {
         </Tooltip>
       );
 
-      expect(screen.getByText('Trigger').getAttribute('tabindex')).toBe('-1');
+      expect(screen.getByText('Trigger')).toHaveAttribute('tabindex', '-1');
     });
 
     it('should not make the trigger focusable inside a focusable ancestor', () => {
@@ -204,7 +210,7 @@ describe('Tooltip', () => {
         </button>
       );
 
-      expect(screen.getByText('Trigger').hasAttribute('tabindex')).toBe(false);
+      expect(screen.getByText('Trigger')).not.toHaveAttribute('tabindex');
     });
 
     it('should show the tooltip on keyboard focus', async () => {
@@ -212,11 +218,9 @@ describe('Tooltip', () => {
 
       await userEvent.tab();
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(true);
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should show the tooltip when a focusable ancestor gets keyboard focus', async () => {
@@ -228,11 +232,9 @@ describe('Tooltip', () => {
 
       await userEvent.tab();
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(true);
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should not show the tooltip on mouse focus', async () => {
@@ -251,11 +253,9 @@ describe('Tooltip', () => {
         target: screen.getByText('Trigger'),
       });
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(false);
+      expect(screen.getByRole('tooltip', { hidden: true })).not.toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should hide the tooltip on blur', async () => {
@@ -264,11 +264,9 @@ describe('Tooltip', () => {
       await userEvent.tab();
       await userEvent.tab();
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(false);
+      expect(screen.getByRole('tooltip', { hidden: true })).not.toHaveAttribute(
+        'data-popover-open'
+      );
     });
   });
 
@@ -278,11 +276,9 @@ describe('Tooltip', () => {
 
       await userEvent.hover(screen.getByText('Trigger'));
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(true);
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should keep the tooltip open while the mouse moves onto it', async () => {
@@ -295,11 +291,9 @@ describe('Tooltip', () => {
       await user.hover(screen.getByRole('tooltip', { hidden: true }));
       vi.advanceTimersByTime(200);
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(true);
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should hide the tooltip after a delay when the mouse leaves', async () => {
@@ -312,11 +306,9 @@ describe('Tooltip', () => {
       await user.unhover(screen.getByText('Trigger'));
       vi.advanceTimersByTime(200);
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(false);
+      expect(screen.getByRole('tooltip', { hidden: true })).not.toHaveAttribute(
+        'data-popover-open'
+      );
     });
   });
 
@@ -337,11 +329,9 @@ describe('Tooltip', () => {
         target: screen.getByText('Trigger'),
       });
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(true);
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should not toggle the tooltip on a mouse click', async () => {
@@ -360,11 +350,9 @@ describe('Tooltip', () => {
         target: screen.getByText('Trigger'),
       });
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(false);
+      expect(screen.getByRole('tooltip', { hidden: true })).not.toHaveAttribute(
+        'data-popover-open'
+      );
     });
   });
 
@@ -375,11 +363,9 @@ describe('Tooltip', () => {
       await userEvent.hover(screen.getByText('Trigger'));
       await userEvent.keyboard('{Escape}');
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(false);
+      expect(screen.getByRole('tooltip', { hidden: true })).not.toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should hide the tooltip on a pointer down outside', async () => {
@@ -396,11 +382,9 @@ describe('Tooltip', () => {
         target: screen.getByText('Outside'),
       });
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(false);
+      expect(screen.getByRole('tooltip', { hidden: true })).not.toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should keep the tooltip open on a pointer down inside it', async () => {
@@ -412,11 +396,9 @@ describe('Tooltip', () => {
         target: screen.getByRole('tooltip', { hidden: true }),
       });
 
-      expect(
-        screen
-          .getByRole('tooltip', { hidden: true })
-          .hasAttribute('data-popover-open')
-      ).toBe(true);
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveAttribute(
+        'data-popover-open'
+      );
     });
 
     it('should remove listeners after unmount', async () => {

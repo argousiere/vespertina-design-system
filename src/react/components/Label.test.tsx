@@ -16,13 +16,15 @@ describe('Label', () => {
     it('should display nothing when no text or icon is defined', () => {
       const { container } = render(<Label />);
 
-      expect(container.innerHTML).toBe('');
+      expect(container).toBeEmptyDOMElement();
     });
 
     it('should not display a tooltip when no text or icon is defined', () => {
       render(<Label />);
 
-      expect(screen.queryByRole('tooltip', { hidden: true })).toBeNull();
+      expect(
+        screen.queryByRole('tooltip', { hidden: true })
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -30,7 +32,7 @@ describe('Label', () => {
     it('should render the text when defined', () => {
       render(<Label text="Save" />);
 
-      expect(screen.getByText('Save').dataset.slot).toBe('text');
+      expect(screen.getByText('Save')).toHaveAttribute('data-slot', 'text');
     });
 
     it('should not set an aria-label when the text is visible', () => {
@@ -44,13 +46,13 @@ describe('Label', () => {
     it('should hide the start icon from screen readers when the text is visible', () => {
       render(<Label text="Save" startIcon="search" />);
 
-      expect(screen.queryByRole('img')).toBeNull();
+      expect(screen.queryByRole('img')).not.toBeInTheDocument();
     });
 
     it('should hide the end icon from screen readers when the text is visible', () => {
       render(<Label text="Save" endIcon="check" />);
 
-      expect(screen.queryByRole('img')).toBeNull();
+      expect(screen.queryByRole('img')).not.toBeInTheDocument();
     });
   });
 
@@ -88,7 +90,7 @@ describe('Label', () => {
 
       expect(
         screen.queryByText('Save', { selector: '[data-slot="text"]' })
-      ).toBeNull();
+      ).not.toBeInTheDocument();
     });
 
     it('should hide the text when an end icon is defined', () => {
@@ -96,31 +98,31 @@ describe('Label', () => {
 
       expect(
         screen.queryByText('Save', { selector: '[data-slot="text"]' })
-      ).toBeNull();
+      ).not.toBeInTheDocument();
     });
 
     it('should use the text as the start icon accessible name', () => {
       render(<Label text="Save" startIcon="search" iconOnly />);
 
-      expect(screen.getByRole('img').getAttribute('aria-label')).toBe('Save');
+      expect(screen.getByRole('img')).toHaveAttribute('aria-label', 'Save');
     });
 
     it('should use the text as the end icon accessible name when there is no start icon', () => {
       render(<Label text="Save" endIcon="check" iconOnly />);
 
-      expect(screen.getByRole('img').getAttribute('aria-label')).toBe('Save');
+      expect(screen.getByRole('img')).toHaveAttribute('aria-label', 'Save');
     });
 
     it('should use the start icon name as the accessible name when there is no text', () => {
       render(<Label startIcon="search" iconOnly />);
 
-      expect(screen.getByRole('img').getAttribute('aria-label')).toBe('search');
+      expect(screen.getByRole('img')).toHaveAttribute('aria-label', 'search');
     });
 
     it('should use the end icon name as the accessible name when there is no text or start icon', () => {
       render(<Label endIcon="check" iconOnly />);
 
-      expect(screen.getByRole('img').getAttribute('aria-label')).toBe('check');
+      expect(screen.getByRole('img')).toHaveAttribute('aria-label', 'check');
     });
 
     it('should read out both start and end icon accessible names when there is no text', () => {
@@ -136,7 +138,8 @@ describe('Label', () => {
     it('should use the human-readable label and not the symbolic name as the accessible name', () => {
       render(<Label startIcon="external-link" iconOnly />);
 
-      expect(screen.getByRole('img').getAttribute('aria-label')).toBe(
+      expect(screen.getByRole('img')).toHaveAttribute(
+        'aria-label',
         'external link'
       );
     });
@@ -184,21 +187,24 @@ describe('Label', () => {
         <Label text="A label that is too long to fit" />
       );
 
-      expect(
-        container.querySelector('.ves-label')?.getAttribute('aria-describedby')
-      ).toBe(screen.getByRole('tooltip', { hidden: true }).id);
+      expect(container.querySelector('.ves-label')).toHaveAttribute(
+        'aria-describedby',
+        screen.getByRole('tooltip', { hidden: true }).id
+      );
     });
 
     it('should not display the tooltip when the text fits', () => {
       render(<Label text="Save" />);
 
-      expect(screen.queryByRole('tooltip', { hidden: true })).toBeNull();
+      expect(
+        screen.queryByRole('tooltip', { hidden: true })
+      ).not.toBeInTheDocument();
     });
 
     it('should display the text in the tooltip when iconOnly is true', () => {
       render(<Label text="Save" startIcon="search" iconOnly />);
 
-      expect(screen.getByRole('tooltip', { hidden: true }).textContent).toBe(
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveTextContent(
         'Save'
       );
     });

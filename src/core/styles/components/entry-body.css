@@ -1,16 +1,12 @@
 .ves-entry__body {
   --ves-entry-body-font-size: var(--ves-font-size-md);
   --ves-entry-body-line-height: var(--ves-grid-gutter);
-  --ves-entry-body-letter-spacing: 0.07em;
   --ves-entry-body-block-gap: var(--ves-grid-gutter);
   --ves-entry-body-heading-line-height: 1.3;
   --ves-entry-body-heading-letter-spacing: 0.1em;
-  --ves-entry-body-link-color: var(--ves-global-color-cerulean);
-  --ves-entry-body-link-bracket-gap: 0.5em;
 
   font-size: var(--ves-entry-body-font-size);
   line-height: var(--ves-entry-body-line-height);
-  letter-spacing: var(--ves-entry-body-letter-spacing);
 
   & > * + * {
     margin-block-start: var(--ves-entry-body-block-gap);
@@ -53,32 +49,6 @@
 
   h6 {
     font-size: var(--ves-font-size-sm);
-  }
-
-  a {
-    padding-inline: var(--ves-spacing-2);
-    color: var(--ves-entry-body-link-color);
-    font-weight: var(--ves-font-weight-light);
-    text-decoration: none;
-
-    &::before {
-      margin-inline-end: var(--ves-entry-body-link-bracket-gap);
-      content: '[[';
-    }
-
-    &::after {
-      margin-inline-start: var(--ves-entry-body-link-bracket-gap);
-      content: ']]';
-    }
-
-    &:hover {
-      border-block-end: 1px solid var(--ves-entry-body-link-color);
-    }
-
-    &:focus-visible {
-      outline: 1px solid var(--ves-entry-body-link-color);
-      outline-offset: 2px;
-    }
   }
 
   ol,

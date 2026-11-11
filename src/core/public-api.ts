@@ -13,7 +13,9 @@ export type { ThumbnailModel } from './models/ThumbnailModel';
 export {
   renderThumbnailHtml,
   thumbnailHtmlProcessor,
-} from './utils/markdown-html-utils';
+} from './utils/markdown-html-processor/markdown-image-processor';
+export { linkHtmlProcessor } from './utils/markdown-html-processor/markdown-link-processor';
+export { markdownHtmlProcessor } from './utils/markdown-html-processor/markdown-html-processor';
 export {
   DEFAULT_DATE_FORMAT,
   INVALID_DATE_LABEL,

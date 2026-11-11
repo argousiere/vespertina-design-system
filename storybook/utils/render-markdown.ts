@@ -1,4 +1,5 @@
 import { marked } from 'marked';
+import { markdownHtmlProcessor } from '@core/utils/markdown-html-processor/markdown-html-processor';
 
 const files = import.meta.glob<string>('../content/*.md', {
   query: '?raw',
@@ -20,7 +21,7 @@ export const renderMarkdown = (filename: string): string => {
     );
   }
 
-  return marked.parse(raw, {
+  const html = marked.parse(raw, {
     async: false,
     walkTokens: (token) => {
       if (token.type === 'image') {
@@ -28,4 +29,6 @@ export const renderMarkdown = (filename: string): string => {
       }
     },
   });
+
+  return markdownHtmlProcessor.process(html);
 };
