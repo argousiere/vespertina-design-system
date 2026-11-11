@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   renderThumbnailHtml,
   thumbnailHtmlProcessor,
-} from './markdown-html-utils';
+} from './markdown-image-processor';
 
 describe('thumbnailHtmlProcessor', () => {
   it('should render an image paragraph as a thumbnail image', () => {
